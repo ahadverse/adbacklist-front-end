@@ -2,7 +2,6 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 const Footer = dynamic(() => import("@/component/footer/footer"));
 import styles from "../styles/moduleCss/home.module.css";
-import Script from "next/script";
 const Index = dynamic(() => import("@/component/countries"));
 const Header2 = dynamic(() => import("@/component/header/header2"));
 const Search = dynamic(() => import("@/component/search/search"));
@@ -19,10 +18,6 @@ export default function Home() {
           content="TYiSHLlk3Y-BJ095SPo4lMOG4hSRTUyxfIKdLR-_sfs"
         />
         <link rel="icon" href="/favicon.ico" />
-
-        {/* <link rel="icon" href="/logo.png" /> */}
-
-     
       </Head>
 
       <main className={styles.main}>
