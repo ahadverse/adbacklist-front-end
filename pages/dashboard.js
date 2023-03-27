@@ -1,13 +1,16 @@
 import User from "@/component/user";
 import { Tabs } from "antd";
+import axios from "axios";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import ReactPaginate from "react-paginate";
 import React, { useEffect, useState } from "react";
 const Header = dynamic(() => import("@/component/header/header2"));
 const Footer = dynamic(() => import("@/component/footer/footer2"));
 import { BiUserCircle } from "react-icons/bi";
+import style from "../styles/moduleCss/blog.module.css";
 
 const Dashboard = () => {
   const { users, usersStringfy } = User();
@@ -15,43 +18,80 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);
   const [rechargeHistory, setRechargeHistory] = useState([]);
 
+  const itemsPerPage = 10;
+  const itemsPerPage2 = 10;
+
+  const [itemOffset, setItemOffset] = useState(0);
+  const endOffset = itemOffset + itemsPerPage;
+  const recharge = rechargeHistory?.slice(itemOffset, endOffset);
+  const pageCount = Math?.ceil(rechargeHistory?.length / itemsPerPage);
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % rechargeHistory.length;
+    setItemOffset(newOffset);
+  };
+
+  const [itemOffset2, setItemOffset2] = useState(0);
+  const endOffset2 = itemOffset2 + itemsPerPage2;
+  const ad = ads?.slice(itemOffset2, endOffset2);
+  const pageCount2 = Math?.ceil(ads?.length / itemsPerPage2);
+
+  const handlePageClick2 = (event) => {
+    const newOffset = (event.selected * itemsPerPage2) % ads.length;
+    setItemOffset2(newOffset);
+  };
+
+  async function posts(users) {
+    try {
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${usersStringfy}`,
+          },
+        }
+      );
+      setLoading(false);
+      if (response?.code == 404) {
+        setAds([]);
+      } else {
+        const post = response.data.data.product;
+        setAds(post);
+      }
+      transactions(users);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function transactions(users) {
+    try {
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/transaction?q=${users?.email}`,
+        {
+          method: "GET",
+        }
+      );
+
+      if (response?.code == 404) {
+        setRechargeHistory([]);
+      } else {
+        const trans = response.data?.data?.transactions;
+        setRechargeHistory(trans);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     setLoading(true);
-    if (!users) {
-      return;
-    }
     if (users) {
-      fetch(`https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${usersStringfy}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.code == 404) {
-            setAds([]);
-          } else {
-            setAds(data?.data?.product);
-          }
-
-          fetch(`https://api-adbacklist.vercel.app/api/transaction?q=${users?.email}`)
-            .then((res) => res.json())
-            .then((data) => {
-              if (data?.code == 404) {
-                setRechargeHistory([]);
-              } else {
-                setRechargeHistory(data?.data?.transactions);
-              }
-            })
-            .catch((e) => console.log(e))
-            .then(setLoading(false));
-        })
-        .catch((e) => console.log(e));
+      posts(users);
     }
   }, [users]);
 
-console.log("asd" , ads)
+  console.log(ads, rechargeHistory);
 
   const items = [
     {
@@ -113,10 +153,14 @@ console.log("asd" , ads)
                   </tr>
                 </thead>
                 <tbody>
-                  {ads?.map((a, index) => (
+                  {ad?.map((a, index) => (
                     <tr>
                       <th>{index + 1}</th>
-                      <td><Link href={`/my-post/${a._id}`}>{a.name.slice(0, 50)}</Link></td>
+                      <td>
+                        <Link href={`/my-post/${a._id}`}>
+                          {a.name.slice(0, 50)}
+                        </Link>
+                      </td>
                       <td>{a.category}</td>
                       <td>{a?.createdAt?.split("T")[0]}</td>
                       {a?.city ? (
@@ -134,6 +178,30 @@ console.log("asd" , ads)
               </table>
             </div>
           )}
+          <div className={`${style.pagination}`}>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel="Next >"
+              onPageChange={handlePageClick2}
+              pageRangeDisplayed={5}
+              activeClassName="active"
+              pageCount={pageCount2}
+              previousLabel="< Previous"
+              renderOnZeroPageCount={null}
+            />
+          </div>
+          <div className={`${style.pagination2}`}>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePageClick2}
+              pageRangeDisplayed={5}
+              activeClassName="active"
+              pageCount={pageCount2}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+            />
+          </div>
         </div>
       ),
     },
@@ -158,7 +226,7 @@ console.log("asd" , ads)
                   </tr>
                 </thead>
                 <tbody>
-                  {rechargeHistory?.map((a, index) => (
+                  {recharge?.map((a, index) => (
                     <tr>
                       <th>{index + 1}</th>
                       <td>{a?.invoice}</td>
@@ -172,6 +240,30 @@ console.log("asd" , ads)
               </table>
             </div>
           )}
+          <div className={`${style.pagination}`}>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel="Next >"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={5}
+              activeClassName="active"
+              pageCount={pageCount}
+              previousLabel="< Previous"
+              renderOnZeroPageCount={null}
+            />
+          </div>
+          <div className={`${style.pagination2}`}>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={5}
+              activeClassName="active"
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+            />
+          </div>
         </div>
       ),
     },
