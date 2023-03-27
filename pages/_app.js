@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import Head from "next/head";
 import Script from "next/script";
 
 
@@ -6,7 +7,8 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Script
+    <Head>
+    <Script
         src="https://www.googletagmanager.com/gtag/js?id=UA-156492667-1"
         strategy="afterInteractive"
       />
@@ -19,6 +21,8 @@ export default function App({ Component, pageProps }) {
           gtag('config', 'UA-156492667-1');
         `}
       </Script>
+    </Head>
+
 
       <Component {...pageProps} />
     </>
