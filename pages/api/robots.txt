@@ -1,0 +1,7 @@
+User-agent: nameOfBot
+Disallow: /admin/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://adbacklist/sitemap.xml

@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scroll-behavior: smooth;
+}
+.uppercase {
+  font-size: 25px !important;
+}
+.ant-table-body {
+  overflow-y: hidden !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+.ant-upload,
+.ant-upload-list-item-container {
+  width: 50% !important;
+  height: 200px !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #047699;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00b118;
+}
+.active {
+  background: #000 !important;
+  color: #fff !important;
+}
+.Australia,
+.Canada,
+.Europe,
+.Latin,
+.United {
+  background: #405e8f;
+  padding: 5px;
+  overflow: hidden;
+}
+.ant-upload-list {
+  display: flex !important;
+}
+.ant-upload {
+  margin: auto !important;
+}
+.Canada {
+  margin-left: auto;
+  margin-top: -36px;
+  width: 49.5%;
+}
+.Australia,
+.Europe,
+.Latin,
+.United {
+  width: 50%;
+}
+.ant-btn {
+  background: #68b905 !important;
+}
+.ant-btn:hover {
+  background: #f04313 !important;
+}
+.anticon {
+  font-size: 20px !important;
+}
+.ant-upload-list-item-thumbnail img {
+  object-fit: cover !important;
+}
+@media only screen and (max-width: 768px) {
+  .uppercase {
+    font-size: 15px !important;
+    /* margin-left: 5px; */
+  }
+  .Australia,
+  .Canada,
+  .Europe,
+  .Latin,
+  .United {
+    background: #405e8f;
+    width: 100%;
+    overflow: hidden;
+  }
+  .Canada {
+    margin-left: 0;
+  }
+  .Australia,
+  .Europe,
+  .Latin,
+  .United {
+    padding: 0px;
+  }
+}

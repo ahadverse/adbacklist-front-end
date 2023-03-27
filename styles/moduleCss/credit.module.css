@@ -1,0 +1,14 @@
+.container{
+
+    background: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    padding: 20px;
+}
+
+@media only screen and (max-width:768px) {
+    .container{
+        width: 90%;
+    }
+}
