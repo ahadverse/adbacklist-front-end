@@ -18,7 +18,33 @@ export default function Home() {
           content="TYiSHLlk3Y-BJ095SPo4lMOG4hSRTUyxfIKdLR-_sfs"
         />
         <link rel="icon" href="/favicon.ico" />
+        <Script
+        src="https://www.googletagmanager.com/gtag/js?id=UA-156492667-1"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-156492667-1');
+        `}
+      </Script>
       </Head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=UA-156492667-1"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-156492667-1');
+        `}
+      </Script>
 
       <main className={styles.main}>
         <Header2 />
