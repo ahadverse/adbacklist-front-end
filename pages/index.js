@@ -36,26 +36,9 @@ export default function Home() {
           gtag('config', 'UA-156492667-1');
         `}
         </Script>
-
-        {/* <script>(function(w,d,s,l,i){w[l]=w[l]||[],w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5DTNFG5');</script> */}
-
-        {/* <Script
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5DTNFG5');`,
-          }}
-        ></Script> */}
       </Head>
-       
-          <main className={styles.main}>
+
+      <main className={styles.main}>
         <Header2 />
         <div className={styles.container}>
           <Search />
@@ -64,8 +47,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <Footer />
       </main>
-
-
     </>
   );
 }
