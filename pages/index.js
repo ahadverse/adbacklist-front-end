@@ -18,36 +18,44 @@ export default function Home() {
           name="google-site-verification"
           content="TYiSHLlk3Y-BJ095SPo4lMOG4hSRTUyxfIKdLR-_sfs"
         />
+        <meta
+          name="p:domain_verify"
+          content="0730451c9c8761c27a8bae02652c5f38"
+        />
         <link rel="icon" href="/favicon.ico" />
         <Script
-        src="https://www.googletagmanager.com/gtag/js?id=UA-156492667-1"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+          src="https://www.googletagmanager.com/gtag/js?id=UA-156492667-1"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'UA-156492667-1');
         `}
-      </Script>
+        </Script>
+
+        {/* <script>(function(w,d,s,l,i){w[l]=w[l]||[],w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5DTNFG5');</script> */}
+
+        {/* <Script
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5DTNFG5');`,
+          }}
+        ></Script> */}
       </Head>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=UA-156492667-1"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-156492667-1');
-        `}
-      </Script>
-
-      <main className={styles.main}>
+       
+          <main className={styles.main}>
         <Header2 />
         <div className={styles.container}>
           <Search />
@@ -56,6 +64,8 @@ export default function Home() {
 
         <Footer />
       </main>
+
+
     </>
   );
 }
