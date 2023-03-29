@@ -84,6 +84,7 @@ const Header2 = () => {
             </ul>
           </div>
           <h1 className={styles.title}> <Link  href="/">ADBACKLIST</Link> </h1>
+          <Link href={'/user/post'}><button className={styles.postButton}> + Add Post </button></Link>
         </div>
 
         <div className="navbar-end">
