@@ -75,7 +75,7 @@ const Footer = () => {
           </ul>
           <ul className={style.footer}>
           <li className={style.item}>
-              <Link href="www.facebook.com" className="link text-uppercase" title="Terms">
+              <Link href="https://www.facebook.com/profile.php?id=100091135910066" className="link text-uppercase" title="Terms">
                 <AiFillFacebook className={style.facebook} />
               </Link>
             </li>
