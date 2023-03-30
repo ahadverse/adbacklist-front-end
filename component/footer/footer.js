@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "../../styles/moduleCss/footer.module.css";
 import { AiFillFacebook, AiFillTwitterSquare , AiFillInstagram } from "react-icons/ai";
-import {BsPinterest} from "react-icons/bs"
+import {BsPinterest, BsYoutube} from "react-icons/bs"
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import Link from "next/link";
@@ -74,6 +74,12 @@ const Footer = () => {
          
           </ul>
           <ul className={style.footer}>
+
+            <li className={style.item}>
+              <Link href="https://www.youtube.com/channel/UC8vWO9MILlY-Sv9ezGaB6WQ" className="link text-uppercase" title="Terms">
+                <BsYoutube className={style.insta} />
+              </Link>
+            </li>
           <li className={style.item}>
               <Link href="https://www.facebook.com/profile.php?id=100091135910066" className="link text-uppercase" title="Terms">
                 <AiFillFacebook className={style.facebook} />
