@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title> Free Classified site Adbacklist is an Easy and Secure Way to Post Online Classified Ads</title>
+        <title>Adbacklist is an Easy and Secure Way to Post Online Classified Ads</title>
 <meta  name="title" content="Free Classified site Adbacklist is an Easy and Secure Way to Post Online Classified Ads"/>
         <meta name="description" content="Adbacklist makes it easy to post classified ads online. 
 Sell, find, and rent anything with a secure and safe platform. 
