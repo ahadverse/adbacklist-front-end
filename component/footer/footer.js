@@ -76,28 +76,28 @@ const Footer = () => {
           <ul className={style.footer}>
 
             <li className={style.item}>
-              <Link href="https://www.youtube.com/channel/UC8vWO9MILlY-Sv9ezGaB6WQ" className="link text-uppercase" title="Terms">
+              <Link href="https://www.youtube.com/channel/UC8vWO9MILlY-Sv9ezGaB6WQ"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
                 <BsYoutube className={style.insta} />
               </Link>
             </li>
           <li className={style.item}>
-              <Link href="https://www.facebook.com/profile.php?id=100091135910066" className="link text-uppercase" title="Terms">
+              <Link href="https://www.facebook.com/profile.php?id=100091135910066"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
                 <AiFillFacebook className={style.facebook} />
               </Link>
             </li>
             <li className={style.item}>
-              <Link href="https://www.instagram.com/adbacklist/" className="link text-uppercase" title="Terms">
+              <Link href="https://www.instagram.com/adbacklist/"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
                 <AiFillInstagram className={style.insta}  />
               </Link>
             </li>
             <li className={style.item}>
-              <Link href="https://twitter.com/Adbacklist" className="link text-uppercase" title="Terms">
+              <Link href="https://twitter.com/Adbacklist"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
                 <AiFillTwitterSquare className={style.facebook}  />
               </Link>
             </li>
        
             <li className={style.item}>
-              <Link href="https://www.pinterest.com/adbacklist/" className="link text-uppercase" title="Terms">
+              <Link href="https://www.pinterest.com/adbacklist/"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
                 <BsPinterest className={style.insta} />
               </Link>
             </li>
