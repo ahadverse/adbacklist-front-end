@@ -22,7 +22,7 @@ const Blogs = () => {
   async function getUser() {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/blogs?q=${keyword}`
+        `http://localhost:5000/api/blogs?q=${keyword}`
       );
       const data = response.data.data.blogs;
 
@@ -156,14 +156,12 @@ const Blogs = () => {
                         ) : (
                           ""
                         )}
-                        <p className="ml-2">{a.createdAt?.split("T")[0]?.split(".")[0]}</p>
+                        
                         </div>
                         <h1 className="sm:text-xl font-bold text-black">
                           {a?.title}
                         </h1>
-                        <div className={style.cardFooter}>
-     
-                        </div>
+                      
                       </div>
                     </div>
                   </Link>

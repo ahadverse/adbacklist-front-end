@@ -28,7 +28,7 @@ const Details = () => {
   async function getUser() {
     try {
       const response = await axios.get(
-        "https://api-adbacklist.vercel.app/api/products"
+        "http://localhost:5000/api/products"
       );
       setPost(response.data.data.products);
       setLoading(false);

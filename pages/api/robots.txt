@@ -4,4 +4,4 @@ Disallow: /admin/
 User-agent: *
 Allow: /
 
-Sitemap: https://adbacklist/sitemap.xml
+Sitemap: https://adbacklist.com/sitemap.xml

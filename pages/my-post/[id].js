@@ -17,7 +17,7 @@ const Details = () => {
   async function posts(id) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/products/${id}`,
+        `http://localhost:5000/api/products/${id}`,
         {
           method: "GET",
         }

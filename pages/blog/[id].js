@@ -12,14 +12,15 @@ import Image from "next/image";
 const BlogDetails = () => {
   const router = useRouter();
   const id = router.query.id;
-  const [blogs, setBlogs] = useState([]);
+  const [blog, setBlogs] = useState([]);
   const [isloading, setIsLoading] = useState(false);
 
   async function getUser() {
+    console.log(id)
     try {
-      const response = await axios.get( `https://api-adbacklist.vercel.app/api/blogs?q=${id}`);
+      const response = await axios.get( `http://localhost:5000/api/blogs?q=${id}`);
       const data = response.data.data.blogs;
-      setBlogs(data);
+      setBlogs(data?.[0]);
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
@@ -29,17 +30,24 @@ const BlogDetails = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getUser();
-  }, []);
+    if(!id){
+      return
+    }
+    else if(id){
+      getUser();
+    }
+   
+  
+  }, [id]);
 
-  // const single = blogs?.find((a) => a._id == id);
 
-  console.log(blogs)
+console.log(blog.desc)
+
 
   return (
     <div className="bg-gray-100">
       <Head>
-        <title>{single ? `${single?.title}` : "loading"}</title>
+        <title>{blog?.title ? `${blog?.title}` : "loading"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -49,52 +57,52 @@ const BlogDetails = () => {
   </div>
       ) : (
         <div className="bg-white p-3 m-4 sm:m-10">
-          <Image className={style.blogImages} width={500} height={100} src={single?.image} alt="blog image" />
+          <Image className={style.blogImages} width={500} height={100} src={blog?.image} alt="blog image" />
           <br />
-          {single?.category == "Adult" ? (
-            <span className={style.category}> {single?.category} </span>
+          {blog?.category == "Adult" ? (
+            <span className={style.category}> {blog?.category} </span>
           ) : (
             ""
           )}
 
-          {single?.category == "Dating" ||
-          single?.category == "Community" ||
-          single?.category == "Services" ? (
-            <span className={style.category1}> {single?.category} </span>
+          {blog?.category == "Dating" ||
+          blog?.category == "Community" ||
+          blog?.category == "Services" ? (
+            <span className={style.category1}> {blog?.category} </span>
           ) : (
             ""
           )}
 
-          {single?.category == "Buy-Sell-Trade" ||
-          single?.category == "Jobs" ||
-          single?.category == "Automotive" ? (
-            <span className={style.category2}> {single?.category} </span>
+          {blog?.category == "Buy-Sell-Trade" ||
+          blog?.category == "Jobs" ||
+          blog?.category == "Automotive" ? (
+            <span className={style.category2}> {blog?.category} </span>
           ) : (
             ""
           )}
 
-          {single?.category == "Real Estate" ||
-          single?.category == "Rentals" ||
-          single?.category == "Local Places" ? (
-            <span className={style.category3}> {single?.category} </span>
+          {blog?.category == "Real Estate" ||
+          blog?.category == "Rentals" ||
+          blog?.category == "Local Places" ? (
+            <span className={style.category3}> {blog?.category} </span>
           ) : (
             ""
           )}
           <br />
           <h1 className="text-2xl text-black font-bold">
-            {single?.title}
+            {blog?.title}
             <br className="block sm:hidden " />
             <span className="text-sm font-normal">
               
-              - {single?.updatedAt?.split("T")[0]?.split(".")[0]} 
+           
             </span>
           </h1>
           <br />
 
           <div
-            className="mb-5 text-black"
+            className={style.desc}
             dangerouslySetInnerHTML={{
-              __html: single?.desc,
+              __html: blog?.desc,
             }}
           ></div>
         </div>
