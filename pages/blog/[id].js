@@ -41,7 +41,6 @@ const BlogDetails = () => {
   }, [id]);
 
 
-console.log(blog.desc)
 
 
   return (
@@ -49,6 +48,7 @@ console.log(blog.desc)
       <Head>
         <title>{blog?.title ? `${blog?.title}` : "loading"}</title>
         <link rel="icon" href="/favicon.ico" />
+<meta name="description" content={blog?.metaDesc}>
       </Head>
       <Header />
       {isloading ? (
