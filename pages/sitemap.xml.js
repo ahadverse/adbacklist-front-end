@@ -11,6 +11,12 @@ function generateSiteMap(posts) {
    
          return `
        <url>
+           <loc>${`https://adbacklist.com/`}</loc>
+       </url>
+       <url>
+           <loc>${`https://adbacklist.com/blogs/`}</loc>
+       </url>
+       <url>
            <loc>${`https://adbacklist.com/blog/${id?.permalink}`}</loc>
        </url>
      `;

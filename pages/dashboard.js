@@ -43,7 +43,7 @@ const Dashboard = () => {
   async function posts(users) {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/products/posterid/${users?._id}`,
+        `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}`,
         {
           method: "GET",
           headers: {
@@ -67,7 +67,7 @@ const Dashboard = () => {
   async function transactions(users) {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/transaction?q=${users?.email}`,
+        `https://api-adbacklist.vercel.app/api/transaction?q=${users?.email}`,
         {
           method: "GET",
         }

@@ -73,7 +73,7 @@ const Credits = () => {
       invoice: randomnum,
     };
     await axios
-      .post("http://localhost:5000/api/transaction", data)
+      .post("https://api-adbacklist.vercel.app/api/transaction", data)
 
       .then((response) => {
         if (response.data.status == "success") {
