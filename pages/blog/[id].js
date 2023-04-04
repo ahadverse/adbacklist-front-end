@@ -17,7 +17,7 @@ const BlogDetails = () => {
 
   async function getUser() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/blogs`);
+      const response = await axios.get( `https://api-adbacklist.vercel.app/api/blogs?q=${id}`);
       const data = response.data.data.blogs;
       setBlogs(data);
       setIsLoading(false);
@@ -32,8 +32,9 @@ const BlogDetails = () => {
     getUser();
   }, []);
 
-  const single = blogs?.find((a) => a._id == id);
+  // const single = blogs?.find((a) => a._id == id);
 
+  console.log(blogs)
 
   return (
     <div className="bg-gray-100">

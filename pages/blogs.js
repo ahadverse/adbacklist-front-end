@@ -109,7 +109,7 @@ const Blogs = () => {
             <div className={style.blogContainer}>
               <>
                 {currentItems?.map((a) => (
-                  <Link href={`/blog/${a._id}`} key={a._id}>
+                  <Link href={`/blog/${a.permalink}`} key={a._id}>
                     <div className={style.card}>
                       <img className={style.blogImage} src={a?.image} />
                   
