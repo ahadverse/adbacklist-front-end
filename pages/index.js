@@ -17,7 +17,7 @@ export default function Home() {
 Sell, find, and rent anything with a secure and safe platform. 
 Get started today and reach thousands of potential customers in your local area in minutes!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keyword" content="
+    <meta name="keywords" content="
 adult search brooklyn
 sexing adults
 adult snapchat
