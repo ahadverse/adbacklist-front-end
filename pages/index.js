@@ -18,21 +18,18 @@ Sell, find, and rent anything with a secure and safe platform.
 Get started today and reach thousands of potential customers in your local area in minutes!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="keywords" content="
-adult search brooklyn
-sexing adults
-adult snapchat
-adulting memes
-
-
-Classified
-classified technologies 
-24 hour campfire classifieds
-archerytalk classifieds
-gon classified
-cloudy nights classified
-local classifieds
-
-Dating
+adult search brooklyn,
+sexing adults,
+adult snapchat,
+adulting memes,
+Classified,
+classified technologies,
+24 hour campfire classifieds,
+archerytalk classifieds,
+gon classified,
+cloudy nights classified,
+local classifieds,
+Dating,
 granny dating,
 dating a trans woman,
 dating in high school,
@@ -40,41 +37,26 @@ eros dating,
 whatsapp dating,
 speed dating miami,
 dating a nurse meme,
-dating a single mom
-
-
-Rentals
-hydroseeding rental
-club house rental
-
-
-
-
-Services
-
-sap service activation
-secret service
-
-
-
-Automotive
-automotive paint gallon
+dating a single mom,
+Rentals,
+hydroseeding rental,
+club house rental,
+Services,
+sap service activation,
+secret service,
+Automotive,
+automotive paint gallon,
+Real Estate,
+bov real estate,
+real estate,
+alluvion real estate,
 
 
 
-
-
-Real Estate
-bov real estate
-real estate
-alluvion real estate
-
-
-
-Local Places
-local places to eat
-places to eat near me open
-the local place "/>
+Local Places,
+local places to eat,
+places to eat near me open,
+the local place"/>
         <meta
           name="google-site-verification"
           content="TYiSHLlk3Y-BJ095SPo4lMOG4hSRTUyxfIKdLR-_sfs"
