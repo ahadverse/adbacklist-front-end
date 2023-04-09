@@ -108,7 +108,7 @@ let initialState = {
     async function posts(id) {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/${id}`,
+          `https://api-adbacklist.vercel.app/api/products/${id}`,
           {
             method: "GET",
           }
@@ -168,7 +168,7 @@ let initialState = {
             o.imgOne = O[0].url 
           } else {
             r.append("images", O[0].originFileObj);
-            await fetch("http://localhost:5000/api/image/upload-file", {
+            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -187,7 +187,7 @@ let initialState = {
             o.imgTwo = O[1].url ;
           } else {
             r.append("images", O[1].originFileObj);
-            await fetch("http://localhost:5000/api/image/upload-file", {
+            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -206,7 +206,7 @@ let initialState = {
             o.imgThree =O[2].url ;
           } else {
             r.append("images", O[2].originFileObj);
-            await fetch("http://localhost:5000/api/image/upload-file", {
+            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -225,7 +225,7 @@ let initialState = {
             o.imgFour = O[3].url ;
           } else {
             r.append("images", O[3].originFileObj);
-            await fetch("http://localhost:5000/api/image/upload-file", {
+            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -247,7 +247,7 @@ let initialState = {
 
         await axios
         .patch(
-          `http://localhost:5000/api/products/${e.query.id}`,
+          `https://api-adbacklist.vercel.app/api/products/${e.query.id}`,
           o,
           options
         )
