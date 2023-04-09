@@ -1,7 +1,7 @@
-User-agent: nameOfBot
-Disallow: /admin/
-
+User-agent: Mediapartners-Google
+Disallow:
 User-agent: *
+Disallow: /search?q=
 Allow: /
-
-Sitemap: https://adbacklist.com/sitemap.xml
+Sitemap: http://www.adbacklist.com/sitemap.xml
+Sitemap: http://www.adbacklist.com/sitemap-pages.xml

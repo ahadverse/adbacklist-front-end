@@ -28,7 +28,7 @@ const Details = () => {
   async function getUser() {
     try {
       const response = await axios.get(
-        "https://api-adbacklist.vercel.app/api/products"
+        "http://localhost:5000/api/products"
       );
       setPost(response.data.data.products);
       setLoading(false);
@@ -113,6 +113,9 @@ const Details = () => {
                   <div className={style.contentContainer}>
                     <div className="w-full text-black text-sm mt-5 sm:text-base">
                       {postDetails?.description}
+                      {
+                        postDetails?.link ? <Link href={postDetails?.link} target={"_blank"} className="block p-2 text-blue-600 underline w-2/12">Visit Now</Link> : ""
+                      }
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {postDetails?.imgOne ? (
@@ -160,7 +163,7 @@ const Details = () => {
                   <div>
                     <ul className="m-10 text-black">
                       <li className="list-disc">
-                        Poster Name :{" "}
+                         Name :{" "}
                         <span>
                           {postDetails?.owner?.[0]?.firstName +
                             " " +
@@ -168,17 +171,17 @@ const Details = () => {
                         </span>
                       </li>
                       <li className="list-disc">
-                        Poster age :{" "}
+                         age :{" "}
                         <span className="text-red-600">{postDetails?.age}</span>
                       </li>
                       <li className="list-disc">
-                        Poster Mobile :{" "}
+                         Mobile :{" "}
                         <span className="text-red-600">
                           {postDetails?.phone}
                         </span>{" "}
                       </li>
                       <li className="list-disc">
-                        Poster Email :{" "}
+                         Email :{" "}
                         <span className="text-red-600">
                           {postDetails?.email}
                         </span>

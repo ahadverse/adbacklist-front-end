@@ -27,12 +27,13 @@ const Login = () => {
     setState({ ...state, [e.type]: e.payload });
   };
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault()
     setIsLoading(true);
     const data = { ...state, isLoading: true };
 
     await axios
-      .post("https://api-adbacklist.vercel.app/api/users/login", data)
+      .post("http://localhost:5000/api/users/login", data)
 
       .then((response) => {
        
@@ -68,7 +69,7 @@ const Login = () => {
       <div className={style.container}>
       <h1 className={style.title}>ADBACKLIST</h1>
         <h1 className="flex justify-center text-3xl font-bold mb-5">Login</h1>
-
+        <form onSubmit={login}>
         <div className={style.inputBox}>
           <span>
             <AiOutlineMail />
@@ -104,12 +105,13 @@ const Login = () => {
           ) : (
             <button
               className="btn btn-outline btn-success text-2xl hover:text-white btn-wide "
-              onClick={login}
+            type="submit"
             >
               login
             </button>
           )}
         </div>
+        </form>
         {/* <Image src="/upload.gif" /> */}
         <p className="text-2xl flex justify-center mt-5">
           New here ?{" "}

@@ -18,7 +18,7 @@ const BlogDetails = () => {
   async function getUser() {
     console.log(id)
     try {
-      const response = await axios.get( `https://api-adbacklist.vercel.app/api/blogs?q=${id}`);
+      const response = await axios.get( `http://localhost:5000/api/blogs?q=${id}`);
       const data = response.data.data.blogs;
       setBlogs(data?.[0]);
       setIsLoading(false);

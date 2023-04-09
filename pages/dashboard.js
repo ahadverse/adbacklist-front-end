@@ -43,7 +43,7 @@ const Dashboard = () => {
   async function posts(users) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}`,
+        `http://localhost:5000/api/products/posterid/${users?._id}`,
         {
           method: "GET",
           headers: {
@@ -67,7 +67,7 @@ const Dashboard = () => {
   async function transactions(users) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/transaction?q=${users?.email}`,
+        `http://localhost:5000/api/transaction?q=${users?.email}`,
         {
           method: "GET",
         }
@@ -91,7 +91,7 @@ const Dashboard = () => {
     }
   }, [users]);
 
-  console.log(ads, rechargeHistory);
+
 
   const items = [
     {
@@ -102,7 +102,7 @@ const Dashboard = () => {
           {users?.avater == "avater" ? (
             <BiUserCircle className="text-6xl" />
           ) : (
-            <Image src={users?.avater} width={400} height={300} alt="image" />
+            <Image src={users?.avater} width={200} height={200} alt="image" />
           )}
           <div className="flex justify-between">
             {" "}
@@ -121,7 +121,8 @@ const Dashboard = () => {
           </p>
           <br />
           <p className="text-sm sm:text-3xl">Email : {users?.email} </p>
-          <br />
+          <p className="text-sm sm:text-3xl">Phone : {users?.phone} </p>
+          {/* <br />
           {users.address?.city == "" ? (
             <p className="text-sm sm:text-3xl">No Address Found</p>
           ) : (
@@ -129,7 +130,11 @@ const Dashboard = () => {
               Address : {users?.address?.city}, {users?.address?.zipCode},{" "}
               {users?.address?.regionName}, {users?.address?.country},
             </p>
-          )}
+          )} */}
+          <br />
+          <br />
+          <br />
+          <Link className="text-blue-400" href={`/user/edit/${users._id}`}>Edit Profile</Link>
         </div>
       ),
     },

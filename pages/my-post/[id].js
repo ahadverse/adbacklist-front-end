@@ -17,7 +17,7 @@ const Details = () => {
   async function posts(id) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/products/${id}`,
+        `http://localhost:5000/api/products/${id}`,
         {
           method: "GET",
         }
@@ -107,20 +107,22 @@ const Details = () => {
           <div>
             <ul className="m-10 text-black">
               <li className="list-disc">
-                Poster age : <span className="text-red-600">{post?.age}</span>
+                 age : <span className="text-red-600">{post?.age}</span>
               </li>
               <li className="list-disc">
-                Poster Mobile :{" "}
+                 Mobile :{" "}
                 <span className="text-red-600">{post?.phone}</span>{" "}
               </li>
               <li className="list-disc">
-                Poster Email :{" "}
+                 Email :{" "}
                 <span className="text-red-600">{post?.email}</span>
               </li>
             </ul>
           </div>
+          <Link className="p-2 bg-red-600 text-white" href={`/my-post/update/${id}`}>Edit This post</Link>
         </div>
       )}
+
       <Footer></Footer>
     </div>
   );

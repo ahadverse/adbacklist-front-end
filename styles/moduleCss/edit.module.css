@@ -1,0 +1,193 @@
+/* profile  */
+.container{
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    width: 60%;
+    margin: auto;
+    border-radius: 5px;
+
+}
+.profileContainer{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-gap: 30px;
+ 
+}
+.readOnlyInputs{
+    border: 1px solid lightblue;
+    padding: 2px;
+    font-weight: 400;
+    font-size: 14px;
+    color: black    ;
+}
+.editableInputs{
+    border: 1px solid rgb(255, 102, 14);
+    padding: 2px;
+    font-weight: 400;
+    font-size: 14px;
+    color: black;
+    border-radius: 5px;
+}
+.imageContainer{
+    width: 30%;
+    height: 150px;
+    margin: auto;
+    position: relative;
+    border-radius: 50%;
+}
+.imageContainer li{
+    list-style: none;
+}
+.imageContainer img{
+    width: 100%;
+    height: 150px;
+    border-radius: 50%;
+ 
+}
+.labels{
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+}
+.upload{
+    width: 100%;
+   padding-bottom: 100px;
+   cursor: pointer;
+   background: #000;
+    opacity: 0;
+   border-radius: 50%;
+   position: absolute;
+   top: 0;
+
+}
+.inputs{
+    position: relative;
+}
+.loader{
+    width: 50px !important;
+    height: 50px !important;
+}
+.buttonBox{
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    background: #11111133;
+    left: 50%;
+    top: 70%;
+    width: 40%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+    .updateButton {
+    
+        width: 50%;
+        height: 30px;
+        background-color: #FF1616;
+        border-radius: 12px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        text-align: center;
+        transition: 200ms;
+        box-sizing: border-box;
+        border: 0;
+        font-size: 12px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+      
+      .updateButton:not(:disabled):hover,
+      .updateButton:not(:disabled):focus {
+        outline: 0;
+        background: #03f417;
+        box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 10px 8px 0 rgba(0,0,0,.15);
+      }
+      
+      .updateButton:disabled {
+        filter: saturate(0.2) opacity(0.5);
+        -webkit-filter: saturate(0.2) opacity(0.5);
+        cursor: not-allowed;
+      }
+    .editButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-top: auto;
+        width: 50%;
+        height: 30px;
+        background-color: #84defa;
+        border-radius: 12px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        text-align: center;
+        transition: 200ms;
+        box-sizing: border-box;
+        border: 0;
+        font-size: 12px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+      
+      .editButton:not(:disabled):hover,
+      .editButton:not(:disabled):focus {
+        outline: 0;
+        background: #f48403;
+        box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 10px 8px 0 rgba(0,0,0,.15);
+      }
+      
+      .editButton:disabled {
+        filter: saturate(0.2) opacity(0.5);
+        -webkit-filter: saturate(0.2) opacity(0.5);
+        cursor: not-allowed;
+      }
+    .editButton2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: auto;
+        margin-top: auto;
+        width: 50%;
+        height: 30px;
+        background-color: #84defa;
+        border-radius: 12px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        text-align: center;
+        transition: 200ms;
+        box-sizing: border-box;
+        border: 0;
+        font-size: 12px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+      
+      .editButton2:not(:disabled):hover,
+      .editButton2:not(:disabled):focus {
+        outline: 0;
+        background: #f48403;
+        box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 10px 8px 0 rgba(0,0,0,.15);
+      }
+      
+      .editButton2:disabled {
+        filter: saturate(0.2) opacity(0.5);
+        -webkit-filter: saturate(0.2) opacity(0.5);
+        cursor: not-allowed;
+      }
+
+      @media only screen and (max-width: 768px){
+        .container{
+          background: white;
+          padding: 10px;
+          width: 95%;
+          margin: auto;
+          border-radius: 5px;
+      
+      }
+      }
