@@ -9,7 +9,7 @@ import axios from "axios";
 import User from "@/component/user";
 
 const Credits = () => {
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(10);
   const [loading, setLoading] = useState(false);
   const usersStringfy = Cookies.get("token");
   const { users } = User();

@@ -144,6 +144,7 @@ const Post = () => {
     }
   }
 
+
   async function getAds() {
     try {
       const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
@@ -285,7 +286,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -314,7 +315,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -343,7 +344,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -372,7 +373,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -401,7 +402,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -430,7 +431,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -459,7 +460,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -488,7 +489,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -524,7 +525,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == false ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -553,7 +554,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == false ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -582,7 +583,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == false ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -611,7 +612,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == false ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -640,7 +641,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == false ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -669,7 +670,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == false ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -698,7 +699,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == false ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
@@ -725,7 +726,7 @@ const Post = () => {
                             <div>
                               {p.isPremium == false ? (
                                 <Link
-                                  href={`/post/details/${p._id}`}
+                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>

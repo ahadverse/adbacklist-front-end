@@ -30,6 +30,7 @@ let initialState = {
     age: "",
     posterId: "",
     isPremium: !1,
+    isApproved: !1,
     error: "",
   },
   beforeUpload = (e) => {
@@ -107,10 +108,10 @@ let initialState = {
     }, [e.query.name]);
 
 
-    console.log(local)
+ 
 
     let q = async (t) => {
-        g(!0);
+        // g(!0);
         let o = { ...a },
           r = new FormData();
         if (
@@ -166,14 +167,19 @@ let initialState = {
         }
         if (
           (l({ ...a, error: "" }),
-          "free-ads" == t[0] && (o.city = t[1]),
+
+          
+          "free-ads" == t[0] && ((o.city = t[1] ), (o.isApproved = !1) ),
+
           ("local-ads" == t[0] || "multiple-city-ads" == t[0]) &&
-            ((o.city = t[1] || ""), (o.isPremium = !0)),
+            ((o.city = t[1] || ""), (o.isPremium = !0) , (o.isApproved = !0)),
           "multiple-city-ads" == t[0])
         ) {
           let i = JSON.parse(localStorage.getItem("cities"));
           o.cities = i;
         }
+
+        console.log(o)
 
         await fetch("https://api-adbacklist.vercel.app/api/products", {
           method: "POST",
@@ -221,6 +227,8 @@ let initialState = {
               });
           });
       },
+
+
       B = (
         <div>
           <AiFillPlusCircle className="text-2xl sm:text-4xl m-auto" />

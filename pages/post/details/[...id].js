@@ -17,20 +17,28 @@ const Details = () => {
   const router = useRouter();
   const id = router?.query?.id;
 
-  const [post, setPost] = useState();
+
+
+  const [postDetails, setPost] = useState();
+  const [newAds, setAds] = useState();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    getUser();
-  }, []);
+    if (id) {
+      getUser(id);
+      getAds()
+    } else {
+      return;
+    }
+  }, [id]);
 
-  async function getUser() {
+  async function getUser(id) {
     try {
       const response = await axios.get(
-        "https://api-adbacklist.vercel.app/api/products"
+        `https://api-adbacklist.vercel.app/api/products/${id?.[1]}`
       );
-      setPost(response.data.data.products);
+      setPost(response.data.data.product);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -38,7 +46,21 @@ const Details = () => {
     }
   }
 
-  const postDetails = post?.find((a) => a._id == id);
+
+  async function getAds() {
+    try {
+      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const data = response.data.ads;
+      const category = data
+        .filter((a) => a?.category == id?.[0])
+        .slice(0, 6);
+      setAds(category);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
 
   return (
     <div>
@@ -113,9 +135,17 @@ const Details = () => {
                   <div className={style.contentContainer}>
                     <div className="w-full text-black text-sm mt-5 sm:text-base">
                       {postDetails?.description}
-                      {
-                        postDetails?.link ? <Link href={postDetails?.link} target={"_blank"} className="block p-2 text-blue-600 underline w-2/12">Visit Now</Link> : ""
-                      }
+                      {postDetails?.link ? (
+                        <Link
+                          href={postDetails?.link}
+                          target={"_blank"}
+                          className="block p-2 text-blue-600 underline w-2/12"
+                        >
+                          Visit Now
+                        </Link>
+                      ) : (
+                        ""
+                      )}
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {postDetails?.imgOne ? (
@@ -162,26 +192,19 @@ const Details = () => {
                   </div>
                   <div>
                     <ul className="m-10 text-black">
+                   
                       <li className="list-disc">
-                         Name :{" "}
-                        <span>
-                          {postDetails?.owner?.[0]?.firstName +
-                            " " +
-                            postDetails?.owner?.[0]?.lastName}
-                        </span>
-                      </li>
-                      <li className="list-disc">
-                         age :{" "}
+                        age :{" "}
                         <span className="text-red-600">{postDetails?.age}</span>
                       </li>
                       <li className="list-disc">
-                         Mobile :{" "}
+                        Mobile :{" "}
                         <span className="text-red-600">
                           {postDetails?.phone}
                         </span>{" "}
                       </li>
                       <li className="list-disc">
-                         Email :{" "}
+                        Email :{" "}
                         <span className="text-red-600">
                           {postDetails?.email}
                         </span>
@@ -201,15 +224,30 @@ const Details = () => {
                   <br />
                   <hr />
                   <br />
-                  <div className="bg-yellow-100 p-5">
+            
+                </>
+              )}
+            <h1 className="text-black text-2xl">Most Popular Ads</h1>
+              <div  className="flex justify-center">
+                
+                {
+                  newAds?.map(a => 
+                  <div className="m-2">
+                      <a href={`${a?.link}`} target="_blank" rel="noreferrer">
+                      <img className="w-full h-36" src={a?.image} />
+                      <p className="text-blue-400 underline">{a?.title}</p>
+                      </a>
+                  </div>)
+                }
+
+              </div>
+              <div className="bg-yellow-100 p-5">
                     <h1 className="text-red-600 font-bold">Warning!!!!</h1>
                     <p className="font-bold">
                       Use your unusual feel earlier than making any pre-payment,
                       We will not be responsible for any financial loss!
                     </p>
                   </div>
-                </>
-              )}
             </div>
           </div>
         </div>
