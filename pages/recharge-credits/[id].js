@@ -104,7 +104,7 @@ const Credits = () => {
                 placeholder="Input Amount"
                 required
                 type="number"
-                min={10}
+                min={1}
                 value={amount}
                 onChange={(event) => setAmount(event.target.value)}
               />
