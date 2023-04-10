@@ -58,68 +58,77 @@ const Details = () => {
           <hr />
 
           <div className={style.contentContainer}>
-            <div className="w-full text-black text-sm mt-5 sm:text-base">
-              {post?.description}
-            </div>
+            <div
+              className={style.desc}
+              dangerouslySetInnerHTML={{
+                __html: post?.description,
+              }}
+            ></div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {post?.imgOne ? (
+              {!post?.imgOne || post.imgOne == "empty" ? (
+                ""
+              ) : (
                 <img
                   className={style.fImg}
                   width={200}
                   height={200}
                   src={post?.imgOne}
                 />
-              ) : (
-                ""
               )}
-              {post?.imgTwo ? (
+              {!post?.imgTwo || post.imgTwo == "empty" ? (
+                ""
+              ) : (
                 <img
                   className={style.fImg}
                   width={200}
                   height={200}
                   src={post?.imgTwo}
                 />
-              ) : (
-                ""
               )}
-              {post?.imgThree ? (
+
+              {!post?.imgThree || post.imgThree == "empty" ? (
+                ""
+              ) : (
                 <img
                   className={style.fImg}
                   width={200}
                   height={200}
                   src={post?.imgThree}
                 />
-              ) : (
-                ""
               )}
-              {post?.imgFour ? (
+
+              {!post?.imgFour || post.imgFour == "empty" ? (
+                ""
+              ) : (
                 <img
                   className={style.fImg}
                   width={200}
                   height={200}
                   src={post?.imgFour}
                 />
-              ) : (
-                ""
               )}
             </div>
           </div>
           <div>
             <ul className="m-10 text-black">
               <li className="list-disc">
-                 age : <span className="text-red-600">{post?.age}</span>
+                age : <span className="text-red-600">{post?.age}</span>
               </li>
               <li className="list-disc">
-                 Mobile :{" "}
-                <span className="text-red-600">{post?.phone}</span>{" "}
+                Mobile : <span className="text-red-600">{post?.phone}</span>{" "}
               </li>
               <li className="list-disc">
-                 Email :{" "}
-                <span className="text-red-600">{post?.email}</span>
+                Email : <span className="text-red-600">{post?.email}</span>
               </li>
             </ul>
           </div>
-          <Link className="p-2 bg-red-600 text-white" href={`/my-post/update/${id}`}>Edit This post</Link>
+          <Link
+            className="p-2 bg-red-600 text-white"
+            href={`/my-post/update/${id}`}
+          >
+            Edit This post
+          </Link>
         </div>
       )}
 

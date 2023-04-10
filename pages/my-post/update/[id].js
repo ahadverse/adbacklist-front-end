@@ -1,12 +1,13 @@
 import e from "next/head";
 import t from "next/dynamic";
 import { useRouter as o } from "next/router";
-import a, { useEffect as r, useRef as l, useState as i } from "react";
+import a, { useEffect as r, useRef as l, useState as i, useRef } from "react";
 let Footer = t(() => import("@/component/footer/footer")),
   Header = t(() => import("@/component/header/header"));
 import n from "../../../styles/moduleCss/addPost.module.css";
 import m from "sweetalert2";
 import s from "js-cookie";
+import { Editor } from "@tinymce/tinymce-react";
 import u from "jwt-decode";
 import { message as d, Upload, Modal } from "antd";
 import y from "../../../public/category.json";
@@ -105,6 +106,13 @@ let initialState = {
       }
     }, [e.query.name]);
 
+    const editorRef = useRef(null);
+    const log = () => {
+      if (editorRef.current) {
+        l({ ...a, description: editorRef.current.getContent() });
+      }
+    };
+
     async function posts(id) {
       try {
         const response = await axios.get(
@@ -158,7 +166,7 @@ let initialState = {
 
 
     let q = async (t) => {
-        // g(!0);
+        g(!0);
         let o = { ...a },
           r = new FormData();
 
@@ -245,6 +253,7 @@ let initialState = {
             },
           };
 
+          console.log(o)
         await axios
         .patch(
           `https://api-adbacklist.vercel.app/api/products/${e.query.id}`,
@@ -252,7 +261,7 @@ let initialState = {
           options
         )
         .then((res) => {
-         console.log(res)
+          g(!1);
           if (res.data.status == "success") {
             Swal.fire({
               position: "top-center",
@@ -262,7 +271,7 @@ let initialState = {
               timer: 1500,
             })
             .then((t) => {
-                e.push("/dashboard")
+                // e.push("/dashboard")
             });
           }
         });
@@ -361,18 +370,7 @@ let initialState = {
                   />
                 </label>
 
-                <label className="text-black font-bold text-xs sm:text-xl">
-                  Social Link :
-                  <br />
-                  <input
-                    type="text"
-                    onChange={(e) =>
-                      b({ type: "link", payload: e.target.value })
-                    }
-                    defaultValue={a?.link}
-                    className="input bg-gray-50 w-full "
-                  />
-                </label>
+ 
 
                 <label className="text-black font-bold text-xs sm:text-xl">
                   Your Age :
@@ -430,26 +428,73 @@ let initialState = {
                 </label>
               </div>
 
-              <div className="sm:w-2/4 w-full m-auto pt-10 ">
+              <div className="sm:w-3/4 w-full m-auto pt-10 ">
                 <label className="text-black font-bold text-xs sm:text-xl">
                   Description :
                   <br />
-                  <textarea
-                    onChange={(e) =>
-                      b({ type: "description", payload: e.target.value })
-                    }
-                    className="textarea h-48  w-full bg-gray-50"
-                    defaultValue={a?.description}
-                  ></textarea>
+                  <Editor
+              onBlur={log}
+              apiKey="1l3rqg56q1b0tdnbztw07axma3g7kepktv1splh9fq3a1469"
+              onInit={(evt, editor) => (editorRef.current = editor)}
+              initialValue={a.description}
+              
+              init={{
+                height: 250,
+                menubar: false,
+                plugins: [
+                  "advlist",
+                  "autolink",
+                  "lists",
+                  "link",
+                  "image",
+                  "charmap",
+                  "preview",
+                  "anchor",
+                  "searchreplace",
+                  "visualblocks",
+                  "code",
+                  "fullscreen",
+                  "insertdatetime",
+                  "media",
+                  "table",
+                  "code",
+                  "help",
+                  "wordcount",
+                ],
+                toolbar:
+                  "insertfile image media pageembed template link anchor codesample | bold italic forecolor | alignleft aligncenter " +
+                  "undo redo | blocks | " +
+                  "alignright alignjustify | bullist numlist outdent indent | " +
+                  "removeformat | help",
+                image_caption: true,
+                image_advtab: true,
+                content_style:
+                  "body { font-family:Helvetica,Arial,sans-serif; font-size:14px ;  }",
+                relative_urls: true,
+              }}
+            />
                 </label>
               </div>
 
-              {e?.query?.name?.[1] && (
-                <div className="sm:w-2/4 w-full  m-auto pt-10 ">
+              {a?.city && (
+                <div className="sm:w-3/4 w-full  m-auto pt-10 ">
                   <label className="text-black font-bold text-xs sm:text-xl">
                     Selected Area :
                     <div className={n.locationLi}>
-                      <li>{e?.query?.name?.[1]}</li>
+                      <li>{a?.city}</li>
+                    </div>
+                  </label>
+                </div>
+              )}
+
+              {a?.cities && (
+                <div className="sm:w-3/4 w-full  m-auto pt-10 ">
+                  <label className="text-black font-bold text-xs sm:text-xl">
+                    Selected Area :
+                    <div className={n.locationLi}>
+                      {a?.cities.map((a) => (
+                            <li className="list-decimal mr-1">{a}</li>
+                          ))}
                     </div>
                   </label>
                 </div>
@@ -457,7 +502,7 @@ let initialState = {
 
               <p className="text-red-600 text-xs">{a.error}</p>
 
-              <div className="sm:w-2/4 w-full m-auto pt-10 ">
+              <div className="sm:w-3/4 w-full m-auto pt-10 ">
                 {users?.credit < local || local == "null" ? (
                   <>
                     <button className={n.postButton} disabled role="button">

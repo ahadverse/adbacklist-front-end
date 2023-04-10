@@ -16,7 +16,7 @@ html {
 .ant-upload,
 .ant-upload-list-item-container {
   width: 50% !important;
-  height: 200px !important;
+  height: 300px !important;
 }
 ::-webkit-scrollbar-thumb {
   background: #047699;

@@ -17,8 +17,6 @@ const Details = () => {
   const router = useRouter();
   const id = router?.query?.id;
 
-
-
   const [postDetails, setPost] = useState();
   const [newAds, setAds] = useState();
   const [loading, setLoading] = useState(false);
@@ -27,7 +25,7 @@ const Details = () => {
     setLoading(true);
     if (id) {
       getUser(id);
-      getAds()
+      getAds();
     } else {
       return;
     }
@@ -46,21 +44,20 @@ const Details = () => {
     }
   }
 
-
   async function getAds() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/sideads`
+      );
       const data = response.data.ads;
-      const category = data
-        .filter((a) => a?.category == id?.[0])
-        .slice(0, 6);
+      const category = data.filter((a) => a?.category == id?.[0]).slice(0, 6);
       setAds(category);
     } catch (error) {
       console.error(error);
     }
   }
 
-
+  console.log(postDetails);
 
   return (
     <div>
@@ -133,66 +130,64 @@ const Details = () => {
                   <hr />
 
                   <div className={style.contentContainer}>
-                    <div className="w-full text-black text-sm mt-5 sm:text-base">
-                      {postDetails?.description}
-                      {postDetails?.link ? (
-                        <Link
-                          href={postDetails?.link}
-                          target={"_blank"}
-                          className="block p-2 text-blue-600 underline w-2/12"
-                        >
-                          Visit Now
-                        </Link>
-                      ) : (
-                        ""
-                      )}
-                    </div>
+                    <div
+                      className={style.desc}
+                      dangerouslySetInnerHTML={{
+                        __html: postDetails?.description,
+                      }}
+                    ></div>
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {postDetails?.imgOne ? (
+                      {!postDetails?.imgOne ||
+                      postDetails?.imgOne == "empty" ? (
+                        ""
+                      ) : (
                         <Image
                           className={style.fImg}
                           width={200}
                           height={200}
                           src={postDetails?.imgOne}
                         />
-                      ) : (
-                        ""
                       )}
-                      {postDetails?.imgTwo ? (
+
+                      {!postDetails?.imgTwo ||
+                      postDetails?.imgTwo == "empty" ? (
+                        ""
+                      ) : (
                         <Image
                           className={style.fImg}
                           width={200}
                           height={200}
                           src={postDetails?.imgTwo}
                         />
-                      ) : (
-                        ""
                       )}
-                      {postDetails?.imgThree == "empty" ? (
+
+                      {!postDetails?.imgThree ||
+                      postDetails?.imgThree == "empty" ? (
+                        ""
+                      ) : (
                         <Image
                           className={style.fImg}
                           width={200}
                           height={200}
                           src={postDetails?.imgThree}
                         />
-                      ) : (
-                        ""
                       )}
-                      {postDetails?.imgFour ? (
+                      {!postDetails?.imgFour ||
+                      postDetails?.imgFour == "empty" ? (
+                        ""
+                      ) : (
                         <Image
                           className={style.fImg}
                           width={200}
                           height={200}
                           src={postDetails?.imgFour}
                         />
-                      ) : (
-                        ""
                       )}
                     </div>
                   </div>
                   <div>
                     <ul className="m-10 text-black">
-                   
                       <li className="list-disc">
                         age :{" "}
                         <span className="text-red-600">{postDetails?.age}</span>
@@ -224,30 +219,26 @@ const Details = () => {
                   <br />
                   <hr />
                   <br />
-            
                 </>
               )}
-            <h1 className="text-black text-2xl">Most Popular Ads</h1>
-              <div  className="flex justify-center">
-                
-                {
-                  newAds?.map(a => 
+              <h1 className="text-black text-2xl">Most Popular Ads</h1>
+              <div className="flex justify-center">
+                {newAds?.map((a) => (
                   <div className="m-2">
-                      <a href={`${a?.link}`} target="_blank" rel="noreferrer">
+                    <a href={`${a?.link}`} target="_blank" rel="noreferrer">
                       <img className="w-full h-36" src={a?.image} />
                       <p className="text-blue-400 underline">{a?.title}</p>
-                      </a>
-                  </div>)
-                }
-
+                    </a>
+                  </div>
+                ))}
               </div>
               <div className="bg-yellow-100 p-5">
-                    <h1 className="text-red-600 font-bold">Warning!!!!</h1>
-                    <p className="font-bold">
-                      Use your unusual feel earlier than making any pre-payment,
-                      We will not be responsible for any financial loss!
-                    </p>
-                  </div>
+                <h1 className="text-red-600 font-bold">Warning!!!!</h1>
+                <p className="font-bold">
+                  Use your unusual feel earlier than making any pre-payment, We
+                  will not be responsible for any financial loss!
+                </p>
+              </div>
             </div>
           </div>
         </div>

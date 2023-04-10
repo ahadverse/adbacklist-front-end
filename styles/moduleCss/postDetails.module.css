@@ -5,3 +5,40 @@
     margin-left: 20px;
     font-family:Arial, Helvetica, sans-serif;
   }
+  .desc h1{
+    color: black;
+    font-size: 2em;
+    font-weight: bolder;
+}
+.desc h2{
+    color: black;
+    font-size: 24px;
+    font-weight: bolder;
+}
+.desc h3{
+    color: black;
+    font-size: 1.17em;
+    font-weight: bolder;
+}
+.desc h4{
+    color: black;
+    font-size: 1em;
+    font-weight: bolder;
+}
+.desc h5{
+    color: black;
+    font-size: .83em;
+    font-weight: bolder;
+}
+.desc h6{
+    color: black;
+    font-size: .67em;
+    font-weight: bolder;
+}
+.desc a{
+    color: blue;
+   text-decoration: underline;
+}
+.desc p{
+    color: black;
+}
