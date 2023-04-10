@@ -324,7 +324,7 @@ let initialState = {
                     }
                     type="text"
                     placeholder="Type here"
-                    className="input bg-gray-50  w-full "
+                    className="input bg-gray-100  w-full "
                   />
                 </label>
 
@@ -337,7 +337,7 @@ let initialState = {
                       b({ type: "phone", payload: e.target.value })
                     }
                     placeholder="Type here"
-                    className="input bg-gray-50  w-full "
+                    className="input bg-gray-100  w-full "
                   />
                 </label>
 
@@ -350,12 +350,12 @@ let initialState = {
                       b({ type: "email", payload: e.target.value })
                     }
                     placeholder="Type here"
-                    className="input bg-gray-50 w-full "
+                    className="input bg-gray-100 w-full "
                   />
                 </label>
     
 
-                <label className="text-black font-bold text-xs sm:text-xl">
+                <label className="text-black  font-bold text-xs sm:text-xl">
                   Your Age :
                   <br />
                   <input
@@ -364,7 +364,7 @@ let initialState = {
                       b({ type: "age", payload: e.target.value })
                     }
                     placeholder="Type here"
-                    className="input bg-gray-50  w-full "
+                    className="input bg-gray-100  w-full "
                   />
                 </label>
               </div>
@@ -381,7 +381,7 @@ let initialState = {
                     onChange={(e) =>
                       b({ type: "category", payload: e.target.value })
                     }
-                    className="input bg-gray-50 w-full"
+                    className="input bg-gray-100 w-full"
                   >
                     <option value="category">-- Select Category --</option>
 
@@ -400,7 +400,7 @@ let initialState = {
                     onChange={(e) =>
                       b({ type: "subCategory", payload: e.target.value })
                     }
-                    className="input bg-gray-50  w-full "
+                    className="input bg-gray-100  w-full "
                   >
                     <option value="subCategory">
                       -- Select Sub-Category --

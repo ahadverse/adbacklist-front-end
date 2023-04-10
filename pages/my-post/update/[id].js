@@ -339,7 +339,7 @@ let initialState = {
                     }
                     type="text"
                     defaultValue={a?.name}
-                    className="input bg-gray-50  w-full "
+                    className="input bg-gray-100  w-full "
                   />
                 </label>
 
@@ -352,7 +352,7 @@ let initialState = {
                       b({ type: "phone", payload: e.target.value })
                     }
                     defaultValue={a?.phone}
-                    className="input bg-gray-50  w-full "
+                    className="input bg-gray-100  w-full "
                   />
                 </label>
 
@@ -366,7 +366,7 @@ let initialState = {
                       b({ type: "email", payload: e.target.value })
                     }
                     defaultValue={a?.email}
-                    className="input bg-gray-50 w-full "
+                    className="input bg-gray-100 w-full "
                   />
                 </label>
 
@@ -381,7 +381,7 @@ let initialState = {
                       b({ type: "age", payload: e.target.value })
                     }
                     defaultValue={a?.age}
-                    className="input bg-gray-50  w-full "
+                    className="input bg-gray-100  w-full "
                   />
                 </label>
               </div>
@@ -398,7 +398,7 @@ let initialState = {
                     onChange={(e) =>
                       b({ type: "category", payload: e.target.value })
                     }
-                    className="input bg-gray-50 w-full"
+                    className="input bg-gray-100 w-full"
                   >
                     <option value="category">{a?.category}</option>
 
@@ -417,7 +417,7 @@ let initialState = {
                     onChange={(e) =>
                       b({ type: "subCategory", payload: e.target.value })
                     }
-                    className="input bg-gray-50  w-full "
+                    className="input bg-gray-100  w-full "
                   >
                     <option value="category">{a?.subCategory}</option>
 
