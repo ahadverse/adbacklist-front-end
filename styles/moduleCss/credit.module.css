@@ -5,6 +5,13 @@
     margin: auto;
     margin-top: 5%;
     padding: 20px;
+   
+}
+.container a {
+    color: rgb(0, 0, 0);
+}
+.container a:hover {
+    color: rgb(5, 54, 215);
 }
 
 @media only screen and (max-width:768px) {

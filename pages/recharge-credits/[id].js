@@ -7,6 +7,7 @@ const Footer = dynamic(() => import("@/component/footer/footer2"));
 import style from "../../styles/moduleCss/credit.module.css";
 import axios from "axios";
 import User from "@/component/user";
+import Link from "next/link";
 
 const Credits = () => {
   const [amount, setAmount] = useState(10);
@@ -110,15 +111,15 @@ const Credits = () => {
             </div>
 
             <div>
-              <label className="cursor-pointer label flex justify-start items-center">
+              <label className="cursor-pointer label flex justify-start items-center ">
                 <input
                   type="checkbox"
                   className="checkbox checkbox-info"
                   required
                 />
-                <span className="label-text sm:text-lg text-black  text-sm">
+                <Link  href="/terms" className="sm:text-lg  text-sm hover:underline hover:text-blue-600">
                   I agree to Terms and Conditions
-                </span>
+                </Link>
               </label>
             </div>
             {
