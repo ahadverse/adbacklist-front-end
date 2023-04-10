@@ -168,7 +168,7 @@ const Details = () => {
                       ) : (
                         ""
                       )}
-                      {postDetails?.imgThree ? (
+                      {postDetails?.imgThree == "empty" ? (
                         <Image
                           className={style.fImg}
                           width={200}

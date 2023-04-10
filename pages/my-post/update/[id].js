@@ -329,7 +329,7 @@ let initialState = {
                       b({ type: "name", payload: e.target.value })
                     }
                     type="text"
-                    placeholder={a?.name}
+                    defaultValue={a?.name}
                     className="input bg-gray-50  w-full "
                   />
                 </label>
@@ -342,7 +342,7 @@ let initialState = {
                     onChange={(e) =>
                       b({ type: "phone", payload: e.target.value })
                     }
-                    placeholder={a?.phone}
+                    defaultValue={a?.phone}
                     className="input bg-gray-50  w-full "
                   />
                 </label>
@@ -356,7 +356,7 @@ let initialState = {
                     onChange={(e) =>
                       b({ type: "email", payload: e.target.value })
                     }
-                    placeholder={a?.email}
+                    defaultValue={a?.email}
                     className="input bg-gray-50 w-full "
                   />
                 </label>
@@ -369,7 +369,7 @@ let initialState = {
                     onChange={(e) =>
                       b({ type: "link", payload: e.target.value })
                     }
-                    placeholder={a?.link}
+                    defaultValue={a?.link}
                     className="input bg-gray-50 w-full "
                   />
                 </label>
@@ -382,7 +382,7 @@ let initialState = {
                     onChange={(e) =>
                       b({ type: "age", payload: e.target.value })
                     }
-                    placeholder={a?.age}
+                    defaultValue={a?.age}
                     className="input bg-gray-50  w-full "
                   />
                 </label>
@@ -439,7 +439,7 @@ let initialState = {
                       b({ type: "description", payload: e.target.value })
                     }
                     className="textarea h-48  w-full bg-gray-50"
-                    placeholder={a?.description}
+                    defaultValue={a?.description}
                   ></textarea>
                 </label>
               </div>

@@ -18,6 +18,7 @@ let initialState = {
     name: "",
     phone: "",
     email: "",
+    link: "",
     category: "",
     subCategory: "",
     imgOne: "",
@@ -342,6 +343,18 @@ let initialState = {
                       b({ type: "email", payload: e.target.value })
                     }
                     placeholder="Type here"
+                    className="input bg-gray-50 w-full "
+                  />
+                </label>
+                <label className="text-black font-bold text-xs sm:text-xl">
+                  Social Link :
+                  <br />
+                  <input
+                    type="text"
+                    onChange={(e) =>
+                      b({ type: "link", payload: e.target.value })
+                    }
+                    placeholder={a?.link}
                     className="input bg-gray-50 w-full "
                   />
                 </label>
