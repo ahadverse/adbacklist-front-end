@@ -43,7 +43,7 @@ const Credits = () => {
     requested = true;
     try {
       const response = await axios.post(
-        `https://api.adbacklist.com/api/recharge/${id}`,
+        `https://api-adbacklist.vercel.app/api/recharge/${id}`,
         { amount },
         {
           headers: {
