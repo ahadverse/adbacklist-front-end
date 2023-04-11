@@ -29,7 +29,7 @@ const Dashboards = () => {
   async function transactions(users) {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/transaction?q=${users?.email}`,
+        `https://api-adbacklist.vercel.app/api/transaction?q=${users?.email}`,
         {
           method: "GET",
         }
@@ -68,7 +68,7 @@ const Dashboards = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/api/products/${id}`, {})
+          .delete(`https://api-adbacklist.vercel.app/api/products/${id}`, {})
           .then((response) => {
             if (response.data.status == "success") {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
