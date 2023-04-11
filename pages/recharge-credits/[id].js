@@ -39,12 +39,14 @@ const Credits = () => {
     users?._id +
     Math.floor(Math.random() * 500) * 10;
 
-  async function recharge() {
+  async function recharge(e) {
+
+    e.preventDefault();
     if (requested) return;
     requested = true;
     try {
       const response = await axios.post(
-        `https://api-adbacklist.vercel.app/api/recharge/${id}`,
+        `http://localhost:5000/api/recharge/${id}`,
         { amount },
         {
           headers: {
@@ -63,36 +65,38 @@ const Credits = () => {
     }
   }
 
-  async function addCredit(event) {
-    setLoading(true)
-    event.preventDefault();
-    const data = {
-      date,
-      amount,
-      userId: users?._id,
-      email: users?.email,
-      invoice: randomnum,
-    };
-    await axios
-      .post("https://api-adbacklist.vercel.app/api/transaction", data)
 
-      .then((response) => {
-        if (response.data.status == "success") {
-          recharge();
-        } else {
-          console.log(response);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // async function addCredit(event) {
+  //   setLoading(true)
+  //   event.preventDefault();
+  //   const data = {
+  //     date,
+  //     amount,
+  //     userId: users?._id,
+  //     email: users?.email,
+  //     invoice: randomnum,
+  //   };
+  //   await axios
+  //     .post("http://localhost:5000/api/transaction", data)
+
+  //     .then((response) => {
+  //       if (response.data.status == "success") {
+  //         recharge();
+  //       } else {
+  //         console.log(response);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+  
 
   return (
     <div className="bg-gray-100 h-screen">
       <Header></Header>
       <div>
-        <form onSubmit={addCredit}>
+        <form onSubmit={recharge}>
           <div className={style.container}>
             <h1 className="text-2xl text-black font-bold mb-5">
               Recharge Credits -
