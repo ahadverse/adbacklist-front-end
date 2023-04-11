@@ -165,8 +165,6 @@ let initialState = {
               })),
           "" == o.category ||
             "" == o.description ||
-            "" == o.email ||
-            
             "" == o.name ||
             "" == o.imgOne)
         ) {
