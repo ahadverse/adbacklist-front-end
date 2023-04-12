@@ -123,7 +123,7 @@ let initialState = {
         );
 
         const newPost = response.data.data.product;
-        console.log(newPost);
+     
         setLoading(false);
         l({
           ...a,
@@ -284,6 +284,8 @@ let initialState = {
           <div style={{ marginTop: 8 }}>Upload</div>
         </div>
       );
+
+      console.log(a)
 
     return (
       <div>
@@ -476,7 +478,7 @@ let initialState = {
                 </label>
               </div>
 
-              {a?.city && (
+              {a?.city ? (
                 <div className="sm:w-3/4 w-full  m-auto pt-10 ">
                   <label className="text-black font-bold text-xs sm:text-xl">
                     Selected Area :
@@ -485,20 +487,18 @@ let initialState = {
                     </div>
                   </label>
                 </div>
-              )}
-
-              {a?.cities && (
-                <div className="sm:w-3/4 w-full  m-auto pt-10 ">
-                  <label className="text-black font-bold text-xs sm:text-xl">
-                    Selected Area :
-                    <div className={n.locationLi}>
-                      {a?.cities.map((a) => (
-                            <li className="list-decimal mr-1">{a}</li>
-                          ))}
-                    </div>
-                  </label>
+              ) :   <div className="sm:w-3/4 w-full  m-auto pt-10 ">
+              <label className="text-black font-bold text-xs sm:text-xl">
+                Selected Area :
+                <div className={n.locationLi}>
+                  {a?.cities.map((a) => (
+                        <li className="list-decimal mr-1">{a}</li>
+                      ))}
                 </div>
-              )}
+              </label>
+            </div>}
+
+          
 
               <p className="text-red-600 text-xs">{a.error}</p>
 

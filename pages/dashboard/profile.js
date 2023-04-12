@@ -101,8 +101,9 @@ const Dashboards = () => {
         <p className="text-lg sm:text-3xl text-black">{users?.email}</p>
       </div>
       <div className="m-0 sm:m-10" >
-        <div className="bg-black text-white my-5 p-2">
-          <Link
+        <div className="bg-black text-white my-5 p-2 flex justify-between">
+            <span>
+            <Link
             href={"/dashboard/profile"}
             className="hover:text-blue-400 hover:underline"
           >
@@ -113,7 +114,13 @@ const Dashboards = () => {
             className="ml-5 hover:text-blue-400 hover:underline"
           >
             My Recharge
-          </Link>
+          </Link></span>
+          <Link
+              className="text-sm sm:text-xl p-1 bg-red-600 font-bold text-white"
+              href={`/recharge-credits/${users?._id}`}
+            >
+              Add Credit
+            </Link>
         </div>
         {loading ? (
           <button className="btn w-full m-auto  bg-transparent  text-red-400 btn-wide border-0 loading">

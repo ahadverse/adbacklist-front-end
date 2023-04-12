@@ -163,7 +163,7 @@ let initialState = {
               .then((e) => {
                 o.imgFour = e.payload.url;
               })),
-          "" == o.category ||
+             "" == o.category ||
             "" == o.description ||
             "" == o.name ||
             "" == o.imgOne)

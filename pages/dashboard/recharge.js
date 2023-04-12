@@ -56,29 +56,7 @@ const Dashboards = () => {
     }
   }, [users]);
 
-  const deletePost = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios
-          .delete(`https://api-adbacklist.vercel.app/api/products/${id}`, {})
-          .then((response) => {
-            if (response.data.status == "success") {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            }
-            const newPost = rechargeHistory.filter((a) => a._id !== id);
-            setRechargeHistory(newPost);
-          });
-      }
-    });
-  };
+console.log(rechargeHistory)
 
   return (
     <div className="bg-gray-100">
@@ -96,20 +74,27 @@ const Dashboards = () => {
           <p className="text-lg sm:text-3xl text-black">{users?.email}</p>
         </div>
         <div className="m-0 sm:m-10">
-          <div className="bg-black text-white my-5 p-2">
+        <div className="bg-black text-white my-5 p-2 flex justify-between">
+            <span>
             <Link
-              href={"/dashboard/profile"}
-              className="hover:text-blue-400 hover:underline"
+            href={"/dashboard/profile"}
+            className="hover:text-blue-400 hover:underline"
+          >
+            My Profile
+          </Link>
+          <Link
+            href={"/dashboard/recharge"}
+            className="ml-5 hover:text-blue-400 hover:underline"
+          >
+            My Recharge
+          </Link></span>
+          <Link
+              className="text-sm sm:text-xl p-1 bg-red-600 font-bold text-white"
+              href={`/recharge-credits/${users?._id}`}
             >
-              My Profile
+              Add Credit
             </Link>
-            <Link
-              href={"/dashboard/recharge"}
-              className="ml-5 hover:text-blue-400 hover:underline"
-            >
-              My Recharge
-            </Link>
-          </div>
+        </div>
           {loading ? (
             <button className="btn w-full m-auto  bg-transparent  text-red-400 btn-wide border-0 loading">
               loading....

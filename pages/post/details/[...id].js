@@ -57,8 +57,6 @@ const Details = () => {
     }
   }
 
-  console.log(postDetails);
-
   return (
     <div>
       <Head>
@@ -112,20 +110,31 @@ const Details = () => {
                 </div>
               ) : (
                 <>
-                  <h1 className="text-lg text-black font-bold sm:text-2xl">
+                  <h1 className="text-lg text-black font-bold sm:text-2xl ">
                     {postDetails?.name}
                   </h1>
                   <div className="flex flex-col mt-5 mb-5 sm:flex-row">
-                    <button className="flex items-center justify-center bg-green-500 text-white px-2 font-bold border rounded">
+                  {postDetails?.email ?      <a
+                      href={`mailto:${postDetails?.email}`}
+                      className="flex items-center justify-center bg-green-500 text-white px-2 font-bold border rounded"
+                    >
                       {" "}
                       <AiOutlineMail className="text-3xl mr-2 cursor-pointer" />{" "}
-                      {postDetails?.email}
-                    </button>
-                    <button className="flex items-center justify-center bg-orange-500 text-white px-2 font-bold border rounded">
-                      {" "}
-                      <BsTelephone className="text-2xl mr-2 p-1 cursor-pointer" />{" "}
-                      {postDetails?.phone}
-                    </button>{" "}
+          {postDetails?.email}
+                    </a>: ""}
+                
+                    {postDetails?.phone ? (
+                      <a
+                        href={`tel:${postDetails?.phone}`}
+                        className="flex items-center justify-center bg-orange-500 text-white px-2 font-bold border rounded"
+                      >
+                        {" "}
+                        <BsTelephone className="text-2xl mr-2 p-1 cursor-pointer" />{" "}
+                        {postDetails?.phone}
+                      </a>
+                    ) : (
+                      ""
+                    )}{" "}
                   </div>
                   <hr />
 
@@ -187,7 +196,7 @@ const Details = () => {
                     </div>
                   </div>
                   <div>
-                    <ul className="m-10 text-black">
+                    {/* <ul className="m-10 text-black">
                       <li className="list-disc">
                         age :{" "}
                         <span className="text-red-600">{postDetails?.age}</span>
@@ -204,7 +213,7 @@ const Details = () => {
                           {postDetails?.email}
                         </span>
                       </li>
-                    </ul>
+                    </ul> */}
                   </div>
 
                   <Link
