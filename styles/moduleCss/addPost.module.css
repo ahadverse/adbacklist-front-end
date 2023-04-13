@@ -1,1 +1,60 @@
-.formDiv,.imageContainer{width:75%;margin:auto}.formDiv{display:grid;grid-template-columns:repeat(2,1fr);grid-gap:30px}.imageContainer li{list-style:none}.locationLi{display:grid;grid-template-columns:repeat(3,1fr);font-size:16px;font-weight:400;list-style:square}.postButton{background-color:#ff1616;border-radius:12px;color:#fff;cursor:pointer;font-weight:700;padding:10px 15px;text-align:center;transition:.2s;display:flex;align-items:center;box-sizing:border-box;border:0;font-size:16px;user-select:none;-webkit-user-select:none;touch-action:manipulation}.postButton:not(:disabled):focus,.postButton:not(:disabled):hover{outline:0;background:#03f417;box-shadow:0 0 0 2px rgba(0,0,0,.2),0 10px 8px 0 rgba(0,0,0,.15)}.postButton:disabled{filter:saturate(.2) opacity(.5);-webkit-filter:saturate(0.2) opacity(0.5);cursor:not-allowed}@media only screen and (max-width:778px){.formDiv{grid-template-columns:repeat(1,1fr);width:100%}.imageContainer{width:100%!important}}
+.formDiv,
+.imageContainer {
+  width: 75%;
+  margin: auto;
+}
+.formDiv {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+.imageContainer li {
+  list-style: none;
+}
+.locationLi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 16px;
+  font-weight: 400;
+  list-style: square;
+}
+.postButton {
+  background-color: #ff1616;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.postButton:not(:disabled):focus,
+.postButton:not(:disabled):hover {
+  outline: 0;
+  background: #03f417;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 10px 8px 0 rgba(0, 0, 0, 0.15);
+}
+.postButton:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
+@media only screen and (max-width: 778px) {
+  .formDiv {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+  .imageContainer {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
