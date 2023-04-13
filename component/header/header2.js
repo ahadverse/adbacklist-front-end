@@ -104,12 +104,12 @@ const Header2 = () => {
                   <Link href="/blogs">Blogs</Link>
                 </li>
                 <li onClick={() => logout()}>
-                  <Link
+                  <a
                     href="/login"
                     className="bg-red-600 p-2 text-white font-bold"
                   >
                     Logout
-                  </Link>
+                  </a>
                 </li>{" "}
               </>
             ) : (
