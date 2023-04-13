@@ -11,13 +11,23 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Adbacklist is an Easy and Secure Way to Post Online Classified Ads</title>
-<meta  name="title" content="Free Classified site Adbacklist is an Easy and Secure Way to Post Online Classified Ads"/>
-        <meta name="description" content="Adbacklist makes it easy to post classified ads online. 
+        <title>
+          Adbacklist is an Easy and Secure Way to Post Online Classified Ads
+        </title>
+        <meta
+          name="title"
+          content="Free Classified site Adbacklist is an Easy and Secure Way to Post Online Classified Ads"
+        />
+        <meta
+          name="description"
+          content="Adbacklist makes it easy to post classified ads online. 
 Sell, find, and rent anything with a secure and safe platform. 
-Get started today and reach thousands of potential customers in your local area in minutes!" />
+Get started today and reach thousands of potential customers in your local area in minutes!"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keywords" content="
+        <meta
+          name="keywords"
+          content="
 adult search brooklyn,
 sexing adults,
 adult snapchat,
@@ -56,7 +66,8 @@ alluvion real estate,
 Local Places,
 local places to eat,
 places to eat near me open,
-the local place"/>
+the local place"
+        />
         <meta
           name="google-site-verification"
           content="TYiSHLlk3Y-BJ095SPo4lMOG4hSRTUyxfIKdLR-_sfs"
@@ -66,7 +77,6 @@ the local place"/>
           content="0730451c9c8761c27a8bae02652c5f38"
         />
         <link rel="icon" href="/favicon.ico" />
-    
       </Head>
 
       <main className={styles.main}>

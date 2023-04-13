@@ -207,7 +207,7 @@ const Location = () => {
                                     )}
                                     onChange={() => seletectedCity(d)}
                                   ></input>
-                                  {d.name}($ 0.50)
+                                  {d.name}($ 0.05)
                                 </label>
                               </>
                             ))}

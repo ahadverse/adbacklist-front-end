@@ -92,7 +92,7 @@ const Header2 = () => {
             <Link href="/">ADBACKLIST</Link>{" "}
           </h1>
           <Link href={"/user/post"}>
-            <button className={styles.postButton}> + Add Post </button>
+            <button className={styles.postButton}> + Post Ad </button>
           </Link>
         </div>
 

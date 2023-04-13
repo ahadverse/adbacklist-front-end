@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-
+import { Image } from "antd";
 import dynamic from "next/dynamic";
 const Footer = dynamic(() => import("@/component/footer/footer2"));
 import style from "../../../styles/moduleCss/postDetails.module.css";
@@ -11,7 +11,6 @@ import style from "../../../styles/moduleCss/postDetails.module.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsTelephone } from "react-icons/bs";
 import { ImBlocked } from "react-icons/im";
-import Image from "next/image";
 
 const Details = () => {
   const router = useRouter();
@@ -46,7 +45,9 @@ const Details = () => {
 
   async function getAds() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/sideads`
+      );
       const data = response.data.ads;
       const category = data.filter((a) => a?.category == id?.[0]).slice(0, 6);
       setAds(category);
@@ -147,39 +148,46 @@ const Details = () => {
                       }}
                     ></div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {!postDetails?.imgOne ||
+                    <div className={style.postImages}>
+
+                    <Image.PreviewGroup
+                    preview={{
+                      onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),
+                    }}
+                  >
+                           {!postDetails?.imgOne ||
                       postDetails?.imgOne == "empty" ? (
                         ""
                       ) : (
+                    
                         <Image
-                          className={style.fImg}
-                          width={1000}
-                          height={1000}
-                          src={postDetails?.imgOne}
-                        />
+                      
+                        width={200}
+                        height={250}
+                        src={postDetails?.imgOne}
+                      />
+                      
                       )}
-
                       {!postDetails?.imgTwo ||
                       postDetails?.imgTwo == "empty" ? (
                         ""
                       ) : (
                         <Image
                           className={style.fImg}
-                          width={1000}
-                          height={1000}
+                          width={200}
+                          height={250}
                           src={postDetails?.imgTwo}
                         />
                       )}
-
+                      
                       {!postDetails?.imgThree ||
                       postDetails?.imgThree == "empty" ? (
                         ""
                       ) : (
                         <Image
                           className={style.fImg}
-                          width={1000}
-                          height={1000}
+                          width={200}
+                          height={250}
                           src={postDetails?.imgThree}
                         />
                       )}
@@ -189,32 +197,21 @@ const Details = () => {
                       ) : (
                         <Image
                           className={style.fImg}
-                          width={1000}
-                          height={1000}
+                          width={200}
+                          height={250}
                           src={postDetails?.imgFour}
                         />
                       )}
+                  </Image.PreviewGroup>
+
+             
+
+
+
                     </div>
                   </div>
                   <div>
-                    {/* <ul className="m-10 text-black">
-                      <li className="list-disc">
-                        age :{" "}
-                        <span className="text-red-600">{postDetails?.age}</span>
-                      </li>
-                      <li className="list-disc">
-                        Mobile :{" "}
-                        <span className="text-red-600">
-                          {postDetails?.phone}
-                        </span>{" "}
-                      </li>
-                      <li className="list-disc">
-                        Email :{" "}
-                        <span className="text-red-600">
-                          {postDetails?.email}
-                        </span>
-                      </li>
-                    </ul> */}
+                 
                   </div>
 
                   <Link
@@ -234,8 +231,8 @@ const Details = () => {
               <h1 className="text-black text-2xl">Most Popular Ads</h1>
               <div className="flex justify-center">
                 {newAds?.map((a) => (
-                  <div className="m-2">
-                    <a href={`${a?.link}`} target="_blank" rel="noreferrer">
+                  <div className="m-2 text-blue-600">
+                    <a href={`${a?.link}`} target="_blank" rel="noreferrer" className="text-blue-600">
                       <img className="w-full h-36" src={a?.image} />
                       <p className="text-blue-400 underline">{a?.title}</p>
                     </a>

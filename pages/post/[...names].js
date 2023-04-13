@@ -777,10 +777,10 @@ const Post = () => {
                           className={style.othersLinkImage}
                           src={`${a.image}`}
                           width={200}
-                          height={100}
+                          height={200}
                           alt="image"
                         />
-                        <p className="">{a.title}</p>
+                        <p className="text-blue-400">{a.title}</p>
                       </a>
                     </div>
                   ))}

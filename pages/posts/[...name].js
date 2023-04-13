@@ -96,13 +96,13 @@ let initialState = {
           setLocal("null")
           return
         }else{
-          setLocal(e?.length * 0.5);
+          setLocal(e?.length * 0.05);
         }
       
 
       }
       if (e.query.name?.[0] == "local-ads") {
-        setLocal(0.5);
+        setLocal(0.05);
       }
       if (e.query.name?.[0] == "free-ads") {
         setLocal(0.0);
