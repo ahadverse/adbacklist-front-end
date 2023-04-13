@@ -18,7 +18,6 @@ const Header2 = () => {
   }, []);
 
   const logout = () => {
-    router.push("/login")
     Cookies.remove("token");
   };
 
@@ -47,51 +46,61 @@ const Header2 = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-            {user ? (
-              <>
-                {router.asPath == "/dashboard" ? (
+              {user ? (
+                <>
+                  {router.asPath == "/dashboard/profile" ? (
+                    <li>
+                      <Link href="/">Home</Link>
+                    </li>
+                  ) : (
+                    <li>
+                      <Link href="/dashboard/profile">Dashboard</Link>
+                    </li>
+                  )}
                   <li>
-                    <Link href="/">Home</Link>
+                    <Link href="/blogs">Blogs</Link>
                   </li>
-                ) : (
+                  <li
+                    onClick={() => logout()}
+                    className="bg-red-600 p-2 text-white font-bold rounded"
+                  >
+                    <a
+                      href="/login"
+                      className="bg-red-600 p-2 text-white font-bold"
+                    >
+                      Logout
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <>
                   <li>
-                    <Link href="/dashboard">Dashboard</Link>
+                    <Link href="/blogs">Blogs</Link>
                   </li>
-                )}
-                <li>
-                  <Link href="/blogs">Blogs</Link>
-                </li>
-                <li onClick={() => logout()}   className="bg-red-600 p-2 text-white font-bold rounded">
-              
-                    Logout
-           
-                </li>{" "}
-              </>
-            ) : (
-              <>
-                <li>
-                  <Link href="/blogs">Blogs</Link>
-                </li>
-                <li>
-                  <Link href="/login">Login</Link>
-                </li>
-                <li>
-                  <Link href="/register">Registration</Link>
-                </li>
-              </>
-            )}
-    
+                  <li>
+                    <Link href="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link href="/register">Registration</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
-          <h1 className={styles.title}> <Link  href="/">ADBACKLIST</Link> </h1>
-          <Link href={'/user/post'}><button className={styles.postButton}> + Add Post </button></Link>
+          <h1 className={styles.title}>
+            {" "}
+            <Link href="/">ADBACKLIST</Link>{" "}
+          </h1>
+          <Link href={"/user/post"}>
+            <button className={styles.postButton}> + Add Post </button>
+          </Link>
         </div>
 
         <div className="navbar-end">
           <ul className={styles.menu}>
             {user ? (
               <>
-                {router.asPath == "/dashboard" ? (
+                {router.asPath == "/dashboard/profile" ? (
                   <li>
                     <Link href="/">Home</Link>
                   </li>
@@ -128,52 +137,6 @@ const Header2 = () => {
           </ul>
         </div>
       </div>
-      {/* <div className={styles.header}>
-        <div className="flex items-center">
-          <h1 className={styles.title}>ADBACKLIST</h1>
-          <Link href={"/user/post"}>
-            <button className={styles.postButton}> + Add Post </button>
-          </Link>
-        </div>
-        <ul className={styles.menu}>
-          {user ? (
-            <>
-              {router.asPath == "/dashboard" ? (
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-              ) : (
-                <li>
-                  <Link href="/dashboard">Dashboard</Link>
-                </li>
-              )}
-              <li>
-                <Link href="/blogs">Blogs</Link>
-              </li>
-              <li onClick={() => logout()}>
-                <Link
-                  href="/login"
-                  className="bg-red-600 p-2 text-white font-bold"
-                >
-                  Logout
-                </Link>
-              </li>{" "}
-            </>
-          ) : (
-            <>
-              <li>
-                <Link href="/blogs">Blogs</Link>
-              </li>
-              <li>
-                <Link href="/login">Login</Link>
-              </li>
-              <li>
-                <Link href="/register">Registration</Link>
-              </li>
-            </>
-          )}
-        </ul>
-      </div> */}
     </div>
   );
 };

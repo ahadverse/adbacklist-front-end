@@ -165,8 +165,7 @@ let initialState = {
               })),
              "" == o.category ||
             "" == o.description ||
-            "" == o.name ||
-            "" == o.imgOne)
+            "" == o.name)
         ) {
           l({ ...a, error: "All fields are required including an image" });
           g(!1);
