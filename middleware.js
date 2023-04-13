@@ -8,8 +8,9 @@ export default function middleware(req) {
   const decoded = verify ? jwt_decode(verify?.value) : "";
 
   if (url.includes("/user/post")) {
+
     try {
-      if (decoded == undefined && !decoded?.email) {
+      if (!decoded?.email) {
         return NextResponse.rewrite(new URL("/login", url));
       } else {
         return NextResponse.next();
