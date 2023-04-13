@@ -198,8 +198,8 @@ let initialState = {
           .then((e) => e.json())
           .then((t) => {
             localStorage.removeItem("cities")
-            const newCredit = users?.credit - local
-            console.log(newCredit)
+            const newCredit = users?.credit - local.toFixed(2)
+      
             axios
               .patch(
                 `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
@@ -266,17 +266,17 @@ let initialState = {
                   </p>
                   {e?.query?.name?.[0] == "free-ads" && (
                     <p className="text-blue-600 font-bold w-10/12 sm:w-4/12">
-                      You will be charged : ${local}
+                      You will be charged : ${local.toFixed(2)}
                     </p>
                   )}
                   {e?.query?.name?.[0] == "local-ads" && (
                     <p className="text-blue-600 font-bold w-10/12 sm:w-4/12">
-                      You will be charged : ${local}
+                      You will be charged : ${local.toFixed(2)}
                     </p>
                   )}
                   {e?.query?.name?.[0] == "multiple-city-ads" && (
                     <div className="text-blue-600 font-bold w-10/12 sm:w-4/12">
-                      You will be charged : ${local}
+                      You will be charged : ${local.toFixed(2)}
                     </div>
                   )}
                 </div>
