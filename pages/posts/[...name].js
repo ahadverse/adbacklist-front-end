@@ -125,7 +125,7 @@ let initialState = {
         if (
           (O[0] &&
             (r.append("images", O[0].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+            await fetch("http://localhost:5000/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -135,7 +135,7 @@ let initialState = {
               })),
           O[1] &&
             (r.append("images", O[1].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+            await fetch("http://localhost:5000/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -145,7 +145,7 @@ let initialState = {
               })),
           O[2] &&
             (r.append("images", O[2].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+            await fetch("http://localhost:5000/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -155,7 +155,7 @@ let initialState = {
               })),
           O[3] &&
             (r.append("images", O[3].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+            await fetch("http://localhost:5000/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -169,6 +169,7 @@ let initialState = {
             "" == o.imgOne)
         ) {
           l({ ...a, error: "All fields are required including an image" });
+          g(!1);
           return;
         }
         if (
@@ -187,7 +188,7 @@ let initialState = {
 
         
 
-        await fetch("https://api-adbacklist.vercel.app/api/products", {
+        await fetch("http://localhost:5000/api/products", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -202,7 +203,7 @@ let initialState = {
             console.log(newCredit)
             axios
               .patch(
-                `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
+                `http://localhost:5000/api/users/${users?._id}`,
                 { credit : newCredit },
                 {
                   headers: {
@@ -226,7 +227,7 @@ let initialState = {
                         })
                         .then(
                           setTimeout(() => {
-                            e.push("/dashboard");
+                            e.push("/dashboard/profile");
                           }, 500)
                         );
                 }
@@ -384,7 +385,7 @@ let initialState = {
                     <option value="category">-- Select Category --</option>
 
                     {y?.map((e) => (
-                      <option value={e?.name}>{e?.name}</option>
+                      <option value={e?.name} key={e?.name} >{e?.name}</option>
                     ))}
                   </select>
                 </label>
@@ -405,7 +406,7 @@ let initialState = {
                     </option>
 
                     {F?.children?.map((e) => (
-                      <option value={e?.name}>{e?.name}</option>
+                      <option value={e?.name} key={e?.name}>{e?.name}</option>
                     ))}
                   </select>
                 </label>
@@ -417,7 +418,7 @@ let initialState = {
                   <br />
                   <Editor
               onBlur={log}
-              apiKey="1l3rqg56q1b0tdnbztw07axma3g7kepktv1splh9fq3a1469"
+              apiKey="85y33d08bi5k84w3nxa07aq607ko8v165dau2joyygooce9j"
               onInit={(evt, editor) => (editorRef.current = editor)}
               initialValue={a.description}
               

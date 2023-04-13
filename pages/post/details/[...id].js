@@ -34,7 +34,7 @@ const Details = () => {
   async function getUser(id) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/products/${id?.[1]}`
+        `http://localhost:5000/api/products/${id?.[1]}`
       );
       setPost(response.data.data.product);
       setLoading(false);
@@ -46,9 +46,7 @@ const Details = () => {
 
   async function getAds() {
     try {
-      const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/sideads`
-      );
+      const response = await axios.get(`http://localhost:5000/api/sideads`);
       const data = response.data.ads;
       const category = data.filter((a) => a?.category == id?.[0]).slice(0, 6);
       setAds(category);
@@ -114,15 +112,18 @@ const Details = () => {
                     {postDetails?.name}
                   </h1>
                   <div className="flex flex-col mt-5 mb-5 sm:flex-row">
-                  {postDetails?.email ?      <a
-                      href={`mailto:${postDetails?.email}`}
-                      className="flex items-center justify-center bg-green-500 text-white px-2 font-bold border rounded"
-                    >
-                      {" "}
-                      <AiOutlineMail className="text-3xl mr-2 cursor-pointer" />{" "}
-          {postDetails?.email}
-                    </a>: ""}
-                
+                    {postDetails?.email ? (
+                      <a
+                        href={`mailto:${postDetails?.email}`}
+                        className="flex items-center justify-center bg-green-500 text-white px-2 font-bold border rounded"
+                      >
+                        {" "}
+                        <AiOutlineMail className="text-3xl mr-2 cursor-pointer" />{" "}
+                        {postDetails?.email}
+                      </a>
+                    ) : (
+                      ""
+                    )}
                     {postDetails?.phone ? (
                       <a
                         href={`tel:${postDetails?.phone}`}
@@ -153,8 +154,8 @@ const Details = () => {
                       ) : (
                         <Image
                           className={style.fImg}
-                          width={200}
-                          height={200}
+                          width={1000}
+                          height={1000}
                           src={postDetails?.imgOne}
                         />
                       )}
@@ -165,8 +166,8 @@ const Details = () => {
                       ) : (
                         <Image
                           className={style.fImg}
-                          width={200}
-                          height={200}
+                          width={1000}
+                          height={1000}
                           src={postDetails?.imgTwo}
                         />
                       )}
@@ -177,8 +178,8 @@ const Details = () => {
                       ) : (
                         <Image
                           className={style.fImg}
-                          width={200}
-                          height={200}
+                          width={1000}
+                          height={1000}
                           src={postDetails?.imgThree}
                         />
                       )}
@@ -188,8 +189,8 @@ const Details = () => {
                       ) : (
                         <Image
                           className={style.fImg}
-                          width={200}
-                          height={200}
+                          width={1000}
+                          height={1000}
                           src={postDetails?.imgFour}
                         />
                       )}

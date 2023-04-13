@@ -27,9 +27,10 @@ const Dashboards = () => {
   };
 
   async function transactions(users) {
+
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/transaction?q=${users?.email}`,
+        `http://localhost:5000/api/transaction/${users?._id}`,
         {
           method: "GET",
         }
@@ -56,7 +57,8 @@ const Dashboards = () => {
     }
   }, [users]);
 
-console.log(rechargeHistory)
+
+
 
   return (
     <div className="bg-gray-100">

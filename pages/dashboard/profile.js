@@ -29,7 +29,7 @@ const Dashboards = () => {
   async function posts(users) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}`,
+        `http://localhost:5000/api/products/posterid/${users?._id}`,
         {
           method: "GET",
           headers: {
@@ -70,7 +70,7 @@ const Dashboards = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://api-adbacklist.vercel.app/api/products/${id}`, {})
+          .delete(`http://localhost:5000/api/products/${id}`, {})
           .then((response) => {
             if (response.data.status == "success") {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -98,7 +98,10 @@ const Dashboards = () => {
             Ads : {ads.length}
           </button>
         </div>
+        <div>
         <p className="text-lg sm:text-3xl text-black">{users?.email}</p>
+        <Link className="text-blue-400" href={`/user/edit/${users._id}`}>Edit Profile</Link>
+        </div>
       </div>
       <div className="m-0 sm:m-10" >
         <div className="bg-black text-white my-5 p-2 flex justify-between">
@@ -154,9 +157,12 @@ const Dashboards = () => {
                           {a.category} &#62; {a.subCategory}
                         </td>
                         <td className="text-center">
-                          <p className="bg-gray-600 sm:w-2/12 w-6/12 rounded text-white">
-                            {a.isPremium ? "Yes" : "No"}
-                          </p>
+                        {a.isPremium ?    <p className="bg-green-600 sm:w-2/12 w-6/12 rounded text-white">
+                          Yes
+                          </p> : <p className="bg-red-600 sm:w-2/12 w-6/12 rounded text-white">
+                          No
+                          </p>}
+                       
                         </td>
                         <td className="flex justify-between">
                           {" "}
