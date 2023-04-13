@@ -116,14 +116,14 @@ let initialState = {
     async function posts(id) {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/${id}`,
+          `https://api-adbacklist.vercel.app/api/products/${id}`,
           {
             method: "GET",
           }
         );
 
         const newPost = response.data.data.product;
-     
+
         setLoading(false);
         l({
           ...a,
@@ -145,10 +145,10 @@ let initialState = {
           description: newPost.description,
         });
         S([
-          { name : "img One" , url: newPost.imgOne },
-          { name : "img Two"  , url: newPost.imgTwo },
-          {name : "img Three" , url: newPost.imgThree },
-          { name : "img Four"  ,url: newPost.imgFour },
+          { name: "img One", url: newPost.imgOne },
+          { name: "img Two", url: newPost.imgTwo },
+          { name: "img Three", url: newPost.imgThree },
+          { name: "img Four", url: newPost.imgFour },
         ]);
       } catch (error) {
         console.error(error);
@@ -162,21 +162,17 @@ let initialState = {
       }
     }, [e?.query]);
 
-
-
-
     let q = async (t) => {
         g(!0);
         let o = { ...a },
           r = new FormData();
 
-
         if (O[0]) {
           if (O[0].originFileObj == undefined) {
-            o.imgOne = O[0].url 
+            o.imgOne = O[0].url;
           } else {
             r.append("images", O[0].originFileObj);
-            await fetch("http://localhost:5000/api/image/upload-file", {
+            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -186,16 +182,16 @@ let initialState = {
                 o.imgOne = e.payload.url;
               });
           }
-        }else if(!O[0]){
-            o.imgOne = "empty";
+        } else if (!O[0]) {
+          o.imgOne = "empty";
         }
-        
+
         if (O[1]) {
           if (O[1].originFileObj == undefined) {
-            o.imgTwo = O[1].url ;
+            o.imgTwo = O[1].url;
           } else {
             r.append("images", O[1].originFileObj);
-            await fetch("http://localhost:5000/api/image/upload-file", {
+            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -205,16 +201,16 @@ let initialState = {
                 o.imgTwo = e.payload.url;
               });
           }
-        }else if(!O[1]){
-            o.imgTwo = "empty";
+        } else if (!O[1]) {
+          o.imgTwo = "empty";
         }
 
         if (O[2]) {
           if (O[2].originFileObj == undefined) {
-            o.imgThree =O[2].url ;
+            o.imgThree = O[2].url;
           } else {
             r.append("images", O[2].originFileObj);
-            await fetch("http://localhost:5000/api/image/upload-file", {
+            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -224,16 +220,16 @@ let initialState = {
                 o.imgThree = e.payload.url;
               });
           }
-        }else if(!O[2]){
-            o.imgThree = "empty";
+        } else if (!O[2]) {
+          o.imgThree = "empty";
         }
 
         if (O[3]) {
           if (O[3].originFileObj == undefined) {
-            o.imgFour = O[3].url ;
+            o.imgFour = O[3].url;
           } else {
             r.append("images", O[3].originFileObj);
-            await fetch("http://localhost:5000/api/image/upload-file", {
+            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -243,40 +239,33 @@ let initialState = {
                 o.imgFour = e.payload.url;
               });
           }
-        }else if(!O[3]){
-            o.imgFour = "empty";
+        } else if (!O[3]) {
+          o.imgFour = "empty";
         }
 
         const options = {
-            headers: {
-              "content-type": "application/json",
-            },
-          };
+          headers: {
+            "content-type": "application/json",
+          },
+        };
 
-          console.log(o)
         await axios
-        .patch(
-          `http://localhost:5000/api/products/${e.query.id}`,
-          o,
-          options
-        )
-        .then((res) => {
-          g(!1);
-          if (res.data.status == "success") {
-            Swal.fire({
-              position: "top-center",
-              icon: "success",
-              title: "Your Profile has been updated",
-              showConfirmButton: false,
-              timer: 1500,
-            })
-            .then((t) => {
-                // e.push("/dashboard")
-            });
-          }
-        });
- },
-
+          .patch(`https://api-adbacklist.vercel.app/api/products/${e.query.id}`, o, options)
+          .then((res) => {
+            g(!1);
+            if (res.data.status == "success") {
+              Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Your Profile has been updated",
+                showConfirmButton: false,
+                timer: 1500,
+              }).then((t) => {
+                e.push("/dashboard/profile");
+              });
+            }
+          });
+      },
       B = (
         <div>
           <AiFillPlusCircle className="text-2xl sm:text-4xl m-auto" />
@@ -284,8 +273,6 @@ let initialState = {
           <div style={{ marginTop: 8 }}>Upload</div>
         </div>
       );
-
-      console.log(a)
 
     return (
       <div>
@@ -363,7 +350,6 @@ let initialState = {
                   <br />
                   <input
                     type="email"
-                    
                     onChange={(e) =>
                       b({ type: "email", payload: e.target.value })
                     }
@@ -371,8 +357,6 @@ let initialState = {
                     className="input bg-gray-100 w-full "
                   />
                 </label>
-
- 
 
                 <label className="text-black font-bold text-xs sm:text-xl">
                   Your Age :
@@ -435,50 +419,49 @@ let initialState = {
                   Description :
                   <br />
                   <Editor
-              onBlur={log}
-              apiKey="1l3rqg56q1b0tdnbztw07axma3g7kepktv1splh9fq3a1469"
-              onInit={(evt, editor) => (editorRef.current = editor)}
-              initialValue={a.description}
-              
-              init={{
-                height: 250,
-                menubar: false,
-                plugins: [
-                  "advlist",
-                  "autolink",
-                  "lists",
-                  "link",
-                  "image",
-                  "charmap",
-                  "preview",
-                  "anchor",
-                  "searchreplace",
-                  "visualblocks",
-                  "code",
-                  "fullscreen",
-                  "insertdatetime",
-                  "media",
-                  "table",
-                  "code",
-                  "help",
-                  "wordcount",
-                ],
-                toolbar:
-                  "insertfile image media pageembed template link anchor codesample | bold italic forecolor | alignleft aligncenter " +
-                  "undo redo | blocks | " +
-                  "alignright alignjustify | bullist numlist outdent indent | " +
-                  "removeformat | help",
-                image_caption: true,
-                image_advtab: true,
-                content_style:
-                  "body { font-family:Helvetica,Arial,sans-serif; font-size:14px ;  }",
-                relative_urls: true,
-              }}
-            />
+                    onBlur={log}
+                    apiKey="1l3rqg56q1b0tdnbztw07axma3g7kepktv1splh9fq3a1469"
+                    onInit={(evt, editor) => (editorRef.current = editor)}
+                    initialValue={a.description}
+                    init={{
+                      height: 250,
+                      menubar: false,
+                      plugins: [
+                        "advlist",
+                        "autolink",
+                        "lists",
+                        "link",
+                        "image",
+                        "charmap",
+                        "preview",
+                        "anchor",
+                        "searchreplace",
+                        "visualblocks",
+                        "code",
+                        "fullscreen",
+                        "insertdatetime",
+                        "media",
+                        "table",
+                        "code",
+                        "help",
+                        "wordcount",
+                      ],
+                      toolbar:
+                        "insertfile image media pageembed template link anchor codesample | bold italic forecolor | alignleft aligncenter " +
+                        "undo redo | blocks | " +
+                        "alignright alignjustify | bullist numlist outdent indent | " +
+                        "removeformat | help",
+                      image_caption: true,
+                      image_advtab: true,
+                      content_style:
+                        "body { font-family:Helvetica,Arial,sans-serif; font-size:14px ;  }",
+                      relative_urls: true,
+                    }}
+                  />
                 </label>
               </div>
 
-              {a?.city ? (
+              {a?.city !== "" ? (
                 <div className="sm:w-3/4 w-full  m-auto pt-10 ">
                   <label className="text-black font-bold text-xs sm:text-xl">
                     Selected Area :
@@ -487,18 +470,25 @@ let initialState = {
                     </div>
                   </label>
                 </div>
-              ) :   <div className="sm:w-3/4 w-full  m-auto pt-10 ">
-              <label className="text-black font-bold text-xs sm:text-xl">
-                Selected Area :
-                <div className={n.locationLi}>
-                  {a?.cities.map((a) => (
-                        <li className="list-decimal mr-1">{a}</li>
-                      ))}
+              ) : (
+                <div className="sm:w-3/4 w-full  m-auto pt-10 ">
+                  <label className="text-black font-bold text-xs sm:text-xl">
+                    Selected Area :
+                    <div className={n.locationLi}>
+                      {a?.cities && (
+                        <>
+                          {" "}
+                          {a?.cities?.map((a) => (
+                            <li className="list-decimal mr-1" key={a}>
+                              {a}
+                            </li>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                  </label>
                 </div>
-              </label>
-            </div>}
-
-          
+              )}
 
               <p className="text-red-600 text-xs">{a.error}</p>
 
