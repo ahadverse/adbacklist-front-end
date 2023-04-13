@@ -6,6 +6,7 @@ const Footer = dynamic(() => import("@/component/footer/footer2"));
 const Header = dynamic(() => import("@/component/header/header"));
 
 const Post = () => {
+    
     return (
         <div>
             <Head>

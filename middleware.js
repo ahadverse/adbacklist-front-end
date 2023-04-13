@@ -9,7 +9,7 @@ export default function middleware(req) {
 
   if (url.includes("/user/post")) {
     try {
-      if (verify == undefined && !decoded?.email) {
+      if (decoded == undefined && !decoded?.email) {
         return NextResponse.rewrite(new URL("/login", url));
       } else {
         return NextResponse.next();
@@ -18,6 +18,7 @@ export default function middleware(req) {
       return NextResponse.rewrite(new URL("/login", url));
     }
   }
+
   if (url.includes("/dashboard")) {
     try {
       if (verify == undefined && !decoded?.email) {
