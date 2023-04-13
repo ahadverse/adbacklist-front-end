@@ -262,7 +262,7 @@ let initialState = {
                 timer: 1500,
               }).then((t) => {
                 e.push("/dashboard/profile");
-              });
+              }).catch(err => console.log(err));
             }
           });
       },

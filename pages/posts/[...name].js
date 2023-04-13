@@ -230,7 +230,7 @@ let initialState = {
                           }, 500)
                         );
                 }
-              });
+              }).catch(err => console.log(err));
           });
       },
 
