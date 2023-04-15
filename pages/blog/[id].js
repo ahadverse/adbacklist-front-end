@@ -49,7 +49,7 @@ const BlogDetails = () => {
         <title>{blog?.title ? `${blog?.title}` : "loading"}</title>
         <link rel="icon" href="/favicon.ico" />
        <meta name="description" content={blog?.metaDesc} />
-       <meta name="keyword" content={blog?.metaKey} />
+       <meta name="keywords" content={blog?.metaKey} />
       </Head>
       <Header />
       {isloading ? (
