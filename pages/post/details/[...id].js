@@ -214,7 +214,7 @@ const Details = () => {
                
 
                   <Link
-                    href={`/reports/${id[1]}__${postDetails?.owner?.[0]?._id}`}
+                    href={`/reports/${id?.[1]}__${postDetails?.owner?.[0]?._id}`}
                   >
                     <button className="flex items-center justify-center bg-red-500 text-white px-2 font-bold border rounded">
                       <ImBlocked className="text-xl mr-2 cursor-pointer" />{" "}
