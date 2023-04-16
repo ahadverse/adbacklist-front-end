@@ -59,7 +59,6 @@ const Post = () => {
       const cityPost = forcity?.filter(
         (a) => a?.subCategory == router?.query?.names[2]
       );
-      console.log(cityPost);
       const day1time = new Date().toDateString();
       const day1 = cityPost.filter(
         (a) => new Date(a.updatedAt).toDateString() == day1time
@@ -771,7 +770,7 @@ const Post = () => {
                 </div>
                 <div className={style.othersLink}>
                   {ads.map((a) => (
-                    <div className={style.othersLinkContainer}>
+                    <div className={style.othersLinkContainer} key={a._id}>
                       <a href={`${a.link}`} target="_blank" rel="noreferrer">
                         <Image
                           className={style.othersLinkImage}

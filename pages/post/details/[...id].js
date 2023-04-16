@@ -49,6 +49,7 @@ const Details = () => {
         `https://api-adbacklist.vercel.app/api/sideads`
       );
       const data = response.data.ads;
+
       const category = data.filter((a) => a?.category == id?.[0]).slice(0, 6);
       setAds(category);
     } catch (error) {
@@ -161,7 +162,7 @@ const Details = () => {
                       ) : (
                     
                         <Image
-                      
+                        className={style.fImg}
                         width={200}
                         height={250}
                         src={postDetails?.imgOne}
@@ -210,12 +211,10 @@ const Details = () => {
 
                     </div>
                   </div>
-                  <div>
-                 
-                  </div>
+               
 
                   <Link
-                    href={`/reports/${id}__${postDetails?.owner?.[0]?._id}`}
+                    href={`/reports/${id[1]}__${postDetails?.owner?.[0]?._id}`}
                   >
                     <button className="flex items-center justify-center bg-red-500 text-white px-2 font-bold border rounded">
                       <ImBlocked className="text-xl mr-2 cursor-pointer" />{" "}
@@ -229,11 +228,11 @@ const Details = () => {
                 </>
               )}
               <h1 className="text-black text-2xl">Most Popular Ads</h1>
-              <div className="flex justify-center">
+              <div className="flex-wrap justify-center sm:flex">
                 {newAds?.map((a) => (
-                  <div className="m-2 text-blue-600">
+                  <div className="m-2 text-blue-600" key={a._id}>
                     <a href={`${a?.link}`} target="_blank" rel="noreferrer" className="text-blue-600">
-                      <img className="w-full h-36" src={a?.image} />
+                      <img className="w-full h-48" src={a?.image} />
                       <p className="text-blue-400 underline">{a?.title}</p>
                     </a>
                   </div>

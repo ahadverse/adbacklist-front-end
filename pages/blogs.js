@@ -22,7 +22,7 @@ const Blogs = () => {
   async function getUser() {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/blogs?q=${keyword}`
+        `https://api-adbacklist.vercel.app/api/blogs/`
       );
       const data = response.data.data.blogs;
 
@@ -37,33 +37,33 @@ const Blogs = () => {
   useEffect(() => {
     setIsLoading(true);
     getUser();
-  }, [keyword]);
+  }, []);
 
-  useEffect(() => {
-    if (catKey) {
-      const data = blogs.filter((a) => a.category == catKey);
-      setData(data);
-    } else {
-      const data = blogs.filter((a) => a.category);
-      setData(data);
-    }
-  }, [catKey, isloading]);
+  const newBlogs = blogs.filter(a => catKey ? a.category == catKey : a.category).filter(a=> keyword ? a.title.toLowerCase().includes(keyword.toLowerCase()) : a.title)
+
+
+
 
   const itemsPerPage = 6;
 
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = data?.slice(itemOffset, endOffset);
-  const pageCount = Math?.ceil(data?.length / itemsPerPage);
+  const currentItems = newBlogs?.slice(itemOffset, endOffset);
+  const pageCount = Math?.ceil(newBlogs?.length / itemsPerPage);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % blogs.length;
+    const newOffset = (event.selected * itemsPerPage) % newBlogs.length;
     setItemOffset(newOffset);
   };
 
   const onSearch = (e) => {
     setKeyword(e);
+    setItemOffset(0);
   };
+
+
+
+
 
   return (
     <div className="bg-gray-100">
@@ -76,7 +76,7 @@ const Blogs = () => {
         <div className="w-full flex items-center justify-between p-2 bg-white">
           <div>
             <p className="text-xs sm:text-base">
-              Showing 10 post of {blogs?.length}
+              Showing  {currentItems?.length} post of {blogs?.length}
             </p>
           </div>
 
@@ -108,6 +108,9 @@ const Blogs = () => {
           <>
             <div className={style.blogContainer}>
               <>
+              {
+                currentItems.length == 0 ? "No Blog Found" : ""
+              }
                 {currentItems?.map((a) => (
                   <Link href={`/blog/${a.permalink}`} key={a._id}>
                     <div className={style.card}>
