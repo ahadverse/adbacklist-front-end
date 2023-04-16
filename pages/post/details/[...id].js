@@ -35,7 +35,7 @@ const Details = () => {
       const response = await axios.get(
         `https://api-adbacklist.vercel.app/api/products/${id?.[1]}`
       );
-      setPost(response.data.data.product);
+      setPost(response.data.data.product[0]);
       setLoading(false);
     } catch (error) {
       setLoading(false);
