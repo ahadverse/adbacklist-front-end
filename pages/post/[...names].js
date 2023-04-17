@@ -9,6 +9,7 @@ import style from "../../styles/postPage.module.css";
 const Footer = dynamic(() => import("@/component/footer/footer"));
 const Header = dynamic(() => import("@/component/header/header"));
 import Image from "next/image";
+import { Pagination } from "antd";
 
 const initialState = {
   day1: [],
@@ -40,7 +41,6 @@ const Post = () => {
   const [reload, setReload] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [age, setAge] = useState("");
-  const [searchPage, setsearchPage] = useState(1);
   const [page, setPage] = useState(1);
 
 
@@ -49,6 +49,7 @@ const Post = () => {
       const response = await axios.get(
         `https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}`
       );
+
 
       const forcity = response.data.data.products?.filter(
         (a) =>
@@ -59,10 +60,13 @@ const Post = () => {
       const cityPost = forcity?.filter(
         (a) => a?.subCategory == router?.query?.names[2]
       );
+
       const day1time = new Date().toDateString();
       const day1 = cityPost.filter(
         (a) => new Date(a.updatedAt).toDateString() == day1time
       );
+
+
 
       const day2time = new Date(
         new Date().getTime() - 24 * 60 * 60 * 1000
@@ -70,6 +74,7 @@ const Post = () => {
       const day2 = cityPost.filter(
         (a) => new Date(a.updatedAt).toDateString() == day2time
       );
+
 
       const day3time = new Date(
         new Date().getTime() - 24 * 60 * 60 * 1000 * 2
@@ -144,6 +149,7 @@ const Post = () => {
   }
 
 
+
   async function getAds() {
     try {
       const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
@@ -177,9 +183,12 @@ const Post = () => {
     }
   }, [post, router?.query?.names, reload]);
 
-  const searchbypage = () => {
-    setPage(searchPage);
+
+
+  const onChange = (pageNumber) => {
+    setPage(pageNumber)
   };
+
 
   const setAdult = (e) => {
     Cookies.set("age", e);
@@ -749,25 +758,16 @@ const Post = () => {
                     "No Post Found"
                   )}
                   <hr className={style.hr} />
+
                   <div className={style.paginate}>
-                    <button onClick={() => setPage(1)}>1</button>
-                    <button onClick={() => setPage(2)}>2</button>
-                    <button onClick={() => setPage(3)}>3</button>
-                    <button onClick={() => setPage(4)}>4</button>
-                    <button onClick={() => setPage(5)}>5</button>
-                    <hr />
-                    <div>
-                      <input
-                        className={style.paginateSearch}
-                        type="number"
-                        placeholder="Page"
-                        onChange={(e) => setsearchPage(e.target.value)}
-                        defaultValue={page}
-                      ></input>
-                      <button onClick={() => searchbypage()}>Search</button>
-                    </div>
+                    <Pagination showQuickJumper showSizeChanger={false} defaultCurrent={page} onChange={onChange} total={500} />
+
                   </div>
+
+
                 </div>
+
+
                 <div className={style.othersLink}>
                   {ads.map((a) => (
                     <div className={style.othersLinkContainer} key={a._id}>
