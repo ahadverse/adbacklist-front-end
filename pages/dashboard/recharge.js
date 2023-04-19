@@ -28,24 +28,26 @@ const Dashboards = () => {
 
   async function transactions(users) {
 
-    try {
-      const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/transaction/${users?._id}`,
-        {
-          method: "GET",
-        }
-      );
-
-      if (response?.code == 404) {
-        setRechargeHistory([]);
-      } else {
-        const trans = response.data?.data?.transactions;
-        setRechargeHistory(trans);
-        setLoading(false);
+ if(users?._id){
+  try {
+    const response = await axios.get(
+      `https://api-adbacklist.vercel.app/api/transaction/${users?._id}`,
+      {
+        method: "GET",
       }
-    } catch (error) {
-      console.log(error);
+    );
+
+    if (response?.code == 404) {
+      setRechargeHistory([]);
+    } else {
+      const trans = response.data?.data?.transactions;
+      setRechargeHistory(trans);
+      setLoading(false);
     }
+  } catch (error) {
+    console.log(error);
+  }
+ }
   }
 
   useEffect(() => {

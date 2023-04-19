@@ -27,25 +27,27 @@ const Dashboards = () => {
   };
 
   async function posts(users) {
-    try {
-      const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}`,
-        {
-          method: "GET",
-          headers: {
-            authorization: `Bearer ${usersStringfy}`,
-          },
+    if(users?._id){
+      try {
+        const response = await axios.get(
+          `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}`,
+          {
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${usersStringfy}`,
+            },
+          }
+        );
+        setLoading(false);
+        if (response?.code == 404) {
+          setAds([]);
+        } else {
+          const post = response.data.data.product;
+          setAds(post);
         }
-      );
-      setLoading(false);
-      if (response?.code == 404) {
-        setAds([]);
-      } else {
-        const post = response.data.data.product;
-        setAds(post);
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   }
 

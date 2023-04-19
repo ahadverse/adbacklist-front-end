@@ -2,6 +2,7 @@ import axios from "axios";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
+import { Image } from "antd";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 const Footer = dynamic(() => import("@/component/footer/footer2"));
@@ -23,7 +24,7 @@ const Details = () => {
         }
       );
 
-      const newPost = response.data.data.product;
+      const newPost = response.data.data.product?.[0];
       setPost(newPost);
       setLoading(false);
     } catch (error) {
@@ -36,7 +37,10 @@ const Details = () => {
     if (id) {
       posts(id);
     }
+
   }, [router?.query]);
+
+
 
   return (
     <div className="bg-white">
@@ -66,48 +70,65 @@ const Details = () => {
             ></div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {!post?.imgOne || post.imgOne == "empty" ? (
-                ""
-              ) : (
-                <img
-                  className={style.fImg}
-                  width={200}
-                  height={200}
-                  src={post?.imgOne}
-                />
-              )}
-              {!post?.imgTwo || post.imgTwo == "empty" ? (
-                ""
-              ) : (
-                <img
-                  className={style.fImg}
-                  width={200}
-                  height={200}
-                  src={post?.imgTwo}
-                />
-              )}
 
-              {!post?.imgThree || post.imgThree == "empty" ? (
-                ""
-              ) : (
-                <img
-                  className={style.fImg}
-                  width={200}
-                  height={200}
-                  src={post?.imgThree}
-                />
-              )}
 
-              {!post?.imgFour || post.imgFour == "empty" ? (
-                ""
-              ) : (
-                <img
-                  className={style.fImg}
-                  width={200}
-                  height={200}
-                  src={post?.imgFour}
-                />
-              )}
+
+          <Image.PreviewGroup
+                    preview={{
+                      onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),
+                    }}
+                  >
+                           {!post?.imgOne ||
+                      post?.imgOne == "empty" ? (
+                        ""
+                      ) : (
+                    
+                        <Image
+                        className={style.fImg}
+                        width={200}
+                        height={250}
+                        src={post?.imgOne}
+                      />
+                      
+                      )}
+                      {!post?.imgTwo ||
+                      post?.imgTwo == "empty" ? (
+                        ""
+                      ) : (
+                        <Image
+                          className={style.fImg}
+                          width={200}
+                          height={250}
+                          src={post?.imgTwo}
+                        />
+                      )}
+                      
+                      {!post?.imgThree ||
+                      post?.imgThree == "empty" ? (
+                        ""
+                      ) : (
+                        <Image
+                          className={style.fImg}
+                          width={200}
+                          height={250}
+                          src={post?.imgThree}
+                        />
+                      )}
+                      {!post?.imgFour ||
+                      post?.imgFour == "empty" ? (
+                        ""
+                      ) : (
+                        <Image
+                          className={style.fImg}
+                          width={200}
+                          height={250}
+                          src={post?.imgFour}
+                        />
+                      )}
+                  </Image.PreviewGroup>
+
+
+
             </div>
           </div>
           <div>

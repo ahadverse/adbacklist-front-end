@@ -122,8 +122,8 @@ let initialState = {
           }
         );
 
-        const newPost = response.data.data.product;
-
+        const newPost = response.data.data.product?.[0];
+          console.log(newPost)
         setLoading(false);
         l({
           ...a,
@@ -161,6 +161,9 @@ let initialState = {
         posts(e.query.id);
       }
     }, [e?.query]);
+
+
+    console.log(a)
 
     let q = async (t) => {
         g(!0);
