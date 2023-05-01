@@ -9,20 +9,19 @@ import dynamic from "next/dynamic";
 import Drawer from "../component/drawer/drawer";
 const Footer = dynamic(() => import("@/component/footer/footer2"));
 
-
-
 const Name = () => {
   const router = useRouter();
   const { city, Headers } = Drawer(router.query);
-  const [links , setLinks] = useState([])
-  
-
+  const [links, setLinks] = useState([]);
 
   async function getUser() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/links`, {
-        method: "GET",
-      });
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/links`,
+        {
+          method: "GET",
+        }
+      );
       const data = response.data.links[0];
 
       setLinks(data);
@@ -38,9 +37,9 @@ const Name = () => {
   if (router.query.category == undefined) {
     content = (
       <div>
-          <div className="btn  bg-transparent border-0 loading flex m-auto">
-            loading
-          </div>
+        <div className="btn  bg-transparent border-0 loading flex m-auto">
+          loading
+        </div>
       </div>
     );
   }
@@ -55,31 +54,105 @@ const Name = () => {
             <p className="text-red-600 font-bold">Nearest Cities : </p>
             {city?.map((a) => (
               <p className=" ml-2 underline" key={a._id}>
-                <Link
-                  href={`/${a}`}
-                >
-                  {a}
-                </Link>
+                <Link href={`/${a}`}>{a}</Link>
               </p>
             ))}
           </div>
           <div className={style.container}>
-            {category?.map((a) => (
-              <div  key={a.name}>
+
+            <div className="flex  flex-col">
+            {category?.slice(0,3).map((a) => (
+              <div key={a.name}>
                 <h2 className={style.cateTitlte}> {a.name} </h2>
-                {a.children?.map((b) => (
-                  <ul className={style.subCategoryList} key={b.name}>
-                    <li>
-                      <Link
-                        href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
-                      >
-                        {b.name}
-                      </Link>
-                    </li>
-                  </ul>
-                ))}
+
+
+                <div className={style.categoryParent}>
+                  {a.children?.map((b) => (
+                    <ul className={style.subCategoryList} key={b.name}>
+                      <li>
+                        <Link
+                          href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
+                        >
+                          {b.name}
+                        </Link>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
               </div>
             ))}
+            </div>
+
+            <div className="flex  flex-col">
+            {category?.slice(3,5).map((a) => (
+              <div key={a.name}>
+                <h2 className={style.cateTitlte}> {a.name} </h2>
+
+
+                <div className={style.categoryParent}>
+                  {a.children?.map((b) => (
+                    <ul className={style.subCategoryList} key={b.name}>
+                      <li>
+                        <Link
+                          href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
+                        >
+                          {b.name}
+                        </Link>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            ))}
+            </div>
+
+            <div className="flex  flex-col">
+            {category?.slice(5,7).map((a) => (
+              <div key={a.name}>
+                <h2 className={style.cateTitlte}> {a.name} </h2>
+
+
+                <div className={style.categoryParent}>
+                  {a.children?.map((b) => (
+                    <ul className={style.subCategoryList} key={b.name}>
+                      <li>
+                        <Link
+                          href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
+                        >
+                          {b.name}
+                        </Link>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            ))}
+            </div>
+
+            <div className="flex  flex-col">
+            {category?.slice(7,10).map((a) => (
+              <div key={a.name}>
+                <h2 className={style.cateTitlte}> {a.name} </h2>
+
+
+                <div className={style.categoryParent}>
+                  {a.children?.map((b) => (
+                    <ul className={style.subCategoryList} key={b.name}>
+                      <li>
+                        <Link
+                          href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
+                        >
+                          {b.name}
+                        </Link>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            ))}
+            </div>
+
+
           </div>
         </>
       );
@@ -95,9 +168,19 @@ const Name = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Headers />
-      {
-        links ? <div className="flex justify-around text-xl p-2 text-blue-600"><Link href={`${links?.shemale}`}>Shemale Escorts</Link>  <Link href={`${links?.meet}`}>Meet & Fuck</Link> <Link href={`${links?.live}`}>Live Escorts</Link> </div> : <div className="flex justify-around text-xl p-2 text-blue-600"><Link href={`#`}>Shemale Escorts</Link>  <Link href={`#`}>Meet & Fuck</Link> <Link href={`#`}>Live Escorts</Link> </div>
-      }
+      {links ? (
+        <div className="flex justify-around text-xl p-2 text-blue-600">
+          <Link href={`${links?.shemale}`}>Shemale Escorts</Link>{" "}
+          <Link href={`${links?.meet}`}>Meet & Fuck</Link>{" "}
+          <Link href={`${links?.live}`}>Live Escorts</Link>{" "}
+        </div>
+      ) : (
+        <div className="flex justify-around text-xl p-2 text-blue-600">
+          <Link href={`#`}>Shemale Escorts</Link>{" "}
+          <Link href={`#`}>Meet & Fuck</Link>{" "}
+          <Link href={`#`}>Live Escorts</Link>{" "}
+        </div>
+      )}
       {content}
 
       <Footer></Footer>
