@@ -2,10 +2,12 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 const Footer = dynamic(() => import("@/component/footer/footer"));
 import styles from "../styles/moduleCss/home.module.css";
-import Script from "next/script";
+import { Inter } from "next/font/google";
 const Index = dynamic(() => import("@/component/countries"));
 const Header2 = dynamic(() => import("@/component/header/header2"));
 const Search = dynamic(() => import("@/component/search/search"));
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (

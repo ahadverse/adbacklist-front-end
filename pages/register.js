@@ -106,7 +106,7 @@ let initialState = {
             />
          
           </div>
-          <p className={o.inputBox2}>You'll get all notifications at this Gmail</p>
+          <p className={o.inputBox2}>You'll get all notifications at this Email</p>
           <div className={o.inputBox}>
             <span>
               <i />
