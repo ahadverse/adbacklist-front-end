@@ -97,7 +97,7 @@ const Dashboards = () => {
             Credits : {users?.credit?.toFixed(2)}
           </button>
           <button className="btn btn-outline btn-info">
-            Ads : {ads.length}
+            Ads : {ads?.length}
           </button>
         </div>
         <div>
