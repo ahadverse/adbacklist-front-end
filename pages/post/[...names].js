@@ -53,8 +53,8 @@ const Post = () => {
 
       const forcity = response.data.data.products?.filter(
         (a) =>
-          a.city == router?.query?.names[0] ||
-          a.cities.includes(router?.query?.names[0])
+          a?.city == router?.query?.names[0] ||
+          a?.cities?.includes(router?.query?.names[0])
       );
 
       const cityPost = forcity?.filter(
