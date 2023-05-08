@@ -8,7 +8,6 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-
 const BlogDetails = () => {
   const router = useRouter();
   const id = router.query.id;
@@ -16,10 +15,11 @@ const BlogDetails = () => {
   const [isloading, setIsLoading] = useState(false);
 
   async function getUser() {
- 
     try {
-      const response = await axios.get( `https://api-adbacklist.vercel.app/api/blogs?q=${id}`);
-      const data = response.data.data.blogs;
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/blogs/single?q=${id}`
+      );
+      const data = response.data.data.blog;
       setBlogs(data?.[0]);
       setIsLoading(false);
     } catch (error) {
@@ -30,35 +30,33 @@ const BlogDetails = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    if(!id){
-      return
-    }
-    else if(id){
+    if (!id) {
+      return;
+    } else if (id) {
       getUser();
     }
-   
-  
   }, [id]);
-
-
-
 
   return (
     <div className="bg-gray-100">
       <Head>
         <title>{blog?.title ? `${blog?.title}` : "loading"}</title>
         <link rel="icon" href="/favicon.ico" />
-       <meta name="description" content={blog?.metaDesc} />
-       <meta name="keywords" content={blog?.metaKey} />
+        <meta name="description" content={blog?.metaDesc} />
+        <meta name="keywords" content={blog?.metaKey} />
       </Head>
       <Header />
       {isloading ? (
-    <div className="btn  bg-transparent border-0 loading flex m-auto">
-    loading...
-  </div>
+        <img className="block m-auto" width={100} src="/loader.gif" />
       ) : (
         <div className="bg-white p-3 m-4 sm:m-10">
-          <Image className={style.blogImages} width={500} height={100} src={blog?.image} alt="blog image" />
+          <Image
+            className={style.blogImages}
+            width={500}
+            height={100}
+            src={blog?.image}
+            alt="blog image"
+          />
           <br />
           {blog?.category == "Adult" ? (
             <span className={style.category}> {blog?.category} </span>
@@ -74,17 +72,17 @@ const BlogDetails = () => {
             ""
           )}
 
-          {blog?.category == "Buy-Sell-Trade" ||
+          {blog?.category == "For Sell" ||
           blog?.category == "Jobs" ||
-          blog?.category == "Automotive" ? (
+          blog?.category == "Sport and Fitness" ? (
             <span className={style.category2}> {blog?.category} </span>
           ) : (
             ""
           )}
 
-          {blog?.category == "Real Estate" ||
-          blog?.category == "Rentals" ||
-          blog?.category == "Local Places" ? (
+          {blog?.category == "Housing" ||
+          blog?.category == "Electronics and Computer" ||
+          blog?.category == "Pets" ? (
             <span className={style.category3}> {blog?.category} </span>
           ) : (
             ""
@@ -93,10 +91,7 @@ const BlogDetails = () => {
           <h1 className="text-2xl text-black font-bold">
             {blog?.title}
             <br className="block sm:hidden " />
-            <span className="text-sm font-normal">
-              
-           
-            </span>
+            <span className="text-sm font-normal"></span>
           </h1>
           <br />
 
