@@ -70,7 +70,7 @@ const Dashboards = () => {
             if (response.data.status == "success") {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
-            const newPost = ads.filter((a) => a._id !== id);
+            const newPost = ads?.data?.posts?.filter((a) => a._id !== id);
             setAds(newPost);
           });
       }
