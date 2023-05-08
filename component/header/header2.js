@@ -19,6 +19,7 @@ const Header2 = () => {
 
   const logout = () => {
     Cookies.remove("token");
+    router.push("/login")
   };
 
   return (
@@ -64,12 +65,11 @@ const Header2 = () => {
                     onClick={() => logout()}
                     className="bg-red-600 p-2 text-white font-bold rounded"
                   >
-                    <a
-                      href="/login"
+                    <span
                       className="bg-red-600 p-2 text-white font-bold"
                     >
                       Logout
-                    </a>
+                    </span>
                   </li>
                 </>
               ) : (

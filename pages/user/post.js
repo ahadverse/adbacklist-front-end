@@ -1,12 +1,14 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 const Footer = dynamic(() => import("@/component/footer/footer2"));
 const Header = dynamic(() => import("@/component/header/header"));
 
 const Post = () => {
-    
+
+
     return (
         <div>
             <Head>

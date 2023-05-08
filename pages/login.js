@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-import Cookies from 'js-cookie'
-const Footer = dynamic(() => import('@/component/footer/footer2'))
+import Cookies from "js-cookie";
+const Footer = dynamic(() => import("@/component/footer/footer2"));
 import style from "../styles/moduleCss/sign.module.css";
-import axios from "axios"
-
+import axios from "axios";
 
 const initialState = {
   email: "",
@@ -27,8 +26,18 @@ const Login = () => {
     setState({ ...state, [e.type]: e.payload });
   };
 
+  const usersStringfy = Cookies.get("token");
+
+  useEffect(() => {
+    if (usersStringfy) {
+      router.push(router.asPath);
+    }
+  }, []);
+
+
+  
   const login = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setIsLoading(true);
     const data = { ...state, isLoading: true };
 
@@ -36,7 +45,6 @@ const Login = () => {
       .post("https://api-adbacklist.vercel.app/api/users/login", data)
 
       .then((response) => {
-       
         if (response.data.message == "success") {
           Cookies.set("token", response.data.token);
           setState({ ...state, emailError: "" });
@@ -55,7 +63,7 @@ const Login = () => {
       })
       .catch((error) => {
         setIsLoading(false);
-        console.log(error)
+        console.log(error);
         setState({ ...state, emailError: error?.response?.data?.message });
       });
   };
@@ -67,50 +75,48 @@ const Login = () => {
         <title>Login</title>
       </Head>
       <div className={style.container}>
-      <h1 className={style.title}>ADBACKLIST</h1>
+        <h1 className={style.title}>ADBACKLIST</h1>
         <h1 className="flex justify-center text-3xl font-bold mb-5">Login</h1>
         <form onSubmit={login}>
-        <div className={style.inputBox}>
-          <span>
-            <AiOutlineMail />
-          </span>
-          <input
-            type="text"
-            placeholder="Email"
-            className={style.input}
-            onChange={(e) =>
-              dispatch({ type: "email", payload: e.target.value })
-            }
-          />
-        </div>
-        <div className={style.inputBox}>
-          <span>
-            <AiFillLock />
-          </span>
-          <input
-            type="password"
-            placeholder="Password"
-            className={style.input}
-            onChange={(e) =>
-              dispatch({ type: "password", payload: e.target.value })
-            }
-          />
-        </div>
-        <p className="text-xs text-red-600 text-center">{state.emailError}</p>
-        <div className={style.inputBox}>
-          {isLoading == true ? (
-            <button className="btn btn-outline btn-success  hover:text-white btn-wide loading">
-             
-            </button>
-          ) : (
-            <button
-              className="btn btn-outline btn-success text-2xl hover:text-white btn-wide "
-            type="submit"
-            >
-              login
-            </button>
-          )}
-        </div>
+          <div className={style.inputBox}>
+            <span>
+              <AiOutlineMail />
+            </span>
+            <input
+              type="text"
+              placeholder="Email"
+              className={style.input}
+              onChange={(e) =>
+                dispatch({ type: "email", payload: e.target.value })
+              }
+            />
+          </div>
+          <div className={style.inputBox}>
+            <span>
+              <AiFillLock />
+            </span>
+            <input
+              type="password"
+              placeholder="Password"
+              className={style.input}
+              onChange={(e) =>
+                dispatch({ type: "password", payload: e.target.value })
+              }
+            />
+          </div>
+          <p className="text-xs text-red-600 text-center">{state.emailError}</p>
+          <div className={style.inputBox}>
+            {isLoading == true ? (
+              <button className="btn btn-outline btn-success  hover:text-white btn-wide loading"></button>
+            ) : (
+              <button
+                className="btn btn-outline btn-success text-2xl hover:text-white btn-wide "
+                type="submit"
+              >
+                login
+              </button>
+            )}
+          </div>
         </form>
         {/* <Image src="/upload.gif" /> */}
         <p className="text-2xl flex justify-center mt-5">
