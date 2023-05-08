@@ -41,8 +41,11 @@ const Post = () => {
   const [reload, setReload] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [age, setAge] = useState("");
+  const [pages, setPages] = useState(1);
+
   const [page, setPage] = useState(1);
 
+  console.log(pages);
 
   async function getPosts() {
     try {
@@ -50,7 +53,7 @@ const Post = () => {
         `https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}`
       );
 
-
+      setPages(response.data.pages);
       const forcity = response.data.data.products?.filter(
         (a) =>
           a?.city == router?.query?.names[0] ||
@@ -66,15 +69,12 @@ const Post = () => {
         (a) => new Date(a.updatedAt).toDateString() == day1time
       );
 
-
-
       const day2time = new Date(
         new Date().getTime() - 24 * 60 * 60 * 1000
       ).toDateString();
       const day2 = cityPost.filter(
         (a) => new Date(a.updatedAt).toDateString() == day2time
       );
-
 
       const day3time = new Date(
         new Date().getTime() - 24 * 60 * 60 * 1000 * 2
@@ -148,8 +148,6 @@ const Post = () => {
     }
   }
 
-
-
   async function getAds() {
     try {
       const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
@@ -183,12 +181,9 @@ const Post = () => {
     }
   }, [post, router?.query?.names, reload]);
 
-
-
   const onChange = (pageNumber) => {
-    setPage(pageNumber)
+    setPage(pageNumber);
   };
-
 
   const setAdult = (e) => {
     Cookies.set("age", e);
@@ -210,10 +205,11 @@ const Post = () => {
       <Header data={router?.query?.names} />
 
       {isLoading ? (
-        <div className="text-6xl">
-          <div className="btn  bg-transparent border-0 loading flex m-auto">
-            loading
-          </div>
+        <div
+          style={{ height: "700px" }}
+          className="flex justify-center items-center"
+        >
+          <img className="" width={100} src="/loader.gif" />
         </div>
       ) : (
         <>
@@ -760,13 +756,15 @@ const Post = () => {
                   <hr className={style.hr} />
 
                   <div className={style.paginate}>
-                    <Pagination showQuickJumper showSizeChanger={false} defaultCurrent={page} onChange={onChange} total={500} />
-
+                    <Pagination
+                      showSizeChanger={false}
+                      pageSize={50}
+                      defaultCurrent={page}
+                      onChange={onChange}
+                      total={pages}
+                    />
                   </div>
-
-
                 </div>
-
 
                 <div className={style.othersLink}>
                   {ads.map((a) => (
