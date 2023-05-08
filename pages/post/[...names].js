@@ -48,6 +48,7 @@ const Post = () => {
   console.log(pages);
 
   async function getPosts() {
+    console.log("first")
     try {
       const response = await axios.get(
         `https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}`

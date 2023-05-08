@@ -106,7 +106,7 @@ const Header2 = () => {
                   </li>
                 ) : (
                   <li>
-                    <Link href="/dashboard/profile">Dashboard</Link>
+                    <Link href="/dashboard/profile">My Account</Link>
                   </li>
                 )}
                 <li>

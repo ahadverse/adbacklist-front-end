@@ -78,7 +78,7 @@ const Dashboards = () => {
           <p className="text-lg sm:text-3xl text-black">{users?.email}</p>
         </div>
         <div className="m-0 sm:m-10">
-        <div className="bg-black text-white my-5 p-2 flex justify-between">
+        <div className="bg-black text-white my-5 p-2 flex justify-between rounded  shadow-lg shadow-blue-500/50">
             <span>
             <Link
             href={"/dashboard/profile"}
@@ -96,7 +96,7 @@ const Dashboards = () => {
               className="text-sm sm:text-xl p-1 bg-red-600 font-bold text-white"
               href={`/recharge-credits/${users?._id}`}
             >
-              Add Credit
+              Buy Credit
             </Link>
         </div>
           {loading ? (

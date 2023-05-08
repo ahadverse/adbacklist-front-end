@@ -40,6 +40,7 @@ const Dashboards = () => {
           setAds(post);
         }
       } catch (error) {
+        setLoading(false);
         console.error(error);
       }
     }
@@ -97,7 +98,7 @@ const Dashboards = () => {
               Credits : {users?.credit?.toFixed(2)}
             </button>
             <button className="btn btn-outline btn-info">
-              Ads : {page}
+              Ads : {ads?.length ? page : 0}
             </button>
           </div>
           <div>
@@ -108,7 +109,7 @@ const Dashboards = () => {
           </div>
         </div>
         <div className="m-0 sm:m-10">
-          <div className="bg-black text-white my-5 p-2 flex justify-between">
+          <div className="bg-black text-white my-5 p-2 flex justify-between rounded  shadow-lg shadow-blue-500/50">
             <span>
               <Link
                 href={"/dashboard/profile"}
@@ -127,7 +128,7 @@ const Dashboards = () => {
               className="text-sm sm:text-xl p-1 bg-red-600 font-bold text-white"
               href={`/recharge-credits/${users?._id}`}
             >
-              Add Credit
+              Buy Credit
             </Link>
           </div>
           {loading ? (

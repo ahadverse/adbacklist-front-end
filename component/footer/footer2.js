@@ -63,32 +63,33 @@ const Footer = () => {
             <ul className={style.footer}>
 
             <li className={style.item}>
-              <Link href="https://www.youtube.com/channel/UC8vWO9MILlY-Sv9ezGaB6WQ" target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
+              <Link href="https://www.youtube.com/channel/UC8vWO9MILlY-Sv9ezGaB6WQ" target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Youtube">
                 <BsYoutube className={style.insta} />
               </Link>
             </li>
           <li className={style.item}>
-              <Link href="https://www.facebook.com/profile.php?id=100091135910066"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
+              <Link href="https://www.facebook.com/profile.php?id=100091135910066"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Facebook">
                 <AiFillFacebook className={style.facebook} />
               </Link>
             </li>
             <li className={style.item}>
-              <Link href="https://www.instagram.com/adbacklist/"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
+              <Link href="https://www.instagram.com/adbacklist/"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Instagram">
                 <AiFillInstagram className={style.insta}  />
               </Link>
             </li>
             <li className={style.item}>
-              <Link href="https://twitter.com/Adbacklist"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
+              <Link href="https://twitter.com/Adbacklist"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Twitter">
                 <AiFillTwitterSquare className={style.facebook}  />
               </Link>
             </li>
         
             <li className={style.item}>
-              <Link href="https://www.pinterest.com/adbacklist/"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Terms">
+              <Link href="https://www.pinterest.com/adbacklist/"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Pinterest">
                 <BsPinterest className={style.insta} />
               </Link>
             </li>
           </ul>
+          <p className="text-center mt-8">Copyright © 2009 - 2023 </p>
         </div>
     );
 };

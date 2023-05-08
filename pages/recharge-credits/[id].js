@@ -16,7 +16,6 @@ const Credits = () => {
   const { users } = User();
   const router = useRouter();
   const id = router?.query?.id;
-  console.log(id, users?._id);
 
   useEffect(() => {
     if (!id) {
@@ -32,15 +31,8 @@ const Credits = () => {
   }, [id]);
 
   let requested = false;
-  const date = new Date().toDateString();
-
-  var randomnum =
-    Math.floor(Math.random() * 500) * 10 +
-    users?._id +
-    Math.floor(Math.random() * 500) * 10;
 
   async function recharge(e) {
-
     e.preventDefault();
     if (requested) return;
     requested = true;
@@ -56,7 +48,7 @@ const Credits = () => {
       );
       const data = response.data;
 
-     setLoading(false)
+      setLoading(false);
       if (data?.redirectURI) {
         location.href = data.redirectURI;
       }
@@ -64,7 +56,6 @@ const Credits = () => {
       console.error(error);
     }
   }
-
 
   // async function addCredit(event) {
   //   setLoading(true)
@@ -90,12 +81,52 @@ const Credits = () => {
   //       console.log(error);
   //     });
   // }
-  
 
   return (
-    <div className="bg-gray-100 h-screen">
+    <div className="bg-gray-200 h-screen">
       <Header></Header>
       <div>
+        <div className="bg-black mx-auto text-white w-4/5 mt-10 p-2 rounded  shadow-lg shadow-blue-500/50 flex justify-between">
+          <span className="m-auto">
+            <li
+              className="hover:text-blue-400 text-gray-300 font-bold hover:underline list-none inline"
+            >
+              Buy Credits
+            </li>
+
+            <Link
+              href={"/dashboard/profile"}
+              className="ml-5 sm:ml-16 hover:text-blue-400 font-bold hover:underline"
+            >
+              My Account
+            </Link>
+            <Link
+              href={"/support"}
+              className="ml-5 sm:ml-16  hover:text-blue-400  font-bold hover:underline"
+            >
+              Support
+            </Link>
+            <Link
+              href={"/verify"}
+              className="ml-5 sm:ml-16  hover:text-blue-400  font-bold hover:underline"
+            >
+              Verify
+            </Link>
+          </span>
+        </div>
+
+        <div className="w-4/5 mx-auto mt-5">
+          <h1 className="text-2xl font-bold">
+            Your Current Account Balance : $ {users?.credit?.toFixed(2)}
+          </h1>
+          <p>
+            Add Credits in your Classifidadd account to post & upgrade your Ad.{" "}
+            <br />
+            After one ads promotion, remaining credits will be STILL available
+            in your account for feature ads promotions!
+          </p>
+        </div>
+
         <form onSubmit={recharge}>
           <div className={style.container}>
             <h1 className="text-2xl text-black font-bold mb-5">
@@ -108,12 +139,14 @@ const Credits = () => {
                 placeholder="Input Amount"
                 required
                 type="number"
-                min={1}
+                min={10}
                 value={amount}
                 onChange={(event) => setAmount(event.target.value)}
               />
             </div>
-
+            <small className="text-red-400">
+              Minimum deposit amount is $10
+            </small>
             <div>
               <label className="cursor-pointer label flex justify-start items-center ">
                 <input
@@ -121,21 +154,54 @@ const Credits = () => {
                   className="checkbox checkbox-info"
                   required
                 />
-                <Link  href="/terms" className="sm:text-lg  text-sm hover:underline hover:text-blue-600">
+                <Link
+                  href="/terms"
+                  className="sm:text-lg  text-sm hover:underline hover:text-blue-600"
+                >
                   I agree to Terms and Conditions
                 </Link>
               </label>
             </div>
-            {
-              loading ?    <button className="px-10 bg-red-600 p-2 text-white font-bold rounded hover:bg-blue-400">
-              Submitting...
-            </button> :    <button className="px-10 bg-red-600 p-2 text-white font-bold rounded hover:bg-blue-400">
-              Submit
-            </button>
-            }
-           
+            {loading ? (
+              <button className="px-10 bg-red-600 p-2 text-white font-bold rounded hover:bg-blue-400">
+                Submitting...
+              </button>
+            ) : (
+              <button className="px-10 bg-red-600 p-2 text-white font-bold rounded hover:bg-blue-400">
+                Submit
+              </button>
+            )}
           </div>
         </form>
+      </div>
+      <div className="border-4 rounded border-dashed border-green-600 sm:mt-10 mt-10  mx-auto w-3/5 p-5">
+        <h1 className="text-xl font-bold">How do I buy Bitcoin ?</h1>
+        <p>You can buy Bitcon from several place:</p>
+        <div>
+          <button className="bg-cyan-500 shadow-lg shadow-cyan-500/50 text-white text-normal py-1 px-3 rounded">
+            <a
+              href="https://www.youtube.com/watch?v=HK57o2JQDeI"
+              target="_blank"
+            >
+              Cashapp
+            </a>
+          </button>
+          <button className="bg-cyan-500 shadow-lg shadow-cyan-500/50 text-white text-normal py-1 px-3 rounded ml-5">
+            <a href="https://www.coinbase.com/signin" target="_blank">
+              Coinbase
+            </a>
+          </button>
+          <button className="bg-cyan-500 shadow-lg shadow-cyan-500/50 text-white text-normal py-1 px-3 rounded ml-5">
+            <a href="https://abra.com/" target="_blank">
+              abra.com
+            </a>
+          </button>
+          <button className="bg-cyan-500 shadow-lg shadow-cyan-500/50 text-white text-normal py-1 px-3 rounded ml-5">
+            <a href="https://bitcoin.com/" target="_blank">
+              bitcoin.com
+            </a>
+          </button>
+        </div>
       </div>
       <Footer />
     </div>

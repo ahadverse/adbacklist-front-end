@@ -45,9 +45,7 @@ const Details = () => {
 
   async function getAds() {
     try {
-      const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/sideads`
-      );
+      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
       const data = response.data.ads;
 
       const category = data.filter((a) => a?.category == id?.[0]).slice(0, 6);
@@ -105,9 +103,7 @@ const Details = () => {
           <div className="bg-gray-100 pb-5 pt-5">
             <div className="m-5 p-3 bg-white">
               {loading ? (
-                <div className="btn  bg-transparent border-0 loading flex m-auto">
-                  loading
-                </div>
+                <img className="block m-auto" width={100} src="/loader.gif" />
               ) : (
                 <>
                   <h1 className="text-lg text-black font-bold sm:text-2xl ">
@@ -139,6 +135,23 @@ const Details = () => {
                       ""
                     )}{" "}
                   </div>
+
+                  <div className="border-4 rounded border-dashed border-green-600 mt-10">
+                    <h1 className="text-red-600 text-3xl font-bold text-center">
+                      SCAM Alert !!!!!
+                    </h1>
+                    <p className="font-bold text-center">
+                      If ad poster asks for money, credit card info, cashapp,
+                      gift card or tell you to verify in another website,
+                      consider its a SCAM !
+                      <br />
+                      Don't pay anything before meet the Provider!
+                    </p>
+                  </div>
+                  <div className="bg-blue-200 mt-2 text-center py-2 mb-5">
+                    When you call, tell me that you saw my ad on Adbacklist
+                  </div>
+
                   <hr />
 
                   <div className={style.contentContainer}>
@@ -150,74 +163,69 @@ const Details = () => {
                     ></div>
 
                     <div className={style.postImages}>
+                      <Image.PreviewGroup
+                        preview={{
+                          onChange: (current, prev) =>
+                            console.log(
+                              `current index: ${current}, prev index: ${prev}`
+                            ),
+                        }}
+                      >
+                        {!postDetails?.imgOne ||
+                        postDetails?.imgOne == "empty" ? (
+                          ""
+                        ) : (
+                          <Image
+                            className={style.fImg}
+                            width={200}
+                            height={250}
+                            src={postDetails?.imgOne}
+                          />
+                        )}
 
-                    <Image.PreviewGroup
-                    preview={{
-                      onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),
-                    }}
-                  >
-                           {!postDetails?.imgOne ||
-                      postDetails?.imgOne == "empty" ? (
-                        ""
-                      ) : (
-                    
-                        <Image
-                        className={style.fImg}
-                        width={200}
-                        height={250}
-                        src={postDetails?.imgOne}
-                      />
-                      
-                      )}
-                      {!postDetails?.imgTwo ||
-                      postDetails?.imgTwo == "empty" ? (
-                        ""
-                      ) : (
-                        <Image
-                          className={style.fImg}
-                          width={200}
-                          height={250}
-                          src={postDetails?.imgTwo}
-                        />
-                      )}
-                      
-                      {!postDetails?.imgThree ||
-                      postDetails?.imgThree == "empty" ? (
-                        ""
-                      ) : (
-                        <Image
-                          className={style.fImg}
-                          width={200}
-                          height={250}
-                          src={postDetails?.imgThree}
-                        />
-                      )}
-                      {!postDetails?.imgFour ||
-                      postDetails?.imgFour == "empty" ? (
-                        ""
-                      ) : (
-                        <Image
-                          className={style.fImg}
-                          width={200}
-                          height={250}
-                          src={postDetails?.imgFour}
-                        />
-                      )}
-                  </Image.PreviewGroup>
+                        {!postDetails?.imgTwo ||
+                        postDetails?.imgTwo == "empty" ? (
+                          ""
+                        ) : (
+                          <Image
+                            className={style.fImg}
+                            width={200}
+                            height={250}
+                            src={postDetails?.imgTwo}
+                          />
+                        )}
 
-             
-
-
-
+                        {!postDetails?.imgThree ||
+                        postDetails?.imgThree == "empty" ? (
+                          ""
+                        ) : (
+                          <Image
+                            className={style.fImg}
+                            width={200}
+                            height={250}
+                            src={postDetails?.imgThree}
+                          />
+                        )}
+                        {!postDetails?.imgFour ||
+                        postDetails?.imgFour == "empty" ? (
+                          ""
+                        ) : (
+                          <Image
+                            className={style.fImg}
+                            width={200}
+                            height={250}
+                            src={postDetails?.imgFour}
+                          />
+                        )}
+                      </Image.PreviewGroup>
                     </div>
                   </div>
-               
 
                   <Link
                     href={`/reports/${id?.[1]}__${postDetails?.owner?.[0]?._id}`}
                   >
                     <button className="flex items-center justify-center bg-red-500 text-white px-2 font-bold border rounded">
-                      <ImBlocked className="text-xl mr-2 cursor-pointer" />{" "}
+                      <ImBlocked className="text-xl mr-2 cursor-pointer" /> Ad
                       Report
                     </button>
                   </Link>
@@ -227,23 +235,27 @@ const Details = () => {
                   <br />
                 </>
               )}
-              <h1 className="text-black text-2xl">Most Popular Ads</h1>
+
+              {newAds?.length ? (
+                <h1 className="text-black text-2xl">Most Popular Ads </h1>
+              ) : (
+                ""
+              )}
+
               <div className="flex-wrap justify-center sm:flex">
                 {newAds?.map((a) => (
                   <div className="m-2 text-blue-600" key={a._id}>
-                    <a href={`${a?.link}`} target="_blank" rel="noreferrer" className="text-blue-600">
+                    <a
+                      href={`${a?.link}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-blue-600"
+                    >
                       <img className="w-full h-48" src={a?.image} />
                       <p className="text-blue-400 underline">{a?.title}</p>
                     </a>
                   </div>
                 ))}
-              </div>
-              <div className="bg-yellow-100 p-5">
-                <h1 className="text-red-600 font-bold">Warning!!!!</h1>
-                <p className="font-bold">
-                  Use your unusual feel earlier than making any pre-payment, We
-                  will not be responsible for any financial loss!
-                </p>
               </div>
             </div>
           </div>
