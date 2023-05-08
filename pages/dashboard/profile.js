@@ -15,7 +15,9 @@ const Dashboards = () => {
 
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(false);
+
   const [pages, setPages] = useState(1);
+  const [page, setPage] = useState(1);
 
   async function posts(users) {
     if (users?._id) {
@@ -33,7 +35,8 @@ const Dashboards = () => {
         if (response?.code == 404) {
           setAds([]);
         } else {
-          const post = response.data;
+          const post = response.data.data.posts;
+          setPage(response.data.pages)
           setAds(post);
         }
       } catch (error) {
@@ -42,8 +45,6 @@ const Dashboards = () => {
     }
   }
 
-
-
   useEffect(() => {
     setLoading(true);
     if (users) {
@@ -51,7 +52,7 @@ const Dashboards = () => {
     } else {
       return;
     }
-  }, [users , pages]);
+  }, [users, pages]);
 
   const deletePost = (id) => {
     Swal.fire({
@@ -70,7 +71,9 @@ const Dashboards = () => {
             if (response.data.status == "success") {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
-            const newPost = ads?.data?.posts?.filter((a) => a._id !== id);
+
+            const newPost = ads?.filter((a) => a._id !== id);
+  
             setAds(newPost);
           });
       }
@@ -94,7 +97,7 @@ const Dashboards = () => {
               Credits : {users?.credit?.toFixed(2)}
             </button>
             <button className="btn btn-outline btn-info">
-              Ads : {ads?.pages}
+              Ads : {page}
             </button>
           </div>
           <div>
@@ -134,7 +137,7 @@ const Dashboards = () => {
           ) : (
             <>
               {" "}
-              {ads?.data?.posts?.length == 0 ? (
+              {ads?.length == 0 ? (
                 <p className="text-3xl text-center ">No Data Found</p>
               ) : (
                 <div className="overflow-x-auto text-black">
@@ -150,7 +153,7 @@ const Dashboards = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {ads?.data?.posts?.map((a, index) => (
+                      {ads?.map((a, index) => (
                         <tr>
                           <th>{index + 1}</th>
                           <td>{a?.createdAt?.split("T")[0]}</td>
@@ -194,16 +197,17 @@ const Dashboards = () => {
                   </table>
                 </div>
               )}
-          
             </>
           )}
-      
         </div>
-        <Pagination className="flex justify-center"    defaultCurrent={pages}
-              pageSize={10}
-              onChange={onChange}
-              showSizeChanger={false}
-              total={ads?.pages} />
+        <Pagination
+          className="flex justify-center"
+          defaultCurrent={pages}
+          pageSize={10}
+          onChange={onChange}
+          showSizeChanger={false}
+          total={page}
+        />
       </div>
       <Footer />
     </div>
