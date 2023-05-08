@@ -18,11 +18,12 @@ const Blogs = () => {
   const [isloading, setIsLoading] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [catKey, setCatKey] = useState("");
+  const [page, setPage] = useState(1);
 
   async function getUser() {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/blogs/`
+        `https://api-adbacklist.vercel.app/api/blogs?page=${page}`
       );
       const data = response.data.data.blogs;
 
@@ -38,6 +39,7 @@ const Blogs = () => {
     setIsLoading(true);
     getUser();
   }, []);
+
 
   const newBlogs = blogs.filter(a => catKey ? a.category == catKey : a.category).filter(a=> keyword ? a.title.toLowerCase().includes(keyword.toLowerCase()) : a.title)
 
