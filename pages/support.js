@@ -34,7 +34,7 @@ const Support = () => {
           </Link>
         </span>
       </div>
-      <p className="mx-auto w-4/5 font-bold text-3xl mt-10">Send your mail here: <a href="mailto:adbacklist@gmail.com">adbacklist@gmail.com</a></p>
+      <p className="mx-auto w-4/5 font-bold text-3xl mt-10">Send your mail here: <a href="mailto:adbacklist@gmail.com" className="text-red-400">adbacklist@gmail.com</a></p>
       <Footer></Footer>
     </div>
   );

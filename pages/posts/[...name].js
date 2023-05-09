@@ -8,7 +8,7 @@ import n from "../../styles/moduleCss/addPost.module.css";
 import m from "sweetalert2";
 import s from "js-cookie";
 import u from "jwt-decode";
-import { message as d, Upload, Modal } from "antd";
+import { message as d, Upload, Modal, message } from "antd";
 import y from "../../public/category.json";
 import { AiFillPlusCircle } from "react-icons/ai";
 import x from "@/component/user";
@@ -58,11 +58,16 @@ let initialState = {
         (a.onerror = (e) => o(e));
     }),
   Post = () => {
+
+
     let e = o(),
       { users } = x(),
       [a, l] = i(initialState),
       [d, g] = i(!1),
-     
+
+      
+
+
       [local, setLocal] = i(0),
       b = (e) => {
         l({ ...a, [e.type]: e.payload });
@@ -125,7 +130,7 @@ let initialState = {
         if (
           (O[0] &&
             (r.append("images", O[0].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+            await fetch("http://localhost:5000/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -135,7 +140,7 @@ let initialState = {
               })),
           O[1] &&
             (r.append("images", O[1].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+            await fetch("http://localhost:5000/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -145,7 +150,7 @@ let initialState = {
               })),
           O[2] &&
             (r.append("images", O[2].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+            await fetch("http://localhost:5000/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -155,7 +160,7 @@ let initialState = {
               })),
           O[3] &&
             (r.append("images", O[3].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+            await fetch("http://localhost:5000/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -167,27 +172,34 @@ let initialState = {
             "" == o.description ||
             "" == o.name)
         ) {
-          l({ ...a, error: "All fields are required including an image" });
           g(!1);
+          l({ ...a, error: "" });
+
+          message.error({
+            type: 'error',
+            content: 'Image, Title, Category, Sub Category and Description is required',
+          });
+       
           return;
         }
         if (
           (l({ ...a, error: "" }),
 
           
-          "free-ads" == t[0] && ((o.city = t[1] ), (o.isApproved = !1) ),
+          "free-ads" == t[0] && ((o.cities = [t[1]]), (o.isApproved = !1) ),
 
           ("local-ads" == t[0] || "multiple-city-ads" == t[0]) &&
-            ((o.city = t[1] || ""), (o.isPremium = !0) , (o.isApproved = !0)),
+            ((o.cities = [t[1]] || ""), (o.isPremium = !0) , (o.isApproved = !0)),
           "multiple-city-ads" == t[0])
         ) {
           let i = JSON.parse(localStorage.getItem("cities"));
+          console.log(i)
           o.cities = i;
         }
+        g(!1)
+        console.log(o)
 
-        
-
-        await fetch("https://api-adbacklist.vercel.app/api/products", {
+        await fetch("http://localhost:5000/api/products", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -198,11 +210,11 @@ let initialState = {
           .then((e) => e.json())
           .then((t) => {
             localStorage.removeItem("cities")
-            const newCredit = users?.credit - local.toFixed(2)
+            const newCredit = users?.credit - local?.toFixed(2)
       
             axios
               .patch(
-                `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
+                `http://localhost:5000/api/users/${users?._id}`,
                 { credit : newCredit },
                 {
                   headers: {
@@ -470,7 +482,7 @@ let initialState = {
                 </div>
               )}
 
-              <p className="text-red-600 text-xs">{a.error}</p>
+              {/* <p className="text-red-600 text-xs">{a.error}</p> */}
 
               <div className="sm:w-3/4 w-full m-auto pt-10 ">
                 {users?.credit < local || local == "null" ? (

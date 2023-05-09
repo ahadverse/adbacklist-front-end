@@ -23,7 +23,7 @@ const Dashboards = () => {
     if (users?._id) {
       try {
         const response = await axios.get(
-          `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}?page=${pages}`,
+          `http://localhost:5000/api/products/posterid/${users?._id}?page=${pages}`,
           {
             method: "GET",
             headers: {
@@ -67,7 +67,7 @@ const Dashboards = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://api-adbacklist.vercel.app/api/products/${id}`, {})
+          .delete(`http://localhost:5000/api/products/${id}`, {})
           .then((response) => {
             if (response.data.status == "success") {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");

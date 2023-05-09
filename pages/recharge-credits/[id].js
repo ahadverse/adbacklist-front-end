@@ -38,7 +38,7 @@ const Credits = () => {
     requested = true;
     try {
       const response = await axios.post(
-        `https://api-adbacklist.vercel.app/api/recharge/${id}`,
+        `http://localhost:5000/api/recharge/${id}`,
         { amount },
         {
           headers: {
@@ -68,7 +68,7 @@ const Credits = () => {
   //     invoice: randomnum,
   //   };
   //   await axios
-  //     .post("https://api-adbacklist.vercel.app/api/transaction", data)
+  //     .post("http://localhost:5000/api/transaction", data)
 
   //     .then((response) => {
   //       if (response.data.status == "success") {
@@ -120,9 +120,9 @@ const Credits = () => {
             Your Current Account Balance : $ {users?.credit?.toFixed(2)}
           </h1>
           <p>
-            Add Credits in your Classifidadd account to post & upgrade your Ad.{" "}
+            Add Credits in your Adbacklist account to post & upgrade your Ad.{" "}
             <br />
-            After one ads promotion, remaining credits will be STILL available
+            After one ads promotion, remaining credits will be still available
             in your account for feature ads promotions!
           </p>
         </div>

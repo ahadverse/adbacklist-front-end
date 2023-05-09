@@ -65,7 +65,7 @@ const Edit = () => {
   async function getUser(users) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/users/${users._id}`
+        `http://localhost:5000/api/users/${users._id}`
       );
       const data = response.data.data.user;
       setLoading(false);
@@ -100,7 +100,7 @@ const Edit = () => {
 
         formData.append("images", fileList[0].originFileObj);
 
-        await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+        await fetch("http://localhost:5000/api/image/upload-file", {
             method : "POST",
             body : formData
         }).then(res => res.json()).then(data => datas.avater = data.payload.url)
@@ -108,7 +108,7 @@ const Edit = () => {
 
     await axios
       .patch(
-        `https://api-adbacklist.vercel.app/api/users/${state.userData._id}`,
+        `http://localhost:5000/api/users/${state.userData._id}`,
         datas,
         options
       )
@@ -147,7 +147,7 @@ const Edit = () => {
 
     await axios
       .patch(
-        `https://api-adbacklist.vercel.app/api/users/password/${state.userData._id}`,
+        `http://localhost:5000/api/users/password/${state.userData._id}`,
         data,
         options
       )

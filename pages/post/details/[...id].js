@@ -33,7 +33,7 @@ const Details = () => {
   async function getUser(id) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/products/${id?.[1]}`
+        `http://localhost:5000/api/products/${id?.[1]}`
       );
       setPost(response.data.data.product[0]);
       setLoading(false);
@@ -45,7 +45,7 @@ const Details = () => {
 
   async function getAds() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const response = await axios.get(`http://localhost:5000/api/sideads`);
       const data = response.data.ads;
 
       const category = data.filter((a) => a?.category == id?.[0]).slice(0, 6);
@@ -136,7 +136,7 @@ const Details = () => {
                     )}{" "}
                   </div>
 
-                  <div className="border-4 rounded border-dashed border-green-600 mt-10">
+                  <div className="border-4 rounded border-dashed border-green-600 mt-10 w-3/5 m-auto">
                     <h1 className="text-red-600 text-3xl font-bold text-center">
                       SCAM Alert !!!!!
                     </h1>
@@ -148,7 +148,7 @@ const Details = () => {
                       Don't pay anything before meet the Provider!
                     </p>
                   </div>
-                  <div className="bg-blue-200 mt-2 text-center py-2 mb-5">
+                  <div className="bg-blue-200 mt-2 text-center py-2 mb-5 w-3/5 m-auto">
                     When you call, tell me that you saw my ad on Adbacklist
                   </div>
 

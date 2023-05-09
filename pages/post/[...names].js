@@ -45,26 +45,18 @@ const Post = () => {
 
   const [page, setPage] = useState(1);
 
-  console.log(pages);
+
 
   async function getPosts() {
-    console.log("first")
     try {
-      const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}`
+      const response = await axios.get(`http://localhost:5000/api/products/all?page=${page}&category=${router?.query?.names?.[2]}&state=${router?.query?.names[0]}`
       );
 
       setPages(response.data.pages);
-      const forcity = response.data.data.products?.filter(
-        (a) =>
-          a?.city == router?.query?.names[0] ||
-          a?.cities?.includes(router?.query?.names[0])
-      );
+ 
 
-      const cityPost = forcity?.filter(
-        (a) => a?.subCategory == router?.query?.names[2]
-      );
 
+      const cityPost = response.data.data.products
       const day1time = new Date().toDateString();
       const day1 = cityPost.filter(
         (a) => new Date(a.updatedAt).toDateString() == day1time
@@ -141,6 +133,8 @@ const Post = () => {
         day7time: day7time,
         lastWeek: lastWeek,
       });
+ 
+
       setPost(cityPost);
       setIsLoading(false);
     } catch (error) {
@@ -151,7 +145,7 @@ const Post = () => {
 
   async function getAds() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const response = await axios.get(`http://localhost:5000/api/sideads`);
       const data = response.data.ads;
       const category = data
         .filter((a) => a?.category == router?.query?.names?.[1])
@@ -195,6 +189,9 @@ const Post = () => {
     const useOld = Cookies.get("age");
     setAge(useOld);
   }, [reload]);
+
+
+
 
   return (
     <div className={style.container}>
@@ -296,7 +293,7 @@ const Post = () => {
                                 >
                                   <div className={style.productContainer}>
                                     <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
-                                      {p?.name}-
+                                      {p?.name}--
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
