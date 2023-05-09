@@ -31,7 +31,7 @@ const Dashboards = () => {
  if(users?._id){
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/transaction/${users?._id}`,
+      `https://api-adbacklist.vercel.app/api/transaction/${users?._id}`,
       {
         method: "GET",
       }

@@ -49,7 +49,7 @@ const Post = () => {
 
   async function getPosts() {
     try {
-      const response = await axios.get(`http://localhost:5000/api/products/all?page=${page}&category=${router?.query?.names?.[2]}&state=${router?.query?.names[0]}`
+      const response = await axios.get(`https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}&state=${router?.query?.names[0]}`
       );
 
       setPages(response.data.pages);
@@ -145,7 +145,7 @@ const Post = () => {
 
   async function getAds() {
     try {
-      const response = await axios.get(`http://localhost:5000/api/sideads`);
+      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
       const data = response.data.ads;
       const category = data
         .filter((a) => a?.category == router?.query?.names?.[1])
