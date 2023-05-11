@@ -22,13 +22,14 @@ const Blogs = () => {
   async function getBlogs() {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/blogs?page=${pages}`
+        `http://localhost:5000/api/blogs?page=${pages}&q=${catKey ? catKey : keyword}`
       );
       const data = response.data;
-
+     
       setBlogs(data);
       setIsLoading(false);
     } catch (error) {
+      setBlogs([]);
       setIsLoading(false);
       console.error(error);
     }
@@ -37,16 +38,16 @@ const Blogs = () => {
   useEffect(() => {
     setIsLoading(true);
     getBlogs();
-  }, [pages]);
+  }, [pages , catKey, keyword]);
 
 
   // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category).filter(a=> keyword ? a.title.toLowerCase().includes(keyword.toLowerCase()) : a.title)
 
-  const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category)
+  // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category)
 
   const onSearch = (e) => {
     setKeyword(e);
-    setItemOffset(0);
+    setCatKey("")
   };
 
   const onChange = (page) => {
@@ -66,7 +67,7 @@ const Blogs = () => {
         <div className="w-full flex items-center justify-between p-2 bg-white">
           <div>
             <p className="text-xs sm:text-base">
-              Showing  {blogs?.length} post of {blogs?.pages}
+              Showing  {blogs?.data?.blogs?.length} post of {blogs?.page}
             </p>
           </div>
 
@@ -99,7 +100,7 @@ const Blogs = () => {
               {
                 blogs?.data?.blogs?.length == 0 ? "No Blog Found" : ""
               }
-                {newBlogs?.map((a) => (
+                {blogs?.data?.blogs.map((a) => (
                   <Link href={`/blog/${a.permalink}`} key={a._id}>
                     <div className={style.card}>
                       <img className={style.blogImage} src={a?.image} />
