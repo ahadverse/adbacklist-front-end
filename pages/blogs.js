@@ -48,6 +48,7 @@ const Blogs = () => {
   const onSearch = (e) => {
     setKeyword(e);
     setCatKey("")
+    setPage(1);
   };
 
   const onChange = (page) => {
@@ -74,7 +75,7 @@ const Blogs = () => {
           <div className="flex">
             <select
               className="p-1 rounded bg-white border mr-2 border-sky-300 select-info  max-w-xs"
-              onChange={(e) => setCatKey(e.target.value)}
+              onChange={(e) => {setCatKey(e.target.value) , setPage(1)}  }
             >
               <option value={""}>Select Category</option>
 
@@ -98,7 +99,10 @@ const Blogs = () => {
             <div className={style.blogContainer}>
               <>
               {
-                blogs?.data?.blogs?.length == 0 ? "No Blog Found" : ""
+                blogs?.data?.blogs?.length == 0 ? <p className="text-2xl text-red-500">No Blog Found</p> : ""
+              }
+              {
+                blogs?.length == 0 ? <p className="text-2xl text-red-500">No Blog Found</p> : ""
               }
                 {blogs?.data?.blogs.map((a) => (
                   <Link href={`/blog/${a.permalink}`} key={a._id}>
