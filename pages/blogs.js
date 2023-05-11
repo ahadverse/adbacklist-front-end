@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
 const Footer = dynamic(() => import("@/component/footer/footer2"));
 const Header = dynamic(() => import("@/component/header/header"));
 import style from "../styles/moduleCss/blog.module.css";
