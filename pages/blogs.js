@@ -22,7 +22,7 @@ const Blogs = () => {
   async function getBlogs() {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/blogs?page=${pages}&q=${catKey ? catKey : keyword}`
+        `https://api-adbacklist.vercel.app/api/blogs?page=${pages}&q=${catKey ? catKey : keyword}`
       );
       const data = response.data;
      
