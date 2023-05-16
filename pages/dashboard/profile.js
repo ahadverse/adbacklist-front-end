@@ -2,7 +2,6 @@ import User from "@/component/user";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
 import Swal from "sweetalert2";
 import style from "../../styles/moduleCss/blog.module.css";
 import Head from "next/head";

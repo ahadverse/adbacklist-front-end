@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
 const Footer = dynamic(() => import("@/component/footer/footer2"));
 const Header = dynamic(() => import("@/component/header/header"));
 import style from "../styles/moduleCss/blog.module.css";
@@ -22,13 +21,16 @@ const Blogs = () => {
   async function getBlogs() {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/blogs?page=${pages}`
+
+        `https://api-adbacklist.vercel.app/api/blogs?page=${pages}&q=${catKey ? catKey : keyword}`
+
       );
       const data = response.data;
-
+     
       setBlogs(data);
       setIsLoading(false);
     } catch (error) {
+      setBlogs([]);
       setIsLoading(false);
       console.error(error);
     }
@@ -37,16 +39,17 @@ const Blogs = () => {
   useEffect(() => {
     setIsLoading(true);
     getBlogs();
-  }, [pages]);
+  }, [pages , catKey, keyword]);
 
 
   // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category).filter(a=> keyword ? a.title.toLowerCase().includes(keyword.toLowerCase()) : a.title)
 
-  const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category)
+  // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category)
 
   const onSearch = (e) => {
     setKeyword(e);
-    setItemOffset(0);
+    setCatKey("")
+    setPage(1);
   };
 
   const onChange = (page) => {
@@ -66,14 +69,14 @@ const Blogs = () => {
         <div className="w-full flex items-center justify-between p-2 bg-white">
           <div>
             <p className="text-xs sm:text-base">
-              Showing  {blogs?.length} post of {blogs?.pages}
+              Showing  {blogs?.data?.blogs?.length} post of {blogs?.page}
             </p>
           </div>
 
           <div className="flex">
             <select
               className="p-1 rounded bg-white border mr-2 border-sky-300 select-info  max-w-xs"
-              onChange={(e) => setCatKey(e.target.value)}
+              onChange={(e) => {setCatKey(e.target.value) , setPage(1)}  }
             >
               <option value={""}>Select Category</option>
 
@@ -97,9 +100,12 @@ const Blogs = () => {
             <div className={style.blogContainer}>
               <>
               {
-                blogs?.data?.blogs?.length == 0 ? "No Blog Found" : ""
+                blogs?.data?.blogs?.length == 0 ? <p className="text-2xl text-red-500">No Blog Found</p> : ""
               }
-                {newBlogs?.map((a) => (
+              {
+                blogs?.length == 0 ? <p className="text-2xl text-red-500">No Blog Found</p> : ""
+              }
+                {blogs?.data?.blogs.map((a) => (
                   <Link href={`/blog/${a.permalink}`} key={a._id}>
                     <div className={style.card}>
                       <img className={style.blogImage} src={a?.image} />
