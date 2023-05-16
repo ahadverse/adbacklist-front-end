@@ -31,11 +31,11 @@ const Search = () => {
 
   return (
     <div>
-      <div className="my-5">
-        <form onSubmit={onSearch} className="flex items-center w-9/12 m-auto">
+      <div className="my-5 sm:w-9/12 m-auto">
+        <form onSubmit={onSearch} className="flex items-center">
           <input
             placeholder="City Name"
-            className="w-full p-2 bg-gray-100"
+            className="w-full p-2 bg-gray-200"
             name="keyword"
           />
           {isLoading ? (

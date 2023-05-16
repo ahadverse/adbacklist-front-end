@@ -21,12 +21,12 @@ const Blogs = () => {
   async function getBlogs() {
     try {
       const response = await axios.get(
-
-        `https://api-adbacklist.vercel.app/api/blogs?page=${pages}&q=${catKey ? catKey : keyword}`
-
+        `https://api-adbacklist.vercel.app/api/blogs?page=${pages}&q=${
+          catKey ? catKey : keyword
+        }`
       );
       const data = response.data;
-     
+
       setBlogs(data);
       setIsLoading(false);
     } catch (error) {
@@ -36,11 +36,12 @@ const Blogs = () => {
     }
   }
 
+  console.log(blogs)
+
   useEffect(() => {
     setIsLoading(true);
     getBlogs();
-  }, [pages , catKey, keyword]);
-
+  }, [pages, catKey, keyword]);
 
   // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category).filter(a=> keyword ? a.title.toLowerCase().includes(keyword.toLowerCase()) : a.title)
 
@@ -48,7 +49,7 @@ const Blogs = () => {
 
   const onSearch = (e) => {
     setKeyword(e);
-    setCatKey("")
+    setCatKey("");
     setPage(1);
   };
 
@@ -56,7 +57,7 @@ const Blogs = () => {
     setPage(page);
   };
 
-
+  console.log(blogs)
 
   return (
     <div className="bg-gray-100">
@@ -69,14 +70,16 @@ const Blogs = () => {
         <div className="w-full flex items-center justify-between p-2 bg-white">
           <div>
             <p className="text-xs sm:text-base">
-              Showing  {blogs?.data?.blogs?.length} post of {blogs?.page}
+              Showing {blogs?.data?.blogs?.length} post of {blogs?.page}
             </p>
           </div>
 
           <div className="flex">
             <select
               className="p-1 rounded bg-white border mr-2 border-sky-300 select-info  max-w-xs"
-              onChange={(e) => {setCatKey(e.target.value) , setPage(1)}  }
+              onChange={(e) => {
+                setCatKey(e.target.value), setPage(1);
+              }}
             >
               <option value={""}>Select Category</option>
 
@@ -94,86 +97,90 @@ const Blogs = () => {
         </div>
         <hr />
         {isloading ? (
-              <img className="block m-auto" width={100} src="/loader.gif" />
+          <img className="block m-auto" width={100} src="/loader.gif" />
         ) : (
           <>
             <div className={style.blogContainer}>
               <>
-              {
-                blogs?.data?.blogs?.length == 0 ? <p className="text-2xl text-red-500">No Blog Found</p> : ""
-              }
-              {
-                blogs?.length == 0 ? <p className="text-2xl text-red-500">No Blog Found</p> : ""
-              }
+                {blogs?.data?.blogs?.length == 0 ? (
+                  <p className="text-2xl text-red-500">No Blog Found</p>
+                ) : (
+                  ""
+                )}
+                {blogs?.length == 0 ? (
+                  <p className="text-2xl text-red-500">No Blog Found</p>
+                ) : (
+                  ""
+                )}
                 {blogs?.data?.blogs.map((a) => (
                   <Link href={`/blog/${a.permalink}`} key={a._id}>
                     <div className={style.card}>
                       <img className={style.blogImage} src={a?.image} />
-                  
+
                       <div className="p-2">
                         <div className="flex items-center">
-                        {a?.category == "Adult" ? (
-                          <span className={style.category}>
-                            {" "}
-                            {a?.category}{" "}
-                          </span>
-                        ) : (
-                          ""
-                        )}
+                          {a?.category == "Adult" ? (
+                            <span className={style.category}>
+                              {" "}
+                              {a?.category}{" "}
+                            </span>
+                          ) : (
+                            ""
+                          )}
 
-                        {a?.category == "Dating" ||
-                        a?.category == "Jobs" ||
-                        a?.category == "Services" ? (
-                          <span className={style.category1}>
-                            {" "}
-                            {a?.category}{" "}
-                          </span>
-                        ) : (
-                          ""
-                        )}
+                          {a?.category == "Dating" ||
+                          a?.category == "Jobs" ||
+                          a?.category == "Services" ? (
+                            <span className={style.category1}>
+                              {" "}
+                              {a?.category}{" "}
+                            </span>
+                          ) : (
+                            ""
+                          )}
 
-                        {a?.category == "Buy-Sell-Trade" ||
-                        a?.category == "Community" ||
-                        a?.category == "Automotive" ? (
-                          <span className={style.category2}>
-                            {" "}
-                            {a?.category}{" "}
-                          </span>
-                        ) : (
-                          ""
-                        )}
+                          {a?.category == "For Sell" ||
+                          a?.category == "Community" ||
+                          a?.category == "Sport and Fitness" ? (
+                            <span className={style.category2}>
+                              {" "}
+                              {a?.category}{" "}
+                            </span>
+                          ) : (
+                            ""
+                          )}
 
-                        {a?.category == "Real Estate" ||
-                        a?.category == "Rentals" ||
-                        a?.category == "Local Places" ? (
-                          <span className={style.category3}>
-                            {" "}
-                            {a?.category}{" "}
-                          </span>
-                        ) : (
-                          ""
-                        )}
-                        
+                          {a?.category == "Real Estate" ||
+                          a?.category == "Housing" ||
+                          a?.category == "Pets" ||
+                          a?.category == "Electronics and Computer" ? (
+                            <span className={style.category3}>
+                              {" "}
+                              {a?.category}{" "}
+                            </span>
+                          ) : (
+                            ""
+                          )}
                         </div>
                         <h1 className="sm:text-xl font-bold text-black">
                           {a?.title}
                         </h1>
-                      
                       </div>
                     </div>
                   </Link>
                 ))}
               </>
             </div>
-            <Pagination className="flex justify-center mt-10"    defaultCurrent={pages}
-                pageSize={6}
-                onChange={onChange}
-                showSizeChanger={false}
-                total={blogs?.page} />
+            <Pagination
+              className="flex justify-center mt-10"
+              defaultCurrent={pages}
+              pageSize={6}
+              onChange={onChange}
+              showSizeChanger={false}
+              total={blogs?.page}
+            />
           </>
-             
         )}
-         
       </div>
 
       <Footer />

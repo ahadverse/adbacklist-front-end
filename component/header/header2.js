@@ -24,7 +24,7 @@ const Header2 = () => {
 
   return (
     <div>
-      <div className="navbar bg-gray-50 w-full">
+      <div className="navbar bg-gray-50 w-full  sm:w-4/6 sm:m-auto" >
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,7 +74,7 @@ const Header2 = () => {
                 </>
               ) : (
                 <>
-                  <li>
+                  <li className="">
                     <Link href="/blogs">Blogs</Link>
                   </li>
                   <li>
@@ -105,11 +105,11 @@ const Header2 = () => {
                     <Link href="/">Home</Link>
                   </li>
                 ) : (
-                  <li>
+                  <li className="mr-2">
                     <Link href="/dashboard/profile">My Account</Link>
                   </li>
                 )}
-                <li>
+                <li className="mr-2">
                   <Link href="/blogs">Blogs</Link>
                 </li>
                 <li onClick={() => logout()}>

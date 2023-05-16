@@ -17,7 +17,7 @@
 .menu {
   display: flex;
   justify-content: space-around;
-  width: 50%;
+  width: 60%;
 }
 .main {
   color: #000;

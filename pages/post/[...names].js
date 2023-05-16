@@ -294,12 +294,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}--
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -323,12 +323,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -352,12 +352,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -381,12 +381,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -410,12 +410,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -439,12 +439,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -468,12 +468,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -497,12 +497,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -537,12 +537,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -566,12 +566,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -595,12 +595,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -624,12 +624,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -653,12 +653,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -682,12 +682,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -711,12 +711,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -738,12 +738,12 @@ const Post = () => {
                                   key={p._id}
                                 >
                                   <div className={style.productContainer}>
-                                    <h1 className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
                                       {p?.name}-
                                       <span className="text-black">
                                         {p?.age}
                                       </span>
-                                    </h1>
+                                    </p>
                                   </div>
                                 </Link>
                               ) : (
@@ -777,8 +777,8 @@ const Post = () => {
                         <Image
                           className={style.othersLinkImage}
                           src={`${a.image}`}
-                          width={200}
-                          height={200}
+                          width={1000}
+                          height={800}
                           alt="image"
                         />
                         <p className="text-blue-400">{a.title}</p>

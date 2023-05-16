@@ -36,3 +36,13 @@
 .desc p{
     color: black;
 }
+.blogContainer{
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+}
+.othersLinkImage{width:180px ; height: 210px; margin: 2px auto;}
+.othersLinkContainer{
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px;
+}
