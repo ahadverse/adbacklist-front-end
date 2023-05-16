@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 const Footer = dynamic(() => import("@/component/footer/footer"));
 const Header = dynamic(() => import("@/component/header/header"));
-
+//https://api-adbacklist.vercel.app
 const ContactUs = () => {
   return (
     <div>
@@ -40,9 +40,8 @@ const ContactUs = () => {
           all questions you may have.{" "}
         </p>
         <strong>Contact Us : </strong>
-        <strong>DIS PVT LTD</strong>
-        <p>Address:- 1530 LOCKE RD, MODESTO, CA 95355, USA</p>
-        <strong>Email - Ad Back List85@gmail.com</strong>
+        <strong>Email - adbacklist@gmail.com</strong>
+     
         <br />
         <br />
         <br />

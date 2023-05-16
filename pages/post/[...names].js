@@ -49,7 +49,7 @@ const Post = () => {
 
   async function getPosts() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}&state=${router?.query?.names[0]}`
+      const response = await axios.get(`http://localhost:5000/api/products/all?page=${page}&category=${router?.query?.names?.[2]}&state=${router?.query?.names[0]}`
       );
 
       setPages(response.data.pages);
@@ -143,9 +143,11 @@ const Post = () => {
     }
   }
 
+  console.log(state)
+
   async function getAds() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const response = await axios.get(`http://localhost:5000/api/sideads`);
       const data = response.data.ads;
       const category = data
         .filter((a) => a?.category == router?.query?.names?.[1])
@@ -174,7 +176,7 @@ const Post = () => {
 
       setFreeCityPost(freePost);
     }
-  }, [post, router?.query?.names, reload]);
+  }, [post, router?.query?.names, reload,page ]);
 
   const onChange = (pageNumber) => {
     setPage(pageNumber);
@@ -276,9 +278,9 @@ const Post = () => {
                           </h1>
                         )}
                         <>
-                          {!state.day1?.length == 0 ? (
+                          {!state.day1?.length == 0  & !premiumCityPost?.length == 0 ? (
                             <h1 className={style.premiumpostTitle}>
-                              {state.day1time}
+                              {state.day1time} 
                             </h1>
                           ) : (
                             ""
@@ -307,11 +309,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day2?.length == 0 && (
+                          {!state.day2?.length == 0  & !premiumCityPost?.length == 0 ?  (
                             <h1 className={style.premiumpostTitle}>
                               {state.day2time}
                             </h1>
-                          )}
+                          ):""}
 
                           {state.day2?.map((p) => (
                             <div>
@@ -336,11 +338,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day3?.length == 0 && (
+                          {!state.day3?.length == 0  & !premiumCityPost?.length == 0 ? (
                             <h1 className={style.premiumpostTitle}>
-                              {state.day3time}
+                              {state.day3time} 
                             </h1>
-                          )}
+                          ):""}
 
                           {state.day3?.map((p) => (
                             <div>
@@ -365,11 +367,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day4?.length == 0 && (
+                          {!state.day4?.length == 0  & !premiumCityPost?.length == 0 ? (
                             <h1 className={style.premiumpostTitle}>
                               {state.day4time}
                             </h1>
-                          )}
+                          ):""}
 
                           {state.day4?.map((p) => (
                             <div>
@@ -394,11 +396,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day5?.length == 0 && (
+                          {!state.day5?.length == 0  & !premiumCityPost?.length == 0 ? (
                             <h1 className={style.premiumpostTitle}>
                               {state.day5time}
                             </h1>
-                          )}
+                          ):""}
 
                           {state.day5?.map((p) => (
                             <div>
@@ -423,11 +425,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day6?.length == 0 && (
+                          {!state.day6?.length == 0  & !premiumCityPost?.length == 0 ? (
                             <h1 className={style.premiumpostTitle}>
                               {state.day6time}
                             </h1>
-                          )}
+                          ) : ""}
 
                           {state.day6?.map((p) => (
                             <div>
@@ -452,11 +454,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day7?.length == 0 && (
+                          {!state.day7?.length == 0  & !premiumCityPost?.length == 0 ? (
                             <h1 className={style.premiumpostTitle}>
                               {state.day7time}
                             </h1>
-                          )}
+                          ) : ''}
 
                           {state.day7?.map((p) => (
                             <div>
@@ -481,11 +483,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.lastWeek?.length == 0 && (
+                          {!state.lastWeek?.length == 0  & !premiumCityPost?.length == 0 ?(
                             <h1 className={style.premiumpostTitle}>
                               Last Week
                             </h1>
-                          )}
+                          ):""}
 
                           {state.lastWeek?.map((p) => (
                             <div>
@@ -511,17 +513,21 @@ const Post = () => {
                         </>
                       </div>
 
+        {/* Free post  */}
+
+
+
                       <div>
                         {!freeCityPost?.length == 0 && (
                           <h1 className={style.freepostTitle}>Free Post</h1>
                         )}
 
                         <>
-                          {!state.day1?.length == 0 && (
+                        {!freeCityPost?.length == 0 & !state.day1?.length == 0 ? (
                             <h1 className={style.freepostTitle2}>
-                              {state.day1time}
+                              {state.day1time} 
                             </h1>
-                          )}
+                          ): ""}
 
                           {state.day1?.map((p) => (
                             <div>
@@ -546,11 +552,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day2?.length == 0 && (
+                          {!freeCityPost?.length == 0 & !state.day2?.length == 0 ? (
                             <h1 className={style.freepostTitle2}>
-                              {state.day2time}
+                              {state.day2time} {freeCityPost?.length}
                             </h1>
-                          )}
+                          ): ""}
 
                           {state.day2?.map((p) => (
                             <div>
@@ -575,11 +581,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day3?.length == 0 && (
+                          {!state.day3?.length == 0 & !freeCityPost?.length == 0 ?  (
                             <h1 className={style.freepostTitle2}>
                               {state.day3time}
                             </h1>
-                          )}
+                          ): ""}
 
                           {state.day3?.map((p) => (
                             <div>
@@ -604,11 +610,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day4?.length == 0 && (
+                          {!state.day4?.length == 0 & !freeCityPost?.length == 0 ? (
                             <h1 className={style.freepostTitle2}>
                               {state.day4time}
                             </h1>
-                          )}
+                          ): ""}
 
                           {state.day4?.map((p) => (
                             <div>
@@ -633,11 +639,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day5?.length == 0 && (
+                          {!state.day5?.length == 0 & !freeCityPost?.length == 0 ? (
                             <h1 className={style.freepostTitle2}>
                               {state.day5time}
                             </h1>
-                          )}
+                          ):""}
 
                           {state.day5?.map((p) => (
                             <div>
@@ -662,11 +668,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day6?.length == 0 && (
+                          {!state.day6?.length == 0 & !freeCityPost?.length == 0 ? (
                             <h1 className={style.freepostTitle2}>
                               {state.day6time}
                             </h1>
-                          )}
+                          ): ""}
 
                           {state.day6?.map((p) => (
                             <div>
@@ -691,11 +697,11 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day7?.length == 0 && (
+                          {!state.day7?.length == 0 & !freeCityPost?.length == 0 ? (
                             <h1 className={style.freepostTitle2}>
                               {state.day7time}
                             </h1>
-                          )}
+                          ) : ""}
 
                           {state.day7?.map((p) => (
                             <div>
@@ -720,9 +726,9 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.lastWeek?.length == 0 && (
+                          {state.lastWeek?.length == 0 & !freeCityPost?.length == 0  ? (
                             <h1 className={style.freepostTitle2}>Last Week</h1>
-                          )}
+                          ) : ""}
 
                           {state.lastWeek?.map((p) => (
                             <div>
