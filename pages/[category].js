@@ -17,7 +17,7 @@ const Name = () => {
   async function getUser() {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/links`,
+        `https://api-adbacklist.vercel.app/api/links`,
         {
           method: "GET",
         }
