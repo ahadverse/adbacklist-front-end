@@ -274,12 +274,13 @@ const Post = () => {
                   {error == "no error" ? (
                     <>
 
+
                     <div>
-                       {!premiumCityPost?.length == 0 && (
+                       {!freeCityPost?.length == 0 ? (
                           <h1 className={style.premiumpostTitle2}>
                            Premium Ads
                           </h1>
-                        )}
+                        ) : ""}
                           {
                             freeCityPost?.map(a=>  
                               <Link
