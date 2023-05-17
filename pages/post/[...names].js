@@ -800,7 +800,7 @@ const Post = () => {
                 </div>
 
                 <div className={style.othersLink}>
-                  {/* {ads.map((a) => (
+                  {ads.map((a) => (
                     <div className={style.othersLinkContainer} key={a._id}>
                       <a href={`${a.link}`} target="_blank" rel="noreferrer">
                         <Image
@@ -813,7 +813,7 @@ const Post = () => {
                         <p className="text-blue-400">{a.title}</p>
                       </a>
                     </div>
-                  ))} */}
+                  ))}
                 </div>
               </div>
             </div>
