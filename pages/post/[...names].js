@@ -45,12 +45,15 @@ const Post = () => {
 
   const [page, setPage] = useState(1);
 
+  console.log(freeCityPost , "Asdfa")
 
 
   async function getPosts() {
     try {
       const response = await axios.get(`https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}&state=${router?.query?.names[0]}`
       );
+
+
 
       setPages(response.data.pages);
  
@@ -143,7 +146,7 @@ const Post = () => {
     }
   }
 
-  console.log(state)
+
 
   async function getAds() {
     try {
@@ -267,14 +270,39 @@ const Post = () => {
                     )}
                   </ul>
 
-                  {/* premium post  */}
 
                   {error == "no error" ? (
                     <>
+
+                    <div>
+                       {!premiumCityPost?.length == 0 && (
+                          <h1 className={style.premiumpostTitle2}>
+                           Premium Ads
+                          </h1>
+                        )}
+                          {
+                            freeCityPost?.map(a=>  
+                              <Link
+                                href={`/post/details/${router?.query?.names?.[1]}/${a._id}`}
+                                key={a._id}
+                              >
+                                <div className={style.productContainer}>
+                                  <p className="text-sm text-blue-600 sm:text-base hover:underline">
+                                    {a?.name}--
+                                    <span className="text-black">
+                                      {a?.age}
+                                    </span>
+                                  </p>
+                                </div>
+                              </Link>
+                       
+                          )}
+                    </div>
+
                       <div>
                         {!premiumCityPost?.length == 0 && (
-                          <h1 className={style.premiumpostTitle2}>
-                            Premium Ads
+                          <h1 className={style.freepostTitle}>
+                            Ads
                           </h1>
                         )}
                         <>
@@ -517,7 +545,7 @@ const Post = () => {
 
 
 
-                      <div>
+                      {/* <div>
                         {!freeCityPost?.length == 0 && (
                           <h1 className={style.freepostTitle}>Free Post</h1>
                         )}
@@ -752,7 +780,7 @@ const Post = () => {
                             </div>
                           ))}
                         </>
-                      </div>
+                      </div> */}
                     </>
                   ) : (
                     "No Post Found"
@@ -771,7 +799,7 @@ const Post = () => {
                 </div>
 
                 <div className={style.othersLink}>
-                  {ads.map((a) => (
+                  {/* {ads.map((a) => (
                     <div className={style.othersLinkContainer} key={a._id}>
                       <a href={`${a.link}`} target="_blank" rel="noreferrer">
                         <Image
@@ -784,7 +812,7 @@ const Post = () => {
                         <p className="text-blue-400">{a.title}</p>
                       </a>
                     </div>
-                  ))}
+                  ))} */}
                 </div>
               </div>
             </div>

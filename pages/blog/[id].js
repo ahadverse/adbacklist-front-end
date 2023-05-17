@@ -23,7 +23,7 @@ const BlogDetails = () => {
       const data = response.data.data.blog;
       setBlogs(data?.[0]);
       setIsLoading(false);
-   
+      getAds(data);
     } catch (error) {
       setIsLoading(false);
       console.error(error);
@@ -31,20 +31,22 @@ const BlogDetails = () => {
     }
   }
 
-  async function getAds() {
+  async function getAds(data) {
+
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads/category?category=${data?.[0]?.category}`);
 
       const datas = response.data.ads;
+
+      console.log(datas)
   
-        
       setAds(datas);
     } catch (error) {
       console.error(error);
     }
   }
 
-  console.log(ads);
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -52,12 +54,12 @@ const BlogDetails = () => {
       return;
     } else if (id) {
       getUser();
-      getAds();
+
     }
   }, [id]);
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-200">
       <Head>
         <title>{blog?.title ? `${blog?.title}` : "loading"}</title>
         <link rel="icon" href="/favicon.ico" />

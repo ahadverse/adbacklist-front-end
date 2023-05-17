@@ -984,14 +984,6 @@
       },
       {
         "_id": "63d7bc754aa59811ad162148",
-        "name": "Lost and Found",
-        "parentId": "63d7ba0b4aa59811ad1620e7",
-        "createdBy": "Jhon Doe",
-        "createdAt": "2023-01-30T12:47:49.968Z",
-        "children": []
-      },
-      {
-        "_id": "63d7bc754aa59811ad162148",
         "name": "Missed Connections",
         "parentId": "63d7ba0b4aa59811ad1620e7",
         "createdBy": "Jhon Doe",

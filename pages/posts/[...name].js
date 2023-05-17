@@ -8,7 +8,7 @@ import n from "../../styles/moduleCss/addPost.module.css";
 import m from "sweetalert2";
 import s from "js-cookie";
 import u from "jwt-decode";
-import { message as d, Upload, Modal, message } from "antd";
+import { message as d, Upload, Modal, message, Select } from "antd";
 import y from "../../public/category.json";
 import { AiFillPlusCircle } from "react-icons/ai";
 import x from "@/component/user";
@@ -20,7 +20,7 @@ let initialState = {
     name: "",
     phone: "",
     email: "",
-    description : "",
+    description: "",
     category: "",
     subCategory: "",
     imgOne: "",
@@ -30,6 +30,7 @@ let initialState = {
     city: "",
     month: "",
     cities: "",
+    premiumDay : 0,
     age: "",
     posterId: "",
     isPremium: !1,
@@ -37,7 +38,6 @@ let initialState = {
     error: "",
   },
   beforeUpload = (e) => {
-  
     let t = "image/jpeg" === e.type || "image/png" === e.type;
     if (!t) {
       d.error("You can only upload JPG/PNG file!");
@@ -58,16 +58,10 @@ let initialState = {
         (a.onerror = (e) => o(e));
     }),
   Post = () => {
-
-
     let e = o(),
       { users } = x(),
       [a, l] = i(initialState),
       [d, g] = i(!1),
-
-      
-
-
       [local, setLocal] = i(0),
       b = (e) => {
         l({ ...a, [e.type]: e.payload });
@@ -97,23 +91,27 @@ let initialState = {
     r(() => {
       if (e.query.name?.[0] == "multiple-city-ads") {
         let e = JSON.parse(localStorage?.getItem("cities"));
-        if(e == null){
-          setLocal("null")
-          return
-        }else{
+        if (e == null) {
+          setLocal("null");
+          return;
+        } else {
           setLocal(e?.length * 0.05);
         }
-      
-
       }
       if (e.query.name?.[0] == "local-ads") {
         setLocal(0.05);
       }
-      if (e.query.name?.[0] == "free-ads") {
-        setLocal(0.0);
+      if (e.query.name?.[0] == "premium-ads") {
+        setLocal(1);
       }
-
     }, [e.query.name]);
+
+    const topForDays = (value) => {
+      const newData = 0.05 + value;
+      setLocal(newData)
+    };
+
+    
 
     const editorRef = useRef(null);
     const log = () => {
@@ -121,7 +119,8 @@ let initialState = {
         l({ ...a, description: editorRef.current.getContent() });
       }
     };
- 
+
+    console.log(local)
 
     let q = async (t) => {
         g(!0);
@@ -168,36 +167,46 @@ let initialState = {
               .then((e) => {
                 o.imgFour = e.payload.url;
               })),
-             "" == o.category ||
-            "" == o.description ||
-            "" == o.name)
+          "" == o.category || "" == o.description || "" == o.name)
         ) {
           g(!1);
           l({ ...a, error: "" });
 
           message.error({
-            type: 'error',
-            content: 'Image, Title, Category, Sub Category and Description is required',
+            type: "error",
+            content:
+              "Image, Title, Category, Sub Category and Description is required",
           });
-       
+
           return;
         }
         if (
           (l({ ...a, error: "" }),
-
-          
-          "free-ads" == t[0] && ((o.cities = [t[1]]), (o.isApproved = !1) ),
-
+          "premium-ads" == t[0] && ((o.cities = [t[1]]), (o.isApproved = !0)),
           ("local-ads" == t[0] || "multiple-city-ads" == t[0]) &&
-            ((o.cities = [t[1]] || ""), (o.isPremium = !0) , (o.isApproved = !0)),
+            ((o.cities = [t[1]] || ""),
+            (o.isApproved = !0)),
           "multiple-city-ads" == t[0])
         ) {
           let i = JSON.parse(localStorage.getItem("cities"));
-          console.log(i)
+          console.log(i);
           o.cities = i;
         }
-        g(!1)
-        console.log(o)
+
+        if(local == 0.05){
+          o.premiumDay = 0;
+        }
+        if(local == 10.05){
+          o.premiumDay = 7;
+        }
+        if(local == 20.05){
+          o.premiumDay = 14;
+        }
+        if(local == 35.05){
+          o.premiumDay = 30;
+        }
+
+        g(!1), console.log(o);
 
         await fetch("https://api-adbacklist.vercel.app/api/products", {
           method: "POST",
@@ -211,7 +220,7 @@ let initialState = {
           .then((t) => {
             localStorage.removeItem("cities")
             const newCredit = users?.credit - local?.toFixed(2)
-      
+        
             axios
               .patch(
                 `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
@@ -245,8 +254,6 @@ let initialState = {
               }).catch(err => console.log(err));
           });
       },
-
-
       B = (
         <div>
           <AiFillPlusCircle className="text-2xl sm:text-4xl m-auto" />
@@ -276,7 +283,7 @@ let initialState = {
                   <p className="text-red-600 font-bold border p-2 border-green-400 w-10/12 sm:w-2/12">
                     Your Credits : ${users?.credit?.toFixed(2)}
                   </p>
-                  {e?.query?.name?.[0] == "free-ads" && (
+                  {e?.query?.name?.[0] == "premium-ads" && (
                     <p className="text-blue-600 font-bold w-10/12 sm:w-4/12">
                       You will be charged : ${local.toFixed(2)}
                     </p>
@@ -363,7 +370,6 @@ let initialState = {
                     className="input bg-gray-100 w-full "
                   />
                 </label>
-    
 
                 <label className="text-black  font-bold text-xs sm:text-xl">
                   Your Age :
@@ -396,7 +402,9 @@ let initialState = {
                     <option value="category">-- Select Category --</option>
 
                     {y?.map((e) => (
-                      <option value={e?.name} key={e?.name} >{e?.name}</option>
+                      <option value={e?.name} key={e?.name}>
+                        {e?.name}
+                      </option>
                     ))}
                   </select>
                 </label>
@@ -417,7 +425,9 @@ let initialState = {
                     </option>
 
                     {F?.children?.map((e) => (
-                      <option value={e?.name} key={e?.name}>{e?.name}</option>
+                      <option value={e?.name} key={e?.name}>
+                        {e?.name}
+                      </option>
                     ))}
                   </select>
                 </label>
@@ -428,46 +438,45 @@ let initialState = {
                   Description :
                   <br />
                   <Editor
-              onBlur={log}
-              apiKey="85y33d08bi5k84w3nxa07aq607ko8v165dau2joyygooce9j"
-              onInit={(evt, editor) => (editorRef.current = editor)}
-              initialValue={a.description}
-              
-              init={{
-                height: 250,
-                menubar: false,
-                plugins: [
-                  "advlist",
-                  "autolink",
-                  "lists",
-                  "link",
-                  "image",
-                  "charmap",
-                  "preview",
-                  "anchor",
-                  "searchreplace",
-                  "visualblocks",
-                  "code",
-                  "fullscreen",
-                  "insertdatetime",
-                  "media",
-                  "table",
-                  "code",
-                  "help",
-                  "wordcount",
-                ],
-                toolbar:
-                  "insertfile image media pageembed template link anchor codesample | bold italic forecolor | alignleft aligncenter " +
-                  "undo redo | blocks | " +
-                  "alignright alignjustify | bullist numlist outdent indent | " +
-                  "removeformat | help",
-                image_caption: true,
-                image_advtab: true,
-                content_style:
-                  "body { font-family:Helvetica,Arial,sans-serif; font-size:14px ;  }",
-                relative_urls: true,
-              }}
-            />
+                    onBlur={log}
+                    apiKey="85y33d08bi5k84w3nxa07aq607ko8v165dau2joyygooce9j"
+                    onInit={(evt, editor) => (editorRef.current = editor)}
+                    initialValue={a.description}
+                    init={{
+                      height: 250,
+                      menubar: false,
+                      plugins: [
+                        "advlist",
+                        "autolink",
+                        "lists",
+                        "link",
+                        "image",
+                        "charmap",
+                        "preview",
+                        "anchor",
+                        "searchreplace",
+                        "visualblocks",
+                        "code",
+                        "fullscreen",
+                        "insertdatetime",
+                        "media",
+                        "table",
+                        "code",
+                        "help",
+                        "wordcount",
+                      ],
+                      toolbar:
+                        "insertfile image media pageembed template link anchor codesample | bold italic forecolor | alignleft aligncenter " +
+                        "undo redo | blocks | " +
+                        "alignright alignjustify | bullist numlist outdent indent | " +
+                        "removeformat | help",
+                      image_caption: true,
+                      image_advtab: true,
+                      content_style:
+                        "body { font-family:Helvetica,Arial,sans-serif; font-size:14px ;  }",
+                      relative_urls: true,
+                    }}
+                  />
                 </label>
               </div>
 
@@ -483,17 +492,49 @@ let initialState = {
               )}
 
               {/* <p className="text-red-600 text-xs">{a.error}</p> */}
+              <div className="sm:w-3/4 w-full m-auto pt-10 ">
+              <label className="text-black font-bold text-xs sm:text-xl">
+                Placement of your ads
+              </label>
+                <Select
+                  className="w-full"
+                  defaultValue="default"
+                  onChange={topForDays}
+                  options={[
+                    {
+                      value: 0,
+                      label: "default",
+                    },
+                    {
+                      value: 10,
+                      label: "Show this ad at the top for the next 7 days ($10)",
+                    },
+                    {
+                      value: 20,
+                      label: "Show this ad at the top for the next 14 days ($20)",
+                    },
+                    {
+                      value: 35,
+                      label: "Show this ad at the top for the next 30 days ($35)",
+                    },
+                  ]}
+                />
+              </div>
 
               <div className="sm:w-3/4 w-full m-auto pt-10 ">
                 {users?.credit < local || local == "null" ? (
                   <>
-                  <button className={n.postButton} disabled role="button">
-                    Submit Post
-                  </button> 
-                  <br />
-                  <Link href={`/recharge-credits/${users?._id}`} className="rounded bg-green-400 font-bold text-white p-2 hover:bg-red-400"  >
-                    Add Credits
-                  </Link></>
+                    <h1 className="text-2xl text-red-600 font-bold">
+                      Insufficient Balance
+                    </h1>
+                    <br />
+                    <Link
+                      href={`/recharge-credits/${users?._id}`}
+                      className="rounded bg-green-400 font-bold text-white p-2 hover:bg-red-400"
+                    >
+                      Buy Credits
+                    </Link>
+                  </>
                 ) : (
                   <>
                     {d ? (

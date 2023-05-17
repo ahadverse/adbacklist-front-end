@@ -164,11 +164,11 @@ const Dashboards = () => {
                           <td className="text-center">
                             {a.isPremium ? (
                               <p className="bg-green-600 sm:w-2/12 w-6/12 rounded text-white">
-                                Yes
+                                No 
                               </p>
                             ) : (
                               <p className="bg-red-600 sm:w-2/12 w-6/12 rounded text-white">
-                                No
+                               Yes
                               </p>
                             )}
                           </td>

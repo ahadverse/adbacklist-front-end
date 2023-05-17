@@ -36,7 +36,7 @@ const Blogs = () => {
     }
   }
 
-  console.log(blogs)
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -57,7 +57,7 @@ const Blogs = () => {
     setPage(page);
   };
 
-  console.log(blogs)
+
 
   return (
     <div className="bg-gray-100">

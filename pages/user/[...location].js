@@ -111,14 +111,14 @@ const Location = () => {
       </Head>
       <Header></Header>
       {router?.query?.location?.[0] == "multiple-city-ads" && (
-        <div className="m-5 sm:mx-24 bg-white pb-2">
+        <div className="m-5 sm:mx-24 bg-white p-2 flex  flex-row-reverse justify-between items-center">
           <div className="flex justify-between mx-5">
             <div>
               {" "}
               {state.length == 0 ? (
                 <button
                   disabled
-                  className="cursor-not-allowed bg-green-500 px-5 text-white rounded flex items-center"
+                  className="cursor-not-allowed bg-gray-400 px-5 text-red-400 rounded flex text-2xl font-bold items-center"
                 >
                   Next
                   <BsArrowRight className="text-xl ml-2"></BsArrowRight>{" "}
@@ -127,7 +127,7 @@ const Location = () => {
                 <>
                   <Link href={`/posts/multiple-city-ads`}>
                     <button
-                      className="bg-green-500 px-5 text-white rounded flex items-center"
+                      className="bg-green-500 px-5 text-white rounded flex text-2xl font-bold items-center"
                       onClick={() => citiesName()}
                     >
                       Post
