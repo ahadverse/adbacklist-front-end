@@ -251,7 +251,7 @@ const Details = () => {
                       rel="noreferrer"
                       className="text-blue-600"
                     >
-                      <img className="w-full h-48" src={a?.image} />
+                      <img className="w-86 h-48" src={a?.image} width={250} />
                       <p className="text-blue-400 underline">{a?.title}</p>
                     </a>
                   </div>

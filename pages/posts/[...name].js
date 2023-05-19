@@ -8,7 +8,7 @@ import n from "../../styles/moduleCss/addPost.module.css";
 import m from "sweetalert2";
 import s from "js-cookie";
 import u from "jwt-decode";
-import { message as d, Upload, Modal, message, Select } from "antd";
+import { message as d, Upload, Modal, message, Select, Radio } from "antd";
 import y from "../../public/category.json";
 import { AiFillPlusCircle } from "react-icons/ai";
 import x from "@/component/user";
@@ -58,8 +58,10 @@ let initialState = {
         (a.onerror = (e) => o(e));
     }),
   Post = () => {
+    const [value1, setValue1] = i(0);
     let e = o(),
       { users } = x(),
+      
       [a, l] = i(initialState),
       [d, g] = i(!1),
       [local, setLocal] = i(0),
@@ -106,9 +108,23 @@ let initialState = {
       }
     }, [e.query.name]);
 
-    const topForDays = (value) => {
-      const newData = 0.05 + value;
-      setLocal(newData)
+
+
+    const topForDays = ({ target: { value } }) => {
+
+      setValue1(value)
+      let e = JSON.parse(localStorage?.getItem("cities"));
+
+      if(e?.query?.name?.[0] == "multiple-city-ads"){
+        const newData = 0.05 + value * e.length;
+        setLocal(newData)
+      }
+      else{
+        const newData = 0.05 + value ;
+        setLocal(newData)
+      }
+
+ 
     };
 
     
@@ -120,7 +136,6 @@ let initialState = {
       }
     };
 
-    console.log(local)
 
     let q = async (t) => {
         g(!0);
@@ -182,10 +197,14 @@ let initialState = {
         }
         if (
           (l({ ...a, error: "" }),
-          "premium-ads" == t[0] && ((o.cities = [t[1]]), (o.isApproved = !0)),
+
           ("local-ads" == t[0] || "multiple-city-ads" == t[0]) &&
+           
             ((o.cities = [t[1]] || ""),
-            (o.isApproved = !0)),
+            (o.isApproved = !0),
+            (o.isPremium = !0)
+            
+            ),
           "multiple-city-ads" == t[0])
         ) {
           let i = JSON.parse(localStorage.getItem("cities"));
@@ -197,62 +216,65 @@ let initialState = {
           o.premiumDay = 0;
         }
         if(local == 10.05){
-          o.premiumDay = 7;
+          o.premiumDay = 7 * 24;
+          o.isPremium = !1
         }
         if(local == 20.05){
-          o.premiumDay = 14;
+          o.premiumDay = 14 * 24;
+          o.isPremium = !1
         }
         if(local == 35.05){
-          o.premiumDay = 30;
+          o.premiumDay = 30 * 24;
+          o.isPremium = !1
         }
 
         g(!1), console.log(o);
 
-        await fetch("https://api-adbacklist.vercel.app/api/products", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            authorization: `Bearer ${f}`,
-          },
-          body: JSON.stringify(o),
-        })
-          .then((e) => e.json())
-          .then((t) => {
-            localStorage.removeItem("cities")
-            const newCredit = users?.credit - local?.toFixed(2)
+        // await fetch("https://api-adbacklist.vercel.app/api/products", {
+        //   method: "POST",
+        //   headers: {
+        //     "content-type": "application/json",
+        //     authorization: `Bearer ${f}`,
+        //   },
+        //   body: JSON.stringify(o),
+        // })
+        //   .then((e) => e.json())
+        //   .then((t) => {
+        //     localStorage.removeItem("cities")
+        //     const newCredit = users?.credit - local?.toFixed(2)
         
-            axios
-              .patch(
-                `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
-                { credit : newCredit },
-                {
-                  headers: {
-                    authorization: `Bearer ${f}`,
-                  },
-                }
-              )
-              .then((response) => {
+        //     axios
+        //       .patch(
+        //         `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
+        //         { credit : newCredit },
+        //         {
+        //           headers: {
+        //             authorization: `Bearer ${f}`,
+        //           },
+        //         }
+        //       )
+        //       .then((response) => {
 
-                if (response.data.status == "success") {
+        //         if (response.data.status == "success") {
 
-                  g(!1),
-                    "success" == t.status &&
-                      m
-                        .fire({
-                          position: "top-center",
-                          icon: "success",
-                          title: "Your work has been saved",
-                          showConfirmButton: !1,
-                          timer: 2500,
-                        })
-                        .then(
-                          setTimeout(() => {
-                            e.push("/dashboard/profile");
-                          }, 500)
-                        );
-                }
-              }).catch(err => console.log(err));
-          });
+        //           g(!1),
+        //             "success" == t.status &&
+        //               m
+        //                 .fire({
+        //                   position: "top-center",
+        //                   icon: "success",
+        //                   title: "Your work has been saved",
+        //                   showConfirmButton: !1,
+        //                   timer: 2500,
+        //                 })
+        //                 .then(
+        //                   setTimeout(() => {
+        //                     e.push("/dashboard/profile");
+        //                   }, 500)
+        //                 );
+        //         }
+        //       }).catch(err => console.log(err));
+        //   });
       },
       B = (
         <div>
@@ -261,6 +283,26 @@ let initialState = {
           <div style={{ marginTop: 8 }}>Upload</div>
         </div>
       );
+
+
+      const options = [
+        {
+          label: 'Default',
+          value: 0,
+        },
+        {
+          label: '7 Days',
+          value: 10,
+        },
+        {
+          label: '14 Days',
+          value: 20,
+        },
+        {
+          label: '30 Days',
+          value: 35,
+        },
+      ];
 
     return (
       <div>
@@ -492,34 +534,17 @@ let initialState = {
               )}
 
               {/* <p className="text-red-600 text-xs">{a.error}</p> */}
-              <div className="sm:w-3/4 w-full m-auto pt-10 ">
-              <label className="text-black font-bold text-xs sm:text-xl">
-                Placement of your ads
-              </label>
-                <Select
-                  className="w-full"
-                  defaultValue="default"
-                  onChange={topForDays}
-                  options={[
-                    {
-                      value: 0,
-                      label: "default",
-                    },
-                    {
-                      value: 10,
-                      label: "Show this ad at the top for the next 7 days ($10)",
-                    },
-                    {
-                      value: 20,
-                      label: "Show this ad at the top for the next 14 days ($20)",
-                    },
-                    {
-                      value: 35,
-                      label: "Show this ad at the top for the next 30 days ($35)",
-                    },
-                  ]}
-                />
-              </div>
+              {
+                e.query.name?.[0] == "multiple-city-ads" ? "" :       <div className="sm:w-3/4 w-full m-auto pt-10 ">
+                <label className="text-black font-bold text-xs sm:text-xl">
+                  Show your adds at top <small>(extra charged)</small>
+                </label>
+                <br />
+
+                <Radio.Group options={options} onChange={topForDays} value={value1} />
+                </div>
+              }
+        
 
               <div className="sm:w-3/4 w-full m-auto pt-10 ">
                 {users?.credit < local || local == "null" ? (

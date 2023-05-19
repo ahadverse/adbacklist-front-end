@@ -45,21 +45,17 @@ const Post = () => {
 
   const [page, setPage] = useState(1);
 
-  console.log(freeCityPost , "Asdfa")
-
+  console.log(freeCityPost, "Asdfa");
 
   async function getPosts() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}&state=${router?.query?.names[0]}`
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/products/all?page=${page}&category=${router?.query?.names?.[2]}&state=${router?.query?.names[0]}`
       );
 
-
-
       setPages(response.data.pages);
- 
 
-
-      const cityPost = response.data.data.products
+      const cityPost = response.data.data.products;
       const day1time = new Date().toDateString();
       const day1 = cityPost.filter(
         (a) => new Date(a.updatedAt).toDateString() == day1time
@@ -136,7 +132,6 @@ const Post = () => {
         day7time: day7time,
         lastWeek: lastWeek,
       });
- 
 
       setPost(cityPost);
       setIsLoading(false);
@@ -146,11 +141,11 @@ const Post = () => {
     }
   }
 
-
-
   async function getAds() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/sideads`
+      );
       const data = response.data.ads;
       const category = data
         .filter((a) => a?.category == router?.query?.names?.[1])
@@ -179,7 +174,7 @@ const Post = () => {
 
       setFreeCityPost(freePost);
     }
-  }, [post, router?.query?.names, reload,page ]);
+  }, [post, router?.query?.names, reload, page]);
 
   const onChange = (pageNumber) => {
     setPage(pageNumber);
@@ -194,7 +189,6 @@ const Post = () => {
     const useOld = Cookies.get("age");
     setAge(useOld);
   }, [reload]);
-
 
 
 
@@ -270,47 +264,52 @@ const Post = () => {
                     )}
                   </ul>
 
-
                   {error == "no error" ? (
                     <>
-
-
-                    <div>
-                       {!freeCityPost?.length == 0 ? (
+                      <div>
+                        {!freeCityPost?.length == 0 ? (
                           <h1 className={style.premiumpostTitle2}>
-                           Premium Ads
+                            Premium Ads
                           </h1>
-                        ) : ""}
-                          {
-                            freeCityPost?.map(a=>  
-                              <Link
-                                href={`/post/details/${router?.query?.names?.[1]}/${a._id}`}
-                                key={a._id}
-                              >
-                                <div className={style.productContainer}>
-                                  <p className="text-sm text-blue-600 sm:text-base hover:underline">
-                                    {a?.name}--
-                                    <span className="text-black">
-                                      {a?.age}
-                                    </span>
-                                  </p>
-                                </div>
-                              </Link>
-                       
-                          )}
-                    </div>
+                        ) : (
+                          ""
+                        )}
+
+      
+
+                        {freeCityPost?.map((a) => (
+                          <Link
+                            href={`/post/details/${router?.query?.names?.[1]}/${a._id}`}
+                            key={a._id}
+                          >
+                            <div className={style.productContainer}>
+                              <p className="text-sm text-blue-600 sm:text-base hover:underline">
+                                {a?.name}--
+                                <span className="text-black">{a?.age}</span>
+                              </p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+
+
+
+
+                      {/* other post  */}
 
                       <div>
                         {!premiumCityPost?.length == 0 && (
-                          <h1 className={style.freepostTitle}>
-                            Ads
-                          </h1>
+                          <h1 className={style.freepostTitle}>Ads</h1>
                         )}
+
                         <>
-                          {!state.day1?.length == 0  & !premiumCityPost?.length == 0 ? (
-                            <h1 className={style.premiumpostTitle}>
-                              {state.day1time} 
-                            </h1>
+                          {state?.day1?.[0]?.isPremium == true ? (
+                            <>
+                              {" "}
+                              <h1 className={style.premiumpostTitle}>
+                                {state.day1time}
+                              </h1>
+                            </>
                           ) : (
                             ""
                           )}
@@ -318,31 +317,39 @@ const Post = () => {
                           {state.day1?.map((p) => (
                             <div>
                               {p.isPremium == true ? (
-                                <Link
-                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
-                                  key={p._id}
-                                >
-                                  <div className={style.productContainer}>
-                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
-                                      {p?.name}--
-                                      <span className="text-black">
-                                        {p?.age}
-                                      </span>
-                                    </p>
-                                  </div>
-                                </Link>
+                                <>
+                                  <Link
+                                    href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
+                                    key={p._id}
+                                  >
+                                    <div className={style.productContainer}>
+                                      <p className="text-sm text-blue-600 sm:text-base hover:underline">
+                                        {p?.name}--
+                                        <span className="text-black">
+                                          {p?.age}
+                                        </span>
+                                      </p>
+                                    </div>
+                                  </Link>
+                                </>
                               ) : (
                                 ""
                               )}
                             </div>
                           ))}
                         </>
+
                         <>
-                          {!state.day2?.length == 0  & !premiumCityPost?.length == 0 ?  (
-                            <h1 className={style.premiumpostTitle}>
-                              {state.day2time}
-                            </h1>
-                          ):""}
+                        {state?.day2?.[0]?.isPremium == true ? (
+                            <>
+                              {" "}
+                              <h1 className={style.premiumpostTitle}>
+                                {state.day2time}
+                              </h1>
+                            </>
+                          ) : (
+                            ""
+                          )}
 
                           {state.day2?.map((p) => (
                             <div>
@@ -366,12 +373,18 @@ const Post = () => {
                             </div>
                           ))}
                         </>
+
                         <>
-                          {!state.day3?.length == 0  & !premiumCityPost?.length == 0 ? (
-                            <h1 className={style.premiumpostTitle}>
-                              {state.day3time} 
-                            </h1>
-                          ):""}
+                        {state?.day3?.[0]?.isPremium == true ? (
+                            <>
+                              {" "}
+                              <h1 className={style.premiumpostTitle}>
+                                {state.day3time}
+                              </h1>
+                            </>
+                          ) : (
+                            ""
+                          )}
 
                           {state.day3?.map((p) => (
                             <div>
@@ -396,11 +409,16 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day4?.length == 0  & !premiumCityPost?.length == 0 ? (
-                            <h1 className={style.premiumpostTitle}>
-                              {state.day4time}
-                            </h1>
-                          ):""}
+                        {state?.day4?.[0]?.isPremium == true ? (
+                            <>
+                              {" "}
+                              <h1 className={style.premiumpostTitle}>
+                                {state.day4time}
+                              </h1>
+                            </>
+                          ) : (
+                            ""
+                          )}
 
                           {state.day4?.map((p) => (
                             <div>
@@ -424,41 +442,55 @@ const Post = () => {
                             </div>
                           ))}
                         </>
+
                         <>
-                          {!state.day5?.length == 0  & !premiumCityPost?.length == 0 ? (
-                            <h1 className={style.premiumpostTitle}>
-                              {state.day5time}
-                            </h1>
-                          ):""}
+                        {state?.day5?.[0]?.isPremium == true ? (
+                            <>
+                              {" "}
+                              <h1 className={style.premiumpostTitle}>
+                                {state.day5time}
+                              </h1>
+                            </>
+                          ) : (
+                            ""
+                          )}
 
                           {state.day5?.map((p) => (
                             <div>
                               {p.isPremium == true ? (
-                                <Link
-                                  href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
-                                  key={p._id}
-                                >
-                                  <div className={style.productContainer}>
-                                    <p className="text-sm text-blue-600 sm:text-base hover:underline">
-                                      {p?.name}-
-                                      <span className="text-black">
-                                        {p?.age}
-                                      </span>
-                                    </p>
-                                  </div>
-                                </Link>
+                                <>
+                                  <Link
+                                    href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
+                                    key={p._id}
+                                  >
+                                    <div className={style.productContainer}>
+                                      <p className="text-sm text-blue-600 sm:text-base hover:underline">
+                                        {p?.name}-
+                                        <span className="text-black">
+                                          {p?.age}
+                                        </span>
+                                      </p>
+                                    </div>
+                                  </Link>{" "}
+                                </>
                               ) : (
                                 ""
                               )}
                             </div>
                           ))}
                         </>
+
                         <>
-                          {!state.day6?.length == 0  & !premiumCityPost?.length == 0 ? (
-                            <h1 className={style.premiumpostTitle}>
-                              {state.day6time}
-                            </h1>
-                          ) : ""}
+                        {state?.day6?.[0]?.isPremium == true ? (
+                            <>
+                              {" "}
+                              <h1 className={style.premiumpostTitle}>
+                                {state.day6time}
+                              </h1>
+                            </>
+                          ) : (
+                            ""
+                          )}
 
                           {state.day6?.map((p) => (
                             <div>
@@ -483,11 +515,16 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.day7?.length == 0  & !premiumCityPost?.length == 0 ? (
-                            <h1 className={style.premiumpostTitle}>
-                              {state.day7time}
-                            </h1>
-                          ) : ''}
+                        {state?.day7?.[0]?.isPremium == true ? (
+                            <>
+                              {" "}
+                              <h1 className={style.premiumpostTitle}>
+                                {state.day7time}
+                              </h1>
+                            </>
+                          ) : (
+                            ""
+                          )}
 
                           {state.day7?.map((p) => (
                             <div>
@@ -512,11 +549,19 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                          {!state.lastWeek?.length == 0  & !premiumCityPost?.length == 0 ?(
-                            <h1 className={style.premiumpostTitle}>
+                        {state?.lastWeek?.[0]?.isPremium == true ? (
+                            <>
+                              {" "}
+                              <h1 className={style.premiumpostTitle}>
                               Last Week
-                            </h1>
-                          ):""}
+                              </h1>
+                            </>
+                          ) : (
+                            ""
+                          )}
+
+
+               
 
                           {state.lastWeek?.map((p) => (
                             <div>
@@ -542,9 +587,7 @@ const Post = () => {
                         </>
                       </div>
 
-        {/* Free post  */}
-
-
+                      {/* Free post  */}
 
                       {/* <div>
                         {!freeCityPost?.length == 0 && (

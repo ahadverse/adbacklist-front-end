@@ -40,11 +40,15 @@
     display: grid;
     grid-template-columns: 6fr 2fr;
 }
-.othersLinkImage{width:100% ; height: 210px; margin: 2px auto;}
-
-.othersLinkContainer{
-    margin : 0 0px;
-    margin-bottom: 20px;
+.othersLinkImage {
+    width: 300px;
+    height: 300px;
+    margin: 2px auto;
+  }
+  .othersLinkContainer {
+    width: 270px;
+    margin: 10px;
+    border: 1px solid #d3d3d3;
     background: white;
-   
-}
+    padding: 5px;
+  }
