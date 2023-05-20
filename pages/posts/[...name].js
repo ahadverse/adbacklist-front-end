@@ -228,7 +228,7 @@ let initialState = {
           o.isPremium = !1
         }
 
-        g(!1), console.log(o);
+ 
 
         await fetch("https://api-adbacklist.vercel.app/api/products", {
           method: "POST",
