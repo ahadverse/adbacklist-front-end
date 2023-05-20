@@ -59,7 +59,7 @@ const Header2 = () => {
                     </li>
                   )}
                   <li>
-                    <Link href="/blogs">Blogs</Link>
+                    <Link href="/blogs?page=1">Blogs</Link>
                   </li>
                   <li
                     onClick={() => logout()}
@@ -75,7 +75,7 @@ const Header2 = () => {
               ) : (
                 <>
                   <li className="">
-                    <Link href="/blogs">Blogs</Link>
+                    <Link href="/blogs?page=1">Blogs</Link>
                   </li>
                   <li>
                     <Link href="/login">Login</Link>
@@ -110,7 +110,7 @@ const Header2 = () => {
                   </li>
                 )}
                 <li className="mr-2">
-                  <Link href="/blogs">Blogs</Link>
+                  <Link href="/blogs?page=1">Blogs</Link>
                 </li>
                 <li onClick={() => logout()}>
                   <a
@@ -124,7 +124,7 @@ const Header2 = () => {
             ) : (
               <>
                 <li>
-                  <Link href="/blogs">Blogs</Link>
+                  <Link href="/blogs?page=1">Blogs</Link>
                 </li>
                 <li>
                   <Link href="/login">Login</Link>

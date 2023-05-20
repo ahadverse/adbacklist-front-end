@@ -18,12 +18,12 @@ const Blogs = () => {
   const [isloading, setIsLoading] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [catKey, setCatKey] = useState("");
-  const [pages, setPage] = useState(router?.query?.page ? router?.query?.page : 1);
+  const [pages, setPage] = useState(router?.query?.page);
 
   async function getBlogs() {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/blogs?page=${pages}&q=${
+        `https://api-adbacklist.vercel.app/api/blogs?page=${router?.query?.page}&q=${
           catKey ? catKey : keyword
         }`
       );
@@ -38,13 +38,15 @@ const Blogs = () => {
     }
   }
 
+  console.log(router?.query?.page)
 
 
 
   useEffect(() => {
     setIsLoading(true);
+
     getBlogs();
-  }, [pages, catKey, keyword]);
+  }, [router?.query?.page, catKey, keyword]);
 
   // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category).filter(a=> keyword ? a.title.toLowerCase().includes(keyword.toLowerCase()) : a.title)
 
@@ -57,7 +59,8 @@ const Blogs = () => {
   };
 
   const onChange = (page) => {
-    setPage(page);
+    router.push(`/blogs?page=${page}`)
+    // setPage(page);
   };
 
 
@@ -116,7 +119,7 @@ const Blogs = () => {
                   ""
                 )}
                 {blogs?.data?.blogs.map((a) => (
-                  <Link href={`/blog/${a.permalink}?pages=${pages}`} key={a._id}>
+                  <Link href={`/blog/${a.permalink}?pages=${router?.query?.page}`} key={a._id}>
                     <div className={style.card}>
                       <img className={style.blogImage} src={a?.image} />
 
@@ -176,7 +179,7 @@ const Blogs = () => {
             </div>
             <Pagination
               className="flex justify-center mt-10"
-              defaultCurrent={pages}
+              defaultCurrent={router?.query?.page}
               pageSize={6}
               onChange={onChange}
               showSizeChanger={false}

@@ -5,7 +5,7 @@ class WebDocument extends Document {
     return (
       <Html lang="en" class="notranslate" translate="no">
         <Head>
-          <Script
+          {/* <Script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-M31GFLRX0Q"
             strategy="afterInteractive"
@@ -18,7 +18,7 @@ class WebDocument extends Document {
         
           gtag('config', 'G-M31GFLRX0Q');
         `}
-          </Script>
+          </Script> */}
 
           <Script
             strategy="afterInteractive"
