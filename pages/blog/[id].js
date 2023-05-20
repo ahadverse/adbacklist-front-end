@@ -7,7 +7,7 @@ import style from "../../styles/moduleCss/blogDetails.module.css";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Link from "next/link";
+
 
 const BlogDetails = () => {
   const router = useRouter();
@@ -28,18 +28,14 @@ const BlogDetails = () => {
     } catch (error) {
       setIsLoading(false);
       console.error(error);
- 
     }
   }
 
-  const pages = router?.query.pages
-
- 
-
   async function getAds(data) {
-
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads/category?category=${data?.[0]?.category}`);
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/sideads/category?category=${data?.[0]?.category}`
+      );
 
       const datas = response.data.ads;
 
@@ -49,15 +45,12 @@ const BlogDetails = () => {
     }
   }
 
-
-
   useEffect(() => {
     setIsLoading(true);
     if (!id) {
       return;
     } else if (id) {
       getUser();
-
     }
   }, [id]);
 
@@ -74,79 +67,77 @@ const BlogDetails = () => {
         <img className="block m-auto" width={100} src="/loader.gif" />
       ) : (
         <>
-        <button> <Link className="bg-red-400 text-white  m-4 sm:m-10" href={`/blogs?page=${pages}`}>Back</Link> </button>
-        <div className={style.blogContainer}>
-         
-          <div className="bg-white p-3 m-4 sm:m-10">
-            <Image
-              className={style.blogImages}
-              width={500}
-              height={100}
-              src={blog?.image}
-              alt="blog image"
-            />
-            <br />
-            {blog?.category == "Adult" ? (
-              <span className={style.category}> {blog?.category} </span>
-            ) : (
-              ""
-            )}
+          <div className={style.blogContainer}>
+            <div className="bg-white p-3 m-4 sm:m-10">
+              <Image
+                className={style.blogImages}
+                width={500}
+                height={100}
+                src={blog?.image}
+                alt="blog image"
+              />
+              <br />
+              {blog?.category == "Adult" ? (
+                <span className={style.category}> {blog?.category} </span>
+              ) : (
+                ""
+              )}
 
-            {blog?.category == "Dating" ||
-            blog?.category == "Community" ||
-            blog?.category == "Services" ? (
-              <span className={style.category1}> {blog?.category} </span>
-            ) : (
-              ""
-            )}
+              {blog?.category == "Dating" ||
+              blog?.category == "Community" ||
+              blog?.category == "Services" ? (
+                <span className={style.category1}> {blog?.category} </span>
+              ) : (
+                ""
+              )}
 
-            {blog?.category == "For Sell" ||
-            blog?.category == "Jobs" ||
-            blog?.category == "Sport and Fitness" ? (
-              <span className={style.category2}> {blog?.category} </span>
-            ) : (
-              ""
-            )}
+              {blog?.category == "For Sell" ||
+              blog?.category == "Jobs" ||
+              blog?.category == "Sport and Fitness" ? (
+                <span className={style.category2}> {blog?.category} </span>
+              ) : (
+                ""
+              )}
 
-            {blog?.category == "Housing" ||
-            blog?.category == "Electronics and Computer" ||
-            blog?.category == "Pets" ? (
-              <span className={style.category3}> {blog?.category} </span>
-            ) : (
-              ""
-            )}
-            <br />
-            <h1 className="text-2xl text-black font-bold">
-              {blog?.title}
-              <br className="block sm:hidden " />
-              <span className="text-sm font-normal"></span>
-            </h1>
-            <br />
+              {blog?.category == "Housing" ||
+              blog?.category == "Electronics and Computer" ||
+              blog?.category == "Pets" ? (
+                <span className={style.category3}> {blog?.category} </span>
+              ) : (
+                ""
+              )}
+              <br />
+              <h1 className="text-2xl text-black font-bold">
+                {blog?.title}
+                <br className="block sm:hidden " />
+                <span className="text-sm font-normal"></span>
+              </h1>
+              <br />
 
-            <div
-              className={style.desc}
-              dangerouslySetInnerHTML={{
-                __html: blog?.desc,
-              }}
-            ></div>
+              <div
+                className={style.desc}
+                dangerouslySetInnerHTML={{
+                  __html: blog?.desc,
+                }}
+              ></div>
+            </div>
+            <div className=" p-3 m-4 sm:m-8 h-fit">
+              {ads.map((a) => (
+                <div className={style.othersLinkContainer} key={a._id}>
+                  <a href={`${a.link}`} target="_blank" rel="noreferrer">
+                    <Image
+                      className={style.othersLinkImage}
+                      src={`${a.image}`}
+                      width={1000}
+                      height={800}
+                      alt="image"
+                    />
+                    <p className="text-blue-400">{a.title}</p>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className=" p-3 m-4 sm:m-8 h-fit">
-            {ads.map((a) => (
-              <div className={style.othersLinkContainer} key={a._id}>
-                <a href={`${a.link}`} target="_blank" rel="noreferrer">
-                  <Image
-                    className={style.othersLinkImage}
-                    src={`${a.image}`}
-                    width={1000}
-                    height={800}
-                    alt="image"
-                  />
-                  <p className="text-blue-400">{a.title}</p>
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
         </>
       )}
       <Footer />

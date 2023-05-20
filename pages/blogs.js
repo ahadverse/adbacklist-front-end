@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 const { Search } = Input;
 
 const Blogs = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [blogs, setBlogs] = useState([]);
   const [isloading, setIsLoading] = useState(false);
   const [keyword, setKeyword] = useState("");
@@ -23,9 +23,9 @@ const Blogs = () => {
   async function getBlogs() {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/blogs?page=${router?.query?.page}&q=${
-          catKey ? catKey : keyword
-        }`
+        `https://api-adbacklist.vercel.app/api/blogs?page=${
+          pages ? pages : router?.query?.page
+        }&q=${catKey ? catKey : keyword}`
       );
       const data = response.data;
 
@@ -38,13 +38,8 @@ const Blogs = () => {
     }
   }
 
-  console.log(router?.query?.page)
-
-
-
   useEffect(() => {
     setIsLoading(true);
-
     getBlogs();
   }, [router?.query?.page, catKey, keyword]);
 
@@ -53,17 +48,18 @@ const Blogs = () => {
   // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category)
 
   const onSearch = (e) => {
-    setKeyword(e);
     setCatKey("");
     setPage(1);
+    setKeyword(e);
   };
 
   const onChange = (page) => {
-    router.push(`/blogs?page=${page}`)
+    setCatKey("");
+    setKeyword("");
+    setPage(undefined);
+    router.push(`/blogs?page=${page}`);
     // setPage(page);
   };
-
-
 
   return (
     <div className="bg-gray-100">
@@ -119,7 +115,7 @@ const Blogs = () => {
                   ""
                 )}
                 {blogs?.data?.blogs.map((a) => (
-                  <Link href={`/blog/${a.permalink}?pages=${router?.query?.page}`} key={a._id}>
+                  <Link href={`/blog/${a.permalink}`} key={a._id}>
                     <div className={style.card}>
                       <img className={style.blogImage} src={a?.image} />
 

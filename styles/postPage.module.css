@@ -134,11 +134,12 @@
   .freepostTitle2,
   .premiumpostTitle {
     font-size: 14px;
+    width: 200px;
   }
   .warningText {
     font-size: 14px;
   }
-  .premiumpostTitle2 {
+  .premiumpostTitle2, .freepostTitle {
     font-size: 16px;
     width: 350px;
   }
