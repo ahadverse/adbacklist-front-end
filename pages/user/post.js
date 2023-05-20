@@ -19,8 +19,8 @@ const Post = () => {
             <div className='w-3/4 m-auto mt-10 bg-gray-100 p-10 sm:w-2/4'>
                 
                 {/* <h1 className='text-medium underline mb-5 sm:text-2xl'><Link href={`/user/premium-ads/`} >1. Premium Ads</Link></h1> */}
-              <h1 className='text-medium underline mb-5 sm:text-2xl'>  <Link  href={`/user/local-ads/`} >2. Post Local Ads</Link></h1>
-               <h1 className='text-medium underline mb-5 sm:text-2xl'> <Link  href={`/user/multiple-city-ads/`} >3. Post Ads in Multiple Cities</Link></h1>
+              <h1 className='text-medium underline mb-5 sm:text-2xl'>  <Link  href={`/user/local-ads/`} >1. Post Local Ads</Link></h1>
+               <h1 className='text-medium underline mb-5 sm:text-2xl'> <Link  href={`/user/multiple-city-ads/`} >2. Post Ads in Multiple Cities</Link></h1>
             </div>
             <Footer/>
         </div>

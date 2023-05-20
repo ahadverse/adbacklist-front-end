@@ -55,6 +55,8 @@ const Details = () => {
     }
   }
 
+
+
   return (
     <div>
       <Head>

@@ -8,15 +8,17 @@ const Header = dynamic(() => import("@/component/header/header"));
 import style from "../styles/moduleCss/blog.module.css";
 import { Input, Pagination, Select, Space } from "antd";
 import category from "../public/category.json";
+import { useRouter } from "next/router";
 
 const { Search } = Input;
 
 const Blogs = () => {
+  const router = useRouter()
   const [blogs, setBlogs] = useState([]);
   const [isloading, setIsLoading] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [catKey, setCatKey] = useState("");
-  const [pages, setPage] = useState(1);
+  const [pages, setPage] = useState(router?.query?.page ? router?.query?.page : 1);
 
   async function getBlogs() {
     try {
@@ -35,6 +37,7 @@ const Blogs = () => {
       console.error(error);
     }
   }
+
 
 
 
@@ -113,7 +116,7 @@ const Blogs = () => {
                   ""
                 )}
                 {blogs?.data?.blogs.map((a) => (
-                  <Link href={`/blog/${a.permalink}`} key={a._id}>
+                  <Link href={`/blog/${a.permalink}?pages=${pages}`} key={a._id}>
                     <div className={style.card}>
                       <img className={style.blogImage} src={a?.image} />
 

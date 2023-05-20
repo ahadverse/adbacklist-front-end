@@ -7,6 +7,7 @@ import style from "../../styles/moduleCss/blogDetails.module.css";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Link from "next/link";
 
 const BlogDetails = () => {
   const router = useRouter();
@@ -31,6 +32,10 @@ const BlogDetails = () => {
     }
   }
 
+  const pages = router?.query.pages
+
+  console.log(pages)
+
   async function getAds(data) {
 
     try {
@@ -38,8 +43,6 @@ const BlogDetails = () => {
 
       const datas = response.data.ads;
 
-      console.log(datas)
-  
       setAds(datas);
     } catch (error) {
       console.error(error);
@@ -70,7 +73,10 @@ const BlogDetails = () => {
       {isloading ? (
         <img className="block m-auto" width={100} src="/loader.gif" />
       ) : (
+        <>
+        <button> <Link href={`/blogs?page=${pages}`}>Back</Link> </button>
         <div className={style.blogContainer}>
+         
           <div className="bg-white p-3 m-4 sm:m-10">
             <Image
               className={style.blogImages}
@@ -141,6 +147,7 @@ const BlogDetails = () => {
             ))}
           </div>
         </div>
+        </>
       )}
       <Footer />
     </div>

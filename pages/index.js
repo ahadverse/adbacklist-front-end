@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 const Footer = dynamic(() => import("@/component/footer/footer"));
 import styles from "../styles/moduleCss/home.module.css";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 const Index = dynamic(() => import("@/component/countries"));
 const Header2 = dynamic(() => import("@/component/header/header2"));
 const Search = dynamic(() => import("@/component/search/search"));
@@ -80,6 +81,20 @@ the local place"
           content="0730451c9c8761c27a8bae02652c5f38"
         />
         <link rel="icon" href="/favicon.ico" />
+        <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-M31GFLRX0Q"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-M31GFLRX0Q');
+        `}
+          </Script>
       </Head>
 
       <main className={styles.main}>
