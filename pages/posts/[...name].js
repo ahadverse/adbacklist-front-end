@@ -230,51 +230,51 @@ let initialState = {
 
         g(!1), console.log(o);
 
-        // await fetch("https://api-adbacklist.vercel.app/api/products", {
-        //   method: "POST",
-        //   headers: {
-        //     "content-type": "application/json",
-        //     authorization: `Bearer ${f}`,
-        //   },
-        //   body: JSON.stringify(o),
-        // })
-        //   .then((e) => e.json())
-        //   .then((t) => {
-        //     localStorage.removeItem("cities")
-        //     const newCredit = users?.credit - local?.toFixed(2)
+        await fetch("https://api-adbacklist.vercel.app/api/products", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${f}`,
+          },
+          body: JSON.stringify(o),
+        })
+          .then((e) => e.json())
+          .then((t) => {
+            localStorage.removeItem("cities")
+            const newCredit = users?.credit - local?.toFixed(2)
         
-        //     axios
-        //       .patch(
-        //         `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
-        //         { credit : newCredit },
-        //         {
-        //           headers: {
-        //             authorization: `Bearer ${f}`,
-        //           },
-        //         }
-        //       )
-        //       .then((response) => {
+            axios
+              .patch(
+                `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
+                { credit : newCredit },
+                {
+                  headers: {
+                    authorization: `Bearer ${f}`,
+                  },
+                }
+              )
+              .then((response) => {
 
-        //         if (response.data.status == "success") {
+                if (response.data.status == "success") {
 
-        //           g(!1),
-        //             "success" == t.status &&
-        //               m
-        //                 .fire({
-        //                   position: "top-center",
-        //                   icon: "success",
-        //                   title: "Your work has been saved",
-        //                   showConfirmButton: !1,
-        //                   timer: 2500,
-        //                 })
-        //                 .then(
-        //                   setTimeout(() => {
-        //                     e.push("/dashboard/profile");
-        //                   }, 500)
-        //                 );
-        //         }
-        //       }).catch(err => console.log(err));
-        //   });
+                  g(!1),
+                    "success" == t.status &&
+                      m
+                        .fire({
+                          position: "top-center",
+                          icon: "success",
+                          title: "Your work has been saved",
+                          showConfirmButton: !1,
+                          timer: 2500,
+                        })
+                        .then(
+                          setTimeout(() => {
+                            e.push("/dashboard/profile");
+                          }, 500)
+                        );
+                }
+              }).catch(err => console.log(err));
+          });
       },
       B = (
         <div>
