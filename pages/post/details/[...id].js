@@ -138,11 +138,11 @@ const Details = () => {
                     )}{" "}
                   </div>
 
-                  <div className="border-4 rounded border-dashed border-green-600 mt-10 w-3/5 m-auto">
-                    <h1 className="text-red-600 text-3xl font-bold text-center">
+                  <div className="border-4 rounded border-dashed border-green-600 mt-10 w-full m-auto sm:w-3/5">
+                    <h1 className="text-red-600 font-bold text-center sm:text-3xl text-base ">
                       SCAM Alert !!!!!
                     </h1>
-                    <p className="font-bold text-center">
+                    <p className="font-bold text-center sm:text-base text-xs">
                       If ad poster asks for money, credit card info, cashapp,
                       gift card or tell you to verify in another website,
                       consider its a SCAM !
@@ -150,7 +150,7 @@ const Details = () => {
                       Don't pay anything before meet the Provider!
                     </p>
                   </div>
-                  <div className="bg-blue-200 mt-2 text-center py-2 mb-5 w-3/5 m-auto">
+                  <div className="bg-blue-200 mt-2 text-center py-2 mb-5  w-full m-auto sm:w-3/5 sm:text-base text-xs ">
                     When you call, tell me that you saw my ad on Adbacklist
                   </div>
 
@@ -173,17 +173,7 @@ const Details = () => {
                             ),
                         }}
                       >
-                        {!postDetails?.imgOne ||
-                        postDetails?.imgOne == "empty" ? (
-                          ""
-                        ) : (
-                          <Image
-                            className={style.fImg}
-                            width={200}
-                            height={250}
-                            src={postDetails?.imgOne}
-                          />
-                        )}
+             
 
                         {!postDetails?.imgTwo ||
                         postDetails?.imgTwo == "empty" ? (
@@ -206,6 +196,18 @@ const Details = () => {
                             width={200}
                             height={250}
                             src={postDetails?.imgThree}
+                          />
+                        )}
+                 
+                                   {!postDetails?.imgOne ||
+                        postDetails?.imgOne == "empty" ? (
+                          ""
+                        ) : (
+                          <Image
+                            className={style.fImg}
+                            width={200}
+                            height={250}
+                            src={postDetails?.imgOne}
                           />
                         )}
                         {!postDetails?.imgFour ||
