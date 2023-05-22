@@ -45,14 +45,7 @@
         "createdAt": "2023-01-30T12:41:46.750Z",
         "children": []
       },
-      {
-        "_id": "63d7bb114aa59811ad1620fd",
-        "name": "TS",
-        "parentId": "63d7b8f94aa59811ad1620d9",
-        "createdBy": "Jhon Doe",
-        "createdAt": "2023-01-30T12:41:53.988Z",
-        "children": []
-      },
+
       {
         "_id": "63d7bb194aa59811ad1620ff",
         "name": "Strip Clubs",
@@ -393,15 +386,8 @@
         "createdBy": "Jhon Doe",
         "createdAt": "2023-01-30T12:43:09.851Z",
         "children": []
-      },
-      {
-        "_id": "63d7bba14aa59811ad16211c",
-        "name": "Massage",
-        "parentId": "63d7b9f34aa59811ad1620e3",
-        "createdBy": "Jhon Doe",
-        "createdAt": "2023-01-30T12:44:17.061Z",
-        "children": []
       }
+
     ]
   },
 
@@ -539,14 +525,7 @@
         "createdAt": "2023-01-30T12:50:38.380Z",
         "children": []
       },
-      {
-        "_id": "63d7bd1e4aa59811ad162170",
-        "name": "Real Estate and Property",
-        "parentId": "63d7ba204aa59811ad1620ed",
-        "createdBy": "Jhon Doe",
-        "createdAt": "2023-01-30T12:50:38.380Z",
-        "children": []
-      },
+
       {
         "_id": "63d7bd1e4aa59811ad162170",
         "name": "Legal",
@@ -921,14 +900,6 @@
       {
         "_id": "63d7bc594aa59811ad162140",
         "name": "General",
-        "parentId": "63d7ba0b4aa59811ad1620e7",
-        "createdBy": "Jhon Doe",
-        "createdAt": "2023-01-30T12:47:21.629Z",
-        "children": []
-      },
-      {
-        "_id": "63d7bc594aa59811ad162140",
-        "name": "Artists",
         "parentId": "63d7ba0b4aa59811ad1620e7",
         "createdBy": "Jhon Doe",
         "createdAt": "2023-01-30T12:47:21.629Z",
