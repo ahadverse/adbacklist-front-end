@@ -16,9 +16,11 @@ const Blogs = () => {
   const router = useRouter();
   const [blogs, setBlogs] = useState([]);
   const [isloading, setIsLoading] = useState(false);
+  const [reload, setReload] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [catKey, setCatKey] = useState("");
   const [pages, setPage] = useState(router?.query?.page);
+  // const [page, setPage] = useState(router?.query?.page);
 
   async function getBlogs() {
     try {
@@ -41,7 +43,7 @@ const Blogs = () => {
   useEffect(() => {
     setIsLoading(true);
     getBlogs();
-  }, [router?.query?.page, catKey, keyword]);
+  }, [router?.query?.page, catKey, keyword , pages , reload]);
 
   // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category).filter(a=> keyword ? a.title.toLowerCase().includes(keyword.toLowerCase()) : a.title)
 
@@ -54,6 +56,7 @@ const Blogs = () => {
   };
 
   const onChange = (page) => {
+    console.log(page , "first")
     setCatKey("");
     setKeyword("");
     setPage(undefined);
@@ -61,6 +64,23 @@ const Blogs = () => {
     // setPage(page);
   };
 
+  const onChange2 = (page) => {
+    console.log(page)
+    setCatKey(catKey);
+    setPage(page);
+  };
+
+
+const changeCategory = (e) =>{
+  setCatKey(e.target.value)
+
+  if(e.target.value){
+    setPage(1)
+  }else{
+    // setReload(!reload)
+    setPage(router?.query?.page)
+  }
+}
   return (
     <div className="bg-gray-100">
       <Head>
@@ -79,11 +99,10 @@ const Blogs = () => {
           <div className="flex">
             <select
               className="p-1 rounded bg-white border mr-2 border-sky-300 select-info  max-w-xs"
-              onChange={(e) => {
-                setCatKey(e.target.value), setPage(1);
-              }}
+              onChange={(e) => changeCategory(e)}
             >
               <option value={""}>Select Category</option>
+              <option value={""}>All</option>
 
               {category.map((a) => (
                 <option value={a.name}>{a.name}</option>
@@ -173,14 +192,25 @@ const Blogs = () => {
                 ))}
               </>
             </div>
-            <Pagination
-              className="flex justify-center mt-10"
-              defaultCurrent={router?.query?.page}
+            {
+              catKey ?    <Pagination
+              className="mt-10"
+              defaultCurrent={pages}
               pageSize={6}
-              onChange={onChange}
+              onChange={onChange2}
               showSizeChanger={false}
               total={blogs?.page}
-            />
+            /> :           <Pagination
+            className="mt-10"
+            defaultCurrent={router?.query?.page}
+            pageSize={6}
+            onChange={onChange}
+            showSizeChanger={false}
+            total={blogs?.page}
+          />
+            }
+  
+         
           </>
         )}
       </div>
