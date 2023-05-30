@@ -83,16 +83,16 @@ the local place"
         <link rel="icon" href="/favicon.ico" />
         <Script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-M31GFLRX0Q"
+            src="https://www.googletagmanager.com/gtag/js?id=G-F98PNY7PQR"
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
         
-          gtag('config', 'G-M31GFLRX0Q');
+           gtag('config', 'G-F98PNY7PQR');
         `}
           </Script>
       </Head>

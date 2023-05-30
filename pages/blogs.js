@@ -81,6 +81,9 @@ const changeCategory = (e) =>{
     setPage(router?.query?.page)
   }
 }
+
+console.log(catKey)
+
   return (
     <div className="bg-gray-100">
       <Head>
