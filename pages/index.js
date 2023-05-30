@@ -81,9 +81,21 @@ the local place"
           content="0730451c9c8761c27a8bae02652c5f38"
         />
         <link rel="icon" href="/favicon.ico" />
-  
       </Head>
-
+      <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-F98PNY7PQR"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+        
+           gtag('config', 'G-F98PNY7PQR');
+        `}
+          </Script>
       <main className={styles.main}>
         <Header2 />
         <div className={styles.container}>
