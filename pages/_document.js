@@ -30,6 +30,20 @@ class WebDocument extends Document {
         })(window,document,'script','dataLayer','GTM-5DTNFG5');`,
             }}
           ></Script> */}
+                <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-F98PNY7PQR"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+        
+           gtag('config', 'G-F98PNY7PQR');
+        `}
+          </Script>
         </Head>
         <body>
           {/* <noscript
