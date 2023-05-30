@@ -84,7 +84,7 @@ the local place"
       </Head>
       <Script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-F98PNY7PQR"
+            src="https://www.googletagmanager.com/gtag/js?id=G-7RT66NCYS6"
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
@@ -93,7 +93,7 @@ the local place"
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
         
-           gtag('config', 'G-F98PNY7PQR');
+           gtag('config', 'G-7RT66NCYS6');
         `}
           </Script>
       <main className={styles.main}>
