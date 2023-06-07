@@ -96,6 +96,14 @@ the local place"
            gtag('config', 'G-7RT66NCYS6');
         `}
           </Script>
+          <Script type="text/javascript">
+            {`
+        var uid = '460554';
+        var wid = '693103';
+        var pop_tag = document.createElement('script');pop_tag.src='//cdn.popcash.net/show.js';document.body.appendChild(pop_tag);
+        pop_tag.onerror = function() {pop_tag = document.createElement('script');pop_tag.src='//cdn2.popcash.net/show.js';document.body.appendChild(pop_tag)};
+        `}
+          </Script>
       <main className={styles.main}>
         <Header2 />
         <div className={styles.container}>
