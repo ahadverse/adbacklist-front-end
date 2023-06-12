@@ -163,9 +163,27 @@ const Name = () => {
       <Headers />
       {links ? (
         <div className="flex justify-around text-xl p-2 text-blue-600">
-          <Link href={`${links?.shemale}`}>Shemale Escorts</Link>{" "}
-          <Link href={`${links?.meet}`}>Meet & Fuck</Link>{" "}
-          <Link href={`${links?.live}`}>Live Escorts</Link>{" "}
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`${links?.shemale}`}
+          >
+            Shemale Escorts
+          </Link>{" "}
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`${links?.meet}`}
+          >
+            Meet & Fuck
+          </Link>{" "}
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`${links?.live}`}
+          >
+            Live Escorts
+          </Link>{" "}
         </div>
       ) : (
         <div className="flex justify-around text-xl p-2 text-blue-600">

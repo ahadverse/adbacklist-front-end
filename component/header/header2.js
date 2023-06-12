@@ -19,12 +19,12 @@ const Header2 = () => {
 
   const logout = () => {
     Cookies.remove("token");
-    router.push("/login")
+    router.push("/login");
   };
 
   return (
     <div>
-      <div className="navbar bg-gray-50 w-full  sm:w-4/6 sm:m-auto" >
+      <div className="navbar bg-gray-50 w-full  sm:w-4/6 sm:m-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -59,15 +59,13 @@ const Header2 = () => {
                     </li>
                   )}
                   <li>
-                    <Link href="/blogs?page=1">Blogs</Link>
+                    <Link href="/blogs">Blogs</Link>
                   </li>
                   <li
                     onClick={() => logout()}
                     className="bg-red-600 p-2 text-white font-bold rounded"
                   >
-                    <span
-                      className="bg-red-600 p-2 text-white font-bold"
-                    >
+                    <span className="bg-red-600 p-2 text-white font-bold">
                       Logout
                     </span>
                   </li>
@@ -75,7 +73,7 @@ const Header2 = () => {
               ) : (
                 <>
                   <li className="">
-                    <Link href="/blogs?page=1">Blogs</Link>
+                    <Link href="/blogs">Blogs</Link>
                   </li>
                   <li>
                     <Link href="/login">Login</Link>
@@ -110,7 +108,7 @@ const Header2 = () => {
                   </li>
                 )}
                 <li className="mr-2">
-                  <Link href="/blogs?page=1">Blogs</Link>
+                  <Link href="/blogs">Blogs</Link>
                 </li>
                 <li onClick={() => logout()}>
                   <a
@@ -124,7 +122,7 @@ const Header2 = () => {
             ) : (
               <>
                 <li>
-                  <Link href="/blogs?page=1">Blogs</Link>
+                  <Link href="/blogs">Blogs</Link>
                 </li>
                 <li>
                   <Link href="/login">Login</Link>
