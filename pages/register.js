@@ -1,4 +1,4 @@
-import  { useEffect as e, useState as r } from "react";
+import { useEffect as e, useState as r } from "react";
 
 import o from "../styles/moduleCss/sign.module.css";
 import m from "axios";
@@ -6,7 +6,7 @@ import { useRouter as d } from "next/router";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Head from "next/head";
-const Footer = dynamic(() => import('@/component/footer/footer2'))
+const Footer = dynamic(() => import("@/component/footer/footer2"));
 let initialState = {
     firstName: "",
     lastName: "",
@@ -20,7 +20,6 @@ let initialState = {
     emailError: "",
   },
   Register = () => {
-    
     let t = d(),
       [a, i] = r(initialState),
       [s, n] = r(!1),
@@ -104,9 +103,10 @@ let initialState = {
               className={o.input}
               onChange={(t) => l({ type: "email", payload: t.target.value })}
             />
-         
           </div>
-          <p className={o.inputBox2}>You'll get all notifications at this Email</p>
+          <p className={o.inputBox2}>
+            You'll get all notifications at this Email
+          </p>
           <div className={o.inputBox}>
             <span>
               <i />
@@ -166,6 +166,5 @@ let initialState = {
     );
   };
 export default Register;
-
 
 //https://api-adbacklist.vercel.app

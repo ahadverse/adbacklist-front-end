@@ -38,7 +38,7 @@ const Edit = () => {
   const router = useRouter();
   const [state, setState] = useState(initialState);
   const [imagLoading, setUpdateLoding] = useState(false);
-  const [passLoaidng,     setPassLoading] = useState(false);
+  const [passLoaidng, setPassLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const { users, usersStringfy } = User();
 
@@ -84,26 +84,27 @@ const Edit = () => {
     }
   }, [users]);
 
-
   // updata profile
   const updateProfile = async () => {
-    setUpdateLoding(true)
-    const datas = {...state}
+    setUpdateLoding(true);
+    const datas = { ...state };
     const options = {
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${usersStringfy}`,
       },
     };
-    if(fileList[0]){
-        const formData = new FormData();
+    if (fileList[0]) {
+      const formData = new FormData();
 
-        formData.append("images", fileList[0].originFileObj);
+      formData.append("images", fileList[0].originFileObj);
 
-        await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-            method : "POST",
-            body : formData
-        }).then(res => res.json()).then(data => datas.avater = data.payload.url)
+      await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => (datas.avater = data.payload.url));
     }
 
     await axios
@@ -113,7 +114,7 @@ const Edit = () => {
         options
       )
       .then((res) => {
-        setUpdateLoding(false)
+        setUpdateLoding(false);
         if (res.data.status == "success") {
           Swal.fire({
             position: "top-center",
@@ -127,7 +128,7 @@ const Edit = () => {
   };
 
   const updatePassword = async () => {
-    setPassLoading(true)
+    setPassLoading(true);
     if (state.newConPass !== state.newPass) {
       setState({ ...state, passError: "New Passwords are not matched" });
       return;
@@ -152,7 +153,7 @@ const Edit = () => {
         options
       )
       .then((res) => {
-        setPassLoading(true)
+        setPassLoading(true);
         if (res.data.status == "success") {
           Swal.fire({
             position: "top-center",
@@ -170,9 +171,10 @@ const Edit = () => {
             })
           );
         }
-      }).then(router.push("/dashboard/profile"))
+      })
+      .then(router.push("/dashboard/profile"))
       .catch((err) => {
-        setPassLoading(true)
+        setPassLoading(true);
         if (err.response.status == 422) {
           Swal.fire({
             position: "top-center",
@@ -291,21 +293,16 @@ const Edit = () => {
                 className={`${style.editableInputs} , bg-gray-50  input-bordered input-warning w-full `}
               />
             </label>
-            {
-                imagLoading ?      <button
-                className={`${style.updateButton} `}
-                
-          
+            {imagLoading ? (
+              <button className={`${style.updateButton} `}>Updating</button>
+            ) : (
+              <button
+                className={style.updateButton}
+                onClick={() => updateProfile()}
               >
-                Updating
-              </button> :      <button
-              className={style.updateButton}
-              onClick={() => updateProfile()}
-            >
-              Update
-            </button>
-            }
-       
+                Update
+              </button>
+            )}
           </div>
 
           <br />
@@ -356,20 +353,18 @@ const Edit = () => {
                 ""
               )}
             </label>
-                {
-                    passLoaidng ?    <button
-                   
-                    className={style.editButton}
-                  >
-                    Changing <FaPencilAlt className="ml-2 text-white" />
-                  </button> :    <button
-              onClick={() => updatePassword()}
-              className={style.editButton}
-            >
-              Change <FaPencilAlt className="ml-2 text-white" />
-            </button>
-                }
-         
+            {passLoaidng ? (
+              <button className={style.editButton}>
+                Changing <FaPencilAlt className="ml-2 text-white" />
+              </button>
+            ) : (
+              <button
+                onClick={() => updatePassword()}
+                className={style.editButton}
+              >
+                Change <FaPencilAlt className="ml-2 text-white" />
+              </button>
+            )}
           </div>
         </>
       )}

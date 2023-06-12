@@ -24,9 +24,8 @@ const User = () => {
       const user = jwt_decode(usersStringfy);
       getUser(user);
     }
-
   }, []);
 
-  return {users , usersStringfy}
+  return { users, usersStringfy };
 };
 export default User;

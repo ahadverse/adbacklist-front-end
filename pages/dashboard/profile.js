@@ -35,7 +35,7 @@ const Dashboards = () => {
           setAds([]);
         } else {
           const post = response.data.data.posts;
-          setPage(response.data.pages)
+          setPage(response.data.pages);
           setAds(post);
         }
       } catch (error) {
@@ -73,7 +73,7 @@ const Dashboards = () => {
             }
 
             const newPost = ads?.filter((a) => a._id !== id);
-  
+
             setAds(newPost);
           });
       }
@@ -164,11 +164,11 @@ const Dashboards = () => {
                           <td className="text-center">
                             {a.isPremium ? (
                               <p className="bg-green-600 sm:w-2/12 w-6/12 rounded text-white">
-                                No 
+                                No
                               </p>
                             ) : (
                               <p className="bg-red-600 sm:w-2/12 w-6/12 rounded text-white">
-                               Yes
+                                Yes
                               </p>
                             )}
                           </td>

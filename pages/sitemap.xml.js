@@ -1530,7 +1530,6 @@ export async function getServerSideProps({ res }) {
 
   const news = posts.data.blogs;
 
-
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(news);
 

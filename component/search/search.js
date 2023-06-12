@@ -11,7 +11,9 @@ const Search = () => {
       return setResult([]);
     } else {
       setIsLoading(true);
-      fetch(`https://api-adbacklist.vercel.app/api/countries/search?q=${keyword}`)
+      fetch(
+        `https://api-adbacklist.vercel.app/api/countries/search?q=${keyword}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.code == 404) {
@@ -39,7 +41,9 @@ const Search = () => {
             name="keyword"
           />
           {isLoading ? (
-            <button className="bg-red-400 p-2 font-bold  border-0 rounded text-white ">Searching</button>
+            <button className="bg-red-400 p-2 font-bold  border-0 rounded text-white ">
+              Searching
+            </button>
           ) : (
             <button
               type="submit"

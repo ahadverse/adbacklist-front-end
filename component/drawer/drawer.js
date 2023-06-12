@@ -14,8 +14,6 @@ const Drawer = (data) => {
   const [city, setCity] = useState();
   const [user, setUser] = useState();
 
-
-
   async function getUser() {
     try {
       const response = await axios.get(

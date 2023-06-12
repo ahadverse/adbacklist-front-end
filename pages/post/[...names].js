@@ -190,8 +190,6 @@ const Post = () => {
     setAge(useOld);
   }, [reload]);
 
-
-
   return (
     <div className={style.container}>
       <Head>
@@ -275,8 +273,6 @@ const Post = () => {
                           ""
                         )}
 
-      
-
                         {freeCityPost?.map((a) => (
                           <Link
                             href={`/post/details/${router?.query?.names?.[1]}/${a._id}`}
@@ -291,9 +287,6 @@ const Post = () => {
                           </Link>
                         ))}
                       </div>
-
-
-
 
                       {/* other post  */}
 
@@ -340,7 +333,7 @@ const Post = () => {
                         </>
 
                         <>
-                        {state?.day2?.[0]?.isPremium == true ? (
+                          {state?.day2?.[0]?.isPremium == true ? (
                             <>
                               {" "}
                               <h1 className={style.premiumpostTitle}>
@@ -375,7 +368,7 @@ const Post = () => {
                         </>
 
                         <>
-                        {state?.day3?.[0]?.isPremium == true ? (
+                          {state?.day3?.[0]?.isPremium == true ? (
                             <>
                               {" "}
                               <h1 className={style.premiumpostTitle}>
@@ -409,7 +402,7 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                        {state?.day4?.[0]?.isPremium == true ? (
+                          {state?.day4?.[0]?.isPremium == true ? (
                             <>
                               {" "}
                               <h1 className={style.premiumpostTitle}>
@@ -444,7 +437,7 @@ const Post = () => {
                         </>
 
                         <>
-                        {state?.day5?.[0]?.isPremium == true ? (
+                          {state?.day5?.[0]?.isPremium == true ? (
                             <>
                               {" "}
                               <h1 className={style.premiumpostTitle}>
@@ -481,7 +474,7 @@ const Post = () => {
                         </>
 
                         <>
-                        {state?.day6?.[0]?.isPremium == true ? (
+                          {state?.day6?.[0]?.isPremium == true ? (
                             <>
                               {" "}
                               <h1 className={style.premiumpostTitle}>
@@ -515,7 +508,7 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                        {state?.day7?.[0]?.isPremium == true ? (
+                          {state?.day7?.[0]?.isPremium == true ? (
                             <>
                               {" "}
                               <h1 className={style.premiumpostTitle}>
@@ -549,19 +542,16 @@ const Post = () => {
                           ))}
                         </>
                         <>
-                        {state?.lastWeek?.[0]?.isPremium == true ? (
+                          {state?.lastWeek?.[0]?.isPremium == true ? (
                             <>
                               {" "}
                               <h1 className={style.premiumpostTitle}>
-                              Last Week
+                                Last Week
                               </h1>
                             </>
                           ) : (
                             ""
                           )}
-
-
-               
 
                           {state.lastWeek?.map((p) => (
                             <div>

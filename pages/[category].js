@@ -59,100 +59,93 @@ const Name = () => {
             ))}
           </div>
           <div className={style.container}>
-
             <div className="flex  flex-col">
-            {category?.slice(0,3).map((a) => (
-              <div key={a.name}>
-                <h2 className={style.cateTitlte}> {a.name} </h2>
+              {category?.slice(0, 3).map((a) => (
+                <div key={a.name}>
+                  <h2 className={style.cateTitlte}> {a.name} </h2>
 
-
-                <div className={style.categoryParent}>
-                  {a.children?.map((b) => (
-                    <ul className={style.subCategoryList} key={b.name}>
-                      <li>
-                        <Link
-                          href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
-                        >
-                          {b.name}
-                        </Link>
-                      </li>
-                    </ul>
-                  ))}
+                  <div className={style.categoryParent}>
+                    {a.children?.map((b) => (
+                      <ul className={style.subCategoryList} key={b.name}>
+                        <li>
+                          <Link
+                            href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
+                          >
+                            {b.name}
+                          </Link>
+                        </li>
+                      </ul>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
 
             <div className="flex  flex-col">
-            {category?.slice(3,5).map((a) => (
-              <div key={a.name}>
-                <h2 className={style.cateTitlte}> {a.name} </h2>
+              {category?.slice(3, 5).map((a) => (
+                <div key={a.name}>
+                  <h2 className={style.cateTitlte}> {a.name} </h2>
 
-
-                <div className={style.categoryParent}>
-                  {a.children?.map((b) => (
-                    <ul className={style.subCategoryList} key={b.name}>
-                      <li>
-                        <Link
-                          href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
-                        >
-                          {b.name}
-                        </Link>
-                      </li>
-                    </ul>
-                  ))}
+                  <div className={style.categoryParent}>
+                    {a.children?.map((b) => (
+                      <ul className={style.subCategoryList} key={b.name}>
+                        <li>
+                          <Link
+                            href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
+                          >
+                            {b.name}
+                          </Link>
+                        </li>
+                      </ul>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
 
             <div className="flex  flex-col">
-            {category?.slice(5,7).map((a) => (
-              <div key={a.name}>
-                <h2 className={style.cateTitlte}> {a.name} </h2>
+              {category?.slice(5, 7).map((a) => (
+                <div key={a.name}>
+                  <h2 className={style.cateTitlte}> {a.name} </h2>
 
-
-                <div className={style.categoryParent}>
-                  {a.children?.map((b) => (
-                    <ul className={style.subCategoryList} key={b.name}>
-                      <li>
-                        <Link
-                          href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
-                        >
-                          {b.name}
-                        </Link>
-                      </li>
-                    </ul>
-                  ))}
+                  <div className={style.categoryParent}>
+                    {a.children?.map((b) => (
+                      <ul className={style.subCategoryList} key={b.name}>
+                        <li>
+                          <Link
+                            href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
+                          >
+                            {b.name}
+                          </Link>
+                        </li>
+                      </ul>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
 
             <div className="flex  flex-col">
-            {category?.slice(7,10).map((a) => (
-              <div key={a.name}>
-                <h2 className={style.cateTitlte}> {a.name} </h2>
+              {category?.slice(7, 10).map((a) => (
+                <div key={a.name}>
+                  <h2 className={style.cateTitlte}> {a.name} </h2>
 
-
-                <div className={style.categoryParent}>
-                  {a.children?.map((b) => (
-                    <ul className={style.subCategoryList} key={b.name}>
-                      <li>
-                        <Link
-                          href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
-                        >
-                          {b.name}
-                        </Link>
-                      </li>
-                    </ul>
-                  ))}
+                  <div className={style.categoryParent}>
+                    {a.children?.map((b) => (
+                      <ul className={style.subCategoryList} key={b.name}>
+                        <li>
+                          <Link
+                            href={`/post/${router?.query?.category}/${a.name}/${b.name}`}
+                          >
+                            {b.name}
+                          </Link>
+                        </li>
+                      </ul>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
-
-
           </div>
         </>
       );

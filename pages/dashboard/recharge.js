@@ -27,27 +27,26 @@ const Dashboards = () => {
   };
 
   async function transactions(users) {
+    if (users?._id) {
+      try {
+        const response = await axios.get(
+          `https://api-adbacklist.vercel.app/api/transaction/${users?._id}`,
+          {
+            method: "GET",
+          }
+        );
 
- if(users?._id){
-  try {
-    const response = await axios.get(
-      `https://api-adbacklist.vercel.app/api/transaction/${users?._id}`,
-      {
-        method: "GET",
+        if (response?.code == 404) {
+          setRechargeHistory([]);
+        } else {
+          const trans = response.data?.data?.transactions;
+          setRechargeHistory(trans);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    );
-
-    if (response?.code == 404) {
-      setRechargeHistory([]);
-    } else {
-      const trans = response.data?.data?.transactions;
-      setRechargeHistory(trans);
-      setLoading(false);
     }
-  } catch (error) {
-    console.log(error);
-  }
- }
   }
 
   useEffect(() => {
@@ -58,9 +57,6 @@ const Dashboards = () => {
       return;
     }
   }, [users]);
-
-
-
 
   return (
     <div className="bg-gray-100">
@@ -78,27 +74,28 @@ const Dashboards = () => {
           <p className="text-lg sm:text-3xl text-black">{users?.email}</p>
         </div>
         <div className="m-0 sm:m-10">
-        <div className="bg-black text-white my-5 p-2 flex justify-between rounded  shadow-lg shadow-blue-500/50">
+          <div className="bg-black text-white my-5 p-2 flex justify-between rounded  shadow-lg shadow-blue-500/50">
             <span>
+              <Link
+                href={"/dashboard/profile"}
+                className="hover:text-blue-400 hover:underline"
+              >
+                My Profile
+              </Link>
+              <Link
+                href={"/dashboard/recharge"}
+                className="ml-5 hover:text-blue-400 hover:underline"
+              >
+                My Recharge
+              </Link>
+            </span>
             <Link
-            href={"/dashboard/profile"}
-            className="hover:text-blue-400 hover:underline"
-          >
-            My Profile
-          </Link>
-          <Link
-            href={"/dashboard/recharge"}
-            className="ml-5 hover:text-blue-400 hover:underline"
-          >
-            My Recharge
-          </Link></span>
-          <Link
               className="text-sm sm:text-xl p-1 bg-red-600 font-bold text-white"
               href={`/recharge-credits/${users?._id}`}
             >
               Buy Credit
             </Link>
-        </div>
+          </div>
           {loading ? (
             <button className="btn w-full m-auto  bg-transparent  text-red-400 btn-wide border-0 loading">
               loading....

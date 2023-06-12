@@ -123,7 +123,7 @@ let initialState = {
         );
 
         const newPost = response.data.data.product?.[0];
-          console.log(newPost)
+        console.log(newPost);
         setLoading(false);
         l({
           ...a,
@@ -162,8 +162,7 @@ let initialState = {
       }
     }, [e?.query]);
 
-
-    console.log(a)
+    console.log(a);
 
     let q = async (t) => {
         g(!0);
@@ -175,10 +174,13 @@ let initialState = {
             o.imgOne = O[0].url;
           } else {
             r.append("images", O[0].originFileObj);
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-              method: "POST",
-              body: r,
-            })
+            await fetch(
+              "https://api-adbacklist.vercel.app/api/image/upload-file",
+              {
+                method: "POST",
+                body: r,
+              }
+            )
               .then((e) => e.json())
               .then((e) => {
                 console.log(e);
@@ -194,10 +196,13 @@ let initialState = {
             o.imgTwo = O[1].url;
           } else {
             r.append("images", O[1].originFileObj);
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-              method: "POST",
-              body: r,
-            })
+            await fetch(
+              "https://api-adbacklist.vercel.app/api/image/upload-file",
+              {
+                method: "POST",
+                body: r,
+              }
+            )
               .then((e) => e.json())
               .then((e) => {
                 console.log(e);
@@ -213,10 +218,13 @@ let initialState = {
             o.imgThree = O[2].url;
           } else {
             r.append("images", O[2].originFileObj);
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-              method: "POST",
-              body: r,
-            })
+            await fetch(
+              "https://api-adbacklist.vercel.app/api/image/upload-file",
+              {
+                method: "POST",
+                body: r,
+              }
+            )
               .then((e) => e.json())
               .then((e) => {
                 console.log(e);
@@ -232,10 +240,13 @@ let initialState = {
             o.imgFour = O[3].url;
           } else {
             r.append("images", O[3].originFileObj);
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-              method: "POST",
-              body: r,
-            })
+            await fetch(
+              "https://api-adbacklist.vercel.app/api/image/upload-file",
+              {
+                method: "POST",
+                body: r,
+              }
+            )
               .then((e) => e.json())
               .then((e) => {
                 console.log(e);
@@ -253,7 +264,11 @@ let initialState = {
         };
 
         await axios
-          .patch(`https://api-adbacklist.vercel.app/api/products/${e.query.id}`, o, options)
+          .patch(
+            `https://api-adbacklist.vercel.app/api/products/${e.query.id}`,
+            o,
+            options
+          )
           .then((res) => {
             g(!1);
             if (res.data.status == "success") {
@@ -263,9 +278,11 @@ let initialState = {
                 title: "Your Profile has been updated",
                 showConfirmButton: false,
                 timer: 1500,
-              }).then((t) => {
-                e.push("/dashboard/profile");
-              }).catch(err => console.log(err));
+              })
+                .then((t) => {
+                  e.push("/dashboard/profile");
+                })
+                .catch((err) => console.log(err));
             }
           });
       },

@@ -1,4 +1,3 @@
-
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
@@ -9,15 +8,15 @@ const Header = dynamic(() => import("@/component/header/header"));
 const ContactUs = () => {
   return (
     <div>
-        <Head>
-            <title>
-            <link rel="icon" href="/logo.png" />
-                Contact Us
-            </title>
-        </Head>
-        <Header />
+      <Head>
+        <title>
+          <link rel="icon" href="/logo.png" />
+          Contact Us
+        </title>
+      </Head>
+      <Header />
       <div className="w-11/12 m-auto pt-10 sm:w-5/6">
-        <h1  className="text-xl font-bold sm:text-3xl text-white">Contact Us</h1>
+        <h1 className="text-xl font-bold sm:text-3xl text-white">Contact Us</h1>
         <hr />
         <br />
         <p>
@@ -26,12 +25,12 @@ const ContactUs = () => {
           contact us anytime to get assistance and solutions. We provide the
           best assistance and responsiveness. Our customers are happy with our
           support and work in addition. We're always eager to help you. Tell us
-          about your problem and how we can assist you! Ad Back List Customer support
-          is offered at no cost. We are available all day, so you don't have to
-          worry about response times. Contact us anytime, and you will receive
-          the best service. Live support agents are available 24/7 to help with
-          any questions you might need! So chat with us and find the best
-          solution!
+          about your problem and how we can assist you! Ad Back List Customer
+          support is offered at no cost. We are available all day, so you don't
+          have to worry about response times. Contact us anytime, and you will
+          receive the best service. Live support agents are available 24/7 to
+          help with any questions you might need! So chat with us and find the
+          best solution!
         </p>
         <br />
         <strong>Live Chat</strong>
@@ -41,11 +40,13 @@ const ContactUs = () => {
         </p>
         <strong>Contact Us : </strong>
         <strong>Email - adbacklist@gmail.com</strong>
-     
+
         <br />
         <br />
         <br />
-        <h1  className="text-xl font-bold sm:text-3xl text-white">Contact Best Website similar to Backpage [Ad Back List] </h1>
+        <h1 className="text-xl font-bold sm:text-3xl text-white">
+          Contact Best Website similar to Backpage [Ad Back List]{" "}
+        </h1>
         <hr />
         <br />
         <p>
@@ -73,7 +74,9 @@ const ContactUs = () => {
           finally means that they are over and entirely over?
         </p>
         <br />
-        <h2 className="text-xl font-bold sm:text-3xl text-white">Similar to Backpage Websites [Ad Back List]</h2>
+        <h2 className="text-xl font-bold sm:text-3xl text-white">
+          Similar to Backpage Websites [Ad Back List]
+        </h2>
         <hr />
         <br />
         <p>

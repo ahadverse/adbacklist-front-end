@@ -83,28 +83,27 @@ the local place"
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-7RT66NCYS6"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-7RT66NCYS6"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
            window.dataLayer = window.dataLayer || [];
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
         
            gtag('config', 'G-7RT66NCYS6');
         `}
-          </Script>
-          <Script type="text/javascript">
-            {`
+      </Script>
+      <Script type="text/javascript">
+        {`
         var uid = '460554';
         var wid = '693103';
         var pop_tag = document.createElement('script');pop_tag.src='//cdn.popcash.net/show.js';document.body.appendChild(pop_tag);
         pop_tag.onerror = function() {pop_tag = document.createElement('script');pop_tag.src='//cdn2.popcash.net/show.js';document.body.appendChild(pop_tag)};
         `}
-          </Script>
-
+      </Script>
 
       <main className={styles.main}>
         <Header2 />

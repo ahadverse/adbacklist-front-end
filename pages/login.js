@@ -34,8 +34,6 @@ const Login = () => {
     }
   }, []);
 
-
-  
   const login = async (e) => {
     e.preventDefault();
     setIsLoading(true);

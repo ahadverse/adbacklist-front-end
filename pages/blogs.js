@@ -2,36 +2,35 @@ import axios from "axios";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 const Footer = dynamic(() => import("@/component/footer/footer2"));
 const Header = dynamic(() => import("@/component/header/header"));
 import style from "../styles/moduleCss/blog.module.css";
-import { Input, Pagination, Select, Space } from "antd";
+import { Input, Pagination } from "antd";
 import category from "../public/category.json";
-import { useRouter } from "next/router";
+import { MyContext } from "./_app";
 
 const { Search } = Input;
 
 const Blogs = () => {
-  const router = useRouter();
+  const { blogcurrent, setBlogCurrent, catKey, setCatKey } =
+    useContext(MyContext);
   const [blogs, setBlogs] = useState([]);
   const [isloading, setIsLoading] = useState(false);
-  const [reload, setReload] = useState(false);
   const [keyword, setKeyword] = useState("");
-  const [catKey, setCatKey] = useState("");
-  const [pages, setPage] = useState(router?.query?.page);
-  // const [page, setPage] = useState(router?.query?.page);
+  // const [catKey, setCatKey] = useState("");
+  const [pages, setPage] = useState(1);
 
   async function getBlogs() {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/blogs?page=${
-          pages ? pages : router?.query?.page
-        }&q=${catKey ? catKey : keyword}`
+        `https://api-adbacklist.vercel.app/api/blogs?page=${blogcurrent}&q=${keyword}&cat=${catKey}`
       );
       const data = response.data;
 
       setBlogs(data);
+      setPage(data.page);
+      console.log(data);
       setIsLoading(false);
     } catch (error) {
       setBlogs([]);
@@ -43,46 +42,21 @@ const Blogs = () => {
   useEffect(() => {
     setIsLoading(true);
     getBlogs();
-  }, [router?.query?.page, catKey, keyword , pages , reload]);
-
-  // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category).filter(a=> keyword ? a.title.toLowerCase().includes(keyword.toLowerCase()) : a.title)
-
-  // const newBlogs = blogs?.data?.blogs?.filter(a => catKey ? a.category == catKey : a.category)
+  }, [catKey, keyword, blogcurrent]);
 
   const onSearch = (e) => {
-    setCatKey("");
-    setPage(1);
     setKeyword(e);
+    setBlogCurrent(1);
   };
 
   const onChange = (page) => {
-    console.log(page , "first")
-    setCatKey("");
-    setKeyword("");
-    setPage(undefined);
-    router.push(`/blogs?page=${page}`);
-    // setPage(page);
+    setBlogCurrent(page);
   };
 
-  const onChange2 = (page) => {
-    console.log(page)
-    setCatKey(catKey);
-    setPage(page);
+  const changeCategory = (e) => {
+    setCatKey(e.target.value);
+    setBlogCurrent(1);
   };
-
-
-const changeCategory = (e) =>{
-  setCatKey(e.target.value)
-
-  if(e.target.value){
-    setPage(1)
-  }else{
-    // setReload(!reload)
-    setPage(router?.query?.page)
-  }
-}
-
-console.log(catKey)
 
   return (
     <div className="bg-gray-100">
@@ -92,18 +66,21 @@ console.log(catKey)
       </Head>
       <Header />
       <div className="w-11/12 m-auto mt-10 sm:w-12/12">
-        <div className="w-full flex items-center justify-between p-2 bg-white">
-          <div>
-            <p className="text-xs sm:text-base">
-              Showing {blogs?.data?.blogs?.length} post of {blogs?.page}
-            </p>
-          </div>
+        <p className="text-xs  p-2 sm:text-base w-full bg-white block sm:hidden">
+          Showing {blogs?.data?.blogs?.length} post of {blogs?.page}
+        </p>
+        <div className="w-full flex flex-col items-center  p-2 bg-white sm:flex-row sm:justify-between ">
+          <p className="text-xs sm:text-base hidden sm:block">
+            Showing {blogs?.data?.blogs?.length} post of {blogs?.page}
+          </p>
 
           <div className="flex">
             <select
-              className="p-1 rounded bg-white border mr-2 border-sky-300 select-info  max-w-xs"
+              className="p-1 sm:w-8/12 w-6/12 rounded bg-white border mr-2 border-sky-300 select-info  max-w-xs"
               onChange={(e) => changeCategory(e)}
+              defaultValue={catKey}
             >
+              {catKey && <option value={catKey}>{catKey}</option>}
               <option value={""}>Select Category</option>
               <option value={""}>All</option>
 
@@ -113,6 +90,7 @@ console.log(catKey)
             </select>
 
             <Search
+              className=" sm:w-8/12 w-6/12"
               placeholder="title or writer name"
               onSearch={(e) => onSearch(e)}
               enterButton
@@ -195,25 +173,15 @@ console.log(catKey)
                 ))}
               </>
             </div>
-            {
-              catKey ?    <Pagination
-              className="mt-10"
-              defaultCurrent={pages}
+
+            <Pagination
+              className="mt-10 flex justify-center"
+              defaultCurrent={blogcurrent}
               pageSize={6}
-              onChange={onChange2}
+              onChange={onChange}
               showSizeChanger={false}
-              total={blogs?.page}
-            /> :           <Pagination
-            className="mt-10"
-            defaultCurrent={router?.query?.page}
-            pageSize={6}
-            onChange={onChange}
-            showSizeChanger={false}
-            total={blogs?.page}
-          />
-            }
-  
-         
+              total={pages}
+            />
           </>
         )}
       </div>

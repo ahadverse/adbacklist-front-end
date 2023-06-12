@@ -45,7 +45,9 @@ const Details = () => {
 
   async function getAds() {
     try {
-      const response = await axios.get(`https://api-adbacklist.vercel.app/api/sideads`);
+      const response = await axios.get(
+        `https://api-adbacklist.vercel.app/api/sideads`
+      );
       const data = response.data.ads;
 
       const category = data.filter((a) => a?.category == id?.[0]).slice(0, 6);
@@ -54,8 +56,6 @@ const Details = () => {
       console.error(error);
     }
   }
-
-
 
   return (
     <div>
@@ -173,8 +173,6 @@ const Details = () => {
                             ),
                         }}
                       >
-             
-
                         {!postDetails?.imgTwo ||
                         postDetails?.imgTwo == "empty" ? (
                           ""
@@ -198,8 +196,8 @@ const Details = () => {
                             src={postDetails?.imgThree}
                           />
                         )}
-                 
-                                   {!postDetails?.imgOne ||
+
+                        {!postDetails?.imgOne ||
                         postDetails?.imgOne == "empty" ? (
                           ""
                         ) : (

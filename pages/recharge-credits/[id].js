@@ -88,9 +88,7 @@ const Credits = () => {
       <div>
         <div className="bg-black mx-auto text-white w-4/5 mt-10 p-2 rounded  shadow-lg shadow-blue-500/50 flex justify-between">
           <span className="m-auto">
-            <li
-              className="hover:text-blue-400 text-gray-300 font-bold hover:underline list-none inline"
-            >
+            <li className="hover:text-blue-400 text-gray-300 font-bold hover:underline list-none inline">
               Buy Credits
             </li>
 

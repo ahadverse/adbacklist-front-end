@@ -10,14 +10,12 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-
 const initialState = {
   subject: "",
   reportDesc: "",
   isRead: false,
   userData: [],
 };
-
 
 const Reposts = () => {
   const [state, setState] = useState(initialState);
@@ -38,8 +36,6 @@ const Reposts = () => {
   };
 
   const handleReport = async () => {
- 
-
     const subject = state.subject;
     const isRead = state.isRead;
     const reportDesc = state.reportDesc;
@@ -55,8 +51,7 @@ const Reposts = () => {
         },
       })
       .then((response) => {
-      
-        setState({ ...state, subject : "" , reportDesc : "" });
+        setState({ ...state, subject: "", reportDesc: "" });
         if (response.data.status == "success") {
           Swal.fire({
             position: "top-center",
@@ -69,11 +64,9 @@ const Reposts = () => {
               router.reload(window.location.pathname);
             }, 2000)
           );
-         
         }
-        router.reload(window.location.pathname)
+        router.reload(window.location.pathname);
       });
-
   };
 
   return (

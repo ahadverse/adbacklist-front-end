@@ -30,7 +30,7 @@ let initialState = {
     city: "",
     month: "",
     cities: "",
-    premiumDay : 0,
+    premiumDay: 0,
     age: "",
     posterId: "",
     isPremium: !1,
@@ -61,7 +61,6 @@ let initialState = {
     const [value1, setValue1] = i(0);
     let e = o(),
       { users } = x(),
-      
       [a, l] = i(initialState),
       [d, g] = i(!1),
       [local, setLocal] = i(0),
@@ -108,26 +107,18 @@ let initialState = {
       }
     }, [e.query.name]);
 
-
-
     const topForDays = ({ target: { value } }) => {
-
-      setValue1(value)
+      setValue1(value);
       let e = JSON.parse(localStorage?.getItem("cities"));
 
-      if(e?.query?.name?.[0] == "multiple-city-ads"){
+      if (e?.query?.name?.[0] == "multiple-city-ads") {
         const newData = 0.05 + value * e.length;
-        setLocal(newData)
+        setLocal(newData);
+      } else {
+        const newData = 0.05 + value;
+        setLocal(newData);
       }
-      else{
-        const newData = 0.05 + value ;
-        setLocal(newData)
-      }
-
- 
     };
-
-    
 
     const editorRef = useRef(null);
     const log = () => {
@@ -136,7 +127,6 @@ let initialState = {
       }
     };
 
-
     let q = async (t) => {
         g(!0);
         let o = { ...a },
@@ -144,40 +134,52 @@ let initialState = {
         if (
           (O[0] &&
             (r.append("images", O[0].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-              method: "POST",
-              body: r,
-            })
+            await fetch(
+              "https://api-adbacklist.vercel.app/api/image/upload-file",
+              {
+                method: "POST",
+                body: r,
+              }
+            )
               .then((e) => e.json())
               .then((e) => {
                 o.imgOne = e.payload.url;
               })),
           O[1] &&
             (r.append("images", O[1].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-              method: "POST",
-              body: r,
-            })
+            await fetch(
+              "https://api-adbacklist.vercel.app/api/image/upload-file",
+              {
+                method: "POST",
+                body: r,
+              }
+            )
               .then((e) => e.json())
               .then((e) => {
                 o.imgTwo = e.payload.url;
               })),
           O[2] &&
             (r.append("images", O[2].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-              method: "POST",
-              body: r,
-            })
+            await fetch(
+              "https://api-adbacklist.vercel.app/api/image/upload-file",
+              {
+                method: "POST",
+                body: r,
+              }
+            )
               .then((e) => e.json())
               .then((e) => {
                 o.imgThree = e.payload.url;
               })),
           O[3] &&
             (r.append("images", O[3].originFileObj),
-            await fetch("https://api-adbacklist.vercel.app/api/image/upload-file", {
-              method: "POST",
-              body: r,
-            })
+            await fetch(
+              "https://api-adbacklist.vercel.app/api/image/upload-file",
+              {
+                method: "POST",
+                body: r,
+              }
+            )
               .then((e) => e.json())
               .then((e) => {
                 o.imgFour = e.payload.url;
@@ -197,14 +199,10 @@ let initialState = {
         }
         if (
           (l({ ...a, error: "" }),
-
           ("local-ads" == t[0] || "multiple-city-ads" == t[0]) &&
-           
             ((o.cities = [t[1]] || ""),
             (o.isApproved = !0),
-            (o.isPremium = !0)
-            
-            ),
+            (o.isPremium = !0)),
           "multiple-city-ads" == t[0])
         ) {
           let i = JSON.parse(localStorage.getItem("cities"));
@@ -212,23 +210,21 @@ let initialState = {
           o.cities = i;
         }
 
-        if(local == 0.05){
+        if (local == 0.05) {
           o.premiumDay = 0;
         }
-        if(local == 10.05){
+        if (local == 10.05) {
           o.premiumDay = 7 * 24;
-          o.isPremium = !1
+          o.isPremium = !1;
         }
-        if(local == 20.05){
+        if (local == 20.05) {
           o.premiumDay = 14 * 24;
-          o.isPremium = !1
+          o.isPremium = !1;
         }
-        if(local == 35.05){
+        if (local == 35.05) {
           o.premiumDay = 30 * 24;
-          o.isPremium = !1
+          o.isPremium = !1;
         }
-
- 
 
         await fetch("https://api-adbacklist.vercel.app/api/products", {
           method: "POST",
@@ -240,13 +236,13 @@ let initialState = {
         })
           .then((e) => e.json())
           .then((t) => {
-            localStorage.removeItem("cities")
-            const newCredit = users?.credit - local?.toFixed(2)
-        
+            localStorage.removeItem("cities");
+            const newCredit = users?.credit - local?.toFixed(2);
+
             axios
               .patch(
                 `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
-                { credit : newCredit },
+                { credit: newCredit },
                 {
                   headers: {
                     authorization: `Bearer ${f}`,
@@ -254,9 +250,7 @@ let initialState = {
                 }
               )
               .then((response) => {
-
                 if (response.data.status == "success") {
-
                   g(!1),
                     "success" == t.status &&
                       m
@@ -273,7 +267,8 @@ let initialState = {
                           }, 500)
                         );
                 }
-              }).catch(err => console.log(err));
+              })
+              .catch((err) => console.log(err));
           });
       },
       B = (
@@ -284,25 +279,24 @@ let initialState = {
         </div>
       );
 
-
-      const options = [
-        {
-          label: 'Default',
-          value: 0,
-        },
-        {
-          label: '7 Days',
-          value: 10,
-        },
-        {
-          label: '14 Days',
-          value: 20,
-        },
-        {
-          label: '30 Days',
-          value: 35,
-        },
-      ];
+    const options = [
+      {
+        label: "Default",
+        value: 0,
+      },
+      {
+        label: "7 Days",
+        value: 10,
+      },
+      {
+        label: "14 Days",
+        value: 20,
+      },
+      {
+        label: "30 Days",
+        value: 35,
+      },
+    ];
 
     return (
       <div>
@@ -534,17 +528,22 @@ let initialState = {
               )}
 
               {/* <p className="text-red-600 text-xs">{a.error}</p> */}
-              {
-                e.query.name?.[0] == "multiple-city-ads" ? "" :       <div className="sm:w-3/4 w-full m-auto pt-10 ">
-                <label className="text-black font-bold text-xs sm:text-xl">
-                  Show your adds at top <small>(extra charged)</small>
-                </label>
-                <br />
+              {e.query.name?.[0] == "multiple-city-ads" ? (
+                ""
+              ) : (
+                <div className="sm:w-3/4 w-full m-auto pt-10 ">
+                  <label className="text-black font-bold text-xs sm:text-xl">
+                    Show your adds at top <small>(extra charged)</small>
+                  </label>
+                  <br />
 
-                <Radio.Group options={options} onChange={topForDays} value={value1} />
+                  <Radio.Group
+                    options={options}
+                    onChange={topForDays}
+                    value={value1}
+                  />
                 </div>
-              }
-        
+              )}
 
               <div className="sm:w-3/4 w-full m-auto pt-10 ">
                 {users?.credit < local || local == "null" ? (
