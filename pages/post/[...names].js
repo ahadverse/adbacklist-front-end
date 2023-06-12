@@ -275,6 +275,8 @@ const Post = () => {
 
                         {freeCityPost?.map((a) => (
                           <Link
+                            target="_blank"
+                            rel="noopener noreferrer"
                             href={`/post/details/${router?.query?.names?.[1]}/${a._id}`}
                             key={a._id}
                           >
@@ -312,6 +314,8 @@ const Post = () => {
                               {p.isPremium == true ? (
                                 <>
                                   <Link
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                     key={p._id}
                                   >
@@ -348,6 +352,8 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
@@ -383,6 +389,8 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
@@ -417,6 +425,8 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
@@ -453,6 +463,8 @@ const Post = () => {
                               {p.isPremium == true ? (
                                 <>
                                   <Link
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                     key={p._id}
                                   >
@@ -489,6 +501,8 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
@@ -523,6 +537,8 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
@@ -557,6 +573,8 @@ const Post = () => {
                             <div>
                               {p.isPremium == true ? (
                                 <Link
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   href={`/post/details/${router?.query?.names?.[1]}/${p._id}`}
                                   key={p._id}
                                 >
