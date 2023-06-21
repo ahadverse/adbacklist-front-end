@@ -11,7 +11,9 @@ const Search = () => {
       return setResult([]);
     } else {
       setIsLoading(true);
-      fetch(`http://localhost:5000/api/countries/search?q=${keyword}`)
+      fetch(
+        `https://api-adbacklist.vercel.app/api/countries/search?q=${keyword}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.code == 404) {

@@ -45,7 +45,7 @@ const Reposts = () => {
     const data = { subject, isRead, reporterId, reportDesc, postId, posterId };
 
     await axios
-      .post("http://localhost:5000/api/reports", data, {
+      .post("https://api-adbacklist.vercel.app/api/reports", data, {
         headers: {
           "content-type": "application/json",
         },
