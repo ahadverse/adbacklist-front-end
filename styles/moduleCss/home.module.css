@@ -9,7 +9,7 @@
 }
 .country,
 .main {
-  background: #fff;
+  background: #ffffff;
 }
 .state {
   display: grid;
@@ -90,9 +90,6 @@
   background: #05baf1;
   margin-left: 10px;
 }
-
-
-
 
 @media only screen and (max-width: 768px) {
   .container {

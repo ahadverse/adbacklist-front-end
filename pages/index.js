@@ -79,6 +79,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-7RT66NCYS6"
@@ -93,6 +94,7 @@ export default function Home() {
            gtag('config', 'G-7RT66NCYS6');
         `}
       </Script>
+
       <Script type="text/javascript">
         {`
         var uid = '460554';
