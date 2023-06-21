@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 const Footer = dynamic(() => import("@/component/footer/footer"));
 const Header = dynamic(() => import("@/component/header/header"));
-//https://api-adbacklist.vercel.app
+//http://localhost:5000
 const ContactUs = () => {
   return (
     <div>

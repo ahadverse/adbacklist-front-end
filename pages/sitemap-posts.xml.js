@@ -1,5 +1,5 @@
 //pages/sitemap.xml.js
-const EXTERNAL_DATA_URL = "http://localhost:5000/api/blogs/sitemap";
+const EXTERNAL_DATA_URL = "http://localhost:5000/api/products/sitemap";
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -11,7 +11,7 @@ function generateSiteMap(posts) {
          .map((id) => {
            return `
        <url>
-           <loc>${`https://adbacklist.com/blog/${id?.permalink}`}</loc>
+           <loc>${`https://adbacklist.com/post/details/${id?.category}/${id?._id}`}</loc>
        </url>
        `;
          })

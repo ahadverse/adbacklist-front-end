@@ -10,7 +10,7 @@ const User = () => {
   async function getUser(user) {
     try {
       const response = await axios.get(
-        `https://api-adbacklist.vercel.app/api/users/${user._id}`
+        `http://localhost:5000/api/users/${user._id}`
       );
       const data = response.data.data.user;
       setUser(data);

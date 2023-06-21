@@ -134,52 +134,40 @@ let initialState = {
         if (
           (O[0] &&
             (r.append("images", O[0].originFileObj),
-            await fetch(
-              "https://api-adbacklist.vercel.app/api/image/upload-file",
-              {
-                method: "POST",
-                body: r,
-              }
-            )
+            await fetch("http://localhost:5000/api/image/upload-file", {
+              method: "POST",
+              body: r,
+            })
               .then((e) => e.json())
               .then((e) => {
                 o.imgOne = e.payload.url;
               })),
           O[1] &&
             (r.append("images", O[1].originFileObj),
-            await fetch(
-              "https://api-adbacklist.vercel.app/api/image/upload-file",
-              {
-                method: "POST",
-                body: r,
-              }
-            )
+            await fetch("http://localhost:5000/api/image/upload-file", {
+              method: "POST",
+              body: r,
+            })
               .then((e) => e.json())
               .then((e) => {
                 o.imgTwo = e.payload.url;
               })),
           O[2] &&
             (r.append("images", O[2].originFileObj),
-            await fetch(
-              "https://api-adbacklist.vercel.app/api/image/upload-file",
-              {
-                method: "POST",
-                body: r,
-              }
-            )
+            await fetch("http://localhost:5000/api/image/upload-file", {
+              method: "POST",
+              body: r,
+            })
               .then((e) => e.json())
               .then((e) => {
                 o.imgThree = e.payload.url;
               })),
           O[3] &&
             (r.append("images", O[3].originFileObj),
-            await fetch(
-              "https://api-adbacklist.vercel.app/api/image/upload-file",
-              {
-                method: "POST",
-                body: r,
-              }
-            )
+            await fetch("http://localhost:5000/api/image/upload-file", {
+              method: "POST",
+              body: r,
+            })
               .then((e) => e.json())
               .then((e) => {
                 o.imgFour = e.payload.url;
@@ -226,7 +214,7 @@ let initialState = {
           o.isPremium = !1;
         }
 
-        await fetch("https://api-adbacklist.vercel.app/api/products", {
+        await fetch("http://localhost:5000/api/products", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -241,7 +229,7 @@ let initialState = {
 
             axios
               .patch(
-                `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
+                `http://localhost:5000/api/users/${users?._id}`,
                 { credit: newCredit },
                 {
                   headers: {
