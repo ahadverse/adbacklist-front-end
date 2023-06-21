@@ -1,6 +1,4 @@
-import React from "react";
-
-const Sitemap = () => {
+const generateSiteMap = () => {
   return `<?xml version="1.0" encoding="UTF-8"?>
   <!--	created with www.mysitemapgenerator.com	-->
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -2418,4 +2416,21 @@ const Sitemap = () => {
 `;
 };
 
-export default Sitemap;
+function SiteMap() {
+  // getServerSideProps will do the heavy lifting
+}
+
+export async function getServerSideProps({ res }) {
+  const sitemap = generateSiteMap(res);
+
+  res.setHeader("Content-Type", "text/xml");
+  // we send the XML to the browser
+  res.write(sitemap);
+  res.end();
+
+  return {
+    props: {},
+  };
+}
+
+export default SiteMap;
