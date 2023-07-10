@@ -93,7 +93,7 @@ let initialState = {
       if (e.query.name?.[0] == "multiple-city-ads") {
         let e = JSON.parse(localStorage?.getItem("cities"));
         if (e == null) {
-          setLocal("null");
+          setLocal(0);
           return;
         } else {
           setLocal(e?.length * 0.05);
@@ -128,6 +128,17 @@ let initialState = {
     };
 
     let q = async (t) => {
+        console.log();
+        const city = localStorage.getItem("cities");
+        if (city == null) {
+          message.error({
+            type: "error",
+            content:
+              "You have not any city selected. please select minimum a city. Try again",
+          });
+          return;
+        }
+
         g(!0);
         let o = { ...a },
           r = new FormData();
@@ -321,17 +332,17 @@ let initialState = {
                   </p>
                   {e?.query?.name?.[0] == "premium-ads" && (
                     <p className="text-blue-600 font-bold w-10/12 sm:w-4/12">
-                      You will be charged : ${local.toFixed(2)}
+                      You will be charged : ${local?.toFixed(2)}
                     </p>
                   )}
                   {e?.query?.name?.[0] == "local-ads" && (
                     <p className="text-blue-600 font-bold w-10/12 sm:w-4/12">
-                      You will be charged : ${local.toFixed(2)}
+                      You will be charged : ${local?.toFixed(2)}
                     </p>
                   )}
                   {e?.query?.name?.[0] == "multiple-city-ads" && (
                     <div className="text-blue-600 font-bold w-10/12 sm:w-4/12">
-                      You will be charged : ${local.toFixed(2)}
+                      You will be charged : ${local?.toFixed(2)}
                     </div>
                   )}
                 </div>
