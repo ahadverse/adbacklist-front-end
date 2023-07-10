@@ -21,8 +21,6 @@ const Blogs = () => {
   // const [catKey, setCatKey] = useState("");
   const [pages, setPage] = useState(1);
 
-  console.log(catKey);
-
   async function getBlogs() {
     try {
       const response = await axios.get(
