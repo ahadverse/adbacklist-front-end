@@ -128,15 +128,16 @@ let initialState = {
     };
 
     let q = async (t) => {
-        console.log();
-        const city = localStorage.getItem("cities");
-        if (city == null) {
-          message.error({
-            type: "error",
-            content:
-              "You have not any city selected. please select minimum a city. Try again",
-          });
-          return;
+        if (e?.query?.name[0] != "local-ads") {
+          const city = localStorage.getItem("cities");
+          if (city == null) {
+            message.error({
+              type: "error",
+              content:
+                "You have not any city selected. please select minimum a city. Try again",
+            });
+            return;
+          }
         }
 
         g(!0);
@@ -199,13 +200,11 @@ let initialState = {
         ) {
           g(!1);
           l({ ...a, error: "" });
-
           message.error({
             type: "error",
             content:
               "Image, Title, Category, Sub Category and Description is required",
           });
-
           return;
         }
         if (
@@ -220,7 +219,6 @@ let initialState = {
           console.log(i);
           o.cities = i;
         }
-
         if (local == 0.05) {
           o.premiumDay = 0;
         }
@@ -249,7 +247,6 @@ let initialState = {
           .then((t) => {
             localStorage.removeItem("cities");
             const newCredit = users?.credit - local?.toFixed(2);
-
             axios
               .patch(
                 `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
