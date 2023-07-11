@@ -3,17 +3,17 @@ const generateSiteMap = () => {
   <!--	created with www.mysitemapgenerator.com	-->
   <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>httpss://adbacklist.com/</loc>
+<loc>https://adbacklist.com/</loc>
  
 <priority>0.4</priority>
 </url>
 <url>
-<loc>httpss://adbacklist.com/blogs</loc>
+<loc>https://adbacklist.com/blogs</loc>
  
  
 </url>
 <url>
-<loc>httpss://adbacklist.com/login</loc>
+<loc>https://adbacklist.com/login</loc>
 
 </url>
 <url>
