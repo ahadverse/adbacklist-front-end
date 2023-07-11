@@ -14,11 +14,8 @@ const generateSiteMap = () => {
 </url>
 <url>
 <loc>https://adbacklist.com/login</loc>
- 
- 
-</url>
-<url>
 
+</url>
 <url>
   <loc>http://adbacklist.com/register</loc>
 </url>
@@ -2404,7 +2401,6 @@ const generateSiteMap = () => {
 <url>
   <loc>http://adbacklist.com/Caracas</loc>
 </url>
-<url>
 </urlset>
 `;
 };
