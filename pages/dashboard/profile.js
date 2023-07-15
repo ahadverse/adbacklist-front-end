@@ -7,22 +7,28 @@ import style from "../../styles/moduleCss/blog.module.css";
 import Head from "next/head";
 import Header from "@/component/header/header";
 import Footer from "@/component/footer/footer";
-import { Pagination } from "antd";
+import { Input, Pagination, Select } from "antd";
+import cate from "../../public/category.json";
+const { Search } = Input;
 
 const Dashboards = () => {
   const { users, usersStringfy } = User();
 
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  // searchText=&status=&category=Pets
   const [pages, setPages] = useState(1);
   const [page, setPage] = useState(1);
+  const [searchText, setSearchText] = useState("");
+  const [status, setStatus] = useState("");
+  const [category, setCategory] = useState("");
+  const [startIndex, setStartIndex] = useState(0);
 
   async function posts(users) {
     if (users?._id) {
       try {
         const response = await axios.get(
-          `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}?page=${pages}`,
+          `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}?page=${pages}&searchText=${searchText}&status=${status}&category=${category}`,
           {
             method: "GET",
             headers: {
@@ -37,6 +43,7 @@ const Dashboards = () => {
           const post = response.data.data.posts;
           setPage(response.data.pages);
           setAds(post);
+          setStartIndex(response?.data?.startIndex);
         }
       } catch (error) {
         setLoading(false);
@@ -52,7 +59,7 @@ const Dashboards = () => {
     } else {
       return;
     }
-  }, [users, pages]);
+  }, [users, pages, category, status, searchText]);
 
   const deletePost = (id) => {
     Swal.fire({
@@ -82,6 +89,29 @@ const Dashboards = () => {
 
   const onChange = (page) => {
     setPages(page);
+  };
+
+  const onChangeCategory = (value) => {
+    if (value == undefined) {
+      setCategory("");
+    } else {
+      setCategory(value);
+    }
+  };
+  const onChangeStatus = (value) => {
+    if (value == undefined) {
+      setStatus("");
+    } else {
+      setStatus(value);
+    }
+  };
+
+  const onSearch = (value) => {
+    if (value == undefined) {
+      setSearchText("");
+    } else {
+      setSearchText(value);
+    }
   };
 
   return (
@@ -130,6 +160,56 @@ const Dashboards = () => {
               Buy Credit
             </Link>
           </div>
+          <div className="flex justify-between items-center">
+            <div>
+              <Select
+                showSearch
+                className="w-36"
+                allowClear
+                placeholder="Select a Category"
+                optionFilterProp="children"
+                onChange={onChangeCategory}
+                filterOption={(input, option) =>
+                  (option?.label ?? "")
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+                }
+                options={cate.map((a) => ({
+                  label: a.name,
+                  value: a.name,
+                }))}
+              />
+              <Select
+                placeholder="Select a Status"
+                className="w-36"
+                optionFilterProp="children"
+                onChange={onChangeStatus}
+                allowClear
+                filterOption={(input, option) =>
+                  (option?.label ?? "")
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+                }
+                options={[
+                  {
+                    value: "true",
+                    label: "Not Premium",
+                  },
+                  {
+                    value: "false",
+                    label: "Premium",
+                  },
+                ]}
+              />
+            </div>
+            <Search
+              className="w-72"
+              placeholder="Post Name"
+              onSearch={onSearch}
+              allowClear
+              enterButton
+            />
+          </div>
           {loading ? (
             <button className="btn w-full m-auto  bg-transparent  text-red-400 btn-wide border-0 loading">
               loading....
@@ -155,7 +235,7 @@ const Dashboards = () => {
                     <tbody>
                       {ads?.map((a, index) => (
                         <tr>
-                          <th>{index + 1}</th>
+                          <th>{startIndex + index}</th>
                           <td>{a?.createdAt?.split("T")[0]}</td>
                           <td>{a.name.slice(0, 50)}</td>
                           <td>
