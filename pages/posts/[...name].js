@@ -354,7 +354,7 @@ let initialState = {
                     onPreview={v}
                     onChange={C}
                   >
-                    {O.length >= 4 ? null : B}
+                    {O.length >= 1 ? null : B}
                   </Upload>
 
                   <Modal open={h} title={j} footer={null} onCancel={k}>
