@@ -20,7 +20,8 @@ const BlogDetails = () => {
       const response = await axios.get(
         `https://api-adbacklist.vercel.app/api/blogs/single?q=${id}`
       );
-      const data = response.data.data.blog;
+
+      const data = response.data.data.blogs;
       setBlogs(data?.[0]);
       setIsLoading(false);
       getAds(data);
