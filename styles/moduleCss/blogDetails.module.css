@@ -23,7 +23,7 @@
   border: 1px solid red;
   color: red;
 }
-.card {
+.blogCntainer .card {
   margin-bottom: 20px;
   width: 100%;
   height: 350px;
@@ -110,16 +110,19 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .blogContainer {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-    .mainContainer {
-      width: 100%;
-      grid-template-columns: 1fr;
-    }
-    .blogImages {
-      width: 100%;
-      height: fit-content;
-    }
+  .blogContainer {
+    display: grid;
+    grid-template-columns: 1fr;
   }
+  .mainContainer {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  .blogImages {
+    width: 100%;
+    height: fit-content;
+  }
+  .desc {
+    width: 320px;
+  }
+}
