@@ -17,7 +17,7 @@ const Usa = () => {
                 <h1 className="font-bold">{b.name}</h1>
                 {b?.children?.map((c) => (
                   <ul key={c._id}>
-                    <li className="item text-yellow-600 hover:underline">
+                    <li className="item text-yellow-600 hover:underline mt-3">
                       <Link
                         href={`/${c?.name}`}
                         className="text-decoration-none m-2  py-2"
