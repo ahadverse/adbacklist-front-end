@@ -45,8 +45,6 @@ const Post = () => {
 
   const [page, setPage] = useState(1);
 
-  console.log(freeCityPost, "Asdfa");
-
   async function getPosts() {
     try {
       const response = await axios.get(

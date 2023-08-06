@@ -204,7 +204,7 @@ let initialState = {
           "multiple-city-ads" == t[0])
         ) {
           let i = JSON.parse(localStorage.getItem("cities"));
-          console.log(i);
+
           o.cities = i;
         }
         if (local == 0.05) {
