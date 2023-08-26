@@ -5,7 +5,22 @@ class WebDocument extends Document {
   render() {
     return (
       <Html lang="en" class="notranslate" translate="no">
-        <Head></Head>
+        <Head>
+          <Script
+            dangerouslySetInnerHTML={{
+              __html: `
+                !function(e){if(!window.pintrk){window.pintrk = function () {
+                  window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+                  n=window.pintrk;n.queue=[],n.version="3.0";var
+                  t=document.createElement("script");t.async=!0,t.src=e;var
+                  r=document.getElementsByTagName("script")[0];
+                  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+                pintrk('load', '2612823137013', { em: 'adbacklist@gmail.com' });
+                pintrk('page');
+              `,
+            }}
+          />
+        </Head>
         <body>
           {/* <Script type="text/javascript">
             {`
@@ -16,8 +31,6 @@ class WebDocument extends Document {
         `}
           </Script> */}
 
-
- 
           <Main />
           <NextScript />
         </body>
