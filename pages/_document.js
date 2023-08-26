@@ -20,7 +20,16 @@ class WebDocument extends Document {
               `,
             }}
           />
+
+          <Script>
+            {` pintrk('track', 'checkout', {
+    value: 100,
+    order_quantity: 1,
+    currency: 'USD',
+  });`}
+          </Script>
         </Head>
+
         <body>
           <Main />
           <NextScript />
