@@ -37,7 +37,6 @@ let initialState = {
         r = new Date(),
         o = r.toLocaleString("default", { month: "short" });
       (e.month = o),
-        console.log(e),
         await m
           .post("https://api-adbacklist.vercel.app/api/users", e)
           .then((e) => {

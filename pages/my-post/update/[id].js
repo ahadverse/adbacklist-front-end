@@ -123,7 +123,7 @@ let initialState = {
         );
 
         const newPost = response.data.data.product?.[0];
-        console.log(newPost);
+
         setLoading(false);
         l({
           ...a,
@@ -162,8 +162,6 @@ let initialState = {
       }
     }, [e?.query]);
 
-    console.log(a);
-
     let q = async (t) => {
         g(!0);
         let o = { ...a },
@@ -183,7 +181,6 @@ let initialState = {
             )
               .then((e) => e.json())
               .then((e) => {
-                console.log(e);
                 o.imgOne = e.payload.url;
               });
           }
@@ -205,7 +202,6 @@ let initialState = {
             )
               .then((e) => e.json())
               .then((e) => {
-                console.log(e);
                 o.imgTwo = e.payload.url;
               });
           }
@@ -227,7 +223,6 @@ let initialState = {
             )
               .then((e) => e.json())
               .then((e) => {
-                console.log(e);
                 o.imgThree = e.payload.url;
               });
           }
@@ -249,7 +244,6 @@ let initialState = {
             )
               .then((e) => e.json())
               .then((e) => {
-                console.log(e);
                 o.imgFour = e.payload.url;
               });
           }

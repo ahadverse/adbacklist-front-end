@@ -9,8 +9,6 @@ const User = () => {
   const { data: session } = useSession();
   const usersStringfy = Cookies.get("token");
 
-  console.log(session?.user?.id, "id");
-
   async function getUser() {
     try {
       const response = await axios.get(

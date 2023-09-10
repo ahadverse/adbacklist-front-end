@@ -21,7 +21,7 @@ const initialState = {
 
 const Login = () => {
   const router = useRouter();
-  console.log(router.query.callbackUrl);
+
   const [state, setState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -78,7 +78,7 @@ const Login = () => {
       <div className={style.container}>
         <h1 className={style.title}>ADBACKLIST</h1>
         <h1 className="flex justify-center text-3xl font-bold mb-5">Login</h1>
-        <form onSubmit={login}>
+        {/* <form onSubmit={login}>
           <div className={style.inputBox}>
             <span>
               <AiOutlineMail />
@@ -118,7 +118,7 @@ const Login = () => {
               </button>
             )}
           </div>
-        </form>
+        </form> */}
         <div className={style.inputBox}>
           <button
             className="btn btn-outline btn-success text-2xl hover:text-white btn-wide flex"

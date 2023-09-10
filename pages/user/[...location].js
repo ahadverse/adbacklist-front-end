@@ -71,8 +71,6 @@ const Location = () => {
       );
       const res = city.map((a) => state.push(a));
     } else if (checked == false) {
-      console.log(checked);
-
       const selectedRegion = cities?.find((a) => a?._id == q[0]);
       const regions = selectedRegion?.children?.find((a) => a?._id == q[1]);
 

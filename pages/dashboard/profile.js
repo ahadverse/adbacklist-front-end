@@ -14,7 +14,7 @@ const { Search } = Input;
 
 const Dashboards = () => {
   const { users, usersStringfy } = User();
-  console.log(users);
+
   const { data: session } = useSession();
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(false);
