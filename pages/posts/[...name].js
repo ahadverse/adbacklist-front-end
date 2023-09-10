@@ -6,8 +6,6 @@ let Footer = t(() => import("@/component/footer/footer")),
   Header = t(() => import("@/component/header/header"));
 import n from "../../styles/moduleCss/addPost.module.css";
 import m from "sweetalert2";
-import s from "js-cookie";
-import u from "jwt-decode";
 import { message as d, Upload, Modal, message, Select, Radio } from "antd";
 import y from "../../public/category.json";
 import { AiFillPlusCircle } from "react-icons/ai";
@@ -15,6 +13,7 @@ import x from "@/component/user";
 import axios from "axios";
 import Link from "next/link";
 import { Editor } from "@tinymce/tinymce-react";
+import { useSession } from "next-auth/react";
 
 let initialState = {
     name: "",
@@ -58,6 +57,7 @@ let initialState = {
         (a.onerror = (e) => o(e));
     }),
   Post = () => {
+    const { data: session } = useSession();
     const [value1, setValue1] = i(0);
     let e = o(),
       { users } = x(),
@@ -67,11 +67,7 @@ let initialState = {
       b = (e) => {
         l({ ...a, [e.type]: e.payload });
       },
-      f = s.get("token");
-    r(() => {
-      let e = u(f);
-      l({ ...a, posterId: e?._id });
-    }, []);
+      f = "";
 
     let [h, w] = i(!1),
       [_, P] = i(""),
@@ -223,11 +219,12 @@ let initialState = {
           o.isPremium = !1;
         }
 
+        o.posterId = session?.user?.id;
+        console.log(o);
         await fetch("https://api-adbacklist.vercel.app/api/products", {
           method: "POST",
           headers: {
             "content-type": "application/json",
-            authorization: `Bearer ${f}`,
           },
           body: JSON.stringify(o),
         })
@@ -237,12 +234,9 @@ let initialState = {
             const newCredit = users?.credit - local?.toFixed(2);
             axios
               .patch(
-                `https://api-adbacklist.vercel.app/api/users/${users?._id}`,
-                { credit: newCredit },
+                `https://api-adbacklist.vercel.app/api/users/${session?.user?.id}`,
                 {
-                  headers: {
-                    authorization: `Bearer ${f}`,
-                  },
+                  credit: newCredit,
                 }
               )
               .then((response) => {
@@ -542,7 +536,7 @@ let initialState = {
               )}
 
               <div className="sm:w-3/4 w-full m-auto pt-10 ">
-                {users?.credit < local || local == "null" ? (
+                {session?.user?.credit < local || local == "null" ? (
                   <>
                     <h1 className="text-2xl text-red-600 font-bold">
                       Insufficient Balance

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { FcGoogle } from "react-icons/fc";
+import { signIn } from "next-auth/react";
 
 import Cookies from "js-cookie";
 const Footer = dynamic(() => import("@/component/footer/footer2"));
@@ -19,6 +21,7 @@ const initialState = {
 
 const Login = () => {
   const router = useRouter();
+  console.log(router.query.callbackUrl);
   const [state, setState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -116,6 +119,20 @@ const Login = () => {
             )}
           </div>
         </form>
+        <div className={style.inputBox}>
+          <button
+            className="btn btn-outline btn-success text-2xl hover:text-white btn-wide flex"
+            onClick={() =>
+              signIn("google", {
+                callbackUrl: `${
+                  router?.query?.callbackUrl ? router?.query?.callbackUrl : "/"
+                }`,
+              })
+            }
+          >
+            <FcGoogle className="text-4xl" />
+          </button>
+        </div>
         {/* <Image src="/upload.gif" /> */}
         <p className="text-2xl flex justify-center mt-5">
           New here ?{" "}

@@ -5,20 +5,23 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import styles from "../../styles/moduleCss/home.module.css";
 import { useRouter } from "next/router";
+import { useSession, signOut } from "next-auth/react";
 
 const Header2 = () => {
   const router = useRouter();
-  const [user, setUser] = useState();
-  const usersStringfy = Cookies.get("token");
-  useEffect(() => {
-    if (usersStringfy) {
-      const user = jwt_decode(usersStringfy);
-      setUser(user);
-    }
-  }, []);
+  // const [user, setUser] = useState();
+  const { data: session } = useSession();
+
+  // const usersStringfy = Cookies.get("token");
+  // useEffect(() => {
+  //   if (usersStringfy) {
+  //     const user = jwt_decode(usersStringfy);
+  //     setUser(user);
+  //   }
+  // }, []);
 
   const logout = () => {
-    Cookies.remove("token");
+    signOut();
     router.push("/login");
   };
 
@@ -47,7 +50,7 @@ const Header2 = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              {user ? (
+              {session?.user?.email ? (
                 <>
                   {router.asPath == "/dashboard/profile" ? (
                     <li>
@@ -76,10 +79,7 @@ const Header2 = () => {
                     <Link href="/blogs">Blogs</Link>
                   </li>
                   <li>
-                    <Link href="/login">Login</Link>
-                  </li>
-                  <li>
-                    <Link href="/register">Registration</Link>
+                    <Link href="/login">Login/SignUp</Link>
                   </li>
                 </>
               )}
@@ -96,7 +96,7 @@ const Header2 = () => {
 
         <div className="navbar-end">
           <ul className={styles.menu}>
-            {user ? (
+            {session?.user?.email ? (
               <>
                 {router.asPath == "/dashboard/profile" ? (
                   <li>
@@ -110,13 +110,11 @@ const Header2 = () => {
                 <li className="mr-2">
                   <Link href="/blogs">Blogs</Link>
                 </li>
-                <li onClick={() => logout()}>
-                  <a
-                    href="/login"
-                    className="bg-red-600 p-2 text-white font-bold"
-                  >
-                    Logout
-                  </a>
+                <li
+                  className="bg-red-600 p-2 text-white font-bold"
+                  onClick={() => signOut()}
+                >
+                  Logout
                 </li>{" "}
               </>
             ) : (
@@ -125,10 +123,7 @@ const Header2 = () => {
                   <Link href="/blogs">Blogs</Link>
                 </li>
                 <li>
-                  <Link href="/login">Login</Link>
-                </li>
-                <li>
-                  <Link href="/register">Registration</Link>
+                  <Link href="/login">Login/SignUp</Link>
                 </li>
               </>
             )}

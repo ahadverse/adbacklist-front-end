@@ -8,10 +8,11 @@ import style from "../../styles/moduleCss/blog.module.css";
 import Head from "next/head";
 import Footer from "@/component/footer/footer";
 import Header from "@/component/header/header";
+import { useSession } from "next-auth/react";
 
 const Dashboards = () => {
   const { users, usersStringfy } = User();
-
+  const { data: session } = useSession();
   const [loading, setLoading] = useState(false);
   const [rechargeHistory, setRechargeHistory] = useState([]);
   const itemsPerPage2 = 10;
@@ -26,11 +27,11 @@ const Dashboards = () => {
     setItemOffset2(newOffset);
   };
 
-  async function transactions(users) {
-    if (users?._id) {
+  async function transactions() {
+    if (session?.user?.id) {
       try {
         const response = await axios.get(
-          `https://api-adbacklist.vercel.app/api/transaction/${users?._id}`,
+          `https://api-adbacklist.vercel.app/api/transaction/${session?.user?.id}`,
           {
             method: "GET",
           }
@@ -51,12 +52,12 @@ const Dashboards = () => {
 
   useEffect(() => {
     setLoading(true);
-    if (users) {
-      transactions(users);
+    if (session) {
+      transactions();
     } else {
       return;
     }
-  }, [users]);
+  }, [session?.user?.email]);
 
   return (
     <div className="bg-gray-100">
@@ -68,10 +69,12 @@ const Dashboards = () => {
         <div className="p-2 flex justify-between">
           <div>
             <button className="btn bg-white text-info btn-info hover:text-white">
-              Credits : {users?.credit?.toFixed(2)}
+              Credits : {session?.user?.credit?.toFixed(2)}
             </button>
           </div>
-          <p className="text-lg sm:text-3xl text-black">{users?.email}</p>
+          <p className="text-lg sm:text-3xl text-black">
+            {session?.user?.email}
+          </p>
         </div>
         <div className="m-0 sm:m-10">
           <div className="bg-black text-white my-5 p-2 flex justify-between rounded  shadow-lg shadow-blue-500/50">
@@ -91,7 +94,7 @@ const Dashboards = () => {
             </span>
             <Link
               className="text-sm sm:text-xl p-1 bg-red-600 font-bold text-white"
-              href={`/recharge-credits/${users?._id}`}
+              href={`/recharge-credits/${session?.user?.id}`}
             >
               Buy Credit
             </Link>

@@ -9,11 +9,13 @@ import Header from "@/component/header/header";
 import Footer from "@/component/footer/footer";
 import { Input, Pagination, Select } from "antd";
 import cate from "../../public/category.json";
+import { useSession } from "next-auth/react";
 const { Search } = Input;
 
 const Dashboards = () => {
   const { users, usersStringfy } = User();
-
+  console.log(users);
+  const { data: session } = useSession();
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(false);
   // searchText=&status=&category=Pets
@@ -24,16 +26,13 @@ const Dashboards = () => {
   const [category, setCategory] = useState("");
   const [startIndex, setStartIndex] = useState(0);
 
-  async function posts(users) {
-    if (users?._id) {
+  async function posts() {
+    if (session) {
       try {
         const response = await axios.get(
-          `https://api-adbacklist.vercel.app/api/products/posterid/${users?._id}?page=${pages}&searchText=${searchText}&status=${status}&category=${category}`,
+          `https://api-adbacklist.vercel.app/api/products/posterid/${session?.user?.id}?page=${pages}&searchText=${searchText}&status=${status}&category=${category}`,
           {
             method: "GET",
-            headers: {
-              authorization: `Bearer ${usersStringfy}`,
-            },
           }
         );
         setLoading(false);
@@ -54,12 +53,12 @@ const Dashboards = () => {
 
   useEffect(() => {
     setLoading(true);
-    if (users) {
-      posts(users);
+    if (session) {
+      posts();
     } else {
       return;
     }
-  }, [users, pages, category, status, searchText]);
+  }, [session?.user?.email, pages, category, status, searchText]);
 
   const deletePost = (id) => {
     Swal.fire({
@@ -131,7 +130,9 @@ const Dashboards = () => {
             </button>
           </div>
           <div>
-            <p className="text-lg sm:text-3xl text-black">{users?.email}</p>
+            <p className="text-lg sm:text-3xl text-black">
+              {session?.user?.email}
+            </p>
             <Link className="text-blue-400" href={`/user/edit/${users._id}`}>
               Edit Profile
             </Link>
