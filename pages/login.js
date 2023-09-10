@@ -77,7 +77,9 @@ const Login = () => {
       </Head>
       <div className={style.container}>
         <h1 className={style.title}>ADBACKLIST</h1>
-        <h1 className="flex justify-center text-3xl font-bold mb-5">Login</h1>
+        <h1 className="flex justify-center text-3xl font-bold mb-5">
+          Login / SignUp
+        </h1>
         {/* <form onSubmit={login}>
           <div className={style.inputBox}>
             <span>
@@ -121,7 +123,7 @@ const Login = () => {
         </form> */}
         <div className={style.inputBox}>
           <button
-            className="btn btn-outline btn-success text-2xl hover:text-white btn-wide flex"
+            className="btn btn-outline btn-success text-2xl hover:text-white btn-wide flex justify-between "
             onClick={() =>
               signIn("google", {
                 callbackUrl: `${
@@ -130,16 +132,17 @@ const Login = () => {
               })
             }
           >
-            <FcGoogle className="text-4xl" />
+            <FcGoogle className="text-4xl" />{" "}
+            <span className="text-sm">Sign In With Google</span>
           </button>
         </div>
         {/* <Image src="/upload.gif" /> */}
-        <p className="text-2xl flex justify-center mt-5">
+        {/* <p className="text-2xl flex justify-center mt-5">
           New here ?{" "}
           <Link className="text-blue-600 underline" href={`/register`}>
             Register
           </Link>{" "}
-        </p>
+        </p> */}
       </div>
       <Footer></Footer>
     </div>
