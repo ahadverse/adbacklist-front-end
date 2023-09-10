@@ -30,7 +30,7 @@ export const authOptions = {
   },
 
   pages: {
-    signIn: "/signin",
+    signIn: "/api/auth/signin",
     error: "/api/auth/signin",
   },
 };
