@@ -31,6 +31,7 @@ export const authOptions = {
 
   pages: {
     signIn: "https://adbacklist.com/login",
+    error: "https://adbacklist.com/login",
   },
 };
 
