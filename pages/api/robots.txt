@@ -5,3 +5,7 @@ Disallow: /search?q=
 Allow: /
 Sitemap: http://www.adbacklist.com/sitemap.xml
 Sitemap: http://www.adbacklist.com/sitemap-pages.xml
+Sitemap: http://www.adbacklist.com/sitemap-posts.xml
+Sitemap: http://www.adbacklist.com/sitemap-posts-second.xml
+Sitemap: http://www.adbacklist.com/sitemap-posts-third.xml
+Sitemap: http://www.adbacklist.com/sitemap-posts-forth.xml
