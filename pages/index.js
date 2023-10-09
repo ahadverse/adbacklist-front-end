@@ -15,59 +15,28 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Adbacklist is an Easy and Secure Way to Post Online Classified Ads
+          Adbacklist Alternatives for Ebackpage| abq Backpages| queens Backpahe|
+          Reno Backpage OC
         </title>
         <meta name="google" content="notranslate"></meta>
         <meta
           name="title"
-          content="Free Classified site Adbacklist is an Easy and Secure Way to Post Online Classified Ads"
+          content="Adbacklist Alternatives for Ebackpage| abq Backpages| queens Backpahe| Reno Backpage OC"
         />
         <meta
           name="description"
-          content="Adbacklist makes it easy to post classified ads online. 
-                  Sell, find, and rent anything with a secure and safe platform. 
-                  Get started today and reach thousands of potential customers in your local area in minutes!"
+          content="Find the top alternatives to Reno Backpage OC with Ebackpage, ABQ Backpages, and Queens Backpahe.
+          Adbacklist is a worldwide website that is similar to Backpage, Everett Backpage and ebackpage. 
+          Everyone like a shemale Backpage tranny or an alternative to adbacklist.com"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="keywords"
-          content="
-          adult search brooklyn,
-          sexing adults,
-          adult snapchat,
-          adulting memes,
-          Classified,
-          classified technologies,
-          24 hour campfire classifieds,
-          archerytalk classifieds,
-          gon classified,
-          cloudy nights classified,
-          local classifieds,
-          Dating,
-          granny dating,
-          dating a trans woman,
-          dating in high school,
-          eros dating,
-          whatsapp dating,
-          speed dating miami,
-          dating a nurse meme,
-          dating a single mom,
-          Rentals,
-          hydroseeding rental,
-          club house rental,
-          Services,
-          sap service activation,
-          secret service,
-          Automotive,
-          automotive paint gallon,
-          Real Estate,
-          bov real estate,
-          real estate,
-          alluvion real estate,
-          Local Places,
-          local places to eat,
-          places to eat near me open,
-          the local place"
+          content="abq backpages, queens Backpahe, sites similar to backpage,alternative to backpage, 
+          sites like craigslist, backpage replacement, backpage escort, jobs, hole house, abq backpage,
+          backpage oc,everett backpage,pgh backpage,sac backpages,asian backpage,shemale backpage,
+          backpage tranny,gold country backpage,tranny backpage,reno backpages,
+          backpage hook up"
         />
         <meta
           name="google-site-verification"
