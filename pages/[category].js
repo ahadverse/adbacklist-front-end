@@ -159,7 +159,7 @@ const Name = () => {
         <title>
           {router?.query?.category &&
             `Backpage ${router?.query?.category} | ${router?.query?.category} Escorts
-          | Erotic Massage in ${router?.query?.category} - adbacklist.com`}
+          | Erotic Massage in ${router?.query?.category}`}
         </title>
 
         <meta
