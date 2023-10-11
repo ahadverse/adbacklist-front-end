@@ -172,7 +172,26 @@ Hookup hotshot and erotic massage services in ${router?.query?.category} on adba
 Explore adbacklist.com now!`
           }
         />
-        {/* <meta name="keywords" content={metas?.keywords} /> */}
+        <meta
+          name="keywords"
+          content={
+            router?.query?.category &&
+            `Backpages ${router?.query?.category}, 
+            Bedpage ${router?.query?.category}, 
+            back pages ${router?.query?.category}, 
+            ${router?.query?.category} Escort, 
+            escorts ${router?.query?.category}, 
+            Escorts in ${router?.query?.category}, 
+            independent escort ${router?.query?.category}, 
+            Erotic massage in ${router?.query?.category}, 
+            Hookup in ${router?.query?.category}, 
+            hookup hotshot full, 
+            hooker girls, 
+            hookers online, 
+            online prostitute, 
+            Monterey escort`
+          }
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Headers />
