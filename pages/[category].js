@@ -4,7 +4,6 @@ import React, { use, useEffect, useState } from "react";
 import style from "../styles/moduleCss/services.module.css";
 import Head from "next/head";
 import category from "../public/category.json";
-import meta from "../public/metas.json";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Drawer from "../component/drawer/drawer";
@@ -33,10 +32,6 @@ const Name = () => {
   useEffect(() => {
     getUser();
   }, []);
-
-  const metas = meta?.find((a) => a?.name == router.query.category);
-
-  console.log(metas);
 
   let content;
   if (router.query.category == undefined) {
@@ -161,10 +156,10 @@ const Name = () => {
     <div className="bg-gray-200 text-black">
       <Head>
         <link rel="icon" href="/logo.png" />
-        <title>{metas?.title}</title>
+        <title>{router?.query?.category} </title>
 
-        <meta name="description" content={metas?.description} />
-        <meta name="keywords" content={metas?.keywords} />
+        {/* <meta name="description" content={metas?.description} />
+        <meta name="keywords" content={metas?.keywords} /> */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Headers />
