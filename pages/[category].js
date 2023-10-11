@@ -167,8 +167,8 @@ const Name = () => {
           content={
             router?.query?.category &&
             `${router?.query?.category} Backpage | After backpage, Adbacklist is the most popular classified site for ${router?.query?.category} Escorts. 
-Adbacklist is a free adult entertainment site for ${router?.query?.category} Escorts or Escorts in ${router?.query?.category}.
-${router?.query?.category} escorts and erotic massage services in ${router?.query?.category} on adbacklist.
+Adbacklist is a free adult entertainment site for ${router?.query?.category} Escorts or Hardcore in ${router?.query?.category}.
+Hookup hotshot and erotic massage services in ${router?.query?.category} on adbacklist.
 Explore adbacklist.com now!`
           }
         />
