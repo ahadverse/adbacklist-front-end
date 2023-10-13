@@ -57,6 +57,7 @@ let initialState = {
         (a.onerror = (e) => o(e));
     }),
   Post = () => {
+    console.log(x, "data");
     const { data: session } = useSession();
     const [value1, setValue1] = i(0);
     let e = o(),
