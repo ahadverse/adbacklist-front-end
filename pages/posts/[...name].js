@@ -57,7 +57,6 @@ let initialState = {
         (a.onerror = (e) => o(e));
     }),
   Post = () => {
-    console.log(x, "data");
     const { data: session } = useSession();
     const [value1, setValue1] = i(0);
     let e = o(),
@@ -537,7 +536,7 @@ let initialState = {
               )}
 
               <div className="sm:w-3/4 w-full m-auto pt-10 ">
-                {session?.user?.credit < local || local == "null" ? (
+                {users?.credit < local || local == "null" ? (
                   <>
                     <h1 className="text-2xl text-red-600 font-bold">
                       Insufficient Balance
