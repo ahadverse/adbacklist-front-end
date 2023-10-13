@@ -7,7 +7,7 @@ const Footer = dynamic(() => import("@/component/footer/footer2"));
 const Header = dynamic(() => import("@/component/header/header"));
 import style from "../styles/moduleCss/blog.module.css";
 import { Input, Pagination } from "antd";
-import category from "../public/category.json";
+import category from "../public/category2.json";
 import { MyContext } from "./_app";
 
 const { Search } = Input;
