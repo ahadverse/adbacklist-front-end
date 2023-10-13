@@ -16,7 +16,7 @@ export default function App({
       <MyContext.Provider
         value={{ blogcurrent, setBlogCurrent, catKey, setCatKey }}
       >
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </MyContext.Provider>
     </SessionProvider>
   );
