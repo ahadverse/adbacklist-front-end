@@ -91,7 +91,10 @@ export default function Home() {
               utmost importance. You want to ensure that the platform you choose
               is reliable, secure, and widely recognized. If you are a global
               service provider looking for one of the{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 best sites like Backpage{" "}
               </Link>
@@ -108,7 +111,10 @@ export default function Home() {
               personal ads, electronics, cars, clothing, furniture, and more.
               You can submit your ads for free on our website by creating an
               account.{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Backpage escort{" "}
               </Link>{" "}
@@ -118,7 +124,10 @@ export default function Home() {
               Adbacklist aims to provide skilled services that please our users.
               We value our relationship with our users and strive to meet their
               advertising needs by offering all{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Craigslist Personals{" "}
               </Link>
@@ -135,7 +144,10 @@ export default function Home() {
               highest. Why must you stay behind? Reach several prospective
               customers across the world on Adbacklist. We tend to be unit one
               in all the{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 sites like craigslist{" "}
               </Link>{" "}
@@ -154,7 +166,10 @@ export default function Home() {
               your "business page" by updating your photos, business
               information, contact details, services provided, and location on
               the map. Our{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Craigslist Personals{" "}
               </Link>{" "}
@@ -181,7 +196,10 @@ export default function Home() {
               <b>Easy to find potential customers. </b>
               Adbacklist provides a platform to help businesses reach online
               shoppers. Many service providers have already used our{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Backpage escort{" "}
               </Link>{" "}
@@ -193,7 +211,10 @@ export default function Home() {
               Adbacklist can help you reach potential customers with classified
               ads. We tend to assist you in succeeding with your potential
               customers. You'll be able to generate leads for your business by
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Sites similar to Backpage{" "}
               </Link>{" "}
@@ -228,7 +249,10 @@ export default function Home() {
               marketing or shopping for any product or service. The Adbacklist
               provides completely different forms of sales promotions to pick
               from. This provides the USA with an added advantage over other
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Queens Backpahe{" "}
               </Link>{" "}
@@ -276,14 +300,20 @@ export default function Home() {
             <br />
             <p>
               Adbacklist is a great{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Alternative to Backpage{" "}
               </Link>{" "}
               that caters to clients and delivers an exceptional user
               experience. Sign up today to post your ad and start reaching your
               customers quickly. While there are many{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 websites similar to Backpage,{" "}
               </Link>{" "}
@@ -297,7 +327,10 @@ export default function Home() {
             <br />
             <p>
               Adbacklist is a website that serves as a{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Backpage replacement{" "}
               </Link>
@@ -306,7 +339,10 @@ export default function Home() {
               thousands of regular users who are looking for a reliable
               alternative to Backpage. Adbacklist classifieds have a similar
               look and feel to the original{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 backpage.com.
               </Link>{" "}
@@ -325,18 +361,27 @@ export default function Home() {
               States close up Backpage classified website within the early 2019
               for SESTA/FOSTA legislation & allegation of sex trafficking
               advertisements in its {" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Backpage hook up{" "}
               </Link>{" "}
               . When the ending of the most well-liked US classified website
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 backpage.com.
               </Link>{" "}
               ., Adbacklist classified launched to interchange Backpage as a
               classified website. Among days, the{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 Backpage alternative website {" "}
               </Link>{" "}
@@ -345,7 +390,10 @@ export default function Home() {
               <br />
               Free classified advertisements are denoted Adbacklist classified
               every day as an{" "}
-              <Link href={"/"} className="text-blue-600 font-bold">
+              <Link
+                href={"/"}
+                className="text-blue-600 font-bold hover:underline"
+              >
                 {" "}
                 ABQ Backpages{" "}
               </Link>{" "}
@@ -361,6 +409,8 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <br />
+
         <Footer />
       </main>
     </>
