@@ -242,7 +242,7 @@ export default function Home() {
             <h2 className="text-lg font-bold">
               Pros of Associating with Adbacklist
             </h2>
-            <br />
+
             <li>Credible, specific and authentic advertisements</li>
             <li>untroubled procedure to post free sales promotions</li>
             <li>Seamless functionalities for aiding users</li>
@@ -259,7 +259,7 @@ export default function Home() {
             <h2 className="text-lg font-bold">
               Why do you have to trust Adbacklist?
             </h2>
-            <br />
+
             <li>It is ranked among the top 100 Directory Sites in the USA..</li>
             <li>
               The efficient approach of posting ads on Adbacklist saves you
