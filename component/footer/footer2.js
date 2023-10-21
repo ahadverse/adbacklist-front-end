@@ -75,7 +75,7 @@ const Footer = () => {
         </li>
       </ul>
       <ul className={style.footer}>
-        <li className={style.item}>
+        {/* <li className={style.item}>
           <Link
             href="https://www.youtube.com/channel/UC8vWO9MILlY-Sv9ezGaB6WQ"
             target={"_blank"}
@@ -85,7 +85,7 @@ const Footer = () => {
           >
             <BsYoutube className={style.insta} />
           </Link>
-        </li>
+        </li> */}
         <li className={style.item}>
           <Link
             href="https://www.facebook.com/profile.php?id=100091135910066"

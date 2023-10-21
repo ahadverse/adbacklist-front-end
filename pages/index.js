@@ -174,6 +174,7 @@ export default function Home() {
               facilitate your complete in reaching the ‘target audience’ easier
               and quicker compared to different standard advertisements.
             </li>
+            <br />
             <li>
               <b>Easy to find potential customers. </b>
               Adbacklist provides a platform to help businesses reach online
@@ -184,6 +185,7 @@ export default function Home() {
               </Link>{" "}
               to grow their business.
             </li>
+            <br />
             <li>
               <b>Collect more leads </b>
               Adbacklist can help you reach potential customers with classified
@@ -195,6 +197,7 @@ export default function Home() {
               </Link>{" "}
               here.
             </li>
+            <br />
             <li>
               <b>More reach. </b>
               Adbacklist offers you a highly effective platform to reach
@@ -204,6 +207,7 @@ export default function Home() {
               significant growth in their business by utilizing free classified
               sites.
             </li>
+            <br />
             <li>
               <b>Grow-up your business </b>
               Free classified ads sites have emerged as a valuable component of
