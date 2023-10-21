@@ -74,6 +74,8 @@ const Footer = () => {
           </Link>
         </li>
       </ul>
+      <br />
+      <br />
       <ul className={style.footer}>
         {/* <li className={style.item}>
           <Link
