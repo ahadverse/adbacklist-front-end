@@ -81,7 +81,7 @@ export default function Home() {
             <Search />
             <Index />
           </div>
-          <div className=" m-auto rounded bg-blue-100 p-3">
+          <div className="w-11/12 m-auto rounded bg-blue-100 p-3">
             <h2 className="text-lg font-bold">
               What are some trusted and reputable classified sites available?
             </h2>
