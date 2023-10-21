@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import style from "../../styles/moduleCss/footer.module.css";
-import { AiFillFacebook, AiFillTwitterSquare , AiFillInstagram } from "react-icons/ai";
-import {BsPinterest, BsYoutube} from "react-icons/bs"
+import {
+  AiFillFacebook,
+  AiFillTwitterSquare,
+  AiFillInstagram,
+} from "react-icons/ai";
+import { BsPinterest, BsYoutube } from "react-icons/bs";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import Link from "next/link";
@@ -71,40 +75,108 @@ const Footer = () => {
                 Terms
               </Link>
             </li>
-         
           </ul>
           <ul className={style.footer}>
-
             <li className={style.item}>
-              <Link href="https://www.youtube.com/channel/UC8vWO9MILlY-Sv9ezGaB6WQ"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Youtube">
+              <Link href={"https://adbacklist.com/"}>Backpage escort </Link>
+            </li>
+            <li className={style.item}>
+              <Link href={"https://adbacklist.com/"}>
+                Sites similar to Backpage
+              </Link>
+            </li>
+            <li className={style.item}>
+              <Link href={"https://adbacklist.com/"}>
+                Backpage replacement{" "}
+              </Link>
+            </li>
+            <li className={style.item}>
+              <Link href={"https://adbacklist.com/"}>
+                Alternative to Backpage{" "}
+              </Link>
+            </li>
+            <li className={style.item}>
+              <Link href={"https://adbacklist.com/"}>Queens Backpahe</Link>
+            </li>
+            <li className={style.item}>
+              <Link href={"https://adbacklist.com/"}>
+                Sites like craigslist{" "}
+              </Link>
+            </li>
+            <li className={style.item}>
+              <Link href={"https://adbacklist.com/"}>
+                Best sites like Backpage
+              </Link>
+            </li>
+            <li className={style.item}>
+              <Link href={"https://adbacklist.com/"}>
+                Website similar to Backpage
+              </Link>
+            </li>
+            <li className={style.item}>
+              <Link href={"https://adbacklist.com/"}>Backpage hook up</Link>
+            </li>
+          </ul>
+          <br />
+          <ul className={style.footer}>
+            <li className={style.item}>
+              <Link
+                href="https://www.youtube.com/channel/UC8vWO9MILlY-Sv9ezGaB6WQ"
+                target={"_blank"}
+                rel="noopener noreferrer"
+                className="link text-uppercase"
+                title="Youtube"
+              >
                 <BsYoutube className={style.insta} />
               </Link>
             </li>
-          <li className={style.item}>
-              <Link href="https://www.facebook.com/profile.php?id=100091135910066"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Facebook">
+            <li className={style.item}>
+              <Link
+                href="https://www.facebook.com/profile.php?id=100091135910066"
+                target={"_blank"}
+                rel="noopener noreferrer"
+                className="link text-uppercase"
+                title="Facebook"
+              >
                 <AiFillFacebook className={style.facebook} />
               </Link>
             </li>
             <li className={style.item}>
-              <Link href="https://www.instagram.com/adbacklist/"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Instagram">
-                <AiFillInstagram className={style.insta}  />
+              <Link
+                href="https://www.instagram.com/adbacklist/"
+                target={"_blank"}
+                rel="noopener noreferrer"
+                className="link text-uppercase"
+                title="Instagram"
+              >
+                <AiFillInstagram className={style.insta} />
               </Link>
             </li>
             <li className={style.item}>
-              <Link href="https://twitter.com/Adbacklist"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Twitter">
-                <AiFillTwitterSquare className={style.facebook}  />
+              <Link
+                href="https://twitter.com/Adbacklist"
+                target={"_blank"}
+                rel="noopener noreferrer"
+                className="link text-uppercase"
+                title="Twitter"
+              >
+                <AiFillTwitterSquare className={style.facebook} />
               </Link>
             </li>
-       
+
             <li className={style.item}>
-              <Link href="https://www.pinterest.com/adbacklist/"  target={"_blank"} rel="noopener noreferrer" className="link text-uppercase" title="Pinterest">
+              <Link
+                href="https://www.pinterest.com/adbacklist/"
+                target={"_blank"}
+                rel="noopener noreferrer"
+                className="link text-uppercase"
+                title="Pinterest"
+              >
                 <BsPinterest className={style.insta} />
               </Link>
             </li>
           </ul>
-   
         </div>
-
       </footer>
       <p className="text-center mt-8">Copyright © 2009 - 2023 </p>
     </div>
