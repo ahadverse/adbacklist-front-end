@@ -114,7 +114,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>Backpage hook up</Link>
+              <Link href={"/backpage-hookup"}>Backpage hook up</Link>
             </li>
           </ul>
           <br />
