@@ -109,7 +109,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>
+              <Link href={"/similar-to-backpage"}>
                 Website similar to Backpage
               </Link>
             </li>
