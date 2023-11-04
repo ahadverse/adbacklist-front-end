@@ -29,7 +29,7 @@ const BackpageHookup = () => {
         <Link href={"/"}>
           <img
             src="/hookup/Connecting Singles for Exciting Backpage Hookup.jpg"
-            alt="Website Similar to Backpage"
+            alt="Backpage Hookup"
           />
         </Link>
         <br />
@@ -42,7 +42,7 @@ const BackpageHookup = () => {
         <p className="p-2">
           {" "}
           Welcome to our comprehensive guide on connecting singles for exciting
-          <Link href={"/"} className="text-blue-600 underline">
+          <Link href={"/"} className="text-blue-600 underline font-bold">
             {" "}
             Backpage Hookups{" "}
           </Link>{" "}
@@ -78,7 +78,7 @@ const BackpageHookup = () => {
         <Link href={"/"}>
           <img
             src="/hookup/Connecting Singles for Exciting Backpage Hookup 2.jpg"
-            alt="Website Similar to Backpage"
+            alt="Backpage Hookup"
           />
         </Link>
         <br />
@@ -120,7 +120,7 @@ const BackpageHookup = () => {
         <br />
         <h1 className="font-bold text-2xl p-2">
           Best site like{" "}
-          <Link href={"/"} className="text-blue-600 underline">
+          <Link href={"/"} className="text-blue-600 underline font-bold">
             {" "}
             Backpage or Craigslist{" "}
           </Link>{" "}
@@ -136,7 +136,7 @@ const BackpageHookup = () => {
         <br />
         <h1 className="font-bold text-2xl p-2">
           Best{" "}
-          <Link href={"/"} className="text-blue-600 underline">
+          <Link href={"/"} className="text-blue-600 underline font-bold">
             {" "}
             Backpage alternative website{" "}
           </Link>{" "}
@@ -153,7 +153,7 @@ const BackpageHookup = () => {
         <br />
         <h2 className="font-bold text-xl p-2">
           How to find a casual date on a{" "}
-          <Link href={"/"} className="text-blue-600 underline">
+          <Link href={"/"} className="text-blue-600 underline font-bold">
             {" "}
             Backpage alternative site{" "}
           </Link>{" "}
@@ -163,7 +163,7 @@ const BackpageHookup = () => {
           know how to navigate the platform effectively. Here are some steps to
           get started: <br /> <br />
           1. Choose the right site: Select a{" "}
-          <Link href={"/"} className="text-blue-600 underline">
+          <Link href={"/"} className="text-blue-600 underline font-bold">
             {" "}
             Backpage Hookup{" "}
           </Link>{" "}
@@ -221,7 +221,7 @@ const BackpageHookup = () => {
         </p>
         <h2 className="font-bold text-xl p-2">
           Comparing the{" "}
-          <Link href={"/"} className="text-blue-600 underline">
+          <Link href={"/"} className="text-blue-600 underline font-bold">
             {" "}
             best sites like backpage
           </Link>{" "}
@@ -236,7 +236,7 @@ const BackpageHookup = () => {
         <Link href={"/"}>
           <img
             src="/hookup/Connecting Singles for Exciting Backpage Hookup 3.jpg"
-            alt="Website Similar to Backpage"
+            alt="Backpage Hookup"
           />
         </Link>
         <br />
@@ -256,7 +256,7 @@ const BackpageHookup = () => {
           The Backpage website was seized by the U.S. government in 2018 due to
           alleged trafficking-related issues. Since then, users have sought
           alternative platforms to continue their classified ad experiences with
-          <Link href={"/"} className="text-blue-600 underline">
+          <Link href={"/"} className="text-blue-600 underline font-bold">
             {" "}
             Backpage Hookup{" "}
           </Link>{" "}
@@ -309,7 +309,7 @@ const BackpageHookup = () => {
         </p>
         <h2 className="font-bold text-xl p-2">
           Using video chat features on{" "}
-          <Link href={"/"} className="text-blue-600 underline">
+          <Link href={"/"} className="text-blue-600 underline font-bold">
             {" "}
             Backpage Hookup{" "}
           </Link>{" "}
