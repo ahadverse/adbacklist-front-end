@@ -10,6 +10,7 @@ const Footer = dynamic(() => import("@/component/footer/footer"));
 const Header = dynamic(() => import("@/component/header/header"));
 import Image from "next/image";
 import { Pagination } from "antd";
+import { findMeta } from "./categorymeta";
 
 const initialState = {
   day1: [],
@@ -44,6 +45,10 @@ const Post = () => {
   const [pages, setPages] = useState(1);
 
   const [page, setPage] = useState(1);
+
+  const meta = findMeta(router?.query?.names);
+
+  console.log(meta);
 
   async function getPosts() {
     try {
@@ -191,9 +196,13 @@ const Post = () => {
   return (
     <div className={style.container}>
       <Head>
-        <title> Posts</title>
+        <title>{meta?.title}</title>
 
         <link rel="icon" href="/logo.png" />
+        <meta name="title" content={`${meta?.title}`} />
+        <meta name="description" content={`${meta?.description}`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content={`${meta?.keywords}`} />
       </Head>
       <Header data={router?.query?.names} />
 
