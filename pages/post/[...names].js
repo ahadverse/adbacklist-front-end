@@ -10,7 +10,7 @@ const Footer = dynamic(() => import("@/component/footer/footer"));
 const Header = dynamic(() => import("@/component/header/header"));
 import Image from "next/image";
 import { Pagination } from "antd";
-import { findMeta } from "./categorymeta";
+import { findMeta } from "../../component/categorymeta";
 
 const initialState = {
   day1: [],
@@ -47,8 +47,6 @@ const Post = () => {
   const [page, setPage] = useState(1);
 
   const meta = findMeta(router?.query?.names);
-
-  console.log(meta);
 
   async function getPosts() {
     try {
