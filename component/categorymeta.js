@@ -46,7 +46,7 @@ export const findMeta = (data) => {
     },
     {
       id: 6,
-      title: `Striper Club Nightlife at ${data?.[0]}'s Strip Club near me. Striper Club Nightlife at ${data?.[0]}'s Fully Nude Strip Club near me`,
+      title: `Striper Club Nightlife at ${data?.[0]}'s Fully Nude Strip Club near me`,
       description: `Find the hottest striper clubs in ${data?.[0]} for an unforgettable night of entertainment. 
       Whether you're looking for male or female strip clubs, fully nude venues, or a vibrant nightlife experience, 
       we've got you covered. Fully nude strip clubs near you and indulge in a night of excitement and adult entertainment. `,
@@ -73,6 +73,58 @@ export const findMeta = (data) => {
     },
     {
       id: 9,
+      title: `${data?.[0]} women seek men | escorts in ${data?.[0]}, W4M Dating Services`,
+      description: `Are you looking for female escorts in ${data?.[0]}? Connect with independent escorts and W4M Dating Services. 
+      Find the perfect match and experience unforgettable moments together. No Strings Attached Dating Services for Singles Explore a world of possibilities in ${data?.[0]} today!`,
+      keywords: `${data?.[0]}, ${data?.[0]} women seek men, Female escorts, Independent escorts, W4M Dating Services`,
+      category: "Women-Men",
+    },
+    {
+      id: 10,
+      title: `${data?.[0]} Men Seek Men Escorts in ${data?.[0]} M4M Dating Services`,
+      description: `Looking for some  men seek men action in ${data?.[0]}? Find a m4m date with a wide range of personal ads from gay men seeking men.
+      Whether you're a top, bottom, or just looking for some no strings attached fun.
+      Get Ready to Mingle: ${data?.[0]}'s Hottest Men Seeking Men - Find Your Perfect Match Today!`,
+      keywords: `${data?.[0]}, ${data?.[0]} men seek men, M4M, Dating Services, Top, Bottom, Gay ads, No strings attached`,
+      category: "Men-Men",
+    },
+    {
+      id: 11,
+      title: `${data?.[0]} Men Seek Women Online Dating No Strings Attached M4W`,
+      description: `Find your perfect match in ${data?.[0]} online dating services. 
+      Check out our single dating services, No strings attached, Personal ads, M4W, single dating, and romance ads. 
+      No more scrolling through Craigslist men seeking woman ads - find real connections here!`,
+      keywords: `${data?.[0]} online dating, M4W, No strings attached, Single dating services, Personal ads, Romance ads, Craiglist men seeking woman`,
+      category: "Men-Women",
+    },
+    {
+      id: 12,
+      title: `${data?.[0]} TS Escorts tranny and transsexual Models for T4M Fun`,
+      description: `Find the hottest ${data?.[0]} TS escorts and transsexual models in town. Find your perfect match for a memorable experience. 
+      Whether you're looking for a Transgender, transvestite, tranny, she male, or t4m encounter, we've got you covered. Explore now!`,
+      keywords: `${data?.[0]} TS, T4M, Transsexual escorts, Transsexual models,Transgender, Transvestite, Tranny, She male`,
+      category: "Transgender",
+    },
+    {
+      id: 13,
+      title: `${data?.[0]} women seek women W4W, Lesbians, dyke, Femme and Butches`,
+      description: `Find your perfect match with ${data?.[0]} Women Seek Women! Discover a community of like-minded women seeking connections, 
+      with no strings attached. Browse our dyke personal ads, w4w listings, and explore the world of free lesbian romance. 
+      Whether you're femme or butch, let us help you find the love you deserve.`,
+      keywords: `${data?.[0]} women seek women, No strings attached, ${data?.[0]} dyke personal ads, W4W, seeking women, Dyke free romance ads, Free lesbian ads, Lesbian, Dyke, Butch, femme`,
+      category: "Women-Women",
+    },
+    {
+      id: 14,
+      title: `Best Hookup Sites for Easy ${data?.[0]} Hookup Tonight with Escorts`,
+      description: `Looking for a hot hookup tonight in ${data?.[0]} Independent Escorts? 
+      Track down the best hook up sites, dating services, and escorts to make your night unforgettable. 
+      With Sexy Girls, finding a hookup has never been easier. Get ready to have an amazing hookup easy tonight!`,
+      keywords: `${data?.[0]} Hookup Tonight, Hook up, Escorts, Hookup sites, Best hook up sites, Dating services, Hookup easy tonight, Independent escorts, Sexy Girls`,
+      category: "Hookup Tonight",
+    },
+    {
+      id: 10,
       title: ``,
       description: ``,
       keywords: ``,
