@@ -11,6 +11,7 @@ import style from "../../../styles/moduleCss/postDetails.module.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsTelephone } from "react-icons/bs";
 import { ImBlocked } from "react-icons/im";
+import { findPostMeta } from "@/component/postmeta";
 
 const Details = () => {
   const router = useRouter();
@@ -57,11 +58,21 @@ const Details = () => {
     }
   }
 
+  const meta = findPostMeta(router.query);
+
   return (
     <div>
       <Head>
         <link rel="icon" href="/logo.png" />
-        <title>Post Details</title>
+        <title>{postDetails?.name?.slice(0, 65)}</title>
+
+        <meta name="title" content={`${postDetails?.name?.slice(0, 65)}`} />
+        <meta
+          name="description"
+          content={`${postDetails?.description?.slice(0, 318)}`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content={`${meta?.keywords}`} />
       </Head>
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
