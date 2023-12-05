@@ -12,7 +12,7 @@ export const authOptions = {
   callbacks: {
     async signIn({ user, profile }) {
       await axios
-        .post("http://localhost:5000/api/users/save", profile)
+        .post("https://api2.adbacklist.com/api/users/save", profile)
 
         .then((response) => {
           user.id = response.data.isExist._id;

@@ -34,7 +34,7 @@ const Details = () => {
   async function getUser(id) {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/products/${id?.[1]}`
+        `https://api2.adbacklist.com/api/products/${id?.[1]}`
       );
       setPost(response.data.data.product[0]);
       setLoading(false);
@@ -46,7 +46,9 @@ const Details = () => {
 
   async function getAds() {
     try {
-      const response = await axios.get(`http://localhost:5000/api/sideads`);
+      const response = await axios.get(
+        `https://api2.adbacklist.com/api/sideads`
+      );
       const data = response.data.ads;
 
       const category = data.filter((a) => a?.category == id?.[0]).slice(0, 6);

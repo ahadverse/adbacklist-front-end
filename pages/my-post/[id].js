@@ -18,7 +18,7 @@ const Details = () => {
   async function posts(id) {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/products/${id}`,
+        `https://api2.adbacklist.com/api/products/${id}`,
         {
           method: "GET",
         }
