@@ -1,6 +1,5 @@
 //pages/sitemap.xml.js
-const EXTERNAL_DATA_URL =
-  "https://api-adbacklist.vercel.app/api/products/sitemap";
+const EXTERNAL_DATA_URL = "http://localhost:5000/api/products/sitemap";
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
