@@ -45,7 +45,7 @@ const Reposts = () => {
     const data = { subject, isRead, reporterId, reportDesc, postId, posterId };
 
     await axios
-      .post("https://api2.adbacklist.com/api/reports", data, {
+      .post("https://api3.adbacklist.com/api/reports", data, {
         headers: {
           "content-type": "application/json",
         },

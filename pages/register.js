@@ -38,7 +38,7 @@ let initialState = {
         o = r.toLocaleString("default", { month: "short" });
       (e.month = o),
         await m
-          .post("https://api2.adbacklist.com/api/users", e)
+          .post("https://api3.adbacklist.com/api/users", e)
           .then((e) => {
             "success" == e.data.message
               ? (n(!1), t.push("/login"))
@@ -166,4 +166,4 @@ let initialState = {
   };
 export default Register;
 
-//https://api2.adbacklist.com
+//https://api3.adbacklist.com

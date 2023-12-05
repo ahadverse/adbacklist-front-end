@@ -1,5 +1,5 @@
 //pages/sitemap.xml.js
-const EXTERNAL_DATA_URL = "https://api2.adbacklist.com/api/products/sitemap3";
+const EXTERNAL_DATA_URL = "https://api3.adbacklist.com/api/products/sitemap3";
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>

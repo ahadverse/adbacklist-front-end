@@ -18,7 +18,7 @@ const BlogDetails = () => {
   async function getUser() {
     try {
       const response = await axios.get(
-        `https://api2.adbacklist.com/api/blogs/single?q=${id}`
+        `https://api3.adbacklist.com/api/blogs/single?q=${id}`
       );
 
       const data = response.data.data.blogs;
@@ -34,7 +34,7 @@ const BlogDetails = () => {
   async function getAds(data) {
     try {
       const response = await axios.get(
-        `https://api2.adbacklist.com/api/sideads/category?category=${data?.[0]?.category}`
+        `https://api3.adbacklist.com/api/sideads/category?category=${data?.[0]?.category}`
       );
 
       const datas = response.data.ads;

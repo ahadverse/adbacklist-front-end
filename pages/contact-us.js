@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 const Footer = dynamic(() => import("@/component/footer/footer"));
 const Header = dynamic(() => import("@/component/header/header"));
-//https://api2.adbacklist.com
+//https://api3.adbacklist.com
 const ContactUs = () => {
   return (
     <div>

@@ -17,7 +17,7 @@ const Name = () => {
   async function getUser() {
     try {
       const response = await axios.get(
-        `https://api2.adbacklist.com/api/links`,
+        `https://api3.adbacklist.com/api/links`,
         {
           method: "GET",
         }

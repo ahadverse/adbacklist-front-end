@@ -17,7 +17,7 @@ const Drawer = (data) => {
   async function getUser() {
     try {
       const response = await axios.get(
-        `https://api2.adbacklist.com/api/countries/search?q=${data?.category}`
+        `https://api3.adbacklist.com/api/countries/search?q=${data?.category}`
       );
       const cityName = response.data;
       const usa = cities.find((a) => a.name == "United States");

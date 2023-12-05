@@ -30,7 +30,7 @@ const Dashboards = () => {
     if (session) {
       try {
         const response = await axios.get(
-          `https://api2.adbacklist.com/api/products/posterid/${session?.user?.id}?page=${pages}&searchText=${searchText}&status=${status}&category=${category}`,
+          `https://api3.adbacklist.com/api/products/posterid/${session?.user?.id}?page=${pages}&searchText=${searchText}&status=${status}&category=${category}`,
           {
             method: "GET",
           }
@@ -72,7 +72,7 @@ const Dashboards = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://api2.adbacklist.com/api/products/${id}`, {})
+          .delete(`https://api3.adbacklist.com/api/products/${id}`, {})
           .then((response) => {
             if (response.data.status == "success") {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");

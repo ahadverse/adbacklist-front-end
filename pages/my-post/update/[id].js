@@ -116,7 +116,7 @@ let initialState = {
     async function posts(id) {
       try {
         const response = await axios.get(
-          `https://api2.adbacklist.com/api/products/${id}`,
+          `https://api3.adbacklist.com/api/products/${id}`,
           {
             method: "GET",
           }
@@ -172,7 +172,7 @@ let initialState = {
             o.imgOne = O[0].url;
           } else {
             r.append("images", O[0].originFileObj);
-            await fetch("https://api2.adbacklist.com/api/image/upload-file", {
+            await fetch("https://api3.adbacklist.com/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -190,7 +190,7 @@ let initialState = {
             o.imgTwo = O[1].url;
           } else {
             r.append("images", O[1].originFileObj);
-            await fetch("https://api2.adbacklist.com/api/image/upload-file", {
+            await fetch("https://api3.adbacklist.com/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -208,7 +208,7 @@ let initialState = {
             o.imgThree = O[2].url;
           } else {
             r.append("images", O[2].originFileObj);
-            await fetch("https://api2.adbacklist.com/api/image/upload-file", {
+            await fetch("https://api3.adbacklist.com/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -226,7 +226,7 @@ let initialState = {
             o.imgFour = O[3].url;
           } else {
             r.append("images", O[3].originFileObj);
-            await fetch("https://api2.adbacklist.com/api/image/upload-file", {
+            await fetch("https://api3.adbacklist.com/api/image/upload-file", {
               method: "POST",
               body: r,
             })
@@ -247,7 +247,7 @@ let initialState = {
 
         await axios
           .patch(
-            `https://api2.adbacklist.com/api/products/${e.query.id}`,
+            `https://api3.adbacklist.com/api/products/${e.query.id}`,
             o,
             options
           )

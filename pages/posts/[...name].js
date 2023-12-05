@@ -142,7 +142,7 @@ let initialState = {
         if (
           (O[0] &&
             (r.append("images", O[0].originFileObj),
-            await fetch("https://api2.adbacklist.com/api/files/files", {
+            await fetch("https://api3.adbacklist.com/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -152,7 +152,7 @@ let initialState = {
               })),
           O[1] &&
             (r.append("images", O[1].originFileObj),
-            await fetch("https://api2.adbacklist.com/api/files/files", {
+            await fetch("https://api3.adbacklist.com/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -162,7 +162,7 @@ let initialState = {
               })),
           O[2] &&
             (r.append("images", O[2].originFileObj),
-            await fetch("https://api2.adbacklist.com/api/files/files", {
+            await fetch("https://api3.adbacklist.com/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -172,7 +172,7 @@ let initialState = {
               })),
           O[3] &&
             (r.append("images", O[3].originFileObj),
-            await fetch("https://api2.adbacklist.com/api/files/files", {
+            await fetch("https://api3.adbacklist.com/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -221,7 +221,7 @@ let initialState = {
 
         o.posterId = session?.user?.id;
 
-        await fetch("https://api2.adbacklist.com/api/products", {
+        await fetch("https://api3.adbacklist.com/api/products", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -234,7 +234,7 @@ let initialState = {
             const newCredit = users?.credit - local?.toFixed(2);
             axios
               .patch(
-                `https://api2.adbacklist.com/api/users/${session?.user?.id}`,
+                `https://api3.adbacklist.com/api/users/${session?.user?.id}`,
                 {
                   credit: newCredit,
                 }
