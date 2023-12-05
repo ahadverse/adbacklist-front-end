@@ -142,7 +142,7 @@ let initialState = {
         if (
           (O[0] &&
             (r.append("images", O[0].originFileObj),
-            await fetch("http://localhost:5000/api/files/files", {
+            await fetch("https://api-adbacklist.vercel.app/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -152,7 +152,7 @@ let initialState = {
               })),
           O[1] &&
             (r.append("images", O[1].originFileObj),
-            await fetch("http://localhost:5000/api/files/files", {
+            await fetch("https://api-adbacklist.vercel.app/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -162,7 +162,7 @@ let initialState = {
               })),
           O[2] &&
             (r.append("images", O[2].originFileObj),
-            await fetch("http://localhost:5000/api/files/files", {
+            await fetch("https://api-adbacklist.vercel.app/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -172,7 +172,7 @@ let initialState = {
               })),
           O[3] &&
             (r.append("images", O[3].originFileObj),
-            await fetch("http://localhost:5000/api/files/files", {
+            await fetch("https://api-adbacklist.vercel.app/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -221,7 +221,7 @@ let initialState = {
 
         o.posterId = session?.user?.id;
 
-        await fetch("http://localhost:5000/api/products", {
+        await fetch("https://api-adbacklist.vercel.app/api/products", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -233,9 +233,12 @@ let initialState = {
             localStorage.removeItem("cities");
             const newCredit = users?.credit - local?.toFixed(2);
             axios
-              .patch(`http://localhost:5000/api/users/${session?.user?.id}`, {
-                credit: newCredit,
-              })
+              .patch(
+                `https://api-adbacklist.vercel.app/api/users/${session?.user?.id}`,
+                {
+                  credit: newCredit,
+                }
+              )
               .then((response) => {
                 if (response.data.status == "success") {
                   g(!1),

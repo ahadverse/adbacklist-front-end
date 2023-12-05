@@ -38,7 +38,7 @@ let initialState = {
         o = r.toLocaleString("default", { month: "short" });
       (e.month = o),
         await m
-          .post("http://localhost:5000/api/users", e)
+          .post("https://api-adbacklist.vercel.app/api/users", e)
           .then((e) => {
             "success" == e.data.message
               ? (n(!1), t.push("/login"))
@@ -166,4 +166,4 @@ let initialState = {
   };
 export default Register;
 
-//http://localhost:5000
+//https://api-adbacklist.vercel.app

@@ -12,7 +12,7 @@ const User = () => {
   async function getUser() {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/users/${session?.user?.id}`
+        `https://api-adbacklist.vercel.app/api/users/${session?.user?.id}`
       );
       const data = response.data.data.user;
       setUser(data);
