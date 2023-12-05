@@ -97,8 +97,6 @@
   grid-template-columns: 6fr 2fr;
 }
 .othersLinkImage {
-  width: 300px;
-  height: 300px;
   margin: 2px auto;
 }
 .othersLinkContainer {
