@@ -255,7 +255,7 @@ const Details = () => {
                 ""
               )}
 
-              <div className="flex-wrap justify-center sm:flex">
+              <div className="grid sm:grid-cols-4 m-auto grid-cols-2">
                 {newAds?.map((a) => (
                   <div className="m-2 text-blue-600" key={a._id}>
                     <a
@@ -264,8 +264,10 @@ const Details = () => {
                       rel="noreferrer"
                       className="text-blue-600"
                     >
-                      <img className="w-86 h-48" src={a?.image} width={250} />
-                      <p className="text-blue-400 underline">{a?.title}</p>
+                      <img src={a?.image} width={250} />
+                      <p className="text-blue-400 underline sm:w-[250px] w-full text-sm sm:text-base">
+                        {a?.title?.slice(0, 50)}
+                      </p>
                     </a>
                   </div>
                 ))}

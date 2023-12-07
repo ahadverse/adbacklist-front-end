@@ -148,9 +148,9 @@ const Post = () => {
         `https://api3.adbacklist.com/api/sideads`
       );
       const data = response.data.ads;
-      const category = data
-        .filter((a) => a?.category == router?.query?.names?.[1])
-        .slice(0, 4);
+      const category = data.filter(
+        (a) => a?.category == router?.query?.names?.[1]
+      );
       setAds(category);
     } catch (error) {
       console.error(error);
@@ -869,11 +869,31 @@ const Post = () => {
                           height={800}
                           alt="image"
                         />
-                        <p className="text-blue-400">{a.title}</p>
+                        <p className="text-blue-400 underline sm:w-[250px] w-full text-sm sm:text-base">
+                          {a?.title?.slice(0, 50)}
+                        </p>
                       </a>
                     </div>
                   ))}
                 </div>
+
+                {/* <div className="grid sm:grid-cols-4 m-auto grid-cols-2">
+                  {newAds?.map((a) => (
+                    <div className="m-2 text-blue-600" key={a._id}>
+                      <a
+                        href={`${a?.link}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-blue-600"
+                      >
+                        <img src={a?.image} width={250} />
+                        <p className="text-blue-400 underline sm:w-[250px] w-full text-sm sm:text-base">
+                          {a?.title?.slice(0, 50)}
+                        </p>
+                      </a>
+                    </div>
+                  ))}
+                </div> */}
               </div>
             </div>
           )}
