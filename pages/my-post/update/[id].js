@@ -8,7 +8,6 @@ import n from "../../../styles/moduleCss/addPost.module.css";
 import m from "sweetalert2";
 import s from "js-cookie";
 import { Editor } from "@tinymce/tinymce-react";
-import u from "jwt-decode";
 import { message as d, Upload, Modal } from "antd";
 import y from "../../../public/category.json";
 import { AiFillPlusCircle } from "react-icons/ai";
@@ -16,6 +15,7 @@ import x from "@/component/user";
 import axios from "axios";
 import Link from "next/link";
 import Swal from "sweetalert2";
+import { useSession } from "next-auth/react";
 let initialState = {
     name: "",
     phone: "",
@@ -58,6 +58,7 @@ let initialState = {
     }),
   Post = () => {
     const [loading, setLoading] = i(false);
+    const { data: session } = useSession();
     let e = o(),
       { users } = x(),
       [a, l] = i(initialState),
@@ -68,8 +69,7 @@ let initialState = {
       },
       f = s.get("token");
     r(() => {
-      let e = u(f);
-      l({ ...a, posterId: e?._id });
+      l({ ...a, posterId: session?.user?.id });
     }, []);
 
     let [h, w] = i(!1),
