@@ -173,32 +173,60 @@ const Credits = () => {
             )}
           </div>
         </form>
-        <div className="w-6/12 m-auto bg-white p-5">
-          <p className="text-green-500 font-bold">Popular Offers</p>
-          <div className="grid grid-cols-2 gap-2">
+        <div className="sm:w-6/12 mx-5 sm:m-auto bg-white p-5">
+          <div className="flex items-center">
+            <p className="text-green-500 text-2xl font-bold">Popular Offers</p>
+            <img className="w-[40px]" src="/rose.gif" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <button
               onClick={() => setAmount(100)}
-              className="border  border-2 text-black border-sky-500 border-dotted  text-normal px-1 rounded "
+              className="border  border-2 font-bold text-lg text-black border-sky-500 border-dotted  text-normal px-1 rounded flex items-center gap-2"
             >
-              Diposit $100 to get $120
+              <input
+                type="checkbox"
+                className="checkbox checkbox-xs checkbox-info"
+                required
+                checked={amount == 100}
+              />
+              <p>Diposit $100 to get $120</p>
             </button>
             <button
               onClick={() => setAmount(200)}
-              className="border  border-2 text-black border-sky-500 border-dotted  text-normal px-1 rounded "
+              className="border  border-2 font-bold text-lg text-black border-sky-500 border-dotted  text-normal px-1 rounded flex items-center gap-2"
             >
-              Diposit $200 to get $250
+              <input
+                type="checkbox"
+                className="checkbox checkbox-xs checkbox-info"
+                required
+                checked={amount == 200}
+              />
+              <p>Diposit $200 to get $250 </p>
             </button>
             <button
               onClick={() => setAmount(500)}
-              className="border  border-2 text-black border-sky-500 border-dotted  text-normal px-1 rounded "
+              className="border  border-2 font-bold text-lg text-black border-sky-500 border-dotted  text-normal px-1 rounded flex items-center gap-2"
             >
-              Diposit $500 to get $650
+              <input
+                type="checkbox"
+                className="checkbox checkbox-xs checkbox-info"
+                required
+                checked={amount == 500}
+              />
+              <p>Diposit $500 to get $650</p>
             </button>
             <button
               onClick={() => setAmount(1000)}
-              className="border  border-2 text-black border-sky-500 border-dotted  text-normal px-1 rounded "
+              className="border  border-2 font-bold text-lg text-black border-sky-500 border-dotted  text-normal px-1 rounded flex items-center gap-2"
             >
-              Diposit $1000 to get $1500
+              <input
+                type="checkbox"
+                className="checkbox checkbox-xs checkbox-info"
+                required
+                checked={amount == 1000}
+              />
+              <p>Diposit $1000 to get $1500</p>
             </button>
           </div>
         </div>
