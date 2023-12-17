@@ -34,6 +34,7 @@ const Credits = () => {
 
   async function recharge(e) {
     e.preventDefault();
+    setLoading(true);
     if (requested) return;
     requested = true;
     try {
@@ -133,7 +134,7 @@ const Credits = () => {
             <div>
               <h1 className="text-lg text-black">Select Amount</h1>
               <input
-                className="p-1 bg-gray-50 border rounded select-info w-full"
+                className="p-1 bg-gray-50 text-black border rounded select-info w-full"
                 placeholder="Input Amount"
                 required
                 type="number"
@@ -145,8 +146,9 @@ const Credits = () => {
             <small className="text-red-400">
               Minimum deposit amount is $10
             </small>
+
             <div>
-              <label className="cursor-pointer label flex justify-start items-center ">
+              <label className="cursor-pointer label flex gap-2 justify-start items-center ">
                 <input
                   type="checkbox"
                   className="checkbox checkbox-info"
@@ -171,6 +173,35 @@ const Credits = () => {
             )}
           </div>
         </form>
+        <div className="w-6/12 m-auto bg-white p-5">
+          <p className="text-green-500 font-bold">Popular Offers</p>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={() => setAmount(100)}
+              className="border  border-2 text-black border-sky-500 border-dotted  text-normal px-1 rounded "
+            >
+              Diposit $100 to get $120
+            </button>
+            <button
+              onClick={() => setAmount(200)}
+              className="border  border-2 text-black border-sky-500 border-dotted  text-normal px-1 rounded "
+            >
+              Diposit $200 to get $250
+            </button>
+            <button
+              onClick={() => setAmount(500)}
+              className="border  border-2 text-black border-sky-500 border-dotted  text-normal px-1 rounded "
+            >
+              Diposit $500 to get $650
+            </button>
+            <button
+              onClick={() => setAmount(1000)}
+              className="border  border-2 text-black border-sky-500 border-dotted  text-normal px-1 rounded "
+            >
+              Diposit $1000 to get $1500
+            </button>
+          </div>
+        </div>
       </div>
       <div className="border-4 rounded border-dashed border-green-600 sm:mt-10 mt-10  mx-auto w-3/5 p-5">
         <h1 className="text-xl font-bold">How do I buy Bitcoin ?</h1>
