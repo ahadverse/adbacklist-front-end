@@ -175,7 +175,7 @@ const Credits = () => {
         </form>
         <div className="sm:w-6/12 mx-5 sm:m-auto bg-white p-5">
           <div className="flex items-center">
-            <p className="text-green-500 text-2xl font-bold">Popular Offers</p>
+            <p className="text-green-500 text-2xl font-bold">Bonus Offers</p>
             <img className="w-[40px]" src="/rose.gif" />
           </div>
 
