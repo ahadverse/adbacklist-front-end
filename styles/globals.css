@@ -98,3 +98,19 @@ margin: auto !important;
 .ahad{
   background: red !important;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #c9c2c2;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #025a83;
+}

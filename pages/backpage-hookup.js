@@ -7,8 +7,7 @@ const BackpageHookup = () => {
     <div>
       <Head>
         <title>
-          Connecting Singles for Exciting Backpage Hookup classified site - Best
-          Backpage alternative
+          Connecting Singles for Exciting Backpage Hookup classified site
         </title>
         <meta
           name="title"
@@ -17,7 +16,7 @@ const BackpageHookup = () => {
         />
         <meta
           name="description"
-          content="Welcome to our comprehensive guide on connecting singles for exciting Backpage hookups! In this article, we will explore the world of online classified ads and introduce you to the best alternative websites to Backpage. Whether you are looking for a casual date, a hookup, or a meaningful connection, these sites will help you find your match. Let's dive in!"
+          content="Welcome to our comprehensive guide on connecting singles for exciting Backpage hookups! We introduce you to the best alternative websites to Backpage. Whether you are looking for a casual date, a hookup, or a meaningful connection, these sites will help you find your match. Let's dive in!"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta

@@ -16,8 +16,7 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Adbacklist Alternatives for Ebackpage| abq Backpages| queens Backpahe|
-          Reno Backpage OC
+          Adbacklist Alternatives for skip the games | queens Backpahe
         </title>
         <meta name="google" content="notranslate"></meta>
         <meta
