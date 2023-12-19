@@ -1,3 +1,4 @@
+import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
 import React from "react";
@@ -610,6 +611,7 @@ const MegaPersonalClassified = () => {
         </p>
         <br />
       </div>
+      <Footer />
     </div>
   );
 };
