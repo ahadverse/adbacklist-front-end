@@ -97,7 +97,7 @@ const Footer = () => {
               <Link href={"https://adbacklist.com/"}>Megapasonal</Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>Mega personal dating</Link>
+              <Link href={"/mega-personal-dating"}>Mega personal dating</Link>
             </li>
             <li className={style.item}>
               <Link href={"https://adbacklist.com/"}>
