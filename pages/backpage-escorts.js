@@ -9,6 +9,11 @@ const BackpageEscorts = () => {
       {" "}
       <Head>
         <title>Backpage Escort: Discover the Best Las Vegas Escorts</title>
+        <meta
+          name="title"
+          content="Backpage Escort: Discover the Best Las Vegas Escorts"
+        />
+        <meta name="keywords" content="Backpage Escort" />
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">

@@ -105,7 +105,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>Bedpage alternatives</Link>
+              <Link href={"/bedpage-alternatives"}>Bedpage alternatives</Link>
             </li>
             <li className={style.item}>
               <Link href={"https://adbacklist.com/"}>
