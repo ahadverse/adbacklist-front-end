@@ -21,7 +21,7 @@ const IndependentEscots = () => {
         <br />
         <img
           className="sm:w-[855px] m-auto"
-          src="/independent/independent-escots.jpeg"
+          src="/independents/independent-escots.jpeg"
         />
         <br />
         <br />
@@ -102,7 +102,7 @@ const IndependentEscots = () => {
         <br />
         <img
           className="sm:w-[855px] m-auto"
-          src="/independent/independent-escots1.jpg"
+          src="/independents/independent-escots1.jpg"
         />
         <br />
         <br />
@@ -322,7 +322,7 @@ const IndependentEscots = () => {
         <br />
         <img
           className="sm:w-[855px] m-auto"
-          src="/independent/independent-escots2.jpg"
+          src="/independents/independent-escots2.jpg"
         />
         <br />
         <br />
@@ -478,7 +478,7 @@ const IndependentEscots = () => {
         <br />
         <img
           className="sm:w-[855px] m-auto"
-          src="/independent/independent-escots4.jpg"
+          src="/independents/independent-escots4.jpg"
         />
         <br />
         <br />
