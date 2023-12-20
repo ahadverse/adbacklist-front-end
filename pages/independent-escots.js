@@ -18,6 +18,7 @@ const IndependentEscots = () => {
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
+        <br />
         <img
           className="sm:w-[855px] m-auto"
           src="/independent/independent-escots.jpeg"
