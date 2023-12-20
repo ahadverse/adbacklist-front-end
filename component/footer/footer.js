@@ -78,14 +78,12 @@ const Footer = () => {
           </ul>
           <ul className={style.footer}>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>
+              <Link href={"/sites-similar-to-backpage"}>
                 Sites similar to Backpage{" "}
               </Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>
-                Sites like craigslist
-              </Link>
+              <Link href={"/sites-like-craiglist"}>Sites like craigslist</Link>
             </li>
             <li className={style.item}>
               <Link href={"https://adbacklist.com/"}>Bedpage escort</Link>
@@ -100,29 +98,27 @@ const Footer = () => {
               <Link href={"/mega-personal-dating"}>Mega personal dating</Link>
             </li>
             <li className={style.item}>
-              <Link href={"/mega-personal-classified"}>
-                Megapersonals classified
-              </Link>
+              <Link href={"/"}>Megapersonals classified</Link>
             </li>
             <li className={style.item}>
               <Link href={"/bedpage-alternatives"}>Bedpage alternatives</Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>
+              <Link href={"/mega-personal-classified"}>
                 Mega personal classified
               </Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>Independent escots</Link>
+              <Link href={"/independent-escots"}>Independent escots</Link>
             </li>
             <li className={style.item}>
               <Link href={"https://adbacklist.com/"}>Queens Escort</Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>Skip the games</Link>
+              <Link href={"/skip-the-games"}>Skip the games</Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>Queens Backpahe</Link>
+              <Link href={"/queens-backpahe"}>Queens Backpahe</Link>
             </li>
             <li className={style.item}>
               <Link href={"/similar-to-backpage"}>
