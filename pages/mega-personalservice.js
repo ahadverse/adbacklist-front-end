@@ -14,6 +14,14 @@ const MegaPersonalservice = () => {
           name="title"
           content="Mega Personalservice Find Your Perfect Match and Dating Companion"
         />
+        <meta
+          name="keywords"
+          content="Mega Personalservice , Mega Personals App, Mega Personalservice in Austin, Engage With Mega, exceptional services, adult dating site, looking for hookups, Mega Personal, Personalservice today"
+        />
+        <meta
+          name="description"
+          content="Mega Personalservice is an adult dating site in Austin, Texas that offers a platform for people to connect and meet for hookups. With Mega Personals App, you can post your ad and find hot singles that are looking for a casual and authentic connection."
+        />
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">

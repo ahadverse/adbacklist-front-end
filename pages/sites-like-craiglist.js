@@ -14,14 +14,13 @@ const SitesLikeCraiglist = () => {
         />
         <meta
           name="keywords"
-          content="Site like Craigslist
-Craigslist alternatives 
-craigslist activity partners
-craigslist women seeking men
-Real Estate
-eBay Classifieds
-	Buying And Selling
+          content="
+  Site like Craigslist, Craigslist alternatives, craigslist activity partners, craigslist women seeking men, Real Estate, eBay Classifieds, Buying And Selling,
 "
+        />
+        <meta
+          name="description"
+          content="Looking for Sites Like Craigslist? Some popular options include Adbacklist, eBay Classifieds, Facebook Marketplace, Poshmark, Apartments.com, Indeed.com, Match.com, and Zillow."
         />
       </Head>
       <Header2 />
