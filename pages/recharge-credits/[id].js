@@ -10,7 +10,7 @@ import User from "@/component/user";
 import Link from "next/link";
 
 const Credits = () => {
-  const [amount, setAmount] = useState(10);
+  const [amount, setAmount] = useState();
   const [loading, setLoading] = useState(false);
   const usersStringfy = Cookies.get("token");
   const { users } = User();

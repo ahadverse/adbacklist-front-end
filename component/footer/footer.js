@@ -131,6 +131,8 @@ const Footer = () => {
           </ul>
           <br />
           <br />
+          <br />
+          <br />
           <ul className={style.footer}>
             {/* <li className={style.item}>
               <Link
