@@ -96,7 +96,7 @@ let initialState = {
         }
       }
       if (e.query.name?.[0] == "local-ads") {
-        setLocal(0.05);
+        setLocal(0.0);
       }
       if (e.query.name?.[0] == "premium-ads") {
         setLocal(1);
@@ -111,7 +111,7 @@ let initialState = {
         const newData = 0.05 + value * e.length;
         setLocal(newData);
       } else {
-        const newData = 0.05 + value;
+        const newData = 0.0 + value;
         setLocal(newData);
       }
     };
@@ -122,6 +122,8 @@ let initialState = {
         l({ ...a, description: editorRef.current.getContent() });
       }
     };
+
+    console.log(local);
 
     let q = async (t) => {
         if (e?.query?.name[0] != "local-ads") {
@@ -191,36 +193,51 @@ let initialState = {
           });
           return;
         }
-        if (
-          (l({ ...a, error: "" }),
-          ("local-ads" == t[0] || "multiple-city-ads" == t[0]) &&
-            ((o.cities = [t[1]] || ""),
-            (o.isApproved = !0),
-            (o.isPremium = !0)),
-          "multiple-city-ads" == t[0])
-        ) {
-          let i = JSON.parse(localStorage.getItem("cities"));
 
+        //        if (
+        //          (l({ ...a, error: "" }),
+        //          ("local-ads" == t[0] || "multiple-city-ads" == t[0]) &&
+        //            ((o.cities = [t[1]] || ""),
+        //            (o.isApproved = !0),
+        //            (o.isPremium = !0)),
+        //          "multiple-city-ads" == t[0])
+        //        ) {
+        //          let i = JSON.parse(localStorage.getItem("cities"));
+        //
+        //          o.cities = i;
+        //        }
+
+        if (t[0] == "local-ads") {
+          (o.cities = [t[1]]), (o.isPremium = !0);
+        } else {
+          let i = JSON.parse(localStorage.getItem("cities"));
+          o.isApproved = !0;
+          o.isPremium = !0;
           o.cities = i;
         }
-        if (local == 0.05) {
+
+        if (local == 0.0) {
           o.premiumDay = 0;
         }
-        if (local == 10.05) {
+        if (local == 10) {
           o.premiumDay = 7 * 24;
           o.isPremium = !1;
+          o.isApproved = !0;
         }
-        if (local == 20.05) {
+        if (local == 20) {
           o.premiumDay = 14 * 24;
           o.isPremium = !1;
+          o.isApproved = !0;
         }
-        if (local == 35.05) {
+        if (local == 35) {
           o.premiumDay = 30 * 24;
+          o.isApproved = !0;
           o.isPremium = !1;
         }
 
         o.posterId = session?.user?.id;
-
+        g(!1);
+        console.log(o);
         await fetch("https://api3.adbacklist.com/api/products", {
           method: "POST",
           headers: {
@@ -271,7 +288,7 @@ let initialState = {
 
     const options = [
       {
-        label: "Default",
+        label: "Default (free)",
         value: 0,
       },
       {
