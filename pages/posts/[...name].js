@@ -123,7 +123,7 @@ let initialState = {
       }
     };
 
-    console.log(local);
+
 
     let q = async (t) => {
         if (e?.query?.name[0] != "local-ads") {
@@ -215,7 +215,6 @@ let initialState = {
         }
 
         o.posterId = session?.user?.id;
-        console.log(o);
         await fetch("https://api3.adbacklist.com/api/products", {
           method: "POST",
           headers: {
