@@ -144,16 +144,15 @@ let initialState = {
         if (
           (O[0] &&
             (r.append("images", O[0].originFileObj),
-            r.append("images", O[1].originFileObj),
-            r.append("images", O[2].originFileObj),
-            r.append("images", O[3].originFileObj),
+            r.append("images", O?.[1]?.originFileObj),
+            r.append("images", O?.[2]?.originFileObj),
+            r.append("images", O?.[3]?.originFileObj),
             await fetch("https://api3.adbacklist.com/api/files2/files", {
               method: "POST",
               body: r,
             })
               .then((e) => e.json())
               .then((e) => {
-                console.log(e);
                 o.imgOne = e[0] ?? "empty";
                 o.imgTwo = e[1] ?? "empty";
                 o.imgThree = e[2] ?? "empty";
