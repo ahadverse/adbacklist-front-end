@@ -60,6 +60,7 @@ const Details = () => {
 
   const meta = findPostMeta(router.query);
 
+
   return (
     <div>
       <Head>

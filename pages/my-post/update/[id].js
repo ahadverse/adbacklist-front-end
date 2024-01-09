@@ -35,6 +35,10 @@ let initialState = {
     isPremium: !1,
     error: "",
     description: "",
+    existedImage1: "",
+    existedImage2: "",
+    existedImage3: "",
+    existedImage4: "",
   },
   beforeUpload = (e) => {
     let t = "image/jpeg" === e.type || "image/png" === e.type;
@@ -143,6 +147,10 @@ let initialState = {
           isPremium: newPost.isPremium,
           posterId: newPost.posterId,
           description: newPost.description,
+          existedImage1: newPost.existedImage1,
+          existedImage2: newPost.existedImage2,
+          existedImage3: newPost.existedImage3,
+          existedImage4: newPost.existedImage4,
         });
         S([
           { name: "img One", url: newPost.imgOne },
@@ -169,74 +177,74 @@ let initialState = {
 
         if (O[0]) {
           if (O[0].originFileObj == undefined) {
-            o.imgOne = O[0].url;
+            o.imgOne = a.existedImage1;
           } else {
             r.append("images", O[0].originFileObj);
-            await fetch("https://api3.adbacklist.com/api/image/upload-file", {
+            await fetch("https://api3.adbacklist.com/api/files/files", {
               method: "POST",
               body: r,
             })
               .then((e) => e.json())
               .then((e) => {
-                o.imgOne = e.payload.url;
+                o.imgOne = e.url;
               });
           }
         } else if (!O[0]) {
-          o.imgOne = "empty";
+          o.imgOne = a.existedImage1;
         }
 
         if (O[1]) {
           if (O[1].originFileObj == undefined) {
-            o.imgTwo = O[1].url;
+            o.imgTwo = a.existedImage2;
           } else {
             r.append("images", O[1].originFileObj);
-            await fetch("https://api3.adbacklist.com/api/image/upload-file", {
+            await fetch("https://api3.adbacklist.com/api/files/files", {
               method: "POST",
               body: r,
             })
               .then((e) => e.json())
               .then((e) => {
-                o.imgTwo = e.payload.url;
+                o.imgTwo = e.url;
               });
           }
         } else if (!O[1]) {
-          o.imgTwo = "empty";
+          o.imgTwo = a.existedImage2;
         }
 
         if (O[2]) {
           if (O[2].originFileObj == undefined) {
-            o.imgThree = O[2].url;
+            o.imgThree = a.existedImage3;
           } else {
             r.append("images", O[2].originFileObj);
-            await fetch("https://api3.adbacklist.com/api/image/upload-file", {
+            await fetch("https://api3.adbacklist.com/api/files/files", {
               method: "POST",
               body: r,
             })
               .then((e) => e.json())
               .then((e) => {
-                o.imgThree = e.payload.url;
+                o.imgThree = e.url;
               });
           }
         } else if (!O[2]) {
-          o.imgThree = "empty";
+          o.imgThree = a.existedImage3;
         }
 
         if (O[3]) {
           if (O[3].originFileObj == undefined) {
-            o.imgFour = O[3].url;
+            o.imgFour = a.existedImage4;
           } else {
             r.append("images", O[3].originFileObj);
-            await fetch("https://api3.adbacklist.com/api/image/upload-file", {
+            await fetch("https://api3.adbacklist.com/api/files/files", {
               method: "POST",
               body: r,
             })
               .then((e) => e.json())
               .then((e) => {
-                o.imgFour = e.payload.url;
+                o.imgFour = e.url;
               });
           }
         } else if (!O[3]) {
-          o.imgFour = "empty";
+          o.imgFour = a.existedImage4;
         }
 
         const options = {

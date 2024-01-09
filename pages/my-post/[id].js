@@ -134,7 +134,7 @@ const Details = () => {
           </div>
           <Link
             className="p-2 bg-red-600 text-white"
-            href={`/my-post/update/${id}`}
+            href={`/my-post/update-post/${id}`}
           >
             Edit This post
           </Link>

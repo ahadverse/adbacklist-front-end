@@ -255,7 +255,7 @@ const Dashboards = () => {
                           </td>
                           <td className="flex justify-between">
                             {" "}
-                            <Link href={`/my-post/update/${a._id}`}>
+                            <Link href={`/my-post/update-post/${a._id}`}>
                               <button className="btn btn-xs btn-info">
                                 Edit
                               </button>

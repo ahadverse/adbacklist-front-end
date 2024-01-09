@@ -144,45 +144,25 @@ let initialState = {
         if (
           (O[0] &&
             (r.append("images", O[0].originFileObj),
-            await fetch("https://api3.adbacklist.com/api/files/files", {
+            r.append("images", O[1].originFileObj),
+            r.append("images", O[2].originFileObj),
+            r.append("images", O[3].originFileObj),
+            await fetch("https://api3.adbacklist.com/api/files2/files", {
               method: "POST",
               body: r,
             })
               .then((e) => e.json())
               .then((e) => {
-                o.imgOne = e.url;
+                console.log(e);
+                o.imgOne = e[0] ?? "empty";
+                o.imgTwo = e[1] ?? "empty";
+                o.imgThree = e[2] ?? "empty";
+                o.imgFour = e[3] ?? "empty";
               })),
-          O[1] &&
-            (r.append("images", O[1].originFileObj),
-            await fetch("https://api3.adbacklist.com/api/files/files", {
-              method: "POST",
-              body: r,
-            })
-              .then((e) => e.json())
-              .then((e) => {
-                o.imgTwo = e.url;
-              })),
-          O[2] &&
-            (r.append("images", O[2].originFileObj),
-            await fetch("https://api3.adbacklist.com/api/files/files", {
-              method: "POST",
-              body: r,
-            })
-              .then((e) => e.json())
-              .then((e) => {
-                o.imgThree = e.url;
-              })),
-          O[3] &&
-            (r.append("images", O[3].originFileObj),
-            await fetch("https://api3.adbacklist.com/api/files/files", {
-              method: "POST",
-              body: r,
-            })
-              .then((e) => e.json())
-              .then((e) => {
-                o.imgFour = e.url;
-              })),
-          "" == o.category || "" == o.description || "" == o.name)
+          "" == o.category ||
+            "" == o.description ||
+            "" == o.name ||
+            "" == o.imgOne)
         ) {
           g(!1);
           l({ ...a, error: "" });
@@ -236,7 +216,6 @@ let initialState = {
         }
 
         o.posterId = session?.user?.id;
-        g(!1);
         console.log(o);
         await fetch("https://api3.adbacklist.com/api/products", {
           method: "POST",
@@ -351,7 +330,7 @@ let initialState = {
 
             <p className="text-black text-xs text-right">
               {" "}
-              Maximum 4 images, max size 2MB each
+              Maximum 4 images, max size 1MB each
             </p>
 
             <div>
@@ -365,7 +344,7 @@ let initialState = {
                     onPreview={v}
                     onChange={C}
                   >
-                    {O.length >= 1 ? null : B}
+                    {O.length >= 4 ? null : B}
                   </Upload>
 
                   <Modal open={h} title={j} footer={null} onCancel={k}>
