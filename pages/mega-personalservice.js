@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const MegaPersonalservice = () => {
@@ -25,10 +26,12 @@ const MegaPersonalservice = () => {
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/mega-personalservice/MegaPersonals2.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/mega-personalservice/MegaPersonals2.png"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -80,10 +83,12 @@ const MegaPersonalservice = () => {
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/mega-personalservice/MegaPersonals.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/mega-personalservice/MegaPersonals.jpg"
+          />
+        </Link>
         <br />
         <br />
         <br />
@@ -208,10 +213,12 @@ const MegaPersonalservice = () => {
         <br />
         <br />
         <br />
-        <img
-          className="sm:w-[455px] m-auto"
-          src="/mega-personalservice/MegaPersonals1.jpeg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[455px] m-auto"
+            src="/mega-personalservice/MegaPersonals1.jpeg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -380,10 +387,12 @@ const MegaPersonalservice = () => {
         <br />
         <br />
         <br />
-        <img
-          className="sm:w-[655px] m-auto"
-          src="/mega-personalservice/MegaPersonals2.jpeg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[655px] m-auto"
+            src="/mega-personalservice/MegaPersonals2.jpeg"
+          />{" "}
+        </Link>
         <br />
         <br />
         <br />

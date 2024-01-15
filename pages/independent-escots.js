@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const IndependentEscots = () => {
@@ -15,14 +16,23 @@ const IndependentEscots = () => {
           content="Find the Perfect Independent Escots for Unforgettable Experiences"
         />
         <meta name="keywords" content="Independent escots" />
+        <meta
+          name="description"
+          content="Independent escots provide personalized and high-quality companionship
+          services to clients seeking a unique and intimate experience. In
+          today's fast-paced world, many individuals value the convenience and
+          discretion that Independent escots offer."
+        />
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/independents/independent-escots.jpeg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/independents/independent-escots.jpeg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -100,10 +110,12 @@ const IndependentEscots = () => {
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/independents/independent-escots1.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/independents/independent-escots1.jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -320,10 +332,12 @@ const IndependentEscots = () => {
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/independents/independent-escots2.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/independents/independent-escots2.jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -476,10 +490,12 @@ const IndependentEscots = () => {
         <br />
         <br />
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/independents/independent-escots4.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/independents/independent-escots4.jpg"
+          />{" "}
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">

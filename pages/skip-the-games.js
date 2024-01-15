@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const SkipTheGames = () => {
@@ -30,13 +31,22 @@ site similar to Backpage
 Skip the games
 "
         />
+        <meta
+          name="description"
+          content="Skip the Games is a website similar to Backpage for posting classified
+          ads, including escorts in Queens, New York. It serves as an
+          alternative to Backpage and provides a platform for dating ads and
+          personal ads in Queens, New York, United States."
+        />
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
-        <img
-          className="sm:w-[845px] sm:h-[450px] m-auto"
-          src="/skip-the-games/skip-the-games.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[845px] sm:h-[450px] m-auto"
+            src="/skip-the-games/skip-the-games.png"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -239,10 +249,12 @@ Skip the games
           ease and confidence.
         </p>
         <br />
-        <img
-          className="sm:w-[845px] sm:h-[450px] m-auto"
-          src="/skip-the-games/skip-the-games1.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[845px] sm:h-[450px] m-auto"
+            src="/skip-the-games/skip-the-games1.png"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -413,10 +425,12 @@ Skip the games
         </ul>
         <br />
         <br />
-        <img
-          className="sm:w-[845px] sm:h-[450px] m-auto"
-          src="/skip-the-games/skip-the-games2.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[845px] sm:h-[450px] m-auto"
+            src="/skip-the-games/skip-the-games2.png"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-2xl p-2">

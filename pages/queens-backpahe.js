@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const QueensBackpahe = () => {
@@ -16,13 +17,23 @@ const QueensBackpahe = () => {
           name="keywords"
           content="Queens backpahe, Queens area, Craigslist, Bedpage, Gumtree, Eros, Escrow services, Online Classified Ads, Queens Backpage"
         />
+        <meta
+          name="description"
+          content="Queens Backpahe is a classified advertisement website that offers a
+          platform for users to post listings in various categories such as
+          jobs, housing, services, and more. This website allows individuals and
+          businesses to promote their offerings and connect with potential
+          customers in the Queens area."
+        />
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/queens-backpahe/Queens Backpahe  (3).jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/queens-backpahe/Queens Backpahe  (3).jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -94,10 +105,12 @@ const QueensBackpahe = () => {
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-[355px] sm:h-[650px] m-auto"
-          src="/queens-backpahe/Queens-Backpahe(1).jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[355px] sm:h-[650px] m-auto"
+            src="/queens-backpahe/Queens-Backpahe(1).jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">Features Of Queens Backpahe</h1>
@@ -349,10 +362,12 @@ const QueensBackpahe = () => {
         <br />
         <br />
         <br />
-        <img
-          className=" m-auto"
-          src="/queens-backpahe/Queens Backpahe  (4).jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className=" m-auto"
+            src="/queens-backpahe/Queens Backpahe  (4).jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -460,10 +475,12 @@ const QueensBackpahe = () => {
         <br />
         <br />
         <br />
-        <img
-          className=" m-auto"
-          src="/queens-backpahe/Queens Backpahe  (5).jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className=" m-auto"
+            src="/queens-backpahe/Queens Backpahe  (5).jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -562,10 +579,12 @@ const QueensBackpahe = () => {
         <br />
         <br />
         <br />
-        <img
-          className=" m-auto"
-          src="/queens-backpahe/Queens Backpahe  (6).jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className=" m-auto"
+            src="/queens-backpahe/Queens Backpahe  (6).jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-2xl p-2">

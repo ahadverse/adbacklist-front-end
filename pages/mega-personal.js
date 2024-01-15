@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const MegaPersonal = () => {
@@ -12,13 +13,23 @@ const MegaPersonal = () => {
           name="title"
           content="Find the MegaPasonal Experience and mega personal Memphis"
         />
+        <meta
+          name="description"
+          content="Megapasonal refers to a seasonal climate pattern characterized by
+          extreme weather events. These patterns can significantly impact
+          various aspects of our lives and the environment. Megapasonal climate
+          patterns have a significant impact on our daily lives and the
+          environment due to their extreme weather events."
+        />
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/megapersonal/megapersonal.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/megapersonal/megapersonal.jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -216,10 +227,12 @@ const MegaPersonal = () => {
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/megapersonal/megapersonal1.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/megapersonal/megapersonal1.jpg"
+          />
+        </Link>
         <br />
         <br />
         <br />
@@ -396,10 +409,12 @@ const MegaPersonal = () => {
         <br />
         <br />
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/megapersonal/megapersonal2.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/megapersonal/megapersonal2.jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">

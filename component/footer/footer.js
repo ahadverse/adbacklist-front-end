@@ -86,7 +86,7 @@ const Footer = () => {
               <Link href={"/sites-like-craiglist"}>Sites like craigslist</Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>Bedpage escort</Link>
+              <Link href={"/bedpage-escort"}>Bedpage escort</Link>
             </li>
             <li className={style.item}>
               <Link href={"/mega-personalservice"}>Mega personalservice</Link>
@@ -98,7 +98,9 @@ const Footer = () => {
               <Link href={"/mega-personal-dating"}>Mega personal dating</Link>
             </li>
             <li className={style.item}>
-              <Link href={"/"}>Megapersonals classified</Link>
+              <Link href={"/megapersonals-classifieds"}>
+                Megapersonals classified
+              </Link>
             </li>
             <li className={style.item}>
               <Link href={"/bedpage-alternatives"}>Bedpage alternatives</Link>
@@ -112,7 +114,7 @@ const Footer = () => {
               <Link href={"/independent-escots"}>Independent escots</Link>
             </li>
             <li className={style.item}>
-              <Link href={"https://adbacklist.com/"}>Queens Escort</Link>
+              <Link href={"/queens-escort"}>Queens Escort</Link>
             </li>
             <li className={style.item}>
               <Link href={"/skip-the-games"}>Skip the games</Link>

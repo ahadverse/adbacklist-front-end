@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const SitesLikeCraiglist = () => {
@@ -25,10 +26,13 @@ const SitesLikeCraiglist = () => {
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/site-like-craiglist/Best-Craigslist-Alternatives.jpg"
-        />
+        <Link href={"/"}>
+          {" "}
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/site-like-craiglist/Best-Craigslist-Alternatives.jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -310,10 +314,13 @@ const SitesLikeCraiglist = () => {
         </p>
         <br />
         <br />
-        <img
-          className=" m-auto"
-          src="/site-like-craiglist/Best-Craigslist-Alternatives1.jpeg"
-        />
+        <Link href={"/"}>
+          {" "}
+          <img
+            className=" m-auto"
+            src="/site-like-craiglist/Best-Craigslist-Alternatives1.jpeg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">craigslist women seeking men </h1>
@@ -450,10 +457,12 @@ const SitesLikeCraiglist = () => {
           build meaningful connections.
         </p>
         <br />
-        <img
-          className=" m-auto"
-          src="/site-like-craiglist/Best-Craigslist-Alternatives4.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className=" m-auto"
+            src="/site-like-craiglist/Best-Craigslist-Alternatives4.jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -589,10 +598,12 @@ const SitesLikeCraiglist = () => {
         <br />
         <br />
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/site-like-craiglist/Best-Craigslist-Alternatives2.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/site-like-craiglist/Best-Craigslist-Alternatives2.jpg"
+          />{" "}
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -869,10 +880,12 @@ const SitesLikeCraiglist = () => {
         <br />
         <br />
         <br />
-        <img
-          className="sm:w-[855px] m-auto"
-          src="/site-like-craiglist/Best-Craigslist-Alternatives3.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] m-auto"
+            src="/site-like-craiglist/Best-Craigslist-Alternatives3.png"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">

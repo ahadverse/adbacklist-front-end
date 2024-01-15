@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const BedpageAlternatives = () => {
@@ -29,13 +30,21 @@ Websites like Skip the Games
 Escorts city vibe
 "
         />
+        <meta
+          name="description"
+          content="Looking for Bedpage alternatives in Austin, Texas? Check out sites
+          like Kijiji, Ashley Madison, Craigslist, Oodle, AdultFriendFinder,
+          Free Ads Time, Locanto, Hoobly, and Classifiedads."
+        />
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
-        <img
-          className="sm:w-[860px] m-auto"
-          src="/alternatives/bedpage alternatives.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[860px] m-auto"
+            src="/alternatives/bedpage alternatives.jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -112,10 +121,12 @@ Escorts city vibe
         </p>
         <br />
         <br />
-        <img
-          className="sm:full m-auto"
-          src="/alternatives/bedpage alternatives-1.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:full m-auto"
+            src="/alternatives/bedpage alternatives-1.png"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">Back Pages Albany</h1>
@@ -233,10 +244,12 @@ Escorts city vibe
         <br />
         <br />
         <br />
-        <img
-          className="sm:full m-auto"
-          src="/alternatives/bedpage alternatives-2.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:full m-auto"
+            src="/alternatives/bedpage alternatives-2.png"
+          />
+        </Link>
         <br />
         <br />
         <br />
@@ -484,10 +497,12 @@ Escorts city vibe
         <br />
         <br />
         <br />
-        <img
-          className="sm:full m-auto"
-          src="/alternatives/bedpage alternatives-2.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:full m-auto"
+            src="/alternatives/bedpage alternatives-2.jpg"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">Backpage In Orange</h1>
@@ -762,10 +777,12 @@ Escorts city vibe
         <br />
         <br />
         <br />
-        <img
-          className="sm:full m-auto"
-          src="/alternatives/Best Backpage Alternatives.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:full m-auto"
+            src="/alternatives/Best Backpage Alternatives.jpg"
+          />{" "}
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">

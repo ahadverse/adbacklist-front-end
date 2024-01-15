@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const SitesSimilarToBackpage = () => {
@@ -33,10 +34,13 @@ Popular Backpage"
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
-        <img
-          className="sm:w-[855px] sm:h-[450px] m-auto"
-          src="/site-similar-backpage/Backpage-Alternative-Websites3.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[855px] sm:h-[450px] m-auto"
+            src="/site-similar-backpage/Backpage-Alternative-Websites3.jpg"
+          />
+        </Link>
+
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -137,10 +141,13 @@ Popular Backpage"
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-full m-auto"
-          src="/site-similar-backpage/Backpage-Alternative-Websites.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-full m-auto"
+            src="/site-similar-backpage/Backpage-Alternative-Websites.jpg"
+          />
+        </Link>
+
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -309,10 +316,14 @@ Popular Backpage"
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-full m-auto"
-          src="/site-similar-backpage/Backpage-Alternative-Websites1.jpeg"
-        />
+        <Link href={"/"}>
+          {" "}
+          <img
+            className="sm:w-full m-auto"
+            src="/site-similar-backpage/Backpage-Alternative-Websites1.jpeg"
+          />
+        </Link>
+
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -411,11 +422,13 @@ Popular Backpage"
         </p>
         <br />
         <br />
+        <Link href={"/"}>
+          <img
+            className="sm:w-full m-auto"
+            src="/site-similar-backpage/Backpage-Alternative-Websites2.png"
+          />
+        </Link>
 
-        <img
-          className="sm:w-full m-auto"
-          src="/site-similar-backpage/Backpage-Alternative-Websites2.png"
-        />
         <br />
         <br />
 

@@ -1,3 +1,5 @@
+import Footer from "@/component/footer/footer";
+import Header2 from "@/component/header/header2";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
@@ -24,6 +26,7 @@ const BackpageHookup = () => {
           content="Backpage hookups, Best Backpage alternative, Backpage alternatives website "
         />
       </Head>
+
       <div className="sm:w-[1100px] m-auto">
         <Link href={"/"}>
           <img
@@ -337,6 +340,7 @@ const BackpageHookup = () => {
         </p>
         <br />
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import Footer from "@/component/footer/footer";
 import Header2 from "@/component/header/header2";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 
 const MegaPersonalDating = () => {
@@ -14,24 +15,32 @@ const MegaPersonalDating = () => {
         />
         <meta
           name="keywords"
-          content="Mega Personal Dating
-Mega Personal Dating App
-megan personal dating 
-mega personal dating site 
-mega personal memphis 
-Mega personal Cincinnati 
-mega personal philadelphia 
-mega personal orlando 
-
+          content="Mega Personal Dating,
+Mega Personal Dating App,
+megan personal dating,
+mega personal dating site,
+mega personal memphis,
+Mega personal Cincinnati,
+mega personal philadelphia,
+mega personal orlando
 "
+        />
+        <meta
+          name="description"
+          content="Mega Personal Dating App is a revolutionary way to connect with
+          compatible people. It offers a meaningful and authentic dating
+          experience for those seeking a connection. With the app, users can
+          meet hot singles for hookups, friendship, or casual dating."
         />
       </Head>
       <Header2 />
       <div className="sm:w-[1100px] m-auto">
-        <img
-          className="sm:w-[860px] m-auto"
-          src="/mega-dating/Mega-Personal-Dating-App.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[860px] m-auto"
+            src="/mega-dating/Mega-Personal-Dating-App.png"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-3xl p-2">
@@ -105,10 +114,12 @@ mega personal orlando
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-[860px] m-auto"
-          src="/mega-dating/Mega-Personal-Dating-App.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[860px] m-auto"
+            src="/mega-dating/Mega-Personal-Dating-App.jpg"
+          />{" "}
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -229,10 +240,12 @@ mega personal orlando
         <br />
         <br />
         <br />
-        <img
-          className="sm:w-[860px] m-auto"
-          src="/mega-dating/Mega-Personal-Dating-App-1.jpg"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[860px] m-auto"
+            src="/mega-dating/Mega-Personal-Dating-App-1.jpg"
+          />{" "}
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-xl p-2">
@@ -407,10 +420,12 @@ mega personal orlando
         </p>
         <br />
         <br />
-        <img
-          className="sm:w-[860px] m-auto"
-          src="/mega-dating/Mega-Personal-Dating-App.png"
-        />
+        <Link href={"/"}>
+          <img
+            className="sm:w-[860px] m-auto"
+            src="/mega-dating/Mega-Personal-Dating-App.png"
+          />
+        </Link>
         <br />
         <br />
         <h1 className="font-bold text-2xl p-2">
