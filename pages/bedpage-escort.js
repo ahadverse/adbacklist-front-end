@@ -25,7 +25,7 @@ const BedpageEscort = () => {
         <Link href={"/"}>
           <img
             className="sm:w-[700px] m-auto"
-            src="/escorts/backpage Escort (1).jpg"
+            src="/escorts/Backpage Escort (1).jpg"
           />
         </Link>
         <br />
@@ -196,7 +196,7 @@ const BedpageEscort = () => {
         <Link href={"/"}>
           <img
             className="w-full m-auto"
-            src="/escorts/backpage Escort (1).png"
+            src="/escorts/Backpage Escort (1).png"
           />
         </Link>
         <br />
@@ -327,7 +327,7 @@ const BedpageEscort = () => {
         <Link href={"/"}>
           <img
             className="w-full m-auto"
-            src="/escorts/backpage Escort (2).jpg"
+            src="/escorts/Backpage Escort (2).jpg"
           />
         </Link>
         <br />
@@ -430,7 +430,7 @@ const BedpageEscort = () => {
         <Link href={"/"}>
           <img
             className="w-full m-auto"
-            src="/escorts/backpage Escort (3).jpg"
+            src="/escorts/Backpage Escort (3).jpg"
           />
         </Link>
         <br />
