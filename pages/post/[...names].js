@@ -165,7 +165,7 @@ const Ahad = () => {
                   className="bg-green-600 text-white px-3 py-2 mt-5"
                   onClick={() => setAdult("Adult")}
                 >
-                  I am over 21
+                  I am over 18
                 </button>
                 <Link href={"/"}>
                   <button className="bg-red-600 ml-5 text-white px-3 py-2 mt-5">

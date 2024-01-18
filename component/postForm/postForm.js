@@ -267,7 +267,7 @@ const PostForm = () => {
   };
 
   return (
-    <div className="mx-20">
+    <div className="sm:mx-20">
       <h1 className="text-lg mb-5 text-black sm:text-2xl">
         {router?.query ? (
           <div>
