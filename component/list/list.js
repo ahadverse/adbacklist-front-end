@@ -41,9 +41,9 @@ const List = ({ data1, data2 }) => {
       </h1>
       {data2.map((a, index) => (
         <div key={index}>
-          <li className="list-square bg-gradient-to-r from-gray-300 to-gray-100 sm:w-4/12 w-6/12 px-1 text-sm text-black font-bold  py-1 mt-5">
+          {/*<li className="list-square bg-gradient-to-r from-gray-300 to-gray-100 sm:w-4/12 w-6/12 px-1 text-sm text-black font-bold  py-1 mt-5">
             {a.date}
-          </li>
+          </li>*/}
           <div key={index}>
             {a.objects.map((b) => (
               <Link
