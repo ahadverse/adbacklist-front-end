@@ -156,7 +156,7 @@ const Dashboards = () => {
             </span>
             <Link
               className="text-sm sm:text-xl p-1 bg-red-600 font-bold text-white"
-              href={`/recharge-credits/${users?._id}`}
+              href={`/recharge-credits/`}
             >
               Buy Credit
             </Link>
