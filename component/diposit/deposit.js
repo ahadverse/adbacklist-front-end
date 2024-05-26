@@ -3,9 +3,13 @@ import { Button, Input, Modal, Popover, QRCode, Tooltip, message } from "antd";
 import { FaCopy } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import Swal from "sweetalert2";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 const Deposit = () => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [currency, setCurrency] = useState("");
   const [address, setAddress] = useState("");
   const { data: session } = useSession();
@@ -21,21 +25,36 @@ const Deposit = () => {
     message.success("Copied to clipboard");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const tranxId = e.target.trxid.value;
+    setLoading(true);
+    const trxid = e.target.trxid.value;
     const amount = e.target.amount.value;
-    const userEmail = session.user.email;
-    const data = { userEmail, tranxId, amount };
-    console.log(data);
-    Swal.fire({
-      position: "top-center",
-      icon: "success",
-      title:
-        "Your deposit will be verified and credit will be added to your wallet.",
-      showConfirmButton: false,
-      timer: 2500,
-    });
+    const email = session.user.email;
+    const userName = session.user.name;
+    const userId = session.user.id;
+    const provider = currency;
+
+    const data = { email, trxid, amount, provider, userName, userId };
+
+    await axios
+      .post("https://api3.adbacklist.com/api/deposit", data)
+      .then((response) => {
+        if (response.data.status == "success") {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title:
+              "Your deposit will be verified and credit will be added to your wallet.",
+            showConfirmButton: false,
+            timer: 2500,
+          }).then(
+            setTimeout(() => {
+              router.reload();
+            }, 500)
+          );
+        }
+      });
   };
 
   return (
@@ -160,6 +179,11 @@ const Deposit = () => {
             <QRCode className="m-auto" value={address} />
           </div>
           <hr className="my-5" />
+          <small>
+            After completing the payment, please send us the transaction ID and
+            the amount you have sent.
+          </small>
+          <hr className="my-5" />
           <form onSubmit={handleSubmit}>
             <label>Transaction ID</label>
             <input
@@ -174,12 +198,21 @@ const Deposit = () => {
               placeholder="Amount you added"
               className="bg-gray-100 w-full"
             />
-            <button
-              type="submit"
-              className="mt-3 border border-green-500 rounded-lg px-3 text-lg text-white bg-green-500 hover:bg-white hover:text-green-500 font-bold "
-            >
-              Submit
-            </button>
+            {loading ? (
+              <button
+                disabled
+                className="mt-3 border border-green-500 rounded-lg px-3 text-lg text-white bg-green-500 hover:bg-white hover:text-green-500 font-bold cursor-not-allowed"
+              >
+                loading
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="mt-3 border border-green-500 rounded-lg px-3 text-lg text-white bg-green-500 hover:bg-white hover:text-green-500 font-bold "
+              >
+                Submit
+              </button>
+            )}
           </form>
         </Modal>
       </div>
