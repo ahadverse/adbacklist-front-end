@@ -7,10 +7,11 @@ const Footer = dynamic(() => import("@/component/footer/footer2"));
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Deposit from "@/component/diposit/deposit";
+import User from "@/component/user";
 
 const Credits = () => {
   const { data: session } = useSession();
-
+  const { users } = User();
   return (
     <div className="bg-gray-200 h-screen">
       <Header></Header>
@@ -44,7 +45,7 @@ const Credits = () => {
 
         <div className="w-4/5 mx-auto mt-5">
           <h1 className="text-2xl font-bold">
-            Your Current Account Balance : $ {session?.user?.credit?.toFixed(2)}
+            Your Current Account Balance : $ {users?.credit?.toFixed(2)}
           </h1>
           <p>
             Add Credits in your Adbacklist account to post & upgrade your Ad.{" "}
