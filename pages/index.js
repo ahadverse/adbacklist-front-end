@@ -16,27 +16,31 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Adbacklist Alternatives for skip the games | queens Backpahe
+          Adbacklist New Avenues for Free Advertising Mega Personalservice
         </title>
         <meta name="google" content="notranslate"></meta>
         <meta
           name="title"
-          content="Adbacklist Alternatives for skip the games | queens Backpahe"
+          content="Adbacklist New Avenues for Free Advertising Mega Personalservice"
         />
         <meta
           name="description"
-          content="Find the top alternatives to Reno Backpage OC with Ebackpage, ABQ Backpages, and Queens Backpahe. 
-Adbacklist is a worldwide website that is similar to Backpage, Everett Backpage and skip the games.
-Everyone like a shemale Backpage tranny or an alternative to adbacklist.com"
+          content="Adbacklist is a worldwide website similar to Mega Personalservice, single woman person Craigslist. Adbacklist perfect site for Free posting ads & services"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="keywords"
-          content="skip the games, abq backpages, queens Backpahe, sites similar to backpage,alternative to backpage, 
-sites like craigslist, backpage replacement, backpage escort, skip yhe games,
-hole house, abq backpage, backpage oc, everett backpage, pgh backpage, sac backpages, asian backpage, 
-shemale backpage, backpage tranny, gold country backpage,tranny backpage, reno backpages, backpage hook up, 
- skipthe games,  akip the games"
+          content="Mega Personalservice,
+Megapersonals classified,
+Bedpage alternatives,
+Mega personal classified,
+Queens Escort,
+Skip the games,
+Queens Backpahe,
+cast carshield commercial actress name,
+person woman craigslist,
+single woman person craigslist,
+carshield commercial actress blonde"
         />
         <meta
           name="google-site-verification"
