@@ -60,13 +60,13 @@ const Details = () => {
 
   const meta = findPostMeta(router.query);
 
+  console.log(router.query);
 
   return (
     <div>
       <Head>
         <link rel="icon" href="/logo.png" />
         <title>{postDetails?.name?.slice(0, 65)}</title>
-
         <meta name="title" content={`${postDetails?.name?.slice(0, 65)}`} />
         <meta
           name="description"
@@ -74,6 +74,11 @@ const Details = () => {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content={`${meta?.keywords}`} />
+        <link
+          name="canonical"
+          rel="canonical"
+          href={`https://adbacklist.com/post/details/${router?.query?.id?.[0]}/${router?.query?.id?.[1]}?city=${router?.query?.city}&sub=${router?.query?.sub}`}
+        />{" "}
       </Head>
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />

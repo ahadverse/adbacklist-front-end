@@ -161,7 +161,6 @@ const Name = () => {
             `Backpage ${router?.query?.category} | ${router?.query?.category} Escorts
           | Erotic Massage in ${router?.query?.category}`}
         </title>
-
         <meta
           name="description"
           content={
@@ -193,6 +192,11 @@ Explore adbacklist.com now!`
           }
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          name="canonical"
+          rel="canonical"
+          href={`https://adbacklist.com/${router?.query?.category}`}
+        />{" "}
       </Head>
       <Headers />
       {links ? (

@@ -62,6 +62,11 @@ const Blogs = () => {
       <Head>
         <link rel="icon" href="/logo.png" />
         <title>Blogs</title>
+        <link
+          name="canonical"
+          rel="canonical"
+          href={`https://adbacklist.com/blogs`}
+        />{" "}
       </Head>
       <Header />
       <div className="w-11/12 m-auto mt-10 sm:w-12/12">

@@ -101,6 +101,8 @@ const Ahad = () => {
 
   const meta = findMeta(router?.query?.names);
 
+  console.log(router?.query?.names);
+
   return (
     <div className="bg-gray-200">
       <Head>
@@ -110,6 +112,11 @@ const Ahad = () => {
         <meta name="description" content={`${meta?.description}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content={`${meta?.keywords}`} />
+        <link
+          name="canonical"
+          rel="canonical"
+          href={`https://adbacklist.com/post/${router?.query?.names?.[0]}/${router?.query?.names?.[1]}/${router?.query?.names?.[2]}`}
+        />{" "}
       </Head>
       <Header />
       <div className="w-[300px] gap-5 flex m-auto my-3">

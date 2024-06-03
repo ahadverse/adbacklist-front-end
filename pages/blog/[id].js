@@ -61,6 +61,11 @@ const BlogDetails = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={blog?.metaDesc} />
         <meta name="keywords" content={blog?.metaKey} />
+        <link
+          name="canonical"
+          rel="canonical"
+          href={`https://adbacklist.com/blog/${id}`}
+        />{" "}
       </Head>
       <Header />
       {isloading ? (

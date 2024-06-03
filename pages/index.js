@@ -30,7 +30,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="keywords"
-          content="Mega Personalservice,
+          content="Adbacklist, Mega Personalservice,
 Megapersonals classified,
 Bedpage alternatives,
 Mega personal classified,
@@ -51,6 +51,11 @@ carshield commercial actress blonde"
           content="0730451c9c8761c27a8bae02652c5f38"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          name="canonical"
+          rel="canonical"
+          href={`https://adbacklist.com/`}
+        />{" "}
       </Head>
 
       <Script
