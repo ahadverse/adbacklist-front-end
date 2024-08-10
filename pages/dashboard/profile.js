@@ -8,7 +8,7 @@ import Head from "next/head";
 import Header from "@/component/header/header";
 import Footer from "@/component/footer/footer";
 import { Input, Pagination, Select } from "antd";
-import cate from "../../public/category.json";
+import cate from "../../public/withoutadult.json";
 import { useSession } from "next-auth/react";
 const { Search } = Input;
 

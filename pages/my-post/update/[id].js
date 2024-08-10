@@ -9,7 +9,7 @@ import m from "sweetalert2";
 import s from "js-cookie";
 import { Editor } from "@tinymce/tinymce-react";
 import { message as d, Upload, Modal } from "antd";
-import y from "../../../public/category.json";
+import y from "../../../public/withoutadult.json";
 import { AiFillPlusCircle } from "react-icons/ai";
 import x from "@/component/user";
 import axios from "axios";

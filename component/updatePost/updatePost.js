@@ -3,7 +3,7 @@ import style from "./updatePost.module.css";
 import { FiPlus } from "react-icons/fi";
 import { FaTrash } from "react-icons/fa";
 import { FaRegEdit } from "react-icons/fa";
-import categories from "../../public/category.json";
+import categories from "../../public/withoutadult.json";
 import { Editor } from "@tinymce/tinymce-react";
 import axios from "axios";
 import { useRouter } from "next/router";

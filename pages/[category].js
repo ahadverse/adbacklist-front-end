@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { use, useEffect, useState } from "react";
 import style from "../styles/moduleCss/services.module.css";
 import Head from "next/head";
-import category from "../public/category.json";
+import category from "../public/withoutadult.json";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Drawer from "../component/drawer/drawer";
@@ -60,7 +60,7 @@ const Name = () => {
           </div>
           <div className={style.container}>
             <div className="flex  flex-col">
-              {category?.slice(0, 3).map((a) => (
+              {category?.slice(0, 2).map((a) => (
                 <div key={a.name}>
                   <h2 className={style.cateTitlte}> {a.name} </h2>
 
