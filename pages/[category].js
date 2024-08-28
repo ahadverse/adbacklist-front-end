@@ -12,26 +12,26 @@ const Footer = dynamic(() => import("@/component/footer/footer2"));
 const Name = () => {
   const router = useRouter();
   const { city, Headers } = Drawer(router.query);
-  const [links, setLinks] = useState([]);
-
-  async function getUser() {
-    try {
-      const response = await axios.get(
-        `https://api3.adbacklist.com/api/links`,
-        {
-          method: "GET",
-        }
-      );
-      const data = response.data.links[0];
-
-      setLinks(data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  useEffect(() => {
-    getUser();
-  }, []);
+  //  const [links, setLinks] = useState([]);
+  //
+  //  async function getUser() {
+  //    try {
+  //      const response = await axios.get(
+  //        `https://api3.adbacklist.com/api/links`,
+  //        {
+  //          method: "GET",
+  //        }
+  //      );
+  //      const data = response.data.links[0];
+  //
+  //      setLinks(data);
+  //    } catch (error) {
+  //      console.error(error);
+  //    }
+  //  }
+  //  useEffect(() => {
+  //    getUser();
+  //  }, []);
 
   let content;
   if (router.query.category == undefined) {
@@ -50,7 +50,7 @@ const Name = () => {
     } else {
       content = (
         <>
-          <div className="bg-white text-black flex flex-wrap items-center px-0 sm:px-32 ">
+          <div className="bg-white text-black flex flex-wrap pt-10 items-center px-0 sm:px-32 ">
             <p className="text-red-600 font-bold">Nearest Cities : </p>
             {city?.map((a) => (
               <p className=" ml-2 underline" key={a._id}>
@@ -199,7 +199,7 @@ Explore adbacklist.com now!`
         />{" "}
       </Head>
       <Headers />
-      {links ? (
+      {/*{links ? (
         <div className="flex justify-around text-xl p-2 text-blue-600">
           <Link
             target="_blank"
@@ -229,7 +229,8 @@ Explore adbacklist.com now!`
           <Link href={`#`}>Meet & Fuck</Link>{" "}
           <Link href={`#`}>Live Escorts</Link>{" "}
         </div>
-      )}
+      )}*/}
+
       {content}
 
       <Footer></Footer>

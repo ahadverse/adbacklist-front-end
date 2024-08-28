@@ -195,7 +195,9 @@ const Footer = () => {
           </ul>
         </div>
       </footer>
-      <p className="text-center mt-8">Copyright © 2009 - 2023 </p>
+      <p className="text-center mt-8">
+        Copyright © 2009 - {new Date().getFullYear()}{" "}
+      </p>
     </div>
   );
 };

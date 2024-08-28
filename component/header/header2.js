@@ -89,7 +89,7 @@ const Header2 = () => {
             {" "}
             <Link href="/">ADBACKLIST</Link>{" "}
           </h1>
-          <Link href={"/user/post"}>
+          <Link href={"/user/local-ads"}>
             <button className={styles.postButton}> + Post Ad </button>
           </Link>
         </div>

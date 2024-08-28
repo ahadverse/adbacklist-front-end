@@ -8,18 +8,21 @@ const Header = ({ data }) => {
     <div className={style.container}>
       <div className={style.logo}>
         <Link href={`/`}>
-        <h1 className={style.title}>ADBACKLIST</h1>
+          <h1 className={style.title}>ADBACKLIST</h1>
         </Link>
-        <Link href={'/user/post'}><button className={style.postButton}> + Post Ad</button></Link>
+        <Link href={"/user/local-ads"}>
+          <button className={style.postButton}> + Post Ad</button>
+        </Link>
       </div>
 
       <div className={style.location}>
-        {
-          data ?   <p>
-          {data?.[2]}, {data?.[1]}, {data?.[0]}
-        </p> : ""
-        }
-      
+        {data ? (
+          <p>
+            {data?.[2]}, {data?.[1]}, {data?.[0]}
+          </p>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
