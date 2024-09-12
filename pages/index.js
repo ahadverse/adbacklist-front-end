@@ -16,31 +16,21 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Adbacklist New Avenues for Free Advertising Mega Personalservice
+          Adbacklist New Avenues for free classified ads posting sites
         </title>
         <meta name="google" content="notranslate"></meta>
         <meta
           name="title"
-          content="Adbacklist New Avenues for Free Advertising Mega Personalservice"
+          content="Adbacklist New Avenues for free classified ads posting sites"
         />
         <meta
           name="description"
-          content="Adbacklist is a worldwide website similar to Mega Personalservice, single woman person Craigslist. Adbacklist perfect site for Free posting ads & services"
+          content="Adbacklist is the best classified ads site and the best place to advertise for Free posting ads & services for your marketing campaigns for maximum reach."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="keywords"
-          content="Adbacklist, Mega Personalservice,
-Megapersonals classified,
-Bedpage alternatives,
-Mega personal classified,
-Queens Escort,
-Skip the games,
-Queens Backpahe,
-cast carshield commercial actress name,
-person woman craigslist,
-single woman person craigslist,
-carshield commercial actress blonde"
+          content="free classified ads posting sites, where can i post ads for free, best place to advertise, best place for ads, best places to advertise locally, best classified ads sites"
         />
         <meta
           name="google-site-verification"
