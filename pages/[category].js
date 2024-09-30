@@ -158,37 +158,20 @@ const Name = () => {
         <link rel="icon" href="/logo.png" />
         <title>
           {router?.query?.category &&
-            `Backpage ${router?.query?.category} | ${router?.query?.category} Escorts
-          | Erotic Massage in ${router?.query?.category}`}
+            `free ad posting ${router?.query?.category}, Pets, Housing, For Sell, Jobs, Services, fitness`}
         </title>
         <meta
           name="description"
           content={
             router?.query?.category &&
-            `${router?.query?.category} Backpage | After backpage, Adbacklist is the most popular classified site for ${router?.query?.category} Escorts. 
-Adbacklist is a free adult entertainment site for ${router?.query?.category} Escorts or Hardcore in ${router?.query?.category}.
-Hookup hotshot and erotic massage services in ${router?.query?.category} on adbacklist.
-Explore adbacklist.com now!`
+            `${router?.query?.category} free ad posting sites | Adbacklist Top free classified ads posting sites for different categories for ${router?.query?.category}. Measuring the success of your free ads campaigns.`
           }
         />
         <meta
           name="keywords"
           content={
             router?.query?.category &&
-            `Backpages ${router?.query?.category}, 
-            Bedpage ${router?.query?.category}, 
-            back pages ${router?.query?.category}, 
-            ${router?.query?.category} Escort, 
-            escorts ${router?.query?.category}, 
-            Escorts in ${router?.query?.category}, 
-            independent escort ${router?.query?.category}, 
-            Erotic massage in ${router?.query?.category}, 
-            Hookup in ${router?.query?.category}, 
-            hookup hotshot full, 
-            hooker girls, 
-            hookers online, 
-            online prostitute, 
-            Monterey escort`
+            `best online pet store, az classifieds pets, room to rent near me, cheaphomes, community market weekly ad, community helpers, all in one service, all pro services, jobs hiring teens near me, pct jobs, sale n buy, bunnies for sell, fitness connection, advertisement for sports`
           }
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

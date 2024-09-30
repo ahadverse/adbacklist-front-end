@@ -76,7 +76,7 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
-          <ul className={style.footer}>
+          {/*<ul className={style.footer}>
             <li className={style.item}>
               <Link href={"/sites-similar-to-backpage"}>
                 Sites similar to Backpage{" "}
@@ -130,11 +130,8 @@ const Footer = () => {
             <li className={style.item}>
               <Link href={"/backpage-hookup"}>Backpage hook up</Link>
             </li>
-          </ul>
-          <br />
-          <br />
-          <br />
-          <br />
+          </ul>*/}
+
           <ul className={style.footer}>
             {/* <li className={style.item}>
               <Link
