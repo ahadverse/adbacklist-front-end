@@ -76,6 +76,20 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
+
+          <div className={style.footer}>
+            free classified ads posting sites | free ad posting | puppies spot |
+            room to rent near me | community helpers | local service ads | jobs
+            hiring teens near me |sale n buy | fitness connection | sport
+            advertisement | all in one service | community market weekly ad |
+            best classified ads sites | best place to advertise | best online
+            pet store
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+
           {/*<ul className={style.footer}>
             <li className={style.item}>
               <Link href={"/sites-similar-to-backpage"}>

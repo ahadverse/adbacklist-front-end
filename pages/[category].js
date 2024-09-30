@@ -158,7 +158,7 @@ const Name = () => {
         <link rel="icon" href="/logo.png" />
         <title>
           {router?.query?.category &&
-            `free ad posting ${router?.query?.category}, Pets, Housing, For Sell, Jobs, Services, fitness`}
+            `Adbacklist: free ad posting ${router?.query?.category}, Pets, Housing, For Sell, Jobs, Services, fitness`}
         </title>
         <meta
           name="description"
