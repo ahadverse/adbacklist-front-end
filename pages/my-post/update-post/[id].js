@@ -14,7 +14,7 @@ const UpdatePost = () => {
   async function posts(id) {
     try {
       const response = await axios.get(
-        `https://api3.adbacklist.com/api/products/${id}`,
+        `https://back-hue-backend.vercel.app/api/products/${id}`,
         {
           method: "GET",
         }

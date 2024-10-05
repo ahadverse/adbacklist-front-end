@@ -120,7 +120,7 @@ let initialState = {
     async function posts(id) {
       try {
         const response = await axios.get(
-          `https://api3.adbacklist.com/api/products/${id}`,
+          `https://back-hue-backend.vercel.app/api/products/${id}`,
           {
             method: "GET",
           }
@@ -180,7 +180,7 @@ let initialState = {
             o.imgOne = a.existedImage1;
           } else {
             r.append("images", O[0].originFileObj);
-            await fetch("https://api3.adbacklist.com/api/files/files", {
+            await fetch("https://back-hue-backend.vercel.app/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -198,7 +198,7 @@ let initialState = {
             o.imgTwo = a.existedImage2;
           } else {
             r.append("images", O[1].originFileObj);
-            await fetch("https://api3.adbacklist.com/api/files/files", {
+            await fetch("https://back-hue-backend.vercel.app/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -216,7 +216,7 @@ let initialState = {
             o.imgThree = a.existedImage3;
           } else {
             r.append("images", O[2].originFileObj);
-            await fetch("https://api3.adbacklist.com/api/files/files", {
+            await fetch("https://back-hue-backend.vercel.app/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -234,7 +234,7 @@ let initialState = {
             o.imgFour = a.existedImage4;
           } else {
             r.append("images", O[3].originFileObj);
-            await fetch("https://api3.adbacklist.com/api/files/files", {
+            await fetch("https://back-hue-backend.vercel.app/api/files/files", {
               method: "POST",
               body: r,
             })
@@ -255,7 +255,7 @@ let initialState = {
 
         await axios
           .patch(
-            `https://api3.adbacklist.com/api/products/${e.query.id}`,
+            `https://back-hue-backend.vercel.app/api/products/${e.query.id}`,
             o,
             options
           )

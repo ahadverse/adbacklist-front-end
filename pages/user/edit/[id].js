@@ -65,7 +65,7 @@ const Edit = () => {
   async function getUser(users) {
     try {
       const response = await axios.get(
-        `https://api3.adbacklist.com/api/users/${users._id}`
+        `https://back-hue-backend.vercel.app/api/users/${users._id}`
       );
       const data = response.data.data.user;
       setLoading(false);
@@ -99,7 +99,7 @@ const Edit = () => {
 
       formData.append("images", fileList[0].originFileObj);
 
-      await fetch("https://api3.adbacklist.com/api/image/upload-file", {
+      await fetch("https://back-hue-backend.vercel.app/api/image/upload-file", {
         method: "POST",
         body: formData,
       })
@@ -109,7 +109,7 @@ const Edit = () => {
 
     await axios
       .patch(
-        `https://api3.adbacklist.com/api/users/${state.userData._id}`,
+        `https://back-hue-backend.vercel.app/api/users/${state.userData._id}`,
         datas,
         options
       )
@@ -148,7 +148,7 @@ const Edit = () => {
 
     await axios
       .patch(
-        `https://api3.adbacklist.com/api/users/password/${state.userData._id}`,
+        `https://back-hue-backend.vercel.app/api/users/password/${state.userData._id}`,
         data,
         options
       )

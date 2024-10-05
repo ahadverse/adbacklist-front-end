@@ -38,7 +38,7 @@ const Deposit = () => {
     const data = { email, trxid, amount, provider, userName, userId };
 
     await axios
-      .post("https://api3.adbacklist.com/api/deposit", data)
+      .post("https://back-hue-backend.vercel.app/api/deposit", data)
       .then((response) => {
         if (response.data.status == "success") {
           Swal.fire({

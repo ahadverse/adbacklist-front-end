@@ -173,7 +173,7 @@ const PostForm = () => {
     formData.append("images", selectedFiles[2]);
     formData.append("images", selectedFiles[3]);
 
-    await fetch("https://api3.adbacklist.com/api/files2/files", {
+    await fetch("https://back-hue-backend.vercel.app/api/files2/files", {
       method: "POST",
       body: formData,
     })
@@ -231,7 +231,7 @@ const PostForm = () => {
     }
 
     data.posterId = session?.user?.id;
-    await fetch("https://api3.adbacklist.com/api/products", {
+    await fetch("https://back-hue-backend.vercel.app/api/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -243,9 +243,12 @@ const PostForm = () => {
         localStorage.removeItem("cities");
         const newCredit = users?.credit - local?.toFixed(2);
         axios
-          .patch(`https://api3.adbacklist.com/api/users/${session?.user?.id}`, {
-            credit: newCredit,
-          })
+          .patch(
+            `https://back-hue-backend.vercel.app/api/users/${session?.user?.id}`,
+            {
+              credit: newCredit,
+            }
+          )
           .then((response) => {
             setLoading(false);
             if (response.data.status == "success") {

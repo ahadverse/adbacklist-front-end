@@ -17,7 +17,7 @@ const Name = () => {
   //  async function getUser() {
   //    try {
   //      const response = await axios.get(
-  //        `https://api3.adbacklist.com/api/links`,
+  //        `https://back-hue-backend.vercel.app/api/links`,
   //        {
   //          method: "GET",
   //        }

@@ -79,7 +79,7 @@ const UpdatedPost = ({ post }) => {
       formData.append("images", selectedFiles[2]);
       formData.append("images", selectedFiles[3]);
 
-      await fetch("https://api3.adbacklist.com/api/files2/files", {
+      await fetch("https://back-hue-backend.vercel.app/api/files2/files", {
         method: "POST",
         body: formData,
       })
@@ -106,7 +106,7 @@ const UpdatedPost = ({ post }) => {
 
     await axios
       .patch(
-        `https://api3.adbacklist.com/api/products/${router.query.id}`,
+        `https://back-hue-backend.vercel.app/api/products/${router.query.id}`,
         dataWithValues,
         options
       )

@@ -11,7 +11,9 @@ const Search = () => {
       return setResult([]);
     } else {
       setIsLoading(true);
-      fetch(`https://api3.adbacklist.com/api/countries/search?q=${keyword}`)
+      fetch(
+        `https://back-hue-backend.vercel.app/api/countries/search?q=${keyword}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.code == 404) {

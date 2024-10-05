@@ -38,7 +38,7 @@ let initialState = {
         o = r.toLocaleString("default", { month: "short" });
       (e.month = o),
         await m
-          .post("https://api3.adbacklist.com/api/users", e)
+          .post("https://back-hue-backend.vercel.app/api/users", e)
           .then((e) => {
             "success" == e.data.message
               ? (n(!1), t.push("/login"))
