@@ -54,6 +54,8 @@ const BlogDetails = () => {
     }
   }, [id]);
 
+  console.log(blog);
+
   return (
     <div className="bg-gray-200">
       <Head>
