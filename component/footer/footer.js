@@ -43,7 +43,7 @@ const Footer = () => {
             {user?._id && (
               <li className={style.item}>
                 <Link
-                  href={`/recharge-credits/${user?._id}`}
+                  href={"/dashboard/recharge"}
                   className="link text-uppercase"
                   title="Buy Credit"
                 >

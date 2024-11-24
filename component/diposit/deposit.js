@@ -37,24 +37,25 @@ const Deposit = () => {
 
     const data = { email, trxid, amount, provider, userName, userId };
 
-    await axios
-      .post("https://back-hue-backend.vercel.app/api/deposit", data)
-      .then((response) => {
-        if (response.data.status == "success") {
-          Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title:
-              "Your deposit will be verified and credit will be added to your wallet.",
-            showConfirmButton: false,
-            timer: 2500,
-          }).then(
-            setTimeout(() => {
-              router.reload();
-            }, 500)
-          );
-        }
-      });
+    console.log(data);
+    // await axios
+    //   .post("https://back-hue-backend.vercel.app/api/deposit", data)
+    //   .then((response) => {
+    //     if (response.data.status == "success") {
+    //       Swal.fire({
+    //         position: "top-center",
+    //         icon: "success",
+    //         title:
+    //           "Your deposit will be verified and credit will be added to your wallet.",
+    //         showConfirmButton: false,
+    //         timer: 2500,
+    //       }).then(
+    //         setTimeout(() => {
+    //           router.reload();
+    //         }, 500)
+    //       );
+    //     }
+    //   });
   };
 
   return (
@@ -190,6 +191,7 @@ const Deposit = () => {
               name="trxid"
               placeholder="Transaction ID"
               className="bg-gray-100 w-full mb-3"
+              required
             />
 
             <label className="pt-5">Amount</label>
@@ -197,6 +199,7 @@ const Deposit = () => {
               name="amount"
               placeholder="Amount you added"
               className="bg-gray-100 w-full"
+              required
             />
             {loading ? (
               <button

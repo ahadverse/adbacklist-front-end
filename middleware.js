@@ -6,5 +6,6 @@ export const config = {
     "/user/post",
     "/recharge-credits",
     "/user/local-ads",
+    "/dashboard/recharge",
   ],
 };

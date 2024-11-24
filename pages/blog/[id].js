@@ -20,7 +20,7 @@ const BlogDetails = () => {
       const response = await axios.get(
         `https://back-hue-backend.vercel.app/api/blogs/single?q=${id}`
       );
-
+      console.log(response);
       const data = response.data.data.blogs;
       setBlogs(data?.[0]);
       setIsLoading(false);
@@ -53,8 +53,6 @@ const BlogDetails = () => {
       getUser();
     }
   }, [id]);
-
-  console.log(blog);
 
   return (
     <div className="bg-gray-200">
