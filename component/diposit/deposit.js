@@ -37,25 +37,24 @@ const Deposit = () => {
 
     const data = { email, trxid, amount, provider, userName, userId };
 
-    console.log(data);
-    // await axios
-    //   .post("https://back-hue-backend.vercel.app/api/deposit", data)
-    //   .then((response) => {
-    //     if (response.data.status == "success") {
-    //       Swal.fire({
-    //         position: "top-center",
-    //         icon: "success",
-    //         title:
-    //           "Your deposit will be verified and credit will be added to your wallet.",
-    //         showConfirmButton: false,
-    //         timer: 2500,
-    //       }).then(
-    //         setTimeout(() => {
-    //           router.reload();
-    //         }, 500)
-    //       );
-    //     }
-    //   });
+    await axios
+      .post("https://back-hue-backend.vercel.app/api/deposit", data)
+      .then((response) => {
+        if (response.data.status == "success") {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title:
+              "Your deposit will be verified and credit will be added to your wallet.",
+            showConfirmButton: false,
+            timer: 2500,
+          }).then(
+            setTimeout(() => {
+              router.reload();
+            }, 500)
+          );
+        }
+      });
   };
 
   return (
