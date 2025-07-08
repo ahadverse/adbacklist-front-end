@@ -3,14 +3,13 @@ import React from "react";
 import style from "./header.module.css";
 
 const Header = ({ data }) => {
-
   return (
     <div className={style.container}>
       <div className={style.logo}>
         <Link href={`/`}>
           <h1 className={style.title}>ADBACKLIST</h1>
         </Link>
-        <Link href={"/user/local-ads"}>
+        <Link href={"/user/post"}>
           <button className={style.postButton}> + Post Ad</button>
         </Link>
       </div>

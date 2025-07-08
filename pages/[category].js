@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { use, useEffect, useState } from "react";
 import style from "../styles/moduleCss/services.module.css";
 import Head from "next/head";
-import category from "../public/withoutadult.json";
+import category from "../public/category.json";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Drawer from "../component/drawer/drawer";
@@ -37,7 +37,7 @@ const Name = () => {
   if (router.query.category == undefined) {
     content = (
       <div>
-        <div className="btn  bg-transparent border-0 loading flex m-auto">
+        <div className='btn  bg-transparent border-0 loading flex m-auto'>
           loading
         </div>
       </div>
@@ -50,16 +50,16 @@ const Name = () => {
     } else {
       content = (
         <>
-          <div className="bg-white text-black flex flex-wrap pt-10 items-center px-0 sm:px-32 ">
-            <p className="text-red-600 font-bold">Nearest Cities : </p>
+          <div className='bg-white text-black flex flex-wrap pt-10 items-center px-0 sm:px-32 '>
+            <p className='text-red-600 font-bold'>Nearest Cities : </p>
             {city?.map((a) => (
-              <p className=" ml-2 underline" key={a._id}>
+              <p className=' ml-2 underline' key={a._id}>
                 <Link href={`/${a}`}>{a}</Link>
               </p>
             ))}
           </div>
           <div className={style.container}>
-            <div className="flex  flex-col">
+            <div className='flex  flex-col'>
               {category?.slice(0, 2).map((a) => (
                 <div key={a.name}>
                   <h2 className={style.cateTitlte}> {a.name} </h2>
@@ -81,7 +81,7 @@ const Name = () => {
               ))}
             </div>
 
-            <div className="flex  flex-col">
+            <div className='flex  flex-col'>
               {category?.slice(3, 5).map((a) => (
                 <div key={a.name}>
                   <h2 className={style.cateTitlte}> {a.name} </h2>
@@ -103,7 +103,7 @@ const Name = () => {
               ))}
             </div>
 
-            <div className="flex  flex-col">
+            <div className='flex  flex-col'>
               {category?.slice(5, 7).map((a) => (
                 <div key={a.name}>
                   <h2 className={style.cateTitlte}> {a.name} </h2>
@@ -125,7 +125,7 @@ const Name = () => {
               ))}
             </div>
 
-            <div className="flex  flex-col">
+            <div className='flex  flex-col'>
               {category?.slice(7, 10).map((a) => (
                 <div key={a.name}>
                   <h2 className={style.cateTitlte}> {a.name} </h2>
@@ -153,31 +153,31 @@ const Name = () => {
   }
 
   return (
-    <div className="bg-gray-200 text-black">
+    <div className='bg-gray-200 text-black'>
       <Head>
-        <link rel="icon" href="/logo.png" />
+        <link rel='icon' href='/logo.png' />
         <title>
           {router?.query?.category &&
             `Adbacklist: free ad posting ${router?.query?.category}, Pets, Housing, For Sell, Jobs, Services, fitness`}
         </title>
         <meta
-          name="description"
+          name='description'
           content={
             router?.query?.category &&
             `${router?.query?.category} free ad posting sites | Adbacklist Top free classified ads posting sites for different categories for ${router?.query?.category}. Measuring the success of your free ads campaigns.`
           }
         />
         <meta
-          name="keywords"
+          name='keywords'
           content={
             router?.query?.category &&
             `best online pet store, az classifieds pets, room to rent near me, cheaphomes, community market weekly ad, community helpers, all in one service, all pro services, jobs hiring teens near me, pct jobs, sale n buy, bunnies for sell, fitness connection, advertisement for sports`
           }
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link
-          name="canonical"
-          rel="canonical"
+          name='canonical'
+          rel='canonical'
           href={`https://adbacklist.com/${router?.query?.category}`}
         />{" "}
       </Head>
