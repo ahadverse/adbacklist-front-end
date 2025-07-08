@@ -196,21 +196,22 @@ const PostForm = () => {
 
     if (local == 0.0) {
       data.premiumDay = 0;
+      data.isPremium = false;
     }
     if (local == 7) {
       data.premiumDay = 7 * 24;
-      data.isPremium = false;
+      data.isPremium = true;
       data.isApproved = true;
     }
     if (local == 10) {
       data.premiumDay = 14 * 24;
-      data.isPremium = false;
+      data.isPremium = true;
       data.isApproved = true;
     }
     if (local == 15) {
       data.premiumDay = 30 * 24;
       data.isApproved = true;
-      data.isPremium = false;
+      data.isPremium = true;
     }
 
     if (
@@ -270,29 +271,29 @@ const PostForm = () => {
   };
 
   return (
-    <div className="sm:mx-20">
-      <h1 className="text-lg mb-5 text-black sm:text-2xl">
+    <div className='sm:mx-20'>
+      <h1 className='text-lg mb-5 text-black sm:text-2xl'>
         {router?.query ? (
           <div>
             <p>
               Post an Ad{" "}
-              <span className="text-xs"> ({router?.query?.name?.[0]})</span>
+              <span className='text-xs'> ({router?.query?.name?.[0]})</span>
             </p>{" "}
-            <p className="text-red-600 font-bold border p-2 border-green-400 w-10/12 sm:w-4/12">
+            <p className='text-red-600 font-bold border p-2 border-green-400 w-10/12 sm:w-4/12'>
               Your Credits : ${users?.credit?.toFixed(2)}
             </p>
             {router?.query?.name?.[0] == "premium-ads" && (
-              <p className="text-blue-600 font-bold w-10/12 sm:w-4/12">
+              <p className='text-blue-600 font-bold w-10/12 sm:w-4/12'>
                 You will be charged : ${local?.toFixed(2)}
               </p>
             )}
             {router?.query?.name?.[0] == "local-ads" && (
-              <p className="text-blue-600 font-bold w-10/12 sm:w-4/12">
+              <p className='text-blue-600 font-bold w-10/12 sm:w-4/12'>
                 You will be charged : ${local?.toFixed(2)}
               </p>
             )}
             {router?.query?.name?.[0] == "multiple-city-ads" && (
-              <div className="text-blue-600 font-bold w-10/12 sm:w-4/12">
+              <div className='text-blue-600 font-bold w-10/12 sm:w-4/12'>
                 You will be charged : ${local?.toFixed(2)}
               </div>
             )}
@@ -301,25 +302,25 @@ const PostForm = () => {
           "Loading"
         )}
       </h1>
-      <div className="flex justify-center sm:flex-row flex-col gap-5">
+      <div className='flex justify-center sm:flex-row flex-col gap-5'>
         <div
           className={`${previewUrls.length < 4 ? "block" : "hidden"} h-[200px]`}
         >
           {previewUrls.length < 4 && (
-            <label className="block font-bold relative">
+            <label className='block font-bold relative'>
               <input
-                className="rounded w-[170px]"
-                type="file"
-                accept="image/*"
+                className='rounded w-[170px]'
+                type='file'
+                accept='image/*'
                 onChange={handleFileChange}
               />
-              <FaUser className="absolute top-0 bg-white w-[170px] h-[200px] p-5 text-gray-400 border border-red-500 rounded" />
+              <FaUser className='absolute top-0 bg-white w-[170px] h-[200px] p-5 text-gray-400 border border-red-500 rounded' />
             </label>
           )}
         </div>
         <div>
           {previewUrls.length > 0 && (
-            <div className="grid grid-cols-2 sm:flex items-center sm:flex-row  gap-5">
+            <div className='grid grid-cols-2 sm:flex items-center sm:flex-row  gap-5'>
               {previewUrls.map((url, index) => (
                 <div key={index} className={`${style.card}`}>
                   <img src={url} alt={`Preview ${index + 1}`} />
@@ -340,70 +341,70 @@ const PostForm = () => {
 
       <br />
       {/*form start here */}
-      <div className="flex justify-between sm:flex-row flex-col sm:gap-10 gap-2">
-        <label className="text-black font-bold text-xs sm:text-xl sm:mb-5 sm:w-6/12">
-          <span className="text-red-600">*</span> Title :
+      <div className='flex justify-between sm:flex-row flex-col sm:gap-10 gap-2'>
+        <label className='text-black font-bold text-xs sm:text-xl sm:mb-5 sm:w-6/12'>
+          <span className='text-red-600'>*</span> Title :
           <br />
           <input
             onChange={(e) =>
               handleInput({ type: "name", payload: e.target.value })
             }
-            type="text"
-            className="input bg-gray-200  w-full "
+            type='text'
+            className='input bg-gray-200  w-full '
           />
         </label>
 
-        <label className="text-black font-bold text-xs sm:text-xl mb-5 sm:w-6/12">
+        <label className='text-black font-bold text-xs sm:text-xl mb-5 sm:w-6/12'>
           Phone :
           <br />
           <input
-            type="number"
+            type='number'
             onChange={(e) =>
               handleInput({ type: "phone", payload: e.target.value })
             }
-            className="input bg-gray-200  w-full "
+            className='input bg-gray-200  w-full '
           />
         </label>
       </div>
-      <div className="flex justify-between sm:flex-row flex-col sm:gap-10 gap-2">
-        <label className="text-black font-bold text-xs sm:text-xl sm:w-6/12">
-          <span className="text-red-600">*</span> Email :
+      <div className='flex justify-between sm:flex-row flex-col sm:gap-10 gap-2'>
+        <label className='text-black font-bold text-xs sm:text-xl sm:w-6/12'>
+          <span className='text-red-600'>*</span> Email :
           <br />
           <input
-            type="email"
+            type='email'
             onChange={(e) =>
               handleInput({ type: "email", payload: e.target.value })
             }
-            className="input bg-gray-200 w-full "
+            className='input bg-gray-200 w-full '
           />
         </label>
 
-        <label className="text-black font-bold text-xs sm:text-xl sm:w-6/12">
+        <label className='text-black font-bold text-xs sm:text-xl sm:w-6/12'>
           Your Age :
           <br />
           <input
-            type="number"
+            type='number'
             onChange={(e) =>
               handleInput({ type: "age", payload: e.target.value })
             }
-            className="input bg-gray-200  w-full "
+            className='input bg-gray-200  w-full '
           />
         </label>
       </div>
       <br />
-      <div className="flex justify-between sm:flex-row flex-col sm:gap-10 gap-2">
-        <label className="text-black font-bold text-xs sm:text-xl sm:w-6/12">
-          <span className="text-red-600">*</span> Category :
+      <div className='flex justify-between sm:flex-row flex-col sm:gap-10 gap-2'>
+        <label className='text-black font-bold text-xs sm:text-xl sm:w-6/12'>
+          <span className='text-red-600'>*</span> Category :
           <br />
           <select
-            name="category"
-            id="category"
+            name='category'
+            id='category'
             onChange={(e) =>
               handleInput({ type: "category", payload: e.target.value })
             }
-            className="input bg-gray-200 w-full"
+            className='input bg-gray-200 w-full'
           >
-            <option value="category">-- Select Category --</option>
+            <option value='category'>-- Select Category --</option>
 
             {categories?.map((e) => (
               <option value={e?.name}>{e?.name}</option>
@@ -411,18 +412,18 @@ const PostForm = () => {
           </select>
         </label>
 
-        <label className="text-black font-bold text-xs sm:text-xl sm:w-6/12">
-          <span className="text-red-600">*</span> Sub Category :
+        <label className='text-black font-bold text-xs sm:text-xl sm:w-6/12'>
+          <span className='text-red-600'>*</span> Sub Category :
           <br />
           <select
-            name="category"
-            id="category"
+            name='category'
+            id='category'
             onChange={(e) =>
               handleInput({ type: "subCategory", payload: e.target.value })
             }
-            className="input bg-gray-200  w-full "
+            className='input bg-gray-200  w-full '
           >
-            <option value="category">-- Select Sub Category --</option>
+            <option value='category'>-- Select Sub Category --</option>
 
             {subCategories?.children?.map((e) => (
               <option value={e?.name}>{e?.name}</option>
@@ -430,13 +431,13 @@ const PostForm = () => {
           </select>
         </label>
       </div>
-      <div className="sm:w-full w-full m-auto pt-10 ">
-        <label className="text-black font-bold text-xs sm:text-xl">
-          <span className="text-red-600">*</span> Description :
+      <div className='sm:w-full w-full m-auto pt-10 '>
+        <label className='text-black font-bold text-xs sm:text-xl'>
+          <span className='text-red-600'>*</span> Description :
           <br />
           <Editor
             onBlur={log}
-            apiKey="lsomljxr6jq719eep6p1gnkb6648rvtp291uwsy43kesby4m"
+            apiKey='lsomljxr6jq719eep6p1gnkb6648rvtp291uwsy43kesby4m'
             onInit={(evt, editor) => (editorRef.current = editor)}
             init={{
               height: 350,
@@ -478,8 +479,8 @@ const PostForm = () => {
       {router.query.name?.[0] == "multiple-city-ads" ? (
         ""
       ) : (
-        <div className="sm:w-full w-full m-auto pt-10 ">
-          <label className="text-black font-bold text-xs sm:text-xl">
+        <div className='sm:w-full w-full m-auto pt-10 '>
+          <label className='text-black font-bold text-xs sm:text-xl'>
             Show your adds at top <small>(extra charged)</small>
           </label>
           <br />
@@ -488,18 +489,18 @@ const PostForm = () => {
         </div>
       )}
       <br />
-      <p className="text-red-600 text-xs">{state.error}</p>
+      <p className='text-red-600 text-xs'>{state.error}</p>
       <br />
-      <div className=" w-full m-auto pt-10 ">
+      <div className=' w-full m-auto pt-10 '>
         {users?.credit < local || local == "null" ? (
           <>
-            <h1 className="text-2xl text-red-600 font-bold">
+            <h1 className='text-2xl text-red-600 font-bold'>
               Insufficient Balance
             </h1>
             <br />
             <Link
               href={`/recharge-credits/${users?._id}`}
-              className="rounded bg-green-400 font-bold text-white p-2 hover:bg-red-400"
+              className='rounded bg-green-400 font-bold text-white p-2 hover:bg-red-400'
             >
               Buy Credits
             </Link>
@@ -507,14 +508,14 @@ const PostForm = () => {
         ) : (
           <>
             {loading ? (
-              <button className={`${style.postButton} loading`} role="button">
+              <button className={`${style.postButton} loading`} role='button'>
                 Wait...
               </button>
             ) : (
               <button
                 className={style.postButton}
                 onClick={() => handleSubmit(router?.query?.name)}
-                role="button"
+                role='button'
               >
                 Submit Post
               </button>

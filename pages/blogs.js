@@ -7,7 +7,7 @@ const Footer = dynamic(() => import("@/component/footer/footer2"));
 const Header = dynamic(() => import("@/component/header/header"));
 import style from "../styles/moduleCss/blog.module.css";
 import { Input, Pagination } from "antd";
-import category from "../public/withoutadult.json";
+import category from "../public/category.json";
 import { MyContext } from "./_app";
 
 const { Search } = Input;
@@ -58,29 +58,29 @@ const Blogs = () => {
   };
 
   return (
-    <div className="bg-gray-100">
+    <div className='bg-gray-100'>
       <Head>
-        <link rel="icon" href="/logo.png" />
+        <link rel='icon' href='/logo.png' />
         <title>Blogs</title>
         <link
-          name="canonical"
-          rel="canonical"
+          name='canonical'
+          rel='canonical'
           href={`https://adbacklist.com/blogs`}
         />{" "}
       </Head>
       <Header />
-      <div className="w-11/12 m-auto mt-10 sm:w-12/12">
-        <p className="text-xs  p-2 sm:text-base w-full bg-white block sm:hidden">
+      <div className='w-11/12 m-auto mt-10 sm:w-12/12'>
+        <p className='text-xs  p-2 sm:text-base w-full bg-white block sm:hidden'>
           Showing {blogs?.data?.blogs?.length} post of {blogs?.page}
         </p>
-        <div className="w-full flex flex-col items-center  p-2 bg-white sm:flex-row sm:justify-between ">
-          <p className="text-xs sm:text-base hidden sm:block">
+        <div className='w-full flex flex-col items-center  p-2 bg-white sm:flex-row sm:justify-between '>
+          <p className='text-xs sm:text-base hidden sm:block'>
             Showing {blogs?.data?.blogs?.length} post of {blogs?.page}
           </p>
 
-          <div className="flex">
+          <div className='flex'>
             <select
-              className="p-1 sm:w-8/12 w-6/12 rounded bg-white border mr-2 border-sky-300 select-info  max-w-xs"
+              className='p-1 sm:w-8/12 w-6/12 rounded bg-white border mr-2 border-sky-300 select-info  max-w-xs'
               onChange={(e) => changeCategory(e)}
               defaultValue={catKey}
             >
@@ -94,8 +94,8 @@ const Blogs = () => {
             </select>
 
             <Search
-              className=" sm:w-8/12 w-6/12"
-              placeholder="title or writer name"
+              className=' sm:w-8/12 w-6/12'
+              placeholder='title or writer name'
               onSearch={(e) => onSearch(e)}
               enterButton
             />
@@ -103,18 +103,18 @@ const Blogs = () => {
         </div>
         <hr />
         {isloading ? (
-          <img className="block m-auto" width={100} src="/loader.gif" />
+          <img className='block m-auto' width={100} src='/loader.gif' />
         ) : (
           <>
             <div className={style.blogContainer}>
               <>
                 {blogs?.data?.blogs?.length == 0 ? (
-                  <p className="text-2xl text-red-500">No Blog Found</p>
+                  <p className='text-2xl text-red-500'>No Blog Found</p>
                 ) : (
                   ""
                 )}
                 {blogs?.length == 0 ? (
-                  <p className="text-2xl text-red-500">No Blog Found</p>
+                  <p className='text-2xl text-red-500'>No Blog Found</p>
                 ) : (
                   ""
                 )}
@@ -123,8 +123,8 @@ const Blogs = () => {
                     <div className={style.card}>
                       <img className={style.blogImage} src={a?.image} />
 
-                      <div className="p-2">
-                        <div className="flex items-center">
+                      <div className='p-2'>
+                        <div className='flex items-center'>
                           {a?.category == "Adult" ? (
                             <span className={style.category}>
                               {" "}
@@ -168,7 +168,7 @@ const Blogs = () => {
                             ""
                           )}
                         </div>
-                        <h1 className="sm:text-xl font-bold text-black">
+                        <h1 className='sm:text-xl font-bold text-black'>
                           {a?.title}
                         </h1>
                       </div>
@@ -179,7 +179,7 @@ const Blogs = () => {
             </div>
 
             <Pagination
-              className="mt-10 flex justify-center"
+              className='mt-10 flex justify-center'
               defaultCurrent={blogcurrent}
               pageSize={6}
               onChange={onChange}
